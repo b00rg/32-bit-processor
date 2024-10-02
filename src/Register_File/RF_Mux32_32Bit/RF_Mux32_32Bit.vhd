@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Mux32_32Bit is
 	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC_VECTOR(31 downto 0);             -- Input Signals
     I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC_VECTOR(31 downto 0); 		
-		S0, S1, S2, S3, S4 : in STD_LOGIC_VECTOR(31 downto 0); 		            	        -- Selection Signals (2^4 = 16) 
+		S0, S1, S2, S3, S4 : in STD_LOGIC; 		            	        -- Selection Signals (2^4 = 16) 
 		Y : out STD_LOGIC ) ;  			                                                    -- 1 bit output
 end Mux16_32Bit;
 
