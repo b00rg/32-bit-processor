@@ -30,7 +30,7 @@ end Mux16_1Bit;
 
 architecture Behavioral of Mux16_1Bit is
     -- Internal signals to handle the inverted select lines
-    signal S0_not, S1_not, S2_not, S3_not, S4_not : std_logic;
+    signal S0_not, S1_not, S2_not, S3_not : std_logic;
     -- Intermediate signals for AND gates
     signal and0, and1, and2, and3, and4, and5, and6, and7, and8 : std_logic;              
     signal and8, and9, and10, and11, and12, and13, and14, and15 : std_logic;
@@ -40,18 +40,6 @@ begin
     S1_not <= not S1 after 3 ns;
     S2_not <= not S2 after 3 ns;		
     S3_not <= not S3 after 3 ns;
-    S4_not <= not S4 after 3 ns;		
-    S5_not <= not S5 after 3 ns;
-    S6_not <= not S6 after 3 ns;		
-    S7_not <= not S7 after 3 ns;
-    S8_not <= not S8 after 3 ns;		
-    S9_not <= not S9 after 3 ns;
-    S10_not <= not S10 after 3 ns;		
-    S11_not <= not S11 after 3 ns;
-    S12_not <= not S12 after 3 ns;		
-    S13_not <= not S13 after 3 ns;
-    S14_not <= not S14 after 3 ns;		
-    S15_not <= not S15 after 3 ns;
     -- AND gates to choose the correct input
     and0 <= I0 and S0_not and S1_not after 4 ns;             -- this needs to be changed here... 
     and1 <= I1 and S0 and S1_not after 4 ns;
