@@ -20,18 +20,18 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux3_32Bit is
+entity Mux3_32Bit is
     Port (
         I0, I1, I2 : in STD_LOGIC_VECTOR(31 downto 0);    -- 32-bit inputs
         S0, S1 : in STD_LOGIC;                            -- Selection signals
         Y : out STD_LOGIC_VECTOR(31 downto 0)             -- 32-bit output
     );
-end RF_Mux3_32Bit;
+end Mux3_32Bit;
 
 architecture Structural of RF_Mux3_32Bit is
 
     -- Component declaration for the 3-to-1 1-bit multiplexer
-    component Mux_3_to_1 is
+    component Mux3_1Bit is
         Port (
             I0, I1, I2 : in STD_LOGIC;
             S0, S1 : in STD_LOGIC;
@@ -42,7 +42,7 @@ architecture Structural of RF_Mux3_32Bit is
 begin
     -- Generate 32 instances of Mux_3_to_1
     gen_mux: for i in 0 to 31 generate
-        MuxInst: Mux_3_to_1 
+        MuxInst: Mux3_1Bit
         port map (
             I0 => I0(i),          -- ith bit of input I0
             I1 => I1(i),          -- ith bit of input I1
