@@ -22,9 +22,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity RF_Mux3_32Bit is
     Port (
-        I0, I1, I2 : in STD_LOGIC_VECTOR(31 downto 0); -- 32-bit inputs
-        S0, S1 : in STD_LOGIC;                        -- Selection signals
-        Y : out STD_LOGIC_VECTOR(31 downto 0)         -- 32-bit output
+        I0, I1, I2 : in STD_LOGIC_VECTOR(31 downto 0);    -- 32-bit inputs
+        S0, S1 : in STD_LOGIC;                            -- Selection signals
+        Y : out STD_LOGIC_VECTOR(31 downto 0)             -- 32-bit output
     );
 end RF_Mux3_32Bit;
 
