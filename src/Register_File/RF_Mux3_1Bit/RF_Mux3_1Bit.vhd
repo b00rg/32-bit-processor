@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 20.09.2023 14:53:59
 -- Design Name: 
--- Module Name: D_Flip_Flop_PEdge - Behavioral
+-- Module Name: Mux3_1Bit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
