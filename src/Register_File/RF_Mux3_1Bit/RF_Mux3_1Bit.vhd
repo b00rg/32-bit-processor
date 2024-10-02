@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 20.09.2023 14:53:59
 -- Design Name: 
--- Module Name: Mux_3_to_1 - Behavioral
+-- Module Name: Mux3_1Bit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,13 +21,13 @@
 library IEEE ;
 use IEEE . STD_LOGIC_1164 .ALL;
 
-entity Mux_3_to_1 is
+entity Mux3_1Bit is
 	Port ( I0 , I1 , I2 :  in STD_LOGIC ; 		-- 1 bit inputs
 		S0, S1 : in STD_LOGIC; 			-- Selection Signals
 		Y : out STD_LOGIC ) ;  			-- 1 bit output
-end Mux_3_to_1;
+end Mux3_1Bit;
 
-architecture Behavioral of Mux_3_to_1 is
+architecture Behavioral of Mux3_1Bit is
     -- Internal signals to handle the inverted select lines
     signal S0_not, S1_not : std_logic;
     -- Intermediate signals for AND gates
