@@ -1,3 +1,47 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer:
+-- 
+-- Create Date: 20.09.2023 14:53:59
+-- Design Name: 
+-- Module Name: Mux32_32Bit - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity Mux32_32Bit is
+	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC_VECTOR(31 downto 0);             -- Input Signals
+    I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC_VECTOR(31 downto 0); 		
+		S0, S1, S2, S3, S4 : in STD_LOGIC_VECTOR(31 downto 0); 		            	        -- Selection Signals (2^4 = 16) 
+		Y : out STD_LOGIC ) ;  			                                                    -- 1 bit output
+end Mux16_32Bit;
+
+architecture Behavioral of Mux32_32Bit is
+    -- Intermediate signal to hold outputs from 1-bit muxes
+    signal Y_temp : STD_LOGIC_VECTOR(31 downto 0);
+
+    -- Component declaration of the 1-bit mux
+    component Mux32_1Bit
+    	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC;     -- Input Signals
+        I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC ; 		
+    		S0, S1, S2, S3, S4 : in STD_LOGIC; 		            	      -- Selection Signals (2^4 = 16) 
+    		Y : out STD_LOGIC ) ;  			                              -- 1 bit output
+    end component;
+
+begin
+
 mux_instance0: Mux32_1Bit Port map (I0n => I0(0), I1 => I1(0), I2 => I2(0), S0 => S0, S1 => S1, Y => Y_temp(0));
 mux_instance1: Mux32_1Bit Port map (I0n => I0(1), I1 => I1(1), I2 => I2(1), S0 => S0, S1 => S1, Y => Y_temp(1));
 mux_instance2: Mux32_1Bit Port map (I0n => I0(2), I1 => I1(2), I2 => I2(2), S0 => S0, S1 => S1, Y => Y_temp(2));
