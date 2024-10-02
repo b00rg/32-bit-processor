@@ -26,7 +26,7 @@ entity RF_Mux16_32Bit is
         S0, S1 : in STD_LOGIC;                            -- Selection signals
         Y : out STD_LOGIC_VECTOR(31 downto 0)             -- 32-bit output
     );
-end Mux3_32Bit;
+end RF_Mux3_32Bit;
 
 architecture Structural of RF_Mux16_32Bit is
 
