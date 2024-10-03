@@ -44,6 +44,9 @@ begin
 -- change from here on out
    -- Instantiate the Unit Under Test (UUT)
    uut: Mux3_1Bit_TB PORT MAP (
+   	S0 => S0_TB,
+	   S1 : in STD_LOGIC; 		
+		   Y : out STD_LOGIC ) ;  	
           CLK => CLK_TB,
           D => D_TB,
           Q => Q_TB, 
@@ -69,6 +72,5 @@ begin
       wait until CLK_TB'event and CLK_TB='1';
       D_TB <= '1' after PERIOD/4;                 -- Case E
       
-      wait until CLK_TB'event and CLK_TB='1';
-   end process;          
+      wait until CLK_TB'event and CLK_TB='1';        
 end Simulation;
