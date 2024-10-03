@@ -52,7 +52,7 @@ begin
 	I0 => I0_TB,
 	I1 => I1_TB,
 	I2 => I2_TB,
-   	S0 => S0_TB,
+   	S0 > S0_TB,
 	S1 => S1_TB,
 	Y => Y_TB );
         
