@@ -57,35 +57,49 @@ begin
 	Y => Y_TB );
         
    stim_proc: process
-   begin
-	-- Test case 1: S1 = 0, S0 = 0, select I0
-	I0_TB <= '1';  -- Set I0 to '1'
-	I1_TB <= '0';  -- I1 -> don't care
-	I2_TB <= '0';  -- I2 -> don't care
-	S1_TB <= '0';
-	S0_TB <= '0';
-	wait for PERIOD;  
-	
-	-- Test case 2: S1 = 0, S0 = 1, select I1
-	I0_TB <= '0';
-	I1_TB <= '1';  -- Set I1 to '1'
-	I2_TB <= '0';  -- I2 -> don't care
-	S1_TB <= '0';
-	S0_TB <= '1';
-	wait for PERIOD;
-	
-	-- Test case 3: S1 = 1, S0 = 0, select I2
-	I0_TB <= '0';
-	I1_TB <= '0';
-	I2_TB <= '1';  -- Set I2 to '1'
-	S1_TB <= '1';
-	S0_TB <= '0';
-	wait for PERIOD;
-	
-	-- Test case 4: Invalid state (e.g., S1 = 1, S0 = 1)
-	S1_TB <= '1';
-	S0_TB <= '1';
-	wait for PERIOD;
+ begin
+        -- Test case 1: S1 = 0, S0 = 0, select I0
+        I0_TB <= '1';  -- Set I0 to '1'
+        I1_TB <= '0';  -- I1 -> don't care
+        I2_TB <= '0';  -- I2 -> don't care
+        S1_TB <= '0';
+        S0_TB <= '0';
+        wait for PERIOD;  
+        
+        -- Test output
+        assert (Y_TB = I0_TB) report "Test Case 1 Failed!" severity error;
 
-	end process; 
+        -- Test case 2: S1 = 0, S0 = 1, select I1
+        I0_TB <= '0';
+        I1_TB <= '1';  -- Set I1 to '1'
+        I2_TB <= '0';  -- I2 -> don't care
+        S1_TB <= '0';
+        S0_TB <= '1';
+        wait for PERIOD;
+        
+        -- Test output
+        assert (Y_TB = I1_TB) report "Test Case 2 Failed!" severity error;
+
+        -- Test case 3: S1 = 1, S0 = 0, select I2
+        I0_TB <= '0';
+        I1_TB <= '0';
+        I2_TB <= '1';  -- Set I2 to '1'
+        S1_TB <= '1';
+        S0_TB <= '0';
+        wait for PERIOD;
+        
+        -- Test output
+        assert (Y_TB = I2_TB) report "Test Case 3 Failed!" severity error;
+
+        -- Test case 4: Invalid state (e.g., S1 = 1, S0 = 1)
+        S1_TB <= '1';
+        S0_TB <= '1';
+        wait for PERIOD;
+
+        -- Test output
+        assert (Y_TB = 'U') report "Test Case 4 Invalid state not handled correctly!" severity error;
+        
+        -- Final wait to keep the simulation running
+        wait;
+    end process; 
 end Simulation;
