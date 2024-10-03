@@ -44,14 +44,14 @@ architecture Behavioral of RF_Mux3_1Bit is
 
 begin
     -- Invert the selection signals
-    S0_not <= not S0 after 3 ns;			-- Might have to change this here for student numbers...
-    S1_not <= not S1 after 3 ns;
+    S0_not <= not S0 after NOT_gate_delay;			-- Might have to change this here for student numbers...
+    S1_not <= not S1 after NOT_gate_delay;
 
     -- AND gates to choose the correct input
-    and0 <= I0 and S0_not and S1_not after 4 ns;
-    and1 <= I1 and S0 and S1_not after 4 ns;
-    and2 <= I2 and S0 and S1 after 4 ns;
+    and0 <= I0 and S0_not and S1_not after AND_gate_delay;
+    and1 <= I1 and S0 and S1_not after AND_gate_delay;
+    and2 <= I2 and S0 and S1 after AND_gate_delay;
 
     -- OR the AND gates to produce the final output
-    Y <= and0 or and1 or and2 after 2 ns;
+    Y <= and0 or and1 or and2 after OR_gate_delay;
 end Behavioral;
