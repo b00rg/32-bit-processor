@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 20.09.2023 15:22:51
 -- Design Name: 
--- Module Name: D_Flip_Flop_PEdge_TB - Simulation
+-- Module Name: Mux3_1Bit_TB - Simulation
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -17,17 +17,17 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-
+--- need to change ports, signals and UUT
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux3_1Bit_TB is
+entity Mux3_1Bit_TB is
 --  we don't need ports
-end D_Flip_Flop_PEdge_22336157_TB;
+end Mux3_1Bit_TB;
 
-architecture Simulation of D_Flip_Flop_PEdge_22336157_TB is
+architecture Simulation of Mux3_1Bit_TB is
    -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT D_Flip_Flop_PEdge_22336157
+    COMPONENT Mux3_1Bit
     Port ( CLK, D : in STD_LOGIC;
            Q, Q_not : out STD_LOGIC);
     END COMPONENT;
@@ -42,7 +42,7 @@ architecture Simulation of D_Flip_Flop_PEdge_22336157_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: D_Flip_Flop_PEdge_22336157 PORT MAP (
+   uut: Mux3_1Bit_TB PORT MAP (
           CLK => CLK_TB,
           D => D_TB,
           Q => Q_TB, 
