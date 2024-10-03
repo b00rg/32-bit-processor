@@ -17,7 +17,6 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
---- need to change ports, signals and UUT
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -28,19 +27,21 @@ end Mux3_1Bit_TB;
 architecture Simulation of Mux3_1Bit_TB is
    -- Component Declaration for the Unit Under Test (UUT)
     COMPONENT Mux3_1Bit
-    Port ( CLK, D : in STD_LOGIC;
-           Q, Q_not : out STD_LOGIC);
+	   Port ( I0 , I1 , I2 :  in STD_LOGIC ; 		-- 1 bit inputs
+   		S0, S1 : in STD_LOGIC; 			-- Selection Signals
+		   Y : out STD_LOGIC ) ;  			-- 1 bit output
     END COMPONENT;
-   --Inputs Signals 
-   signal CLK_TB, D_TB : STD_LOGIC := '0';
-   --Output Signal   
-   signal Q_TB, Q_not_TB : STD_LOGIC := '0';
+
+   signal S0_not, S1_not : std_logic := '0';
+    -- Intermediate signals for AND gates
+   signal and0, and1, and2 : std_logic := '0';
+
    -- StudentID e.g. 26 33 57 25(DEC) = 1 91 D9 ED(HEX)
    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
    constant PERIOD : time := 200ns;  
 
 begin
-
+-- change from here on out
    -- Instantiate the Unit Under Test (UUT)
    uut: Mux3_1Bit_TB PORT MAP (
           CLK => CLK_TB,
