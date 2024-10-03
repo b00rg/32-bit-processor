@@ -20,13 +20,13 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity Mux3_1Bit_TB is
+entity RF_Mux3_1Bit_TB is
 --  we don't need ports
-end Mux3_1Bit_TB;
+end RF_Mux3_1Bit_TB;
 
-architecture Simulation of Mux3_1Bit_TB is
+architecture Simulation of RF_Mux3_1Bit_TB is
    -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT Mux3_1Bit
+    COMPONENT RF_Mux3_1Bit
 	Port ( 
 		I0 : in STD_LOGIC;
 		I1 : in STD_LOGIC;
@@ -48,7 +48,7 @@ architecture Simulation of Mux3_1Bit_TB is
 begin
 -- change from here on out
    -- Instantiate the Unit Under Test (UUT)
-   uut: Mux3_1Bit_TB PORT MAP (
+   uut: RF_Mux3_1Bit_TB PORT MAP (
 	I0 => I0_TB,
 	I1 => I1_TB,
 	I2 => I2_TB,
