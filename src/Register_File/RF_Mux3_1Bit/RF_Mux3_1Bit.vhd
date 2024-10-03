@@ -1,14 +1,14 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer:
 -- 
--- Create Date: 20.09.2023 15:22:51
+-- Create Date: 20.09.2023 14:53:59
 -- Design Name: 
--- Module Name: Mux3_1Bit_TB - Simulation
+-- Module Name: Mux3_1Bit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: Testbench for 3-to-1 MUX
+-- Description: 
 -- 
 -- Dependencies: 
 -- 
@@ -17,77 +17,31 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
 
-entity Mux3_1Bit_TB is
-end Mux3_1Bit_TB;
+library IEEE ;
+use IEEE . STD_LOGIC_1164 .ALL;
 
-architecture Simulation of Mux3_1Bit_TB is
-    -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT Mux3_1Bit
-        Port ( 
-            I0 : in STD_LOGIC;
-            I1 : in STD_LOGIC;
-            I2 : in STD_LOGIC;
-            S0 : in STD_LOGIC;
-            S1 : in STD_LOGIC;
-            Y  : out STD_LOGIC
-        );
-    END COMPONENT;
+entity Mux3_1Bit is
+	Port ( I0 , I1 , I2 :  in STD_LOGIC ; 		-- 1 bit inputs
+		S0, S1 : in STD_LOGIC; 			-- Selection Signals
+		Y : out STD_LOGIC ) ;  			-- 1 bit output
+end Mux3_1Bit;
 
-    -- Signals for testbench
-    signal I0_TB, I1_TB, I2_TB : STD_LOGIC := '0'; -- inputs for the MUX
-    signal S0_TB, S1_TB : STD_LOGIC := '0';       -- select lines for the MUX
-    signal Y_TB : STD_LOGIC += '0';                      -- output for the MUX
-
-    constant PERIOD : time := 200 ns;             -- time period for each test case
-
+architecture Behavioral of Mux3_1Bit is
+    -- Internal signals to handle the inverted select lines
+    signal S0_not, S1_not : std_logic;
+    -- Intermediate signals for AND gates
+    signal and0, and1, and2 : std_logic;
 begin
-    -- Instantiate the Unit Under Test (UUT)
-    uut: Mux3_1Bit
-        PORT MAP (
-            I0 => I0_TB,
-            I1 => I1_TB,
-            I2 => I2_TB,
-            S0 => S0_TB,
-            S1 => S1_TB,
-            Y  => Y_TB
-        );
-        
-    -- Stimulus process to apply different input combinations
-    stim_proc: process
-    begin
-        -- Test case 1: S1 = 0, S0 = 0, select I0
-        I0_TB <= '1';  -- Set I0 to '1'
-        I1_TB <= '0';  -- I1 -> don't care
-        I2_TB <= '0';  -- I2 -> don't care
-        S1_TB <= '0';
-        S0_TB <= '0';
-        wait for PERIOD;  -- Wait for the signal propagation based on delays
-        
-        -- Test case 2: S1 = 0, S0 = 1, select I1
-        I0_TB <= '0';
-        I1_TB <= '1';  -- Set I1 to '1'
-        I2_TB <= '0';  -- I2 -> don't care
-        S1_TB <= '0';
-        S0_TB <= '1';
-        wait for PERIOD;  -- Wait for signal propagation
+    -- Invert the selection signals
+    S0_not <= not S0 after 3 ns;			-- Might have to change this here for student numbers...
+    S1_not <= not S1 after 3 ns;
 
-        -- Test case 3: S1 = 1, S0 = 0, select I2
-        I0_TB <= '0';
-        I1_TB <= '0';
-        I2_TB <= '1';  -- Set I2 to '1'
-        S1_TB <= '1';
-        S0_TB <= '0';
-        wait for PERIOD;  -- Wait for signal propagation
+    -- AND gates to choose the correct input
+    and0 <= I0 and S0_not and S1_not after 4 ns;
+    and1 <= I1 and S0 and S1_not after 4 ns;
+    and2 <= I2 and S0 and S1 after 4 ns;
 
-        -- Test case 4: Invalid state (S1 = 1, S0 = 1), no valid input
-        S1_TB <= '1';
-        S0_TB <= '1';
-        wait for PERIOD;  -- Wait for signal propagation
-
-        -- Final wait to keep the simulation running
-        wait;
-    end process; 
-end Simulation;
+    -- OR the AND gates to produce the final output
+    Y <= and0 or and1 or and2 after 2 ns;
+end Behavioral;
