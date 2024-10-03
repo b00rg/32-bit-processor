@@ -32,6 +32,16 @@ architecture Behavioral of RF_Mux3_1Bit is
     signal S0_not, S1_not : std_logic;
     -- Intermediate signals for AND gates
     signal and0, and1, and2 : std_logic;
+
+   -- Propagation Delay
+   constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
+   constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
+   constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
+   constant NOR_gate_delay : Time := 7ns;      -- next more significant digit 6 = 5 + 1
+   constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
+   constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
+   constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
+
 begin
     -- Invert the selection signals
     S0_not <= not S0 after 3 ns;			-- Might have to change this here for student numbers...
