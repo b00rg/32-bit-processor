@@ -62,9 +62,23 @@ begin
         I0_TB <= '1';   -- Set I0 to '1'
         I1_TB <= '0';   -- I1 -> don't care
         I2_TB <= '0';   -- I2 -> don't care
+        I3_TB <= '0';   -- I2 -> don't care
+        I4_TB <= '0';   -- I2 -> don't care
+        I5_TB <= '0';   -- I2 -> don't care
+        I6_TB <= '0';   -- I2 -> don't care
+        I7_TB <= '0';   -- I2 -> don't care
+        I8_TB <= '0';   -- I2 -> don't care
+        I9_TB <= '0';   -- I2 -> don't care
+        I10_TB <= '0';   -- I2 -> don't care
+        I11_TB <= '0';   -- I2 -> don't care
+        I12_TB <= '0';   -- I2 -> don't care
+        I13_TB <= '0';   -- I2 -> don't care
+        I14_TB <= '0';   -- I2 -> don't care
+        I15_TB <= '0';   -- I2 -> don't care
         S1_TB <= '0';   -- S1 = 0
         S0_TB <= '0';   -- S0 = 0
         wait for PERIOD; 
+        assert (Y_TB = I0_TB) report "Test Case 1 Failed: I0 was not selected!" severity error;
         assert (Y_TB = I0_TB) report "Test Case 1 Failed: I0 was not selected!" severity error;
 
         -- Test Case 2: S1 = 0, S0 = 1 -> Select I1
