@@ -39,7 +39,7 @@ architecture Simulation of Mux3_1Bit_TB is
     -- Signals for testbench
     signal I0_TB, I1_TB, I2_TB : STD_LOGIC := '0'; -- inputs for the MUX
     signal S0_TB, S1_TB : STD_LOGIC := '0';       -- select lines for the MUX
-    signal Y_TB : STD_LOGIC;                      -- output for the MUX
+    signal Y_TB : STD_LOGIC += '0';                      -- output for the MUX
 
     constant PERIOD : time := 200 ns;             -- time period for each test case
 
