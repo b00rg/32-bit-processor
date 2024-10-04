@@ -31,14 +31,11 @@ end RF_Mux16_1Bit;
 architecture Behavioral of RF_Mux16_1Bit is
 	signal S0_not , S1_not , S2_not, S3_not : std_logic ;
 	
-	signal and00 , and01 , and02 , and03 : std_logic ;
-
-	signal and10 , and11 , and12 , and13 : std_logic ;
-	signal and14 , and15 , and16 , and17 : std_logic ;
-
-	signal and20 , and21 , and22 , and23 : std_logic ;
-	signal and24 , and25 , and26 , and27 : std_logic ;
-	
+	    signal and00, and01, and02, and03 : STD_LOGIC;
+	    signal and10, and11, and12, and13 : STD_LOGIC;
+	    signal and20, and21, and22, and23 : STD_LOGIC;
+	    signal and30, and31, and32, and33 : STD_LOGIC;
+		
 	signal l1or0 , l1or1 , l1or2 , l1or3 : std_logic ;
 	signal l2or0 , l2or1 : std_logic ;
 	
@@ -52,70 +49,47 @@ architecture Behavioral of RF_Mux16_1Bit is
    constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
    
 begin
-	-- Invert the selection signals
-	S0_not <= not S(0) after NOT_gate_delay;			-- Might have to change this here for student numbers...
-	S1_not <= not S(1) after NOT_gate_delay;
-	S2_not <= not S(2) after NOT_gate_delay;		
-	S3_not <= not S(3) after NOT_gate_delay;
-	
-	-- AND gates to choose the correct input
-	and00 <= S2_not and S1_not after AND_gate_delay;
-	and10 <= and00 and S0_not after AND_gate_delay;
-	and20 <= and10 and I0 after AND_gate_delay;
-	and11 <= and00 and S (0) after AND_gate_delay;
-	and21 <= and11 and I1 after AND_gate_delay;
-	
-	and01 <= S2_not and S (1) after AND_gate_delay;
-	and12 <= and01 and S0_not after AND_gate_delay;
-	and22 <= and12 and I2 after AND_gate_delay;
-	and13 <= and01 and S (0) after AND_gate_delay;
-	and23 <= and13 and I3 after AND_gate_delay;
+    -- Invert selection signals
+    S0_not <= not S(0) after NOT_gate_delay;
+    S1_not <= not S(1) after NOT_gate_delay;
+    S2_not <= not S(2) after NOT_gate_delay;
+    S3_not <= not S(3) after NOT_gate_delay;
+    
+    -- AND gates to choose the correct input
+    -- Select for I0 to I7
+    and00 <= S3_not and S2_not and S1_not and S0_not after AND_gate_delay;
+    and10 <= S3_not and S2_not and S1_not and S(0) after AND_gate_delay;
+    and20 <= S3_not and S2_not and S(1) and S0_not after AND_gate_delay;
+    and30 <= S3_not and S2_not and S(1) and S(0) after AND_gate_delay;
+    
+    and01 <= S3_not and S(2) and S1_not and S0_not after AND_gate_delay;
+    and11 <= S3_not and S(2) and S1_not and S(0) after AND_gate_delay;
+    and21 <= S3_not and S(2) and S(1) and S0_not after AND_gate_delay;
+    and31 <= S3_not and S(2) and S(1) and S(0) after AND_gate_delay;
+    
+    -- Select for I8 to I15
+    and02 <= S(3) and S2_not and S1_not and S0_not after AND_gate_delay;
+    and12 <= S(3) and S2_not and S1_not and S(0) after AND_gate_delay;
+    and22 <= S(3) and S2_not and S(1) and S0_not after AND_gate_delay;
+    and32 <= S(3) and S2_not and S(1) and S(0) after AND_gate_delay;
+    
+    and03 <= S(3) and S(2) and S1_not and S0_not after AND_gate_delay;
+    and13 <= S(3) and S(2) and S1_not and S(0) after AND_gate_delay;
+    and23 <= S(3) and S(2) and S(1) and S0_not after AND_gate_delay;
+    and33 <= S(3) and S(2) and S(1) and S(0) after AND_gate_delay;
 
-	and02 <= S (2) and S1_not after AND_gate_delay;
-	and14 <= and02 and S0_not after AND_gate_delay;
-	and24 <= and14 and I4 after AND_gate_delay;
-	and15 <= and02 and S (0) after AND_gate_delay;
-	and25 <= and15 and I5 after AND_gate_delay;
-	
-	and03 <= S (2) and S (1) after AND_gate_delay;
-	and16 <= and03 and S0_not after AND_gate_delay;
-	and26 <= and16 and I6 after AND_gate_delay;
-	and17 <= and03 and S (0) after AND_gate_delay;
-	and27 <= and17 and I7 after AND_gate_delay;
+    -- OR gates to combine all the selections
+    l1or0 <= (and00 and I0) or (and10 and I1) after OR_gate_delay;
+    l1or1 <= (and20 and I2) or (and30 and I3) after OR_gate_delay;
+    l1or2 <= (and01 and I4) or (and11 and I5) after OR_gate_delay;
+    l1or3 <= (and21 and I6) or (and31 and I7) after OR_gate_delay;
+    
+    l2or0 <= (and02 and I8) or (and12 and I9) after OR_gate_delay;
+    l2or1 <= (and22 and I10) or (and32 and I11) after OR_gate_delay;
+    
+    -- Final output OR gate
+    Y <= l1or0 or l1or1 or l1or2 or l1or3 or l2or0 or l2or1 or
+         (and23 and I12) or (and33 and I13) or 
+         (and03 and I14) or (and13 and I15) after OR_gate_delay;
 
--- now for 16 bit 
-	and04 <= S3_not and S2_not after AND_gate_delay;
-	and18 <= and04 and S0_not after AND_gate_delay;
-	and28 <= and10 and I8 after AND_gate_delay;
-	and11 <= and04 and S (0) after AND_gate_delay;
-	and21 <= and19 and I9 after AND_gate_delay;
-	
-	and05 <= S3_not and S (2) after AND_gate_delay;
-	and12 <= and05 and S0_not after AND_gate_delay;
-	and22 <= and12 and I10 after AND_gate_delay;
-	and13 <= and05 and S (0) after AND_gate_delay;
-	and23 <= and21 and I11 after AND_gate_delay;
-
-	and06 <= S (3) and S2_not after AND_gate_delay;
-	and14 <= and06 and S0_not after AND_gate_delay;
-	and24 <= and14 and I12 after AND_gate_delay;
-	and15 <= and06 and S (0) after AND_gate_delay;
-	and25 <= and23 and I13 after AND_gate_delay;
-	
-	and07 <= S (3) and S (2) after AND_gate_delay;
-	and16 <= and07 and S0_not after AND_gate_delay;
-	and26 <= and16 and I14 after AND_gate_delay;
-	and17 <= and07 and S (0) after AND_gate_delay;
-	and27 <= and25 and I15 after AND_gate_delay;
-
-	l1or0 <= and20 or and21 after OR_gate_delay;
-	l1or1 <= and22 or and23 after OR_gate_delay;
-	l1or2 <= and24 or and25 after OR_gate_delay;
-	l1or3 <= and26 or and27 after OR_gate_delay;
-
-	l2or0 <= l1or0 or l1or1 after OR_gate_delay;
-	l2or1 <= l1or2 or l1or3 after OR_gate_delay;
-	
-	Y <= l2or0 or l2or1 after OR_gate_delay;
-
-end Behavioral ;
+end Behavioral;
