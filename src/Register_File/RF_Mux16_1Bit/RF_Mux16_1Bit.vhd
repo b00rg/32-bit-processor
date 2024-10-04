@@ -108,11 +108,6 @@ begin
 	and17 <= and07 and S (0) after AND_gate_delay;
 	and27 <= and25 and I15 after AND_gate_delay;
 
-
-
-
-
-
 	l1or0 <= and20 or and21 after OR_gate_delay;
 	l1or1 <= and22 or and23 after OR_gate_delay;
 	l1or2 <= and24 or and25 after OR_gate_delay;
