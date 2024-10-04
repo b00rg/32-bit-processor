@@ -23,9 +23,9 @@ architecture Simulation of RF_Mux_16_1Bit_TB is
     signal  I0_TB , I1_TB, I2_TB, I3_TB, I4_TB, I5_TB, I6_TB, I7_TB : STD_LOGIC := '0';  -- Inputs for the MUX
     signal  I8_TB , I9_TB, I10_TB, I11_TB, I12_TB, I13_TB, I14_TB, I15_TB : STD_LOGIC := '0';
 	signal S0_TB , S1_TB, S2_TB, S3_TB, S4_TB: std_logic := '0';
-    signal Y_TB : STD_LOGIC;                        -- Output for the MUX
+    signal Y_TB : STD_LOGIC := '0';                        -- Output for the MUX
 
-    constant PERIOD : time := 200ns;                -- Simulation period
+    constant PERIOD : time := 200 ns;                -- Simulation period
 
 begin
 
@@ -78,7 +78,6 @@ begin
         S1_TB <= '0';   -- S1 = 0
         S0_TB <= '0';   -- S0 = 0
         wait for PERIOD; 
-        assert (Y_TB = I0_TB) report "Test Case 1 Failed: I0 was not selected!" severity error;
         assert (Y_TB = I0_TB) report "Test Case 1 Failed: I0 was not selected!" severity error;
 
         -- Test Case 2: S1 = 0, S0 = 1 -> Select I1
