@@ -51,24 +51,38 @@ begin
 	S2_not <= not S2 after NOT_gate_delay;		
 	S3_not <= not S3 after NOT_gate_delay;
 	-- AND gates to choose the correct input
-	and0  <= I0  and S0_not and S1_not and S2_not and S3_not after AND_gate_delay;
-	and1  <= I1  and S0 and S1_not and S2_not and S3_not after AND_gate_delay;
-	and2  <= I2  and S0_not and S1 and S2_not and S3_not after AND_gate_delay;
-	and3  <= I3  and S0 and S1 and S2_not and S3_not after AND_gate_delay;
-	and4  <= I4  and S0_not and S1_not and S2 and S3_not after AND_gate_delay;
-	and5  <= I5  and S0 and S1_not and S2 and S3_not after AND_gate_delay;
-	and6  <= I6  and S0_not and S1 and S2 and S3_not after AND_gate_delay;
-	and7  <= I7  and S0 and S1 and S2 and S3_not after AND_gate_delay;
-	and8  <= I8  and S0_not and S1_not and S2_not and S3 after AND_gate_delay;
-	and9  <= I9  and S0 and S1_not and S2_not and S3 after AND_gate_delay;
-	and10 <= I10 and S0_not and S1 and S2_not and S3 after AND_gate_delay;
-	and11 <= I11 and S0 and S1 and S2_not and S3 after AND_gate_delay;
-	and12 <= I12 and S0_not and S1_not and S2 and S3 after AND_gate_delay;
-	and13 <= I13 and S0 and S1_not and S2 and S3 after AND_gate_delay;
-	and14 <= I14 and S0_not and S1 and S2 and S3 after AND_gate_delay;
-	and15 <= I15 and S0 and S1 and S2 and S3 after AND_gate_delay; 
+	and00 <= S2_not and S1_not after 2 ns ;
+	and10 <= and00 and S0_not after 2 ns ;
+	and20 <= and10 and I0 after 2 ns ;
+	and11 <= and00 and S (0) after 2 ns ;
+	and21 <= and11 and I1 after 2 ns ;
+	
+	and01 <= S2_not and S (1) after 2 ns ;
+	and12 <= and01 and S0_not after 2 ns ;
+	and22 <= and12 and I2 after 2 ns ;
+	and13 <= and01 and S (0) after 2 ns ;
+	and23 <= and13 and I3 after 2 ns ;
 
-    	-- OR the AND gates to produce the final output
-	Y <= and0 or and1 or and2 or and3 or and4 or and5 or and6 or and7 
-		or and8 or and9 or and10 or and11 or and12 or and13 or and14 or and15 after OR_gate_delay;
-end Behavioral;
+	and02 <= S (2) and S1_not after 2 ns ;
+	and14 <= and02 and S0_not after 2 ns ;
+	and24 <= and14 and I4 after 2 ns ;
+	and15 <= and02 and S (0) after 2 ns ;
+	and25 <= and15 and I5 after 2 ns ;
+	
+	and03 <= S (2) and S (1) after 2 ns ;
+	and16 <= and03 and S0_not after 2 ns ;
+	and26 <= and16 and I6 after 2 ns ;
+	and17 <= and03 and S (0) after 2 ns ;
+	and27 <= and17 and I7 after 2 ns ;
+
+	l1or0 <= and20 or and21 after 4 ns ;
+	l1or1 <= and22 or and23 after 4 ns ;
+	l1or2 <= and24 or and25 after 4 ns ;
+	l1or3 <= and26 or and27 after 4 ns ;
+
+	l2or0 <= l1or0 or l1or1 after 4 ns ;
+	l2or1 <= l1or2 or l1or3 after 4 ns ;
+	
+	Y <= l2or0 or l2or1 after 4 ns ;
+
+end Behavioral ;
