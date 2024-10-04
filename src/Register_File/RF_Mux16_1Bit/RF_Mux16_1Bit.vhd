@@ -24,12 +24,12 @@ use IEEE . STD_LOGIC_1164 .ALL;
 entity RF_Mux16_1Bit is
 	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC;     -- Input Signals
     I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC ; 		
-		S : in STD_LOGIC_VECTOR(2 downto 0);            	      -- Selection Signals (2^4 = 16) 
+		S : in STD_LOGIC_VECTOR(3 downto 0);            	      -- Selection Signals (2^4 = 16) 
 		Y : out STD_LOGIC ) ;  			                              -- 1 bit output
 end RF_Mux16_1Bit;
 
 architecture Behavioral of RF_Mux16_1Bit is
-	signal S0_not , S1_not , S2_not : std_logic ;
+	signal S0_not , S1_not , S2_not, S3_not : std_logic ;
 	
 	signal and00 , and01 , and02 , and03 : std_logic ;
 
@@ -53,10 +53,11 @@ architecture Behavioral of RF_Mux16_1Bit is
    
 begin
 	-- Invert the selection signals
-	S0_not <= not S0 after NOT_gate_delay;			-- Might have to change this here for student numbers...
-	S1_not <= not S1 after NOT_gate_delay;
-	S2_not <= not S2 after NOT_gate_delay;		
-	S3_not <= not S3 after NOT_gate_delay;
+	S0_not <= not S(0) after NOT_gate_delay;			-- Might have to change this here for student numbers...
+	S1_not <= not S(1) after NOT_gate_delay;
+	S2_not <= not S(2) after NOT_gate_delay;		
+	S3_not <= not S(3) after NOT_gate_delay;
+	
 	-- AND gates to choose the correct input
 	and00 <= S2_not and S1_not after 2 ns ;
 	and10 <= and00 and S0_not after 2 ns ;
