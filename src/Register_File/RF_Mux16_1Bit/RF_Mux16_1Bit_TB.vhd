@@ -2,12 +2,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux_16_1Bit_TB is
-end RF_Mux_16_1Bit_TB;
+entity RF_Mux16_1Bit_TB is
+end RF_Mux16_1Bit_TB;
 
-architecture Simulation of RF_Mux_16_1Bit_TB is
+architecture Simulation of RF_Mux16_1Bit_TB is
    -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT RF_Mux_16_1Bit
+    COMPONENT RF_Mux16_1Bit
 	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC;     -- Input Signals
     I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC ; 		
 		S0, S1, S2, S3, S4 : in STD_LOGIC; 		            	      -- Selection Signals (2^4 = 16) 
@@ -25,7 +25,7 @@ architecture Simulation of RF_Mux_16_1Bit_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: RF_Mux_16_1Bit_TB PORT MAP (
+   uut: RF_Mux16_1Bit_TB PORT MAP (
         I0 => I0_TB,
         I1 => I1_TB,
         I2 => I2_TB,
