@@ -30,7 +30,7 @@ architecture Simulation of RF_Mux_16_1Bit_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: RF_Mux_16_1Bit_TB PORT MAP (
+   uut: RF_Mux_16_1Bit PORT MAP (
         I0 => I0_TB,
         I1 => I1_TB,
         I2 => I2_TB,
