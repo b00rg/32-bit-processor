@@ -17,15 +17,16 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-
+--- See lecture 5
 library IEEE ;
 use IEEE . STD_LOGIC_1164 .ALL;
 
 entity RF_Mux16_1Bit is
-	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC;     -- Input Signals
-    I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC ; 		
-		S0, S1, S2, S3 : in STD_LOGIC; 		            	      -- Selection Signals (2^4 = 16) 
-		Y : out STD_LOGIC ) ;  			                              -- 1 bit output
+	Port ( or0 , or1 , or2 , or3 : in STD_LOGIC ;
+		or4 , or5 , or6 , or7 : in STD_LOGIC ;
+	      or8 , or9 , or10 , or11 : in STD_LOGIC ;
+		or12 , or13 , or14 , or15 : in STD_LOGIC ;
+		Y : out STD_LOGIC );		                              -- 1 bit output
 end RF_Mux16_1Bit;
 
 architecture Behavioral of RF_Mux16_1Bit is
