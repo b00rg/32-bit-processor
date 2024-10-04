@@ -83,13 +83,13 @@ begin
     l1or1 <= (and20 and I2) or (and30 and I3) after OR_gate_delay;
     l1or2 <= (and01 and I4) or (and11 and I5) after OR_gate_delay;
     l1or3 <= (and21 and I6) or (and31 and I7) after OR_gate_delay;
-    
-    l2or0 <= (and02 and I8) or (and12 and I9) after OR_gate_delay;
-    l2or1 <= (and22 and I10) or (and32 and I11) after OR_gate_delay;
-    
-    -- Final output OR gate
-    Y <= l1or0 or l1or1 or l1or2 or l1or3 or l2or0 or l2or1 or
-         (and23 and I12) or (and33 and I13) or 
-         (and03 and I14) or (and13 and I15) after OR_gate_delay;
+	    
+	l2or0 <= (and02 and I8) or (and12 and I9) after OR_gate_delay;
+	l2or1 <= (and22 and I10) or (and32 and I11) after OR_gate_delay;
+	
+	-- Final output OR gate
+	Y <= l1or0 or l1or1 or l1or2 or l1or3 or l2or0 or l2or1 or
+	     (and23 and I12) or (and33 and I13) or 
+	     (and03 and I14) or (and13 and I15) after OR_gate_delay;
 
 end Behavioral;
