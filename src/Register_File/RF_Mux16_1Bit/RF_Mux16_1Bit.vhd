@@ -29,11 +29,18 @@ entity RF_Mux16_1Bit is
 end RF_Mux16_1Bit;
 
 architecture Behavioral of RF_Mux16_1Bit is
-	-- Internal signals to handle the inverted select lines
-	signal S0_not, S1_not, S2_not, S3_not : std_logic;
-	-- Intermediate signals for AND gates
-	signal and0, and1, and2, and3, and4, and5, and6, and7, and8 : std_logic;              
-	signal and9, and10, and11, and12, and13, and14, and15 : std_logic;
+	signal S0_not , S1_not , S2_not : std_logic ;
+	
+	signal and00 , and01 , and02 , and03 : std_logic ;
+
+	signal and10 , and11 , and12 , and13 : std_logic ;
+	signal and14 , and15 , and16 , and17 : std_logic ;
+
+	signal and20 , and21 , and22 , and23 : std_logic ;
+	signal and24 , and25 , and26 , and27 : std_logic ;
+	
+	signal l1or0 , l1or1 , l1or2 , l1or3 : std_logic ;
+	signal l2or0 , l2or1 : std_logic ;
 	
 	   -- Propagation Delay
    constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
