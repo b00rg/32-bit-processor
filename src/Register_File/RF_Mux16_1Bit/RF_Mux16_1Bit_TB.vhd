@@ -89,24 +89,77 @@ begin
         I0_TB <= '0';   -- I0 -> don't care
         I1_TB <= '0';   -- I1 -> don't care
         I2_TB <= '1';   -- Set I2 to '1'
-        S1_TB <= '1';   -- S1 = 1
-        S0_TB <= '0';   -- S0 = 0
+        S1_TB <= '1';   -- S1 = 0
+        S0_TB <= '0';   -- S0 = 1
         wait for PERIOD;
         assert (Y_TB = I2_TB) report "Test Case 3 Failed: I2 was not selected!" severity error;
 
-        -- Test Case 4: S1 = 1, S0 = 1 -> Undefined state or invalid combination (depending on design)
-        -- Here, depending on design you may set this case as invalid, or if it's handled, check the expected output.
+        -- Test Case 4: S1 = 1, S0 = 1 -> Select I3
         I0_TB <= '0';   -- I0 -> don't care
         I1_TB <= '0';   -- I1 -> don't care
         I2_TB <= '0';   -- I2 -> don't care
-        S1_TB <= '1';   -- S1 = 1
-        S0_TB <= '1';   -- S0 = 1
+        I3_TB <= '1';
+        S1_TB <= '1';   
+        S0_TB <= '1';  
         wait for PERIOD;
+        assert (Y_TB = I3_TB) report "Test Case 4 Failed: I3 was not selected!" severity error;
 
-        -- If this combination selects nothing, ensure it's handled correctly
-        -- This is optional depending on your design. Modify the expected output accordingly.
-        assert (Y_TB = '0') report "Test Case 4 Failed: Invalid state was not handled correctly!" severity error;
 
+        -- Test Case 5: S1 = 0, S0 = 0, S2 = 1 -> Select I4
+        I0_TB <= '0';   -- I0 -> don't care
+        I1_TB <= '0';   -- I1 -> don't care
+        I2_TB <= '0';   -- I2 -> don't care
+        I3_TB <= '0';
+        I4_TB <= '1';
+        S1_TB <= '0';  
+        S0_TB <= '0';  
+        S2_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I4_TB) report "Test Case 5 Failed: I4 was not selected!" severity error;
+        
+          -- Test Case 6: Select I5
+        I4_TB <= '0';
+        I5_TB <= '1'; 
+        S1_TB <= '0';   
+        S0_TB <= '1';   
+        S2_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I5_TB) report "Test Case 6 Failed: I5 was not selected!" severity error;
+        
+        -- Test Case 7: Select I6
+        I5_TB <= '0';
+        I6_TB <= '1'; 
+        S1_TB <= '1';   
+        S0_TB <= '0'; 
+        S2_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I6_TB) report "Test Case 7 Failed: I6 was not selected!" severity error;
+        
+        -- Test Case 8: Select I7
+        I6_TB <= '0';
+        I7_TB <= '1'; 
+        S1_TB <= '1';  
+        S0_TB <= '1';  
+        S2_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I7_TB) report "Test Case 8 Failed: I7 was not selected!" severity error;
+        
+        -- Test Case 9: Select I8
+        I7_TB <= '0';
+        I8_TB <= '1'; 
+        S0_TB <= '0';  
+        S1_TB <= '0';  
+        S2_TB <= '0';
+        S3_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I5_TB) report "Test Case 8 Failed: I8 was not selected!" severity error;
+        
+        
+        
+        
+        
+        
+        
         -- Final wait to keep the simulation running
         wait;
     end process; 
