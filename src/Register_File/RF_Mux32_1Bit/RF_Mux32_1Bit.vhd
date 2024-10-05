@@ -4,11 +4,11 @@
 -- 
 -- Create Date: 04.10.2024
 -- Design Name: 
--- Module Name: Mux16_1Bit - Behavioral
+-- Module Name: Mux32_1Bit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: 16-to-1 Mux
+-- Description: 32-to-1 Mux
 -- 
 -- Dependencies: 
 -- 
@@ -21,21 +21,23 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux16_1Bit is
+entity RF_Mux32_1Bit is
     Port ( 
         I0, I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15 : in STD_LOGIC;   -- 1 bit inputs
         S0, S1, S2, S3 : in STD_LOGIC;        -- 4 Selection Signals (for 16 inputs)
         Y : out STD_LOGIC                    -- 1 bit output
     );
-end RF_Mux16_1Bit;
+end RF_Mux32_1Bit;
 
-architecture Behavioral of RF_Mux16_1Bit is
+architecture Behavioral of RF_Mux32_1Bit is
     -- Internal signals to handle the inverted select lines
-    signal S0_not, S1_not, S2_not, S3_not : std_logic;
+    signal S0_not, S1_not, S2_not, S3_not, S4_not : std_logic;
     
     -- Intermediate signals for AND gates
     signal and0, and1, and2, and3, and4, and5, and6, and7 : std_logic;
     signal and8, and9, and10, and11, and12, and13, and14, and15 : std_logic;
+    signal and16, and17, and18, and19, and20, and21, and22, and23 : std_logic;
+    signal and24, and25, and26, and27, and28, and29, and30, and32 : std_logic;
 
     -- Propagation Delay (as per your original specification)
     constant AND_gate_delay : Time := 8ns;
@@ -49,6 +51,8 @@ begin
     S1_not <= not S1 after NOT_gate_delay;
     S2_not <= not S2 after NOT_gate_delay;
     S3_not <= not S3 after NOT_gate_delay;
+    S4_not <= not S4 after NOT_gate_delay;
+
 
     -- AND gates for the selection of inputs
     and0 <= I0 and S0_not and S1_not and S3 and S4_not after AND_gate_delay 
@@ -83,9 +87,11 @@ begin
     and29 <= I29 and S0 and S1 and S3 and S4 after AND_gate_delay 
     and30 <= I30 and S0_not and S1_not and S3 and S4 after AND_gate_delay 
     and31 <= I31 and S0 and S1 and S3 and S4 after AND_gate_delay 
+        
     -- OR the AND gates to produce the final output
     Y <= and0 or and1 or and2 or and3 or and4 or and5 or and6 or and7 or
-         and8 or and9 or and10 or and11 or and12 or and13 or and14 or and15 or 
-        after OR_gate_delay;
+         and8 or and9 or and10 or and11 or and12 or and13 or and14 or and15 or
+         and16 or and17 or and18 or and19 or and20 or and21 or and22 or and23 or
+         and24 or and25 or and26 or and27 or and28 or and29 or and30 or and31 after OR_gate_delay;
 
 end Behavioral;
