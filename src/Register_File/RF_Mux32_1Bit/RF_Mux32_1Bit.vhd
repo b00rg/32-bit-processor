@@ -1,15 +1,14 @@
-
 ----------------------------------------------------------------------------------
 -- Company: 
 -- Engineer:
 -- 
 -- Create Date: 04.10.2024
 -- Design Name: 
--- Module Name: Mux32_1Bit - Behavioral
+-- Module Name: Mux16_1Bit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: 32-to-1 Mux
+-- Description: 16-to-1 Mux
 -- 
 -- Dependencies: 
 -- 
@@ -18,19 +17,19 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
--- need to change the logic to scale up for a 32 bit
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux32_1Bit is
+entity RF_Mux16_1Bit is
     Port ( 
         I0, I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15 : in STD_LOGIC;   -- 1 bit inputs
         S0, S1, S2, S3 : in STD_LOGIC;        -- 4 Selection Signals (for 16 inputs)
         Y : out STD_LOGIC                    -- 1 bit output
     );
-end RF_Mux32_1Bit;
+end RF_Mux16_1Bit;
 
-architecture Behavioral of RF_Mux32_1Bit is
+architecture Behavioral of RF_Mux16_1Bit is
     -- Internal signals to handle the inverted select lines
     signal S0_not, S1_not, S2_not, S3_not : std_logic;
     
@@ -42,6 +41,7 @@ architecture Behavioral of RF_Mux32_1Bit is
     constant AND_gate_delay : Time := 8ns;
     constant OR_gate_delay : Time := 2ns;
     constant NOT_gate_delay : Time := 3ns;
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
     -- Invert the selection signals
