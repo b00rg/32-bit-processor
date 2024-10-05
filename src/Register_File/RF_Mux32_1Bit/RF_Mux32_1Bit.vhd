@@ -51,25 +51,41 @@ begin
     S3_not <= not S3 after NOT_gate_delay;
 
     -- AND gates for the selection of inputs
-    and0  <= I0  and S0_not and S1_not and S2_not and S3_not after AND_gate_delay;
-    and1  <= I1  and S0     and S1_not and S2_not and S3_not after AND_gate_delay;
-    and2  <= I2  and S0_not and S1     and S2_not and S3_not after AND_gate_delay;
-    and3  <= I3  and S0     and S1     and S2_not and S3_not after AND_gate_delay;
-    and4  <= I4  and S0_not and S1_not and S2     and S3_not after AND_gate_delay;
-    and5  <= I5  and S0     and S1_not and S2     and S3_not after AND_gate_delay;
-    and6  <= I6  and S0_not and S1     and S2     and S3_not after AND_gate_delay;
-    and7  <= I7  and S0     and S1     and S2     and S3_not after AND_gate_delay;
-    and8  <= I8  and S0_not and S1_not and S2_not and S3     after AND_gate_delay;
-    and9  <= I9  and S0     and S1_not and S2_not and S3     after AND_gate_delay;
-    and10 <= I10 and S0_not and S1     and S2_not and S3     after AND_gate_delay;
-    and11 <= I11 and S0     and S1     and S2_not and S3     after AND_gate_delay;
-    and12 <= I12 and S0_not and S1_not and S2     and S3     after AND_gate_delay;
-    and13 <= I13 and S0     and S1_not and S2     and S3     after AND_gate_delay;
-    and14 <= I14 and S0_not and S1     and S2     and S3     after AND_gate_delay;
-    and15 <= I15 and S0     and S1     and S2     and S3     after AND_gate_delay;
-
+    and0 <= I0 and S0_not and S1_not and S3 and S4_not after AND_gate_delay 
+    and1 <= I1 and S0 and S1 and S3_not and S4_not after AND_gate_delay 
+    and2 <= I2 and S0_not and S1 and S3_not and S4_not after AND_gate_delay 
+    and3 <= I3 and S0 and S1_not and S3_not and S4_not after AND_gate_delay 
+    and4 <= I4 and S0_not and S1_not and S3_not and S4_not after AND_gate_delay 
+    and5 <= I5 and S0 and S1 and S3 and S4_not after AND_gate_delay 
+    and6 <= I6 and S0_not and S1_not and S3 and S4_not after AND_gate_delay 
+    and7 <= I7 and S0 and S1 and S3 and S4_not after AND_gate_delay 
+    and8 <= I8 and S0_not and S1_not and S3 and S4_not after AND_gate_delay 
+    and9 <= I9 and S0 and S1_not and S3_not and S4_not after AND_gate_delay 
+    and10 <= I10 and S0_not and S1 and S3_not and S4_not after AND_gate_delay 
+    and11 <= I11 and S0 and S1 and S3_not and S4_not after AND_gate_delay 
+    and12 <= I12 and S0_not and S1_not and S3_not and S4_not after AND_gate_delay 
+    and13 <= I13 and S0 and S1 and S3 and S4_not after AND_gate_delay 
+    and14 <= I14 and S0_not and S1 and S3 and S4_not after AND_gate_delay 
+    and15 <= I15 and S0 and S1_not and S3 and S4_not after AND_gate_delay 
+    and16 <= I16 and S0_not and S1_not and S3 and S4_not after AND_gate_delay 
+    and17 <= I17 and S0 and S1 and S3_not and S4 after AND_gate_delay 
+    and18 <= I18 and S0_not and S1_not and S3_not and S4 after AND_gate_delay 
+    and19 <= I19 and S0 and S1 and S3_not and S4 after AND_gate_delay 
+    and20 <= I20 and S0_not and S1_not and S3_not and S4 after AND_gate_delay 
+    and21 <= I21 and S0 and S1_not and S3 and S4 after AND_gate_delay 
+    and22 <= I22 and S0_not and S1 and S3 and S4 after AND_gate_delay 
+    and23 <= I23 and S0 and S1 and S3 and S4 after AND_gate_delay 
+    and24 <= I24 and S0_not and S1_not and S3 and S4 after AND_gate_delay 
+    and25 <= I25 and S0 and S1 and S3_not and S4 after AND_gate_delay 
+    and26 <= I26 and S0_not and S1 and S3_not and S4 after AND_gate_delay 
+    and27 <= I27 and S0 and S1_not and S3_not and S4 after AND_gate_delay 
+    and28 <= I28 and S0_not and S1_not and S3_not and S4 after AND_gate_delay 
+    and29 <= I29 and S0 and S1 and S3 and S4 after AND_gate_delay 
+    and30 <= I30 and S0_not and S1_not and S3 and S4 after AND_gate_delay 
+    and31 <= I31 and S0 and S1 and S3 and S4 after AND_gate_delay 
     -- OR the AND gates to produce the final output
     Y <= and0 or and1 or and2 or and3 or and4 or and5 or and6 or and7 or
-         and8 or and9 or and10 or and11 or and12 or and13 or and14 or and15 after OR_gate_delay;
+         and8 or and9 or and10 or and11 or and12 or and13 or and14 or and15 or 
+        after OR_gate_delay;
 
 end Behavioral;
