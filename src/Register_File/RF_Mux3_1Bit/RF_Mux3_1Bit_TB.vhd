@@ -30,6 +30,8 @@ architecture Simulation of RF_Mux3_1Bit_TB is
 
     constant PERIOD : time := 200ns;                -- Simulation period
 
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
+
 begin
 
    -- Instantiate the Unit Under Test (UUT)
