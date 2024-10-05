@@ -41,6 +41,7 @@ architecture Behavioral of RF_Mux16_1Bit is
     constant AND_gate_delay : Time := 8ns;
     constant OR_gate_delay : Time := 2ns;
     constant NOT_gate_delay : Time := 3ns;
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
     -- Invert the selection signals
