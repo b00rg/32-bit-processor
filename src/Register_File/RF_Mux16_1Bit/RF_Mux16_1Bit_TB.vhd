@@ -10,14 +10,14 @@ architecture Simulation of RF_Mux16_1Bit_TB is
     COMPONENT RF_Mux16_1Bit
 	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC;     -- Input Signals
     I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC ; 		
-		S0, S1, S2, S3, S4 : in STD_LOGIC; 		            	      -- Selection Signals (2^4 = 16) 
+		S0, S1, S2, S3 : in STD_LOGIC; 		            	      -- Selection Signals (2^4 = 16) 
 		Y : out STD_LOGIC ) ; 
     END COMPONENT;
 
     -- Signals to connect to UUT inputs and outputs
     signal  I0_TB , I1_TB, I2_TB, I3_TB, I4_TB, I5_TB, I6_TB, I7_TB : STD_LOGIC := '0';  -- Inputs for the MUX
     signal  I8_TB , I9_TB, I10_TB, I11_TB, I12_TB, I13_TB, I14_TB, I15_TB : STD_LOGIC := '0';
-	signal S0_TB , S1_TB, S2_TB, S3_TB, S4_TB: std_logic := '0';
+	signal S0_TB , S1_TB, S2_TB, S3_TB: std_logic := '0';
     signal Y_TB : STD_LOGIC;                        -- Output for the MUX
 
     constant PERIOD : time := 200ns;                -- Simulation period
@@ -25,7 +25,7 @@ architecture Simulation of RF_Mux16_1Bit_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: RF_Mux16_1Bit_TB PORT MAP (
+   uut: RF_Mux16_1Bit PORT MAP (
         I0 => I0_TB,
         I1 => I1_TB,
         I2 => I2_TB,
@@ -46,7 +46,6 @@ begin
         S1 => S1_TB,
         S2 => S2_TB,
         S3 => S3_TB,
-        S4 => S4_TB,
         Y  => Y_TB
     );
 
@@ -73,7 +72,6 @@ begin
         S1_TB <= '0';   -- S1 = 0
         S0_TB <= '0';   -- S0 = 0
         wait for PERIOD; 
-        assert (Y_TB = I0_TB) report "Test Case 1 Failed: I0 was not selected!" severity error;
         assert (Y_TB = I0_TB) report "Test Case 1 Failed: I0 was not selected!" severity error;
 
         -- Test Case 2: S1 = 0, S0 = 1 -> Select I1
