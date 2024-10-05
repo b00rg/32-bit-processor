@@ -198,7 +198,7 @@ begin
         wait for PERIOD;
         assert (Y_TB = I13_TB) report "Test Case 14 Failed: I13 was not selected!" severity error;
         
-        -- Test Case 7: Select I6
+        -- Test Case 15: Select I6
         I13_TB <= '0';
         I14_TB <= '1'; 
         S1_TB <= '1';   
@@ -207,7 +207,7 @@ begin
         wait for PERIOD;
         assert (Y_TB = I14_TB) report "Test Case 15 Failed: I14 was not selected!" severity error;
         
-        -- Test Case 8: Select I7
+        -- Test Case 16: Select I7
         I14_TB <= '0';
         I15_TB <= '1'; 
         S1_TB <= '1';  
@@ -215,16 +215,6 @@ begin
         S2_TB <= '1';
         wait for PERIOD;
         assert (Y_TB = I7_TB) report "Test Case 16 Failed: I15 was not selected!" severity error;
-        
-        -- Test Case 9: Select I8
-        I15_TB <= '0';
-        I8_TB <= '1'; 
-        S0_TB <= '0';  
-        S1_TB <= '0';  
-        S2_TB <= '0';
-        S3_TB <= '1';
-        wait for PERIOD;
-        assert (Y_TB = I5_TB) report "Test Case 17 Failed: I15 was not selected!" severity error;
 
         -- Final wait to keep the simulation running
         wait;
