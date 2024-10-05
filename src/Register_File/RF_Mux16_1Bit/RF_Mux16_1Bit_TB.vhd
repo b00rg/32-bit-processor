@@ -71,6 +71,8 @@ begin
         I15_TB <= '0';   -- I2 -> don't care
         S1_TB <= '0';   -- S1 = 0
         S0_TB <= '0';   -- S0 = 0
+        S2_TB <= '0';
+        S3_TB <= '0'; 
         wait for PERIOD; 
         assert (Y_TB = I0_TB) report "Test Case 1 Failed: I0 was not selected!" severity error;
 
