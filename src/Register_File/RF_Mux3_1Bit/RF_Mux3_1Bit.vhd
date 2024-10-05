@@ -41,6 +41,7 @@ architecture Behavioral of RF_Mux3_1Bit is
    constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
    constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
    constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
     -- Invert the selection signals
