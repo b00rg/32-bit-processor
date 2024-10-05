@@ -22,7 +22,6 @@ architecture Simulation of RF_Mux16_1Bit_TB is
     signal Y_TB : STD_LOGIC;  -- Output for the MUX
 
     constant PERIOD : time := 200 ns;  -- Simulation period
-    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
 
@@ -54,110 +53,152 @@ begin
     -- Stimulus process to apply test cases
     stim_proc: process
     begin
-        -- Test Case 1: S0 = 0, S1 = 0, S2 = 0, S3 = 0 -> Select I0
-        I0_TB <= '1';   -- Set I0 to '1'
-        I1_TB <= '0';   -- Set all others to '0'
-        I2_TB <= '0';
-        I3_TB <= '0';
-        I4_TB <= '0';
-        I5_TB <= '0';
-        I6_TB <= '0';
-        I7_TB <= '0';
-        I8_TB <= '0';
-        I9_TB <= '0';
-        I10_TB <= '0';
-        I11_TB <= '0';
-        I12_TB <= '0';
-        I13_TB <= '0';
-        I14_TB <= '0';
-        I15_TB <= '0';
-        S0_TB <= '0';
-        S1_TB <= '0';
-        S2_TB <= '0';
-        S3_TB <= '0';
+        -- Test Case 1: Select I0 (S0 = 0, S1 = 0, S2 = 0, S3 = 0)
+        I0_TB <= '1';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '0';   S1_TB <= '0';   S2_TB <= '0';   S3_TB <= '0';
         wait for PERIOD;
         assert (Y_TB = I0_TB) report "Test Case 1 Failed: I0 was not selected!" severity error;
 
-        -- Test Case 2: S0 = 1, S1 = 0, S2 = 0, S3 = 0 -> Select I1
-        I0_TB <= '0';   -- I0 -> don't care
-        I1_TB <= '1';   -- Set I1 to '1'
-        S0_TB <= '1';   -- S0 = 1
+        -- Test Case 2: Select I1 (S0 = 1, S1 = 0, S2 = 0, S3 = 0)
+        I0_TB <= '0';   I1_TB <= '1';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '1';   S1_TB <= '0';   S2_TB <= '0';   S3_TB <= '0';
         wait for PERIOD;
         assert (Y_TB = I1_TB) report "Test Case 2 Failed: I1 was not selected!" severity error;
 
-        -- Test Case 3: S0 = 0, S1 = 1, S2 = 0, S3 = 0 -> Select I2
-        I1_TB <= '0';   -- I1 -> don't care
-        I2_TB <= '1';   -- Set I2 to '1'
-        S0_TB <= '0';   -- S0 = 0
-        S1_TB <= '1';   -- S1 = 1
+        -- Test Case 3: Select I2 (S0 = 0, S1 = 1, S2 = 0, S3 = 0)
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '1';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '0';   S1_TB <= '1';   S2_TB <= '0';   S3_TB <= '0';
         wait for PERIOD;
         assert (Y_TB = I2_TB) report "Test Case 3 Failed: I2 was not selected!" severity error;
 
-        -- Test Case 4: S0 = 1, S1 = 1, S2 = 0, S3 = 0 -> Select I3
-        I2_TB <= '0';   -- I2 -> don't care
-        I3_TB <= '1';   -- Set I3 to '1'
-        S0_TB <= '1';   -- S0 = 1
+        -- Test Case 4: Select I3 (S0 = 1, S1 = 1, S2 = 0, S3 = 0)
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '1'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '1';   S1_TB <= '1';   S2_TB <= '0';   S3_TB <= '0';
         wait for PERIOD;
         assert (Y_TB = I3_TB) report "Test Case 4 Failed: I3 was not selected!" severity error;
 
-        -- Test Case 5: S0 = 0, S1 = 0, S2 = 1, S3 = 0 -> Select I4
-        I3_TB <= '0';   -- I3 -> don't care
-        I4_TB <= '1';   -- Set I4 to '1'
-        S0_TB <= '0';
-        S1_TB <= '0';
-        S2_TB <= '1';
+        -- Test Case 5: Select I4 (S0 = 0, S1 = 0, S2 = 1, S3 = 0)
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '1';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '0';   S1_TB <= '0';   S2_TB <= '1';   S3_TB <= '0';
         wait for PERIOD;
         assert (Y_TB = I4_TB) report "Test Case 5 Failed: I4 was not selected!" severity error;
 
         -- Test Case 6: Select I5 (S0 = 1, S1 = 0, S2 = 1, S3 = 0)
-        I4_TB <= '0';   -- I4 -> don't care
-        I5_TB <= '1';   -- Set I5 to '1'
-        S0_TB <= '1';   
-        S1_TB <= '0';
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '1';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '1';   S1_TB <= '0';   S2_TB <= '1';   S3_TB <= '0';
         wait for PERIOD;
         assert (Y_TB = I5_TB) report "Test Case 6 Failed: I5 was not selected!" severity error;
 
         -- Test Case 7: Select I6 (S0 = 0, S1 = 1, S2 = 1, S3 = 0)
-        I5_TB <= '0';   -- I5 -> don't care
-        I6_TB <= '1';   -- Set I6 to '1'
-        S0_TB <= '0';  
-        S1_TB <= '1';  
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '1';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '0';   S1_TB <= '1';   S2_TB <= '1';   S3_TB <= '0';
         wait for PERIOD;
         assert (Y_TB = I6_TB) report "Test Case 7 Failed: I6 was not selected!" severity error;
 
         -- Test Case 8: Select I7 (S0 = 1, S1 = 1, S2 = 1, S3 = 0)
-        I6_TB <= '0';   -- I6 -> don't care
-        I7_TB <= '1';   -- Set I7 to '1'
-        S0_TB <= '1';   
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '1';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '1';   S1_TB <= '1';   S2_TB <= '1';   S3_TB <= '0';
         wait for PERIOD;
         assert (Y_TB = I7_TB) report "Test Case 8 Failed: I7 was not selected!" severity error;
 
         -- Test Case 9: Select I8 (S0 = 0, S1 = 0, S2 = 0, S3 = 1)
-        I7_TB <= '0';   -- I7 -> don't care
-        I8_TB <= '1';   -- Set I8 to '1'
-        S0_TB <= '0';   
-        S1_TB <= '0';  
-        S2_TB <= '0';
-        S3_TB <= '1';
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '1';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '0';   S1_TB <= '0';   S2_TB <= '0';   S3_TB <= '1';
         wait for PERIOD;
         assert (Y_TB = I8_TB) report "Test Case 9 Failed: I8 was not selected!" severity error;
 
-        -- Additional Test Cases for I9 to I15
-        -- Continue in similar fashion for I9 to I15 based on different values of S0 to S3.
-        
+        -- Test Case 10: Select I9 (S0 = 1, S1 = 0, S2 = 0, S3 = 1)
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '1';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '1';   S1_TB <= '0';   S2_TB <= '0';   S3_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I9_TB) report "Test Case 10 Failed: I9 was not selected!" severity error;
+
+        -- Test Case 11: Select I10 (S0 = 0, S1 = 1, S2 = 0, S3 = 1)
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '1';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '0';   S1_TB <= '1';   S2_TB <= '0';   S3_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I10_TB) report "Test Case 11 Failed: I10 was not selected!" severity error;
+
+        -- Test Case 12: Select I11 (S0 = 1, S1 = 1, S2 = 0, S3 = 1)
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '1';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '1';   S1_TB <= '1';   S2_TB <= '0';   S3_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I11_TB) report "Test Case 12 Failed: I11 was not selected!" severity error;
+
+        -- Test Case 13: Select I12 (S0 = 0, S1 = 0, S2 = 1, S3 = 1)
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '1';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '0';   S1_TB <= '0';   S2_TB <= '1';   S3_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I12_TB) report "Test Case 13 Failed: I12 was not selected!" severity error;
+
+        -- Test Case 14: Select I13 (S0 = 1, S1 = 0, S2 = 1, S3 = 1)
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '1';  I14_TB <= '0';  I15_TB <= '0';
+        S0_TB <= '1';   S1_TB <= '0';   S2_TB <= '1';   S3_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I13_TB) report "Test Case 14 Failed: I13 was not selected!" severity error;
+
+        -- Test Case 15: Select I14 (S0 = 0, S1 = 1, S2 = 1, S3 = 1)
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '1';  I15_TB <= '0';
+        S0_TB <= '0';   S1_TB <= '1';   S2_TB <= '1';   S3_TB <= '1';
+        wait for PERIOD;
+        assert (Y_TB = I14_TB) report "Test Case 15 Failed: I14 was not selected!" severity error;
+
         -- Test Case 16: Select I15 (S0 = 1, S1 = 1, S2 = 1, S3 = 1)
-        I14_TB <= '0';  -- I14 -> don't care
-        I15_TB <= '1';  -- Set I15 to '1'
-        S0_TB <= '1';
-        S1_TB <= '1';
-        S2_TB <= '1';
-        S3_TB <= '1';
+        I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
+        I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
+        I8_TB <= '0';   I9_TB <= '0';   I10_TB <= '0';  I11_TB <= '0';
+        I12_TB <= '0';  I13_TB <= '0';  I14_TB <= '0';  I15_TB <= '1';
+        S0_TB <= '1';   S1_TB <= '1';   S2_TB <= '1';   S3_TB <= '1';
         wait for PERIOD;
         assert (Y_TB = I15_TB) report "Test Case 16 Failed: I15 was not selected!" severity error;
 
-        -- Test Completed
-        report "All test cases completed successfully!";
-        wait;
-    end process;
+        -- End of test cases
+        wait;  -- Stop simulation
+    end process stim_proc;
 
 end Simulation;
