@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Mux32_32Bit is
 	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC_VECTOR(31 downto 0);             -- Input Signals
     I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC_VECTOR(31 downto 0); 		
-		S0, S1, S2, S3, S4 : in STD_LOGIC; 		            	        -- Selection Signals (2^4 = 16) 
+		S0, S1, S2, S3, S4, S5 : in STD_LOGIC; 		            	        -- Selection Signals (2^5 = 32) 
 		Y : out STD_LOGIC ) ;  			                                                    -- 1 bit output
 end Mux32_32Bit;
 
@@ -36,7 +36,7 @@ architecture Behavioral of Mux32_32Bit is
     component Mux32_1Bit
     	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC;     -- Input Signals
         I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC ; 		
-    		S0, S1, S2, S3, S4 : in STD_LOGIC; 		            	      -- Selection Signals (2^4 = 16) 
+    		S0, S1, S2, S3, S4, S5: in STD_LOGIC; 		            	      -- Selection Signals (2^5 = 32) 
     		Y : out STD_LOGIC ) ;  			                              -- 1 bit output
     end component;
 
@@ -49,7 +49,7 @@ begin
                                         I20 => I20(0), I21 => I21(0), I22 => I22(0), I23 => I23(0), 
                                         I24 => I24(0), I25 => I25(0), I26 => I26(0), I27 => I127(0), 
                                         I28 => I28(0), I29 => I29(0), I30 => I30(0), I31 => I31(0), 
-                                        S0 => S0, S1 => S1, S2 => S2, S3 => S3, S4 => S4 Y => Y_temp(0));
+                                        S0 => S0, S1 => S1, S2 => S2, S3 => S3, S4 => S4, S5 => S5, Y => Y_temp(0));
 
  mux_instance1: Mux16_1Bit Port map (I0 => I0(1), I1 => I1(1), I2 => I2(1), I3 => I3(1), 
                                         I4 => I4(1), I5 => I5(1), I6 => I6(1), I7 => I7(1), 
