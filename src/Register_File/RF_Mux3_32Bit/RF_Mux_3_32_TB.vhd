@@ -23,12 +23,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity Mux3_32Bit_TB is
-end Mux3_32Bit_TB;
+entity RF_Mux3_32Bit_TB is
+end RF_Mux3_32Bit_TB;
 
-architecture Simulation of Mux3_32Bit_TB is
+architecture Simulation of RF_Mux3_32Bit_TB is
     -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT Mux3_32Bit
+    COMPONENT RF_Mux3_32Bit
         Port ( 
             I0  : in  STD_LOGIC_VECTOR(31 downto 0);  -- 32-bit inputs
             I1  : in  STD_LOGIC_VECTOR(31 downto 0);
@@ -49,7 +49,7 @@ architecture Simulation of Mux3_32Bit_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: Mux3_32Bit PORT MAP (
+   uut: RF_Mux3_32Bit PORT MAP (
         I0 => I0_TB,
         I1 => I1_TB,
         I2 => I2_TB,
