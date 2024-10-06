@@ -23,7 +23,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Mux32_32Bit is
 	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC_VECTOR(31 downto 0);             -- Input Signals
-    I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC_VECTOR(31 downto 0); 		
+    	I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC_VECTOR(31 downto 0); 	
+	I16, I17, I18, I19, I20, I21, I22, I23 : in STD_LOGIC_VECTOR(31 downto 0);
+	I24, I25, I26, I27, I28, I29, I30, I31 : in STD_LOGIC_VECTOR(31 downto 0);
 		S0, S1, S2, S3, S4, S5 : in STD_LOGIC; 		            	        -- Selection Signals (2^5 = 32) 
 		Y : out STD_LOGIC ) ;  			                                                    -- 1 bit output
 end Mux32_32Bit;
@@ -36,6 +38,8 @@ architecture Behavioral of Mux32_32Bit is
     component Mux32_1Bit
     	Port ( I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC;     -- Input Signals
         I8, I9, I10, I11, I12, I13, I14, I15:  in STD_LOGIC ; 		
+	I16, I17, I18, I19, I20, I21, I22, I23 : in STD_LOGIC;
+	I24, I25, I26, I27, I28, I29, I30, I31 : in STD_LOGIC;
     		S0, S1, S2, S3, S4, S5: in STD_LOGIC; 		            	      -- Selection Signals (2^5 = 32) 
     		Y : out STD_LOGIC ) ;  			                              -- 1 bit output
     end component;
