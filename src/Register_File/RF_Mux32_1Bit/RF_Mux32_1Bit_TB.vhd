@@ -178,23 +178,6 @@ begin
         wait for PERIOD;
         assert (Y_TB = I7_TB) report "Test Case 8 Failed: I7 was not selected!" severity error;
 
-            -- Test Case 8: Select I7 (S0 = 1, S1 = 1, S2 = 1, S3 = 0, S4 = 0)
-         I0_TB <= '0'; I1_TB <= '0'; I2_TB <= '0'; I3_TB <= '0'; 
-         I4_TB <= '0'; I5_TB <= '0'; I6_TB <= '0'; I7_TB <= '1';  -- I7 is selected
-         I8_TB <= '0'; I9_TB <= '0'; I10_TB <= '0'; I11_TB <= '0';
-         I12_TB <= '0'; I13_TB <= '0'; I14_TB <= '0'; I15_TB <= '0';
-         I16_TB <= '0'; I17_TB <= '0'; I18_TB <= '0'; I19_TB <= '0'; 
-         I20_TB <= '0'; I21_TB <= '0'; I22_TB <= '0'; I23_TB <= '0';
-         I24_TB <= '0'; I25_TB <= '0'; I26_TB <= '0'; I27_TB <= '0'; 
-         I28_TB <= '0'; I29_TB <= '0'; I30_TB <= '0'; I31_TB <= '0';
-         
-         -- Set selection lines for selecting I7
-         S0_TB <= '1'; S1_TB <= '1'; S2_TB <= '1'; S3_TB <= '0'; S4_TB <= '0';
-         wait for PERIOD;  -- Wait for the output to stabilize
-         
-         -- Assert the output Y_TB is equal to I7_TB
-         assert (Y_TB = I7_TB) report "Test Case 8 Failed: I7 was not selected!" severity error;
-
         -- Test Case 9: Select I8 (S0 = 0, S1 = 0, S2 = 0, S3 = 1, S4 = 0)
         I0_TB <= '0';   I1_TB <= '0';   I2_TB <= '0';   I3_TB <= '0'; 
         I4_TB <= '0';   I5_TB <= '0';   I6_TB <= '0';   I7_TB <= '0';
