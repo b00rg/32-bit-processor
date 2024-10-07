@@ -69,10 +69,7 @@ end RF_Mux32_1Bit;
 architecture Behavioral of RF_Mux32_1Bit is
 
     -- Intermediate signals for AND gates
-    signal and_g0, and_g1, and_g2, and_g3, and_g4, and_g5, and_g6, and_g7 : STD_LOGIC;
-    signal and_g8, and_g9, and_g10, and_g11, and_g12, and_g13, and_g14, and_g15 : STD_LOGIC;
-    signal and_g16, and_g17, and_g18, and_g19, and_g20, and_g21, and_g22, and_g23 : STD_LOGIC;
-    signal and_g24, and_g25, and_g26, and_g27, and_g28, and_g29, and_g30, and_g31 : STD_LOGIC;
+    signal and_g : STD_LOGIC_Vector(31 downto 0);
     signal S_not0, S_not1, S_not2, S_not3, S_not4 : STD_LOGIC;
     
     -- Propagation Delay
