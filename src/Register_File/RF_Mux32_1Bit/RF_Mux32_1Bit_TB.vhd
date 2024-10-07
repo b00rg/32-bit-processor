@@ -25,7 +25,7 @@ architecture Simulation of RF_Mux32_1Bit_TB is
     signal S0_TB, S1_TB, S2_TB, S3_TB, S4_TB : STD_LOGIC := '0';  -- Selection lines
     signal Y_TB : STD_LOGIC;  -- Output for the MUX
 
-    constant PERIOD : time := 50 ns;  -- Simulation period
+    constant PERIOD : time := 20 ns;  -- Simulation period
 
 begin
 
