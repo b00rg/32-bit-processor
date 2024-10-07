@@ -62,7 +62,9 @@ entity RF_Mux32_1Bit is
         S3 : in STD_LOGIC;
         S4 : in STD_LOGIC;
         
-        Y : out STD_LOGIC);
+        Y : out STD_LOGIC
+    );
+end RF_Mux32_1Bit;
 
 architecture Behavioral of RF_Mux32_1Bit is
 
@@ -129,6 +131,7 @@ begin
     and_g(31) <= I31  and S0         and S0       and S2       and S3       and S4 after AND_gate_delay; -- I31
 
     -- OR gate logic
+  
     Y <= and_g(0) or and_g(1) or and_g(2) or and_g(3) or and_g(4) or and_g(5) or and_g(6) or and_g(7) or
          and_g(8) or and_g(9) or and_g(10) or and_g(11) or and_g(12) or and_g(13) or and_g(14) or and_g(15) or
          and_g(16) or and_g(17) or and_g(18) or and_g(19) or and_g(20) or and_g(21) or and_g(22) or and_g(23) or
