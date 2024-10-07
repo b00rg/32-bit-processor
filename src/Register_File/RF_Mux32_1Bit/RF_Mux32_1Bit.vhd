@@ -92,27 +92,27 @@ begin
 -- AND gates for the selection of inputs
     and_g(0)  <= I0   and S_not(0)   and S_not(1) and S_not(2) and S_not(3) and S_not(4) after AND_gate_delay; -- I0
     and_g(1)  <= I1   and S0         and S_not(1) and S_not(2) and S_not(3) and S_not(4) after AND_gate_delay; -- I1
-    and_g(2)  <= I2   and S_not(0)   and S0       and S_not(2) and S_not(3) and S_not(4) after AND_gate_delay; -- I2
+    and_g(2)  <= I2   and S_not(0)   and S0       and S_not(2) and S_not(3) and S_not(4) after AND_gate_delay; -- I2 !!
     and_g(3)  <= I3   and S0         and S0       and S_not(2) and S_not(3) and S_not(4) after AND_gate_delay; -- I3
 
     and_g(4)  <= I4   and S_not(0)   and S_not(1) and S2       and S_not(3) and S_not(4) after AND_gate_delay; -- I4
     and_g(5)  <= I5   and S0         and S_not(1) and S2       and S_not(3) and S_not(4) after AND_gate_delay; -- I5
-    and_g(6)  <= I6   and S_not(0)   and S0       and S2       and S_not(3) and S_not(4) after AND_gate_delay; -- I6
+    and_g(6)  <= I6   and S_not(0)   and S0       and S2       and S_not(3) and S_not(4) after AND_gate_delay; -- I6 !!
     and_g(7)  <= I7   and S0         and S0       and S2       and S_not(3) and S_not(4) after AND_gate_delay; -- I7
 
     and_g(8)  <= I8   and S_not(0)   and S_not(1) and S_not(2) and S3       and S_not(4) after AND_gate_delay; -- I8
     and_g(9)  <= I9   and S0         and S_not(1) and S_not(2) and S3       and S_not(4) after AND_gate_delay; -- I9
-    and_g(10) <= I10  and S_not(0)   and S0       and S_not(2) and S3       and S_not(4) after AND_gate_delay; -- I10
+    and_g(10) <= I10  and S_not(0)   and S0       and S_not(2) and S3       and S_not(4) after AND_gate_delay; -- I10 !!
     and_g(11) <= I11  and S0         and S0       and S_not(2) and S3       and S_not(4) after AND_gate_delay; -- I11
 
     and_g(12) <= I12  and S_not(0)   and S_not(1) and S2       and S3       and S_not(4) after AND_gate_delay; -- I12
     and_g(13) <= I13  and S0         and S_not(1) and S2       and S3       and S_not(4) after AND_gate_delay; -- I13
-    and_g(14) <= I14  and S_not(0)   and S0       and S2       and S3       and S_not(4) after AND_gate_delay; -- I14
+    and_g(14) <= I14  and S_not(0)   and S0       and S2       and S3       and S_not(4) after AND_gate_delay; -- I14 !!
     and_g(15) <= I15  and S0         and S0       and S2       and S3       and S_not(4) after AND_gate_delay; -- I15
 
     and_g(16) <= I16  and S_not(0)   and S_not(1) and S_not(2) and S_not(3) and S4 after AND_gate_delay; -- I16
     and_g(17) <= I17  and S0         and S_not(1) and S_not(2) and S_not(3) and S4 after AND_gate_delay; -- I17
-    and_g(18) <= I18  and S_not(0)   and S0       and S_not(2) and S_not(3) and S4 after AND_gate_delay; -- I18
+    and_g(18) <= I18  and S_not(0)   and S0       and S_not(2) and S_not(3) and S4 after AND_gate_delay; -- I18 !!
     and_g(19) <= I19  and S0         and S0       and S_not(2) and S_not(3) and S4 after AND_gate_delay; -- I19
 
     and_g(20) <= I20  and S_not(0)   and S_not(1) and S2       and S_not(3) and S4 after AND_gate_delay; -- I20
