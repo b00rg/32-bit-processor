@@ -26,6 +26,7 @@ architecture Simulation of RF_Mux32_1Bit_TB is
     signal Y_TB : STD_LOGIC;  -- Output for the MUX
 
     constant PERIOD : time := 20 ns;  -- Simulation period
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
 
