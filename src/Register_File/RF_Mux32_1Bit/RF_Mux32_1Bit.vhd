@@ -73,6 +73,7 @@ architecture Behavioral of RF_Mux32_1Bit is
     signal and_g8, and_g9, and_g10, and_g11, and_g12, and_g13, and_g14, and_g15 : STD_LOGIC;
     signal and_g16, and_g17, and_g18, and_g19, and_g20, and_g21, and_g22, and_g23 : STD_LOGIC;
     signal and_g24, and_g25, and_g26, and_g27, and_g28, and_g29, and_g30, and_g31 : STD_LOGIC;
+    signal S_not0, S_not1, S_not2, S_not3, S_not4 : STD_LOGIC;
     
     -- Propagation Delay
     constant AND_gate_delay : time := 8 ns;
@@ -82,7 +83,6 @@ architecture Behavioral of RF_Mux32_1Bit is
 
 begin
     -- Invert the selection signals
-    signal S_not0, S_not1, S_not2, S_not3, S_not4 : STD_LOGIC;
     S_not0 <= not S0 after NOT_gate_delay;
     S_not1 <= not S1 after NOT_gate_delay;
     S_not2 <= not S2 after NOT_gate_delay;
