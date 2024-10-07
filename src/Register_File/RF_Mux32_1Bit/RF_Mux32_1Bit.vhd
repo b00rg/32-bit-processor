@@ -197,7 +197,6 @@ entity RF_Mux32_1Bit is
         
         Y : out STD_LOGIC
     );
-end RF_Mux32_1Bit;
 
 architecture Behavioral of RF_Mux32_1Bit is
 
