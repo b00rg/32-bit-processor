@@ -99,8 +99,8 @@ begin
     and_g6 <= I6 and S_not0 and S1 and S2 and S_not3 and S_not4 after AND_gate_delay; -- I6
     and_g7 <= I7 and S0 and S1 and S2 and S_not3 and S_not4 after AND_gate_delay; -- I7
 
-    and_g8 <= I8 and S_not0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay; -- I8
-    and_g9 <= I9 and S0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay; -- I9
+    and_g8  <= I8  and S_not0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay; -- I8
+    and_g9  <= I9  and S0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay; -- I9
     and_g10 <= I10 and S_not0 and S1 and S2 and S3 and S_not4 after AND_gate_delay; -- I10
     and_g11 <= I11 and S0 and S1 and S2 and S3 and S_not4 after AND_gate_delay; -- I11
 
