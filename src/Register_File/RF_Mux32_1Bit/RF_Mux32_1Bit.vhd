@@ -90,50 +90,49 @@ begin
     S_not4 <= not S4 after NOT_gate_delay;
 
     -- AND gates for the selection of inputs
-    and_g0 <= I0 and S_not0 and S_not1 and S_not2 and S_not3 and S_not4 after AND_gate_delay;
-    and_g1 <= I1 and S0 and S_not1 and S_not2 and S_not3 and S_not4 after AND_gate_delay;
-    and_g2 <= I2 and S_not0 and S1 and S_not2 and S_not3 and S_not4 after AND_gate_delay;
-    and_g3 <= I3 and S0 and S1 and S_not2 and S_not3 and S_not4 after AND_gate_delay;
-    and_g4 <= I4 and S_not0 and S_not1 and S2 and S_not3 and S_not4 after AND_gate_delay;
-    and_g5 <= I5 and S0 and S_not1 and S2 and S_not3 and S_not4 after AND_gate_delay;
-    and_g6 <= I6 and S_not0 and S1 and S2 and S_not3 and S_not4 after AND_gate_delay;
-    and_g7 <= I7 and S0 and S1 and S2 and S_not3 and S_not4 after AND_gate_delay;
-    and_g8 <= I8 and S_not0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay;
-    and_g9 <= I9 and S0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay;
-    and_g10 <= I10 and S_not0 and S1 and S2 and S3 and S_not4 after AND_gate_delay;
-    and_g11 <= I11 and S0 and S1 and S2 and S3 and S_not4 after AND_gate_delay;
-    and_g12 <= I12 and S_not0 and S_not1 and S_not2 and S3 and S_not4 after AND_gate_delay;
-    and_g13 <= I13 and S0 and S_not1 and S_not2 and S3 and S_not4 after AND_gate_delay;
-    and_g14 <= I14 and S_not0 and S1 and S_not2 and S3 and S_not4 after AND_gate_delay;
-    and_g15 <= I15 and S0 and S1 and S_not2 and S3 and S_not4 after AND_gate_delay;
+    and_g0 <= I0 and S_not0 and S_not1 and S_not2 and S_not3 and S_not4 after AND_gate_delay; -- I0
+    and_g1 <= I1 and S0 and S_not1 and S_not2 and S_not3 and S_not4 after AND_gate_delay;  -- I1
+    and_g2 <= I2 and S_not0 and S1 and S_not2 and S_not3 and S_not4 after AND_gate_delay; -- I2
+    and_g3 <= I3 and S0 and S1 and S_not2 and S_not3 and S_not4 after AND_gate_delay;  -- I3
+    and_g4 <= I4 and S_not0 and S_not1 and S2 and S_not3 and S_not4 after AND_gate_delay; -- I4
+    and_g5 <= I5 and S0 and S_not1 and S2 and S_not3 and S_not4 after AND_gate_delay; -- I5
+    and_g6 <= I6 and S_not0 and S1 and S2 and S_not3 and S_not4 after AND_gate_delay; -- I6
+    and_g7 <= I7 and S0 and S1 and S2 and S_not3 and S_not4 after AND_gate_delay; -- I7
 
-    and_g16 <= I16 and S_not0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay;
-    and_g17 <= I17 and S0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay;
-    and_g18 <= I18 and S_not0 and S1 and S2 and S3 and S_not4 after AND_gate_delay;
-    and_g19 <= I19 and S0 and S1 and S2 and S_not3 and S_not4 after AND_gate_delay;
+    and_g8 <= I8 and S_not0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay; -- I8
+    and_g9 <= I9 and S0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay; -- I9
+    and_g10 <= I10 and S_not0 and S1 and S2 and S3 and S_not4 after AND_gate_delay; -- I10
+    and_g11 <= I11 and S0 and S1 and S2 and S3 and S_not4 after AND_gate_delay; -- I11
 
-    and_g20 <= I20 and S_not0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
-    and_g21 <= I21 and S0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
-    and_g22 <= I22 and S_not0 and S1 and S2 and S3 and S4 after AND_gate_delay;
-    and_g23 <= I23 and S0 and S1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g12 <= I12 and S_not0 and S_not1 and S_not2 and S3 and S_not4 after AND_gate_delay; -- I12
+    and_g13 <= I13 and S0 and S_not1 and S_not2 and S3 and S_not4 after AND_gate_delay; -- I13
+    and_g14 <= I14 and S_not0 and S1 and S_not2 and S3 and S_not4 after AND_gate_delay; -- I14
+    and_g15 <= I15 and S0 and S1 and S_not2 and S3 and S_not4 after AND_gate_delay; -- I15
 
-    and_g24 <= I24 and S_not0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
-    and_g25 <= I25 and S0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
-    and_g26 <= I26 and S_not0 and S1 and S2 and S3 and S4 after AND_gate_delay;
-    and_g27 <= I27 and S0 and S1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g16 <= I16 and S_not0 and S_not1 and S2 and S3 and S4 after AND_gate_delay; -- I16
+    and_g17 <= I17 and S0 and S_not1 and S2 and S3 and S4 after AND_gate_delay; -- I17
+    and_g18 <= I18 and S_not0 and S1 and S2 and S3 and S4 after AND_gate_delay; -- I18
+    and_g19 <= I19 and S0 and S1 and S2 and S3 and S4 after AND_gate_delay; -- I19
 
-    and_g28 <= I28 and S_not0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
-    and_g29 <= I29 and S0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
-    and_g30 <= I30 and S_not0 and S1 and S2 and S3 and S4 after AND_gate_delay;
-    and_g31 <= I31 and S0 and S1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g20 <= I20 and S_not0 and S_not1 and S2 and S3 and S4 after AND_gate_delay; -- I20
+    and_g21 <= I21 and S0 and S_not1 and S2 and S3 and S4 after AND_gate_delay; -- I21
+    and_g22 <= I22 and S_not0 and S1 and S2 and S3 and S4 after AND_gate_delay; -- I22
+    and_g23 <= I23 and S0 and S1 and S2 and S3 and S4 after AND_gate_delay; -- I23
 
-    -- OR the AND gates to produce the final output
-    Y <= and_g0 or and_g1 or and_g2 or and_g3 or and_g4 or 
-         and_g5 or and_g6 or and_g7 or and_g8 or and_g9 or 
-         and_g10 or and_g11 or and_g12 or and_g13 or and_g14 or 
-         and_g15 or and_g16 or and_g17 or and_g18 or and_g19 or 
-         and_g20 or and_g21 or and_g22 or and_g23 or and_g24 or 
-         and_g25 or and_g26 or and_g27 or and_g28 or and_g29 or 
-         and_g30 or and_g31 after OR_gate_delay;
+    and_g24 <= I24 and S_not0 and S_not1 and S2 and S3 and S4 after AND_gate_delay; -- I24
+    and_g25 <= I25 and S0 and S_not1 and S2 and S3 and S4 after AND_gate_delay; -- I25
+    and_g26 <= I26 and S_not0 and S1 and S2 and S3 and S4 after AND_gate_delay; -- I26
+    and_g27 <= I27 and S0 and S1 and S2 and S3 and S4 after AND_gate_delay; -- I27
+
+    and_g28 <= I28 and S_not0 and S_not1 and S2 and S3 and S4 after AND_gate_delay; -- I28
+    and_g29 <= I29 and S0 and S_not1 and S2 and S3 and S4 after AND_gate_delay; -- I29
+    and_g30 <= I30 and S_not0 and S1 and S2 and S3 and S4 after AND_gate_delay; -- I30
+    and_g31 <= I31 and S0 and S1 and S2 and S3 and S4 after AND_gate_delay; -- I31
+
+    -- OR gate logic
+    Y <= and_g0 or and_g1 or and_g2 or and_g3 or and_g4 or and_g5 or and_g6 or and_g7 or
+         and_g8 or and_g9 or and_g10 or and_g11 or and_g12 or and_g13 or and_g14 or and_g15 or
+         and_g16 or and_g17 or and_g18 or and_g19 or and_g20 or and_g21 or and_g22 or and_g23 or
+         and_g24 or and_g25 or and_g26 or and_g27 or and_g28 or and_g29 or and_g30 or and_g31 after OR_gate_delay;
 
 end Behavioral;
