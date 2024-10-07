@@ -21,41 +21,59 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer:
--- 
--- Create Date: 04.10.2024
--- Design Name: 
--- Module Name: Mux32_1Bit - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 32-to-1 Mux
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
 entity RF_Mux32_1Bit is
     Port ( 
-        I : in STD_LOGIC_VECTOR (31 downto 0);   -- 32 1-bit inputs
-        S : in STD_LOGIC_VECTOR (4 downto 0);     -- 5 Selection Signals (for 32 inputs)
-        Y : out STD_LOGIC                          -- 1-bit output
+        I0 : in STD_LOGIC;
+        I1 : in STD_LOGIC;
+        I2 : in STD_LOGIC;
+        I3 : in STD_LOGIC;
+        I4 : in STD_LOGIC;
+        I5 : in STD_LOGIC;
+        I6 : in STD_LOGIC;
+        I7 : in STD_LOGIC;
+        I8 : in STD_LOGIC;
+        I9 : in STD_LOGIC;
+        I10 : in STD_LOGIC;
+        I11 : in STD_LOGIC;
+        I12 : in STD_LOGIC;
+        I13 : in STD_LOGIC;
+        I14 : in STD_LOGIC;
+        I15 : in STD_LOGIC;
+        I16 : in STD_LOGIC;
+        I17 : in STD_LOGIC;
+        I18 : in STD_LOGIC;
+        I19 : in STD_LOGIC;
+        I20 : in STD_LOGIC;
+        I21 : in STD_LOGIC;
+        I22 : in STD_LOGIC;
+        I23 : in STD_LOGIC;
+        I24 : in STD_LOGIC;
+        I25 : in STD_LOGIC;
+        I26 : in STD_LOGIC;
+        I27 : in STD_LOGIC;
+        I28 : in STD_LOGIC;
+        I29 : in STD_LOGIC;
+        I30 : in STD_LOGIC;
+        I31 : in STD_LOGIC;
+        
+        S0 : in STD_LOGIC;
+        S1 : in STD_LOGIC;
+        S2 : in STD_LOGIC;
+        S3 : in STD_LOGIC;
+        S4 : in STD_LOGIC;
+        
+        Y : out STD_LOGIC
     );
 end RF_Mux32_1Bit;
 
 architecture Behavioral of RF_Mux32_1Bit is
-    -- Intermediate signals for AND gates
-    signal and_gates : STD_LOGIC_VECTOR (31 downto 0); -- 32 AND gate outputs
 
+    -- Intermediate signals for AND gates
+    signal and_g0, and_g1, and_g2, and_g3, and_g4, and_g5, and_g6, and_g7 : STD_LOGIC;
+    signal and_g8, and_g9, and_g10, and_g11, and_g12, and_g13, and_g14, and_g15 : STD_LOGIC;
+    signal and_g16, and_g17, and_g18, and_g19, and_g20, and_g21, and_g22, and_g23 : STD_LOGIC;
+    signal and_g24, and_g25, and_g26, and_g27, and_g28, and_g29, and_g30, and_g31 : STD_LOGIC;
+    
     -- Propagation Delay
     constant AND_gate_delay : time := 8 ns;
     constant OR_gate_delay : time := 2 ns;
@@ -64,58 +82,58 @@ architecture Behavioral of RF_Mux32_1Bit is
 
 begin
     -- Invert the selection signals
-    signal S_not : STD_LOGIC_VECTOR (4 downto 0);
-    S_not(0) <= not S(0) after NOT_gate_delay;
-    S_not(1) <= not S(1) after NOT_gate_delay;
-    S_not(2) <= not S(2) after NOT_gate_delay;
-    S_not(3) <= not S(3) after NOT_gate_delay;
-    S_not(4) <= not S(4) after NOT_gate_delay;
+    signal S_not0, S_not1, S_not2, S_not3, S_not4 : STD_LOGIC;
+    S_not0 <= not S0 after NOT_gate_delay;
+    S_not1 <= not S1 after NOT_gate_delay;
+    S_not2 <= not S2 after NOT_gate_delay;
+    S_not3 <= not S3 after NOT_gate_delay;
+    S_not4 <= not S4 after NOT_gate_delay;
 
     -- AND gates for the selection of inputs
-    and_gates(0) <= I(0) and S_not(0) and S_not(1) and S_not(2) and S_not(3) and S_not(4) after AND_gate_delay;
-    and_gates(1) <= I(1) and S(0) and S_not(1) and S_not(2) and S_not(3) and S_not(4) after AND_gate_delay;
-    and_gates(2) <= I(2) and S_not(0) and S(1) and S_not(2) and S_not(3) and S_not(4) after AND_gate_delay;
-    and_gates(3) <= I(3) and S(0) and S(1) and S_not(2) and S_not(3) and S_not(4) after AND_gate_delay;
-    and_gates(4) <= I(4) and S_not(0) and S_not(1) and S(2) and S_not(3) and S_not(4) after AND_gate_delay;
-    and_gates(5) <= I(5) and S(0) and S_not(1) and S(2) and S_not(3) and S_not(4) after AND_gate_delay;
-    and_gates(6) <= I(6) and S_not(0) and S(1) and S(2) and S_not(3) and S_not(4) after AND_gate_delay;
-    and_gates(7) <= I(7) and S(0) and S(1) and S(2) and S_not(3) and S_not(4) after AND_gate_delay;
-    and_gates(8) <= I(8) and S_not(0) and S_not(1) and S(2) and S(3) and S_not(4) after AND_gate_delay;
-    and_gates(9) <= I(9) and S(0) and S_not(1) and S(2) and S(3) and S_not(4) after AND_gate_delay;
-    and_gates(10) <= I(10) and S_not(0) and S(1) and S(2) and S(3) and S_not(4) after AND_gate_delay;
-    and_gates(11) <= I(11) and S(0) and S(1) and S(2) and S(3) and S_not(4) after AND_gate_delay;
-    and_gates(12) <= I(12) and S_not(0) and S_not(1) and S_not(2) and S(3) and S_not(4) after AND_gate_delay;
-    and_gates(13) <= I(13) and S(0) and S_not(1) and S_not(2) and S(3) and S_not(4) after AND_gate_delay;
-    and_gates(14) <= I(14) and S_not(0) and S(1) and S_not(2) and S(3) and S_not(4) after AND_gate_delay;
-    and_gates(15) <= I(15) and S(0) and S(1) and S_not(2) and S(3) and S_not(4) after AND_gate_delay;
+    and_g0 <= I0 and S_not0 and S_not1 and S_not2 and S_not3 and S_not4 after AND_gate_delay;
+    and_g1 <= I1 and S0 and S_not1 and S_not2 and S_not3 and S_not4 after AND_gate_delay;
+    and_g2 <= I2 and S_not0 and S1 and S_not2 and S_not3 and S_not4 after AND_gate_delay;
+    and_g3 <= I3 and S0 and S1 and S_not2 and S_not3 and S_not4 after AND_gate_delay;
+    and_g4 <= I4 and S_not0 and S_not1 and S2 and S_not3 and S_not4 after AND_gate_delay;
+    and_g5 <= I5 and S0 and S_not1 and S2 and S_not3 and S_not4 after AND_gate_delay;
+    and_g6 <= I6 and S_not0 and S1 and S2 and S_not3 and S_not4 after AND_gate_delay;
+    and_g7 <= I7 and S0 and S1 and S2 and S_not3 and S_not4 after AND_gate_delay;
+    and_g8 <= I8 and S_not0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay;
+    and_g9 <= I9 and S0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay;
+    and_g10 <= I10 and S_not0 and S1 and S2 and S3 and S_not4 after AND_gate_delay;
+    and_g11 <= I11 and S0 and S1 and S2 and S3 and S_not4 after AND_gate_delay;
+    and_g12 <= I12 and S_not0 and S_not1 and S_not2 and S3 and S_not4 after AND_gate_delay;
+    and_g13 <= I13 and S0 and S_not1 and S_not2 and S3 and S_not4 after AND_gate_delay;
+    and_g14 <= I14 and S_not0 and S1 and S_not2 and S3 and S_not4 after AND_gate_delay;
+    and_g15 <= I15 and S0 and S1 and S_not2 and S3 and S_not4 after AND_gate_delay;
 
-    and_gates(16) <= I(16) and S_not(0) and S_not(1) and S(2) and S(3) and S_not(4) after AND_gate_delay;
-    and_gates(17) <= I(17) and S(0) and S_not(1) and S(2) and S(3) and S_not(4) after AND_gate_delay;
-    and_gates(18) <= I(18) and S_not(0) and S(1) and S(2) and S(3) and S_not(4) after AND_gate_delay;
-    and_gates(19) <= I(19) and S(0) and S(1) and S(2) and S_not(3) and S_not(4) after AND_gate_delay;
+    and_g16 <= I16 and S_not0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay;
+    and_g17 <= I17 and S0 and S_not1 and S2 and S3 and S_not4 after AND_gate_delay;
+    and_g18 <= I18 and S_not0 and S1 and S2 and S3 and S_not4 after AND_gate_delay;
+    and_g19 <= I19 and S0 and S1 and S2 and S_not3 and S_not4 after AND_gate_delay;
 
-    and_gates(20) <= I(20) and S_not(0) and S_not(1) and S(2) and S(3) and S(4) after AND_gate_delay;
-    and_gates(21) <= I(21) and S(0) and S_not(1) and S(2) and S(3) and S(4) after AND_gate_delay;
-    and_gates(22) <= I(22) and S_not(0) and S(1) and S(2) and S(3) and S(4) after AND_gate_delay;
-    and_gates(23) <= I(23) and S(0) and S(1) and S(2) and S(3) and S(4) after AND_gate_delay;
+    and_g20 <= I20 and S_not0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g21 <= I21 and S0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g22 <= I22 and S_not0 and S1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g23 <= I23 and S0 and S1 and S2 and S3 and S4 after AND_gate_delay;
 
-    and_gates(24) <= I(24) and S_not(0) and S_not(1) and S(2) and S(3) and S(4) after AND_gate_delay;
-    and_gates(25) <= I(25) and S(0) and S_not(1) and S(2) and S(3) and S(4) after AND_gate_delay;
-    and_gates(26) <= I(26) and S_not(0) and S(1) and S(2) and S(3) and S(4) after AND_gate_delay;
-    and_gates(27) <= I(27) and S(0) and S(1) and S(2) and S(3) and S(4) after AND_gate_delay;
+    and_g24 <= I24 and S_not0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g25 <= I25 and S0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g26 <= I26 and S_not0 and S1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g27 <= I27 and S0 and S1 and S2 and S3 and S4 after AND_gate_delay;
 
-    and_gates(28) <= I(28) and S_not(0) and S_not(1) and S(2) and S(3) and S(4) after AND_gate_delay;
-    and_gates(29) <= I(29) and S(0) and S_not(1) and S(2) and S(3) and S(4) after AND_gate_delay;
-    and_gates(30) <= I(30) and S_not(0) and S(1) and S(2) and S(3) and S(4) after AND_gate_delay;
-    and_gates(31) <= I(31) and S(0) and S(1) and S(2) and S(3) and S(4) after AND_gate_delay;
+    and_g28 <= I28 and S_not0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g29 <= I29 and S0 and S_not1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g30 <= I30 and S_not0 and S1 and S2 and S3 and S4 after AND_gate_delay;
+    and_g31 <= I31 and S0 and S1 and S2 and S3 and S4 after AND_gate_delay;
 
     -- OR the AND gates to produce the final output
-    Y <= and_gates(0) or and_gates(1) or and_gates(2) or and_gates(3) or and_gates(4) or 
-         and_gates(5) or and_gates(6) or and_gates(7) or and_gates(8) or and_gates(9) or 
-         and_gates(10) or and_gates(11) or and_gates(12) or and_gates(13) or and_gates(14) or 
-         and_gates(15) or and_gates(16) or and_gates(17) or and_gates(18) or and_gates(19) or 
-         and_gates(20) or and_gates(21) or and_gates(22) or and_gates(23) or and_gates(24) or 
-         and_gates(25) or and_gates(26) or and_gates(27) or and_gates(28) or and_gates(29) or 
-         and_gates(30) or and_gates(31) after OR_gate_delay;
+    Y <= and_g0 or and_g1 or and_g2 or and_g3 or and_g4 or 
+         and_g5 or and_g6 or and_g7 or and_g8 or and_g9 or 
+         and_g10 or and_g11 or and_g12 or and_g13 or and_g14 or 
+         and_g15 or and_g16 or and_g17 or and_g18 or and_g19 or 
+         and_g20 or and_g21 or and_g22 or and_g23 or and_g24 or 
+         and_g25 or and_g26 or and_g27 or and_g28 or and_g29 or 
+         and_g30 or and_g31 after OR_gate_delay;
 
 end Behavioral;
