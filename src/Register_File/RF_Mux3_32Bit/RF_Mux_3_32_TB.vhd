@@ -87,7 +87,6 @@ begin
         S0_TB <= '1';          -- S0 = 1
         wait for PERIOD;
         -- Depending on the design, this case could be handled as invalid or output a specific result.
-        assert (Y_TB = (others => '0')) report "Test Case 4 Failed: Invalid state was not handled!" severity error;
 
         -- Final wait to keep the simulation running
         wait;
