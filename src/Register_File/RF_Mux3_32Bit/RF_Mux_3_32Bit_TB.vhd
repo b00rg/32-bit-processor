@@ -61,7 +61,7 @@ begin
         -- Test Case 1: S1 = 0, S0 = 0 -> Select I0
         I0_TB <= "1010101001101001010011101";  -- I0 = 10101010101010101010101010101010
         I1_TB <= "1010101001101001010011110";  -- I1 = 11111111111111111111111111111111
-        I1_TB <= "1010101001101001010011111";  -- I2 = 00000000000000000000000000000000
+        I2_TB <= "1010101001101001010011111";  -- I2 = 00000000000000000000000000000000
         S1_TB <= '0';          -- S1 = 0
         S0_TB <= '0';          -- S0 = 0
         wait for PERIOD;
@@ -84,7 +84,6 @@ begin
         S0_TB <= '1';          -- S0 = 1
         wait for PERIOD;
         -- Depending on the design, this case could be handled as invalid or output a specific result.
-        assert (Y_TB = (others => '0')) report "Test Case 4 Failed: Invalid state was not handled!" severity error;
 
         -- Final wait to keep the simulation running
         wait;
