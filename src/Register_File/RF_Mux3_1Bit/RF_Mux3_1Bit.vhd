@@ -29,9 +29,9 @@ end RF_Mux3_1Bit;
 
 architecture Behavioral of RF_Mux3_1Bit is
     -- Internal signals to handle the inverted select lines
-    signal S0_not, S1_not : std_logic;
+    signal S0_not, S1_not : STD_LOGIC;
     -- Intermediate signals for AND gates
-    signal and0, and1, and2 : std_logic;
+    signal and0, and1, and2 : STD_LOGIC;
 
    -- Propagation Delay
    constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
@@ -51,7 +51,7 @@ begin
     -- AND gates to choose the correct input
     and0 <= I0 and S0_not and S1_not after AND_gate_delay;
     and1 <= I1 and S0 and S1_not after AND_gate_delay;
-    and2 <= I2 and S0 and S1 after AND_gate_delay;
+    and2 <= I2 and S0_not and S1 after AND_gate_delay;
 
     -- OR the AND gates to produce the final output
     Y <= and0 or and1 or and2 after OR_gate_delay;
