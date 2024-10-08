@@ -39,6 +39,7 @@ architecture simulation of RF_Mux3_32Bit_TB is
     signal I0_TB, I1_TB, I2_TB : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');  -- Initialize inputs
     signal S0_TB, S1_TB : STD_LOGIC := '0';  -- Initialize selection signals
     signal Y_TB : STD_LOGIC_VECTOR(31 downto 0);  -- Output
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
     -- Instantiate the Unit Under Test (UUT)
