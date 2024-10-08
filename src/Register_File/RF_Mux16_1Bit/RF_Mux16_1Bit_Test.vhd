@@ -15,6 +15,11 @@ architecture Behavioral of RF_Mux16_1 is
 
     -- OR gates to combine the AND outputs
     signal or00, or01, or02, or10, or11, or12, or20, or21, or30, or31, or32, or33, or40, or41, or42, or43 : STD_LOGIC := '0';
+    -- Propagation Delay (as per your original specification)
+    constant AND_gate_delay : Time := 8ns;
+    constant OR_gate_delay : Time := 2ns;
+    constant NOT_gate_delay : Time := 3ns;
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 
 begin
