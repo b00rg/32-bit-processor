@@ -10,12 +10,12 @@ entity RF_Mux16_1 is
 end RF_Mux16_1;
 
 architecture Behavioral of RF_Mux16_1 is
-begin
-    -- AND gates for each input
+        -- AND gates for each input
     signal and00, and01, and02, and03, and10, and11, and12, and13, and20, and21, and22, and23, and30, and31, and32, and33 : STD_LOGIC;
 
     -- OR gates to combine the AND outputs
     signal or00, or01, or02, or10, or11, or12, or20, or21, or30, or31, or32, or33, or40, or41, or42, or43 : STD_LOGIC;
+begin
 
     -- AND gates
     and00 <= I0 and not S0;
