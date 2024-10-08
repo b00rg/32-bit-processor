@@ -116,23 +116,8 @@ begin
     or00 <= and03 or and13;
     or01 <= or00 or and23;
     or02 <= or01 or and33;
-
-    or10 <= and02 or and12;
-    or11 <= or10 or and22;
-    or12 <= or11 or and32;
-
-    or20 <= and01 or and11;
-    or21 <= or20 or and21;
-    or22 <= or21 or and31;
-
-    or30 <= and00 or and10;
-    or31 <= or30 or and20;
-    or32 <= or31 or and30;
-
-    or40 <= or02 or or12;
-    or41 <= or40 or or22;
-    or42 <= or41 or or32;
-    or43 <= or42 or or33;
+    or03 <= or02 or and43;
+    
 
     -- Final output
     Y <= or43;
