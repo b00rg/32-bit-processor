@@ -55,9 +55,9 @@ begin
     stim_proc: process
     begin
         -- Test case 1: Select I0 (S0 = '0', S1 = '0')
-        I0_TB <= "00000000000000000000000000000001";  -- 32-bit value for I0
-        I1_TB <= "00000000000000000000000000000010";  -- 32-bit value for I1
-        I2_TB <= "00000000000000000000000000000011";  -- 32-bit value for I2
+        I0_TB <= "00000001010101001101001010011101";  -- 32-bit value for I0
+        I1_TB <= "00000001010101001101001010011110";  -- 32-bit value for I1
+        I2_TB <= "00000001010101001101001010011111";  -- 32-bit value for I2
         S0_TB <= '0';
         S1_TB <= '0';
         wait for 60 ns;
