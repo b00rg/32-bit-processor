@@ -40,41 +40,7 @@ architecture Behavioral of RF_Mux16_1Bit is
     -- Intermediate signals for OR gates
     signal or0, or1, or2, or3, or4, or5, or6, or7 : std_logic;
     signal or8, or9, or10 : std_logic;
-
-     signal or_final1, or_final2: std_logic;
-
-    -- Propagation Delay (as per your original specification)
-    constant AND_gate_delay : Time := 8ns;
-    constant OR_gate_delay : Time := 2ns;
-    constant NOT_gate_delay : Time := 3ns;
-    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
-
-begin
-    -- Invert the selection signals
-    S0_not <= not S0 after NOT_gate_delay;
-    S1_not <= not S1 after NOT_gate_delay;
-    S2_not <= not S2 after NOT_gate_delay;
-    S3_not <= not S3 after NOT_gate_delay;
-
-    -- AND gates using only 2-input AND gates
-    and0 <= I0 and S0_not and S1_not and S2_not and S3_not after AND_gate_delay;
-    and1 <= I1 and S0 and S1_not and S2_not and S3_not after AND_gate_delay;
-    and2 <= I2 and S0_not and S1 and S2_not and S3_not after AND_gate_delay;
-    and3 <= I3 and S0 and S1 and S2_not and S3_not after AND_gate_delay;
-    and4 <= I4 and S0_not and S1_not and S2 and S3_not after AND_gate_delay;
-    and5 <= I5 and S0 and S1_not and S2 and S3_not after AND_gate_delay;
-    and6 <= I6 and S0_not and S1 and S2 and S3_not after AND_gate_delay;
-    and7 <= I7 and S0 and S1 and S2 and S3_not after AND_gate_delay;
-    and8 <= I8 and S0_not and S1_not and S2_not and S3 after AND_gate_delay;
-    and9 <= I9 and S0 and S1_not and S2_not and S3 after AND_gate_delay;
-    and10 <= I10 and S0_not and S1 and S2_not and S3 after AND_gate_delay;
-    and11 <= I11 and S0 and S1 and S2_not and S3 after AND_gate_delay;
-    and12 <= I12 and S0_not and S1_not and S2 and S3 after AND_gate_delay;
-    and13 <= I13 and S0 and S1_not and S2 and S3 after AND_gate_delay;
-    and14 <= I14 and S0_not and S1 and S2 and S3 after AND_gate_delay;
-    and15 <= I15 and S0 and S1 and S2 and S3 after AND_gate_delay;
-
-    -- Breaking the AND gates into 2-input AND gates
+    
     signal temp0_1, temp0_2: std_logic;
     signal temp1_1, temp1_2: std_logic;
     signal temp2_1, temp2_2: std_logic;
@@ -92,11 +58,21 @@ begin
     signal temp14_1, temp14_2: std_logic;
     signal temp15_1, temp15_2: std_logic;
 
-    -- Final output signal
-    or_final1 <= or8 or or9 after OR_gate_delay;
-    or_final2 <= or_final1 or final_or after OR_gate_delay;
+     signal or_final1, or_final2: std_logic;
+
+    -- Propagation Delay (as per your original specification)
+    constant AND_gate_delay : Time := 8ns;
+    constant OR_gate_delay : Time := 2ns;
+    constant NOT_gate_delay : Time := 3ns;
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
+    -- Invert the selection signals
+    S0_not <= not S0 after NOT_gate_delay;
+    S1_not <= not S1 after NOT_gate_delay;
+    S2_not <= not S2 after NOT_gate_delay;
+    S3_not <= not S3 after NOT_gate_delay;
+
     -- Use 2-input AND gates to create AND conditions
     temp0_1 <= I0 and S0_not after AND_gate_delay;
     temp0_2 <= temp0_1 and S1_not after AND_gate_delay;
