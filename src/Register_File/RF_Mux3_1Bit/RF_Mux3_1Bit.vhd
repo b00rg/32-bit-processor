@@ -30,6 +30,8 @@ end RF_Mux3_1Bit;
 architecture Behavioral of RF_Mux3_1Bit is
     -- Internal signals to handle the inverted select lines
     signal S0_not, S1_not : STD_LOGIC;
+    signal S0_S1_not, S0_not_S1 : STD_LOGIC;
+    signal or0, or1 : STD_LOGIC; 
     -- Intermediate signals for AND gates
     signal and0, and1, and2 : STD_LOGIC;
 
