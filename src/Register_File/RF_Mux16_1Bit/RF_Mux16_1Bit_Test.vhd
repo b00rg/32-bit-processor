@@ -14,40 +14,47 @@ architecture Behavioral of RF_Mux16_1 is
     signal and00, and01, and02, and03, and10, and11, and12, and13, and20, and21, and22, and23, and30, and31, and32, and33, and40, and41, and42, and43, and50, and51, and52, and53, and60, and61, and62, and63, and70, and71, and72, and73, and80, and81, and82, and83, and90, and91, and92, and93, and100, and101, and102, and103, and110, and111, and112, and113, and120, and121, and122, and123, and130, and131, and132, and133, and140, and141, and142, and143, and150, and151, and152, and153 : STD_LOGIC := '0';
 
     -- OR gates to combine the AND outputs
-    signal or00, or01, or02, or10, or11, or12, or20, or21, or30, or31, or32, or33, or40, or41, or42, or43 : STD_LOGIC := '0';
-    -- Propagation Delay (as per your original specification)
+    signal or00, or01, or02, or10, or11, or12, or20, or21, or22, or30, or31, or32, or33, or40, or41, or42, or43 : STD_LOGIC := '0';
+    
+    signal S0_not, S1_not, S2_not, S3_not : STD_LOGIC := '0';
+        -- Propagation Delay (as per your original specification)
     constant AND_gate_delay : Time := 8ns;
     constant OR_gate_delay : Time := 2ns;
     constant NOT_gate_delay : Time := 3ns;
     constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
-
+    
 
 begin
+    S0_not <= not S0 after NOT_gate_delay;
+    S1_not <= not S1 after NOT_gate_delay;
+    S2_not <= not S2 after NOT_gate_delay;
+    S3_not <= not S3 after NOT_gate_delay;
+    
     -- AND gates for each input
-    and00 <= I0 and not S0;
-    and01 <= and00 and not S1;
-    and02 <= and01 and not S2;
-    and03 <= and02 and not S3;
+    and00 <= I0 and S0_not;
+    and01 <= and00 and S1_not;
+    and02 <= and01 and S2_not;
+    and03 <= and02 and S3_not;
 
-    and10 <= I1 and not S0;
+    and10 <= I1 and S0;
     and11 <= and10 and not S1;
     and12 <= and11 and not S2;
-    and13 <= and12 and S3;
+    and13 <= and12 and not S3;
 
     and20 <= I2 and not S0;
-    and21 <= and20 and not S1;
+    and21 <= and20 and S1;
     and22 <= and21 and S2;
     and23 <= and22 and not S3;
 
-    and30 <= I3 and not S0;
-    and31 <= and30 and not S1;
-    and32 <= and31 and S2;
-    and33 <= and32 and S3;
+    and30 <= I3 and S0;
+    and31 <= and30 and S1;
+    and32 <= and31 and not S2;
+    and33 <= and32 and not S3;
 
     and40 <= I4 and not S0;
     and41 <= and40 and not S1;
-    and42 <= and41 and not S2;
-    and43 <= and42 and S3;
+    and42 <= and41 and S2;
+    and43 <= and42 and not S3;
 
     and50 <= I5 and not S0;
     and51 <= and50 and not S1;
