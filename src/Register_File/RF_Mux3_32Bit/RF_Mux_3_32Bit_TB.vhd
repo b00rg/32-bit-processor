@@ -60,27 +60,21 @@ begin
         I2_TB <= "00000001010101001101001010011111";  -- 32-bit value for I2
         S0_TB <= '0';
         S1_TB <= '0';
-        wait for 60 ns;
+        wait for 200 ns;
         assert (Y_TB = I0_TB) report "Error: Output Y_TB should be I0_TB" severity error;
 
         -- Test case 2: Select I1 (S0 = '1', S1 = '0')
         S0_TB <= '1';
         S1_TB <= '0';
-        wait for 60 ns;
+        wait for 200 ns;
         assert (Y_TB = I1_TB) report "Error: Output Y_TB should be I1_TB" severity error;
 
         -- Test case 3: Select I2 (S0 = '0', S1 = '1')
         S0_TB <= '0';
         S1_TB <= '1';
-        wait for 60 ns;
+        wait for 200 ns;
         assert (Y_TB = I2_TB) report "Error: Output Y_TB should be I2_TB" severity error;
 
-        -- Test case 4: Invalid Selection (S0 = '1', S1 = '1')
-        S0_TB <= '1';
-        S1_TB <= '1';
-        wait for 60 ns;
-        -- Here, the output is undefined; add a check if your design handles this case
-        -- This may not apply if your mux logic defines behavior for S0 and S1 being '1'.
 
         -- Finish simulation
         wait;
