@@ -30,6 +30,8 @@ end RF_Mux3_1Bit;
 architecture Behavioral of RF_Mux3_1Bit is
     -- Internal signals to handle the inverted select lines
     signal S0_not, S1_not : STD_LOGIC;
+    signal S0_S1_not, S0_not_S1 : STD_LOGIC;
+    signal or0, or1 : STD_LOGIC; 
     -- Intermediate signals for AND gates
     signal and0, and1, and2 : STD_LOGIC;
 
@@ -45,14 +47,23 @@ architecture Behavioral of RF_Mux3_1Bit is
 
 begin
     -- Invert the selection signals
-    S0_not <= not S0 after NOT_gate_delay;			-- Might have to change this here for student numbers...
+    S0_not <= not S0 after NOT_gate_delay;		
     S1_not <= not S1 after NOT_gate_delay;
 
-    -- AND gates to choose the correct input
-    and0 <= I0 and S0_not and S1_not after AND_gate_delay;
-    and1 <= I1 and S0 and S1_not after AND_gate_delay;
-    and2 <= I2 and S0_not and S1 after AND_gate_delay;
+	-- Selection signals using OR gates
+	S0_S1_not <= S0 or S1_not after OR_gate_delay;
+	S0_not_S1 <= S0_not or S1 after OR_gate_delay;
+	
+	-- Two-input AND gates
+	and0 <= I0 and S0_S1_not after AND_gate_delay;  -- S0_not and S1_not
+	and1 <= I1 and S0 and S1_not after AND_gate_delay; 
+	and2 <= I2 and S0_not_S1 after AND_gate_delay; -- S0_not and S1
 
-    -- OR the AND gates to produce the final output
-    Y <= and0 or and1 or and2 after OR_gate_delay;
+	-- Intermediate OR signals using two-input OR gates
+	or0 <= and0 or and1 after OR_gate_delay;
+	or1 <= or0 or and2 after OR_gate_delay;
+	
+	-- Final output
+	Y <= or1 after OR_gate_delay;
+
 end Behavioral;
