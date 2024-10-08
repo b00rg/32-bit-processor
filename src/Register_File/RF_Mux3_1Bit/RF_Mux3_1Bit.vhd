@@ -49,8 +49,8 @@ begin
     S1_not <= not S1 after NOT_gate_delay;
 
 	-- Selection signals using OR gates
-	S0_S1_not <= S0 or S1_not after AND_gate_delay;
-	S0_not_S1 <= S0_not or S1 after AND_gate_delay;
+	S0_S1_not <= S0 or S1_not after OR_gate_delay;
+	S0_not_S1 <= S0_not or S1 after OR_gate_delay;
 	
 	-- Two-input AND gates
 	and0 <= I0 and S0_S1_not after AND_gate_delay;  -- S0_not and S1_not
