@@ -14,7 +14,7 @@ architecture Behavioral of RF_Mux16_1 is
     signal and00, and01, and02, and03, and10, and11, and12, and13, and20, and21, and22, and23, and30, and31, and32, and33, and40, and41, and42, and43, and50, and51, and52, and53, and60, and61, and62, and63, and70, and71, and72, and73, and80, and81, and82, and83, and90, and91, and92, and93, and100, and101, and102, and103, and110, and111, and112, and113, and120, and121, and122, and123, and130, and131, and132, and133, and140, and141, and142, and143, and150, and151, and152, and153 : STD_LOGIC := '0';
 
     -- OR gates to combine the AND outputs
-    signal or00, or01, or02, or10, or11, or12, or20, or21, or22, or30, or31, or32, or33, or40, or41, or42, or43 : STD_LOGIC := '0';
+    signal or00, or01, or02, or03, or04, or05, or06, or07, or08, or09, or10, or11, or12, or13, or14 : STD_LOGIC := '0';
     
     signal S0_not, S1_not, S2_not, S3_not : STD_LOGIC := '0';
         -- Propagation Delay (as per your original specification)
@@ -117,8 +117,19 @@ begin
     or01 <= or00 or and23;
     or02 <= or01 or and33;
     or03 <= or02 or and43;
-    
+    or04 <= or03 or and53;
+    or05 <= or04 or and63; 
+    or06 <= or05 or and73;
+    or07 <= or06 or and83;
+    or08 <= or07 or and93;
+    or09 <= or08 or and103;
+    or10 <= or09 or and113;
+    or11 <= or10 or and123;
+    or12 <= or11 or and133;
+    or13 <= or12 or and143;
+    or14 <= or13 or and153;
 
     -- Final output
-    Y <= or43;
+    Y <= or14;
+
 end Behavioral;
