@@ -11,10 +11,11 @@ end RF_Mux16_1;
 
 architecture Behavioral of RF_Mux16_1 is
     -- Internal signals for AND gates
-    signal and00, and01, and02, and03, and10, and11, and12, and13, and20, and21, and22, and23, and30, and31, and32, and33 : STD_LOGIC;
+    signal and00, and01, and02, and03, and10, and11, and12, and13, and20, and21, and22, and23, and30, and31, and32, and33, and40, and41, and42, and43, and50, and51, and52, and53, and60, and61, and62, and63, and70, and71, and72, and73, and80, and81, and82, and83, and90, and91, and92, and93, and100, and101, and102, and103, and110, and111, and112, and113, and120, and121, and122, and123, and130, and131, and132, and133, and140, and141, and142, and143, and150, and151, and152, and153 : STD_LOGIC := '0';
 
     -- OR gates to combine the AND outputs
-    signal or00, or01, or02, or10, or11, or12, or20, or21, or30, or31, or32, or33, or40, or41, or42, or43 : STD_LOGIC;
+    signal or00, or01, or02, or10, or11, or12, or20, or21, or30, or31, or32, or33, or40, or41, or42, or43 : STD_LOGIC := '0';
+
 
 begin
     -- AND gates for each input
