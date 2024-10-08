@@ -25,90 +25,91 @@ architecture Behavioral of RF_Mux16_1 is
     
 
 begin
-    S0_not <= not S0 after NOT_gate_delay;
-    S1_not <= not S1 after NOT_gate_delay;
-    S2_not <= not S2 after NOT_gate_delay;
-    S3_not <= not S3 after NOT_gate_delay;
-    
-    -- AND gates for each input
+    -- Invert the selection signals
+    S0_not <= not S0;
+    S1_not <= not S1;
+    S2_not <= not S2;
+    S3_not <= not S3;
+
+    -- AND gates for each input (unpacked)
     and00 <= I0 and S0_not;
     and01 <= and00 and S1_not;
     and02 <= and01 and S2_not;
     and03 <= and02 and S3_not;
 
     and10 <= I1 and S0;
-    and11 <= and10 and not S1;
-    and12 <= and11 and not S2;
-    and13 <= and12 and not S3;
+    and11 <= and10 and S1_not;
+    and12 <= and11 and S2_not;
+    and13 <= and12 and S3_not;
 
-    and20 <= I2 and not S0;
+    and20 <= I2 and S0_not;
     and21 <= and20 and S1;
-    and22 <= and21 and S2;
-    and23 <= and22 and not S3;
+    and22 <= and21 and S2_not;
+    and23 <= and22 and S3_not;
 
     and30 <= I3 and S0;
     and31 <= and30 and S1;
-    and32 <= and31 and not S2;
-    and33 <= and32 and not S3;
+    and32 <= and31 and S2_not;
+    and33 <= and32 and S3_not;
 
-    and40 <= I4 and not S0;
-    and41 <= and40 and not S1;
+    and40 <= I4 and S0_not;
+    and41 <= and40 and S1_not;
     and42 <= and41 and S2;
-    and43 <= and42 and not S3;
+    and43 <= and42 and S3_not;
 
-    and50 <= I5 and not S0;
-    and51 <= and50 and not S1;
-    and52 <= and51 and not S2;
-    and53 <= and52 and S3;
+    and50 <= I5 and S0;
+    and51 <= and50 and S1_not;
+    and52 <= and51 and S2;
+    and53 <= and52 and S3_not;
 
-    and60 <= I6 and not S0;
-    and61 <= and60 and not S1;
-    and62 <= and61 and not S2;
-    and63 <= and62 and S3;
+    and60 <= I6 and S0_not;
+    and61 <= and60 and S1;
+    and62 <= and61 and S2;
+    and63 <= and62 and S3_not;
 
-    and70 <= I7 and not S0;
-    and71 <= and70 and not S1;
-    and72 <= and71 and not S2;
-    and73 <= and72 and S3;
+    and70 <= I7 and S0;
+    and71 <= and70 and S1;
+    and72 <= and71 and S2;
+    and73 <= and72 and S3_not;
 
-    and80 <= I8 and not S0;
-    and81 <= and80 and not S1;
-    and82 <= and81 and not S2;
+    and80 <= I8 and S0_not;
+    and81 <= and80 and S1_not;
+    and82 <= and81 and S2_not;
     and83 <= and82 and S3;
 
-    and90 <= I9 and not S0;
-    and91 <= and90 and not S1;
-    and92 <= and91 and not S2;
+    and90 <= I9 and S0;
+    and91 <= and90 and S1_not;
+    and92 <= and91 and S2_not;
     and93 <= and92 and S3;
 
-    and100 <= I10 and not S0;
-    and101 <= and100 and not S1;
-    and102 <= and101 and not S2;
+    and100 <= I10 and S0_not;
+    and101 <= and100 and S1;
+    and102 <= and101 and S2_not;
     and103 <= and102 and S3;
 
-    and110 <= I11 and not S0;
-    and111 <= and110 and not S1;
-    and112 <= and111 and not S2;
+    and110 <= I11 and S0;
+    and111 <= and110 and S1;
+    and112 <= and111 and S2_not;
     and113 <= and112 and S3;
 
-    and120 <= I12 and not S0;
-    and121 <= and120 and not S1;
-    and122 <= and121 and not S2;
+    and120 <= I12 and S0_not;
+    and121 <= and120 and S1_not;
+    and122 <= and121 and S2;
     and123 <= and122 and S3;
 
-    and130 <= I13 and not S0;
-    and131 <= and130 and not S1;
-    and132 <= and131 and not S2;
+    and130 <= I13 and S0;
+    and131 <= and130 and S1_not;
+    and132 <= and131 and S2;
     and133 <= and132 and S3;
 
-    and140 <= I14 and not S0;
-    and141 <= and140 and not S1;
-    and142 <= and141 and not S2;
+    and140 <= I14 and S0_not;
+    and141 <= and140 and S1;
+    and142 <= and141 and S2;
     and143 <= and142 and S3;
 
-    and150 <= I15 and not S0;
-    and151 <= and150 and not S1;
-    and152 <= and151 and not S2;
+    and150 <= I15 and S0;
+    and151 <= and150 and S1;
+    and152 <= and151 and S2;
     and153 <= and152 and S3;
 
     -- OR gates
