@@ -41,24 +41,7 @@ architecture Behavioral of RF_Mux16_1Bit is
     signal or0, or1, or2, or3, or4, or5, or6, or7 : std_logic;
     signal or8, or9, or10 : std_logic;
     
-    signal temp0_1, temp0_2: std_logic;
-    signal temp1_1, temp1_2: std_logic;
-    signal temp2_1, temp2_2: std_logic;
-    signal temp3_1, temp3_2: std_logic;
-    signal temp4_1, temp4_2: std_logic;
-    signal temp5_1, temp5_2: std_logic;
-    signal temp6_1, temp6_2: std_logic;
-    signal temp7_1, temp7_2: std_logic;
-    signal temp8_1, temp8_2: std_logic;
-    signal temp9_1, temp9_2: std_logic;
-    signal temp10_1, temp10_2: std_logic;
-    signal temp11_1, temp11_2: std_logic;
-    signal temp12_1, temp12_2: std_logic;
-    signal temp13_1, temp13_2: std_logic;
-    signal temp14_1, temp14_2: std_logic;
-    signal temp15_1, temp15_2: std_logic;
-
-     signal or_final1, or_final2: std_logic;
+    signal or_final: std_logic;
 
     -- Propagation Delay (as per your original specification)
     constant AND_gate_delay : Time := 8ns;
@@ -154,7 +137,7 @@ begin
     and15 <= temp15_2 and S2 after AND_gate_delay;
     and15 <= and15 and S3 after AND_gate_delay;
 
-    -- OR the AND gates to produce the final output using only 2-input OR gates
+    -- OR the AND gates to produce the intermediate outputs using only 2-input OR gates
     or0 <= and0 or and1 after OR_gate_delay;
     or1 <= and2 or and3 after OR_gate_delay;
     or2 <= and4 or and5 after OR_gate_delay;
@@ -169,10 +152,8 @@ begin
     or9 <= or2 or or3 after OR_gate_delay;
     or10 <= or4 or or5 after OR_gate_delay;
 
-    -- Final output
-    or_final1 <= or8 or or9 after OR_gate_delay;
-    or_final2 <= or_final1 or final_or after OR_gate_delay;
-
-    Y <= or_final2 after OR_gate_delay;
+    -- Final output using the last set of OR gates
+    or_final <= or8 or or9 after OR_gate_delay;
+    Y <= or_final or or6 after OR_gate_delay; -- Ensure to include all signals
 
 end Behavioral;
