@@ -1,15 +1,15 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux32_1 is
+entity RF_Mux32_1Bit is
     Port (
         I0, I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15 : in STD_LOGIC;
+        I16, I17, I18, I19, I20, I21, I22, I23, I24, I25, I26, I27, I28, I29, I30, I31 : in STD_LOGIC;
         S0, S1, S2, S3, S4 : in STD_LOGIC;
-        Y : out STD_LOGIC
-    );
-end RF_Mux32_1;
+        Y : out STD_LOGIC);
+end RF_Mux32_1Bit;
 
-architecture Behavioral of RF_Mux32_1 is
+architecture Behavioral of RF_Mux32_1Bit is
     -- Internal signals for AND gates
     signal and00, and01, and02, and03, and04 : STD_LOGIC := '0';
     signal and10, and11, and12, and13, and14 : STD_LOGIC := '0';
@@ -167,10 +167,10 @@ begin
     and164 <= and163 and S4 after AND_gate_delay;
 
     and170 <= I17 and S0 after AND_gate_delay;
-    and171 <= and17 and S1_not after AND_gate_delay;
-    and172 <= and17 and S2_not after AND_gate_delay;
-    and173 <= and17 and S3_not after AND_gate_delay;
-    and174 <= and17 and S4 after AND_gate_delay;
+    and171 <= and170 and S1_not after AND_gate_delay;
+    and172 <= and171 and S2_not after AND_gate_delay;
+    and173 <= and172 and S3_not after AND_gate_delay;
+    and174 <= and172 and S4 after AND_gate_delay;
 
     and180 <= I18 and S0_not after AND_gate_delay;
     and181 <= and180 and S1 after AND_gate_delay;
