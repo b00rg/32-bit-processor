@@ -35,8 +35,8 @@ architecture simulation of RF_Mux16_32Bit_TB is
     end component;
 
     -- Signals for inputs and outputs
-    signal I0_TB, I1_TB, I2_TB : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');  -- Initialize inputs
-    signal S0_TB, S1_TB : STD_LOGIC := '0';  -- Initialize selection signals
+    signal I0_TB, I1_TB, I2_TB, I3_TB, I4_TB, I5_TB, I6_TB, I7_TB, I8_TB, I9_TB, I10_TB, I11_TB, I12_TB, I13_TB, I14_TB, I15_TB : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');  -- Initialize inputs
+    signal S0_TB, S1_TB, S2_TB, S3_TB : STD_LOGIC := '0';  -- Initialize selection signals
     signal Y_TB : STD_LOGIC_VECTOR(31 downto 0);  -- Output
     constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
@@ -46,8 +46,23 @@ begin
             I0 => I0_TB,
             I1 => I1_TB,
             I2 => I2_TB,
+            I3 => I3_TB,
+            I4 => I4_TB,
+            I5 => I5_TB,
+            I6 => I6_TB,
+            I7 => I7_TB,
+            I8 => I8_TB,
+            I9 => I9_TB,
+            I10 => I10_TB,
+            I11 => I11_TB,
+            I12 => I12_TB,
+            I13 => I13_TB,
+            I14 => I14_TB,
+            I15 => I15_TB,
             S0 => S0_TB,
             S1 => S1_TB,
+            S2 => S2_TB,
+            S3 => S3_TB,
             Y  => Y_TB
         );
 
@@ -67,7 +82,7 @@ begin
         I9_TB <= "0000001010101001101001010100110";
         I10_TB <= "0000001010101001101001010100111";
         I11_TB <= "0000001010101001101001010101000";
-        I12_TB <= "0000001010101001101001010101001";
+        I12_TB <= "0000001010101001101001010101001";
         I12_TB <= "0000001010101001101001010101010";
         I13_TB <= "0000001010101001101001010101011";
         I14_TB <= "0000001010101001101001010101100";
