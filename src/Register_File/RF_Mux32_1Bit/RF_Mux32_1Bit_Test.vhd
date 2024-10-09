@@ -62,6 +62,7 @@ begin
     S1_not <= not S1 after NOT_gate_delay;
     S2_not <= not S2 after NOT_gate_delay;
     S3_not <= not S3 after NOT_gate_delay;
+    S4_not <= not S4 after NOT_gate_delay;
 
     -- AND gates for each input (unpacked)
     and00 <= I0 and S0_not after AND_gate_delay;
@@ -273,9 +274,24 @@ begin
     or13 <= or12 or and144;
     or14 <= or13 or and154;
 
-    or15 <= or14 or and164; 
+    or15 <= or14 or and164;
+    or16 <= or15 or and174;
+    or17 <= or16 or and184;
+    or18 <= or17 or and194;
+    or19 <= or18 or and204;
+    or20 <= or19 or and214;
+    or21 <= or20 or and224;
+    or22 <= or21 or and234;
+    or23 <= or22 or and244;
+    or24 <= or23 or and254;
+    or25 <= or24 or and264;
+    or26 <= or25 or and274;
+    or27 <= or26 or and284;
+    or28 <= or27 or and294;
+    or29 <= or28 or and304;
+    or30 <= or29 or and314;  
 
     -- Final output
-    Y <= or15;
+    Y <= or30; 
 
 end Behavioral;
