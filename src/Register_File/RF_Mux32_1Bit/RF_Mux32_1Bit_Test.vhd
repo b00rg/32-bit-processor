@@ -68,26 +68,31 @@ begin
     and01 <= and00 and S1_not after AND_gate_delay;
     and02 <= and01 and S2_not after AND_gate_delay;
     and03 <= and02 and S3_not after AND_gate_delay;
+    and04 <= and03 and S4_not after AND_gate_delay;
 
     and10 <= I1 and S0 after AND_gate_delay;
     and11 <= and10 and S1_not after AND_gate_delay;
     and12 <= and11 and S2_not after AND_gate_delay;
     and13 <= and12 and S3_not after AND_gate_delay;
+    and14 <= and13 and S4_not after AND_gate_delay;
 
     and20 <= I2 and S0_not after AND_gate_delay;
     and21 <= and20 and S1 after AND_gate_delay;
     and22 <= and21 and S2_not after AND_gate_delay;
     and23 <= and22 and S3_not after AND_gate_delay;
+    and24 <= and23 and S4_not after AND_gate_delay;
 
     and30 <= I3 and S0 after AND_gate_delay;
     and31 <= and30 and S1 after AND_gate_delay;
     and32 <= and31 and S2_not after AND_gate_delay;
     and33 <= and32 and S3_not after AND_gate_delay;
+    and34 <= and33 and S4_not after AND_gate_delay;
 
     and40 <= I4 and S0_not after AND_gate_delay;
     and41 <= and40 and S1_not after AND_gate_delay;
     and42 <= and41 and S2 after AND_gate_delay;
     and43 <= and42 and S3_not after AND_gate_delay;
+    and44 <= and43 and S4_not after AND_gate_delay; 
 
     and50 <= I5 and S0 after AND_gate_delay;
     and51 <= and50 and S1_not after AND_gate_delay;
