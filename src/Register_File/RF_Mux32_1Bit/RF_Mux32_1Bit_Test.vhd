@@ -185,7 +185,7 @@ begin
     and193 <= and192 and S3_not after AND_gate_delay;
     and194 <= and193 and S4 after AND_gate_delay;
 
-    and40  <= I20 and S0_not after AND_gate_delay;
+    and200  <= I20 and S0_not after AND_gate_delay;
     and201 <= and200 and S1_not after AND_gate_delay;
     and202 <= and201 and S2 after AND_gate_delay;
     and203 <= and202 and S3_not after AND_gate_delay;
