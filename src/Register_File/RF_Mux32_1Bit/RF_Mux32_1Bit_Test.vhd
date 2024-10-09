@@ -177,15 +177,15 @@ begin
     and181 <= and180 and S1 after AND_gate_delay;
     and182 <= and181 and S2_not after AND_gate_delay;
     and183 <= and182 and S3_not after AND_gate_delay;
-    and184 <= and183 and S4_not after AND_gate_delay;
+    and184 <= and183 and S4 after AND_gate_delay;
 
     and190 <= I19 and S0 after AND_gate_delay;
     and191 <= and190 and S1 after AND_gate_delay;
     and192 <= and191 and S2_not after AND_gate_delay;
     and193 <= and192 and S3_not after AND_gate_delay;
-    and194 <= and193 and S4_not after AND_gate_delay;
+    and194 <= and193 and S4 after AND_gate_delay;
 
-    and40 <= I20 and S0_not after AND_gate_delay;
+    and40  <= I20 and S0_not after AND_gate_delay;
     and201 <= and200 and S1_not after AND_gate_delay;
     and202 <= and201 and S2 after AND_gate_delay;
     and203 <= and202 and S3_not after AND_gate_delay;
