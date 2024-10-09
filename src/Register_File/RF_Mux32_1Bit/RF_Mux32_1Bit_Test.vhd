@@ -257,21 +257,23 @@ begin
     and314 <= and313 and S4 after AND_gate_delay; 
 
     -- OR gates
-    or00 <= and03 or and13;
-    or01 <= or00 or and23;
-    or02 <= or01 or and33;
-    or03 <= or02 or and43;
-    or04 <= or03 or and53;
-    or05 <= or04 or and63; 
-    or06 <= or05 or and73;
-    or07 <= or06 or and83;
-    or08 <= or07 or and93;
-    or09 <= or08 or and103;
-    or10 <= or09 or and113;
-    or11 <= or10 or and123;
-    or12 <= or11 or and133;
-    or13 <= or12 or and143;
-    or14 <= or13 or and153;
+    or00 <= and04 or and14;
+    or01 <= or00 or and24;
+    or02 <= or01 or and34;
+    or03 <= or02 or and44;
+    or04 <= or03 or and54;
+    or05 <= or04 or and64; 
+    or06 <= or05 or and74;
+    or07 <= or06 or and84;
+    or08 <= or07 or and94;
+    or09 <= or08 or and104;
+    or10 <= or09 or and114;
+    or11 <= or10 or and124;
+    or12 <= or11 or and134;
+    or13 <= or12 or and144;
+    or14 <= or13 or and154;
+
+    or15 <= or14 or and164; 
 
     -- Final output
     Y <= or14;
