@@ -160,11 +160,6 @@ begin
     and153 <= and152 and S3 after AND_gate_delay;
     and154 <= and153 and S4_not after AND_gate_delay; 
 
-
-
-
-
-    -- AND gates for each input (unpacked)
     and160 <= I16 and S0_not after AND_gate_delay;
     and161 <= and160 and S1_not after AND_gate_delay;
     and162 <= and161 and S2_not after AND_gate_delay;
@@ -237,30 +232,29 @@ begin
     and273 <= and272 and S3 after AND_gate_delay;
     and274 <= and273 and S4 after AND_gate_delay;
 
-    and120 <= I12 and S0_not after AND_gate_delay;
-    and121 <= and120 and S1_not after AND_gate_delay;
-    and122 <= and121 and S2 after AND_gate_delay;
-    and123 <= and122 and S3 after AND_gate_delay;
-    and124 <= and123 and S4_not after AND_gate_delay;
+    and280 <= I28 and S0_not after AND_gate_delay;
+    and281 <= and280 and S1_not after AND_gate_delay;
+    and282 <= and281 and S2 after AND_gate_delay;
+    and283 <= and282 and S3 after AND_gate_delay;
+    and284 <= and283 and S4 after AND_gate_delay;
 
-    and130 <= I13 and S0 after AND_gate_delay;
-    and131 <= and130 and S1_not after AND_gate_delay;
-    and132 <= and131 and S2 after AND_gate_delay;
-    and133 <= and132 and S3 after AND_gate_delay;
-    and134 <= and133 and S4_not after AND_gate_delay;
+    and290 <= I29 and S0 after AND_gate_delay;
+    and291 <= and290 and S1_not after AND_gate_delay;
+    and292 <= and291 and S2 after AND_gate_delay;
+    and293 <= and292 and S3 after AND_gate_delay;
+    and294 <= and293 and S4 after AND_gate_delay;
 
-    and140 <= I14 and S0_not after AND_gate_delay;
-    and141 <= and140 and S1 after AND_gate_delay;
-    and142 <= and141 and S2 after AND_gate_delay;
-    and143 <= and142 and S3 after AND_gate_delay;
-    and144 <= and143 and S4_not after AND_gate_delay;
+    and300 <= I30 and S0_not after AND_gate_delay;
+    and301 <= and300 and S1 after AND_gate_delay;
+    and302 <= and301 and S2 after AND_gate_delay;
+    and303 <= and302 and S3 after AND_gate_delay;
+    and304 <= and303 and S4 after AND_gate_delay;
 
-    and150 <= I15 and S0 after AND_gate_delay;
-    and151 <= and150 and S1 after AND_gate_delay;
-    and152 <= and151 and S2 after AND_gate_delay;
-    and153 <= and152 and S3 after AND_gate_delay;
-    and154 <= and153 and S4_not after AND_gate_delay; 
-
+    and310 <= I31 and S0 after AND_gate_delay;
+    and311 <= and310 and S1 after AND_gate_delay;
+    and312 <= and311 and S2 after AND_gate_delay;
+    and313 <= and312 and S3 after AND_gate_delay;
+    and314 <= and313 and S4 after AND_gate_delay; 
 
     -- OR gates
     or00 <= and03 or and13;
