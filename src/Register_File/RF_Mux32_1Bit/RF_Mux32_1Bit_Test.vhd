@@ -165,77 +165,77 @@ begin
 
 
     -- AND gates for each input (unpacked)
-    and160 <= I0 and S0_not after AND_gate_delay;
+    and160 <= I16 and S0_not after AND_gate_delay;
     and161 <= and160 and S1_not after AND_gate_delay;
     and162 <= and161 and S2_not after AND_gate_delay;
     and163 <= and162 and S3_not after AND_gate_delay;
     and164 <= and163 and S4 after AND_gate_delay;
 
-    and170 <= I1 and S0 after AND_gate_delay;
+    and170 <= I17 and S0 after AND_gate_delay;
     and171 <= and17 and S1_not after AND_gate_delay;
     and172 <= and17 and S2_not after AND_gate_delay;
     and173 <= and17 and S3_not after AND_gate_delay;
     and174 <= and17 and S4 after AND_gate_delay;
 
-    and180 <= I2 and S0_not after AND_gate_delay;
+    and180 <= I18 and S0_not after AND_gate_delay;
     and181 <= and180 and S1 after AND_gate_delay;
     and182 <= and181 and S2_not after AND_gate_delay;
     and183 <= and182 and S3_not after AND_gate_delay;
     and184 <= and183 and S4_not after AND_gate_delay;
 
-    and190 <= I3 and S0 after AND_gate_delay;
+    and190 <= I19 and S0 after AND_gate_delay;
     and191 <= and190 and S1 after AND_gate_delay;
     and192 <= and191 and S2_not after AND_gate_delay;
     and193 <= and192 and S3_not after AND_gate_delay;
     and194 <= and193 and S4_not after AND_gate_delay;
 
-    and40 <= I4 and S0_not after AND_gate_delay;
-    and41 <= and40 and S1_not after AND_gate_delay;
-    and42 <= and41 and S2 after AND_gate_delay;
-    and43 <= and42 and S3_not after AND_gate_delay;
-    and44 <= and43 and S4_not after AND_gate_delay; 
+    and40 <= I20 and S0_not after AND_gate_delay;
+    and201 <= and200 and S1_not after AND_gate_delay;
+    and202 <= and201 and S2 after AND_gate_delay;
+    and203 <= and202 and S3_not after AND_gate_delay;
+    and204 <= and203 and S4 after AND_gate_delay; 
 
-    and50 <= I5 and S0 after AND_gate_delay;
-    and51 <= and50 and S1_not after AND_gate_delay;
-    and52 <= and51 and S2 after AND_gate_delay;
-    and53 <= and52 and S3_not after AND_gate_delay;
-    and54 <= and53 and S4_not after AND_gate_delay; 
+    and210 <= I21 and S0 after AND_gate_delay;
+    and211 <= and210 and S1_not after AND_gate_delay;
+    and212 <= and211 and S2 after AND_gate_delay;
+    and213 <= and212 and S3_not after AND_gate_delay;
+    and214 <= and213 and S4 after AND_gate_delay; 
 
-    and60 <= I6 and S0_not after AND_gate_delay;
-    and61 <= and60 and S1 after AND_gate_delay;
-    and62 <= and61 and S2 after AND_gate_delay;
-    and63 <= and62 and S3_not after AND_gate_delay;
-    and64 <= and63 and S4_not after AND_gate_delay;
+    and220 <= I22 and S0_not after AND_gate_delay;
+    and221 <= and220 and S1 after AND_gate_delay;
+    and222 <= and221 and S2 after AND_gate_delay;
+    and223 <= and222 and S3_not after AND_gate_delay;
+    and224 <= and223 and S4 after AND_gate_delay;
 
-    and70 <= I7 and S0 after AND_gate_delay;
-    and71 <= and70 and S1 after AND_gate_delay;
-    and72 <= and71 and S2 after AND_gate_delay;
-    and73 <= and72 and S3_not after AND_gate_delay;
-    and74 <= and73 and S4_not after AND_gate_delay;
+    and230 <= I23 and S0 after AND_gate_delay;
+    and231 <= and230 and S1 after AND_gate_delay;
+    and232 <= and231 and S2 after AND_gate_delay;
+    and233 <= and232 and S3_not after AND_gate_delay;
+    and234 <= and233 and S4 after AND_gate_delay;
 
-    and80 <= I8 and S0_not after AND_gate_delay;
-    and81 <= and80 and S1_not after AND_gate_delay;
-    and82 <= and81 and S2_not after AND_gate_delay;
-    and83 <= and82 and S3 after AND_gate_delay;
-    and84 <= and83 and S4_not after AND_gate_delay; 
+    and240 <= I24 and S0_not after AND_gate_delay;
+    and241 <= and240 and S1_not after AND_gate_delay;
+    and242 <= and241 and S2_not after AND_gate_delay;
+    and243 <= and242 and S3 after AND_gate_delay;
+    and244 <= and243 and S4 after AND_gate_delay; 
 
-    and90 <= I9 and S0 after AND_gate_delay;
-    and91 <= and90 and S1_not after AND_gate_delay;
-    and92 <= and91 and S2_not after AND_gate_delay;
-    and93 <= and92 and S3 after AND_gate_delay;
-    and94 <= and93 and S4_not after AND_gate_delay; 
+    and250 <= I25 and S0 after AND_gate_delay;
+    and251 <= and250 and S1_not after AND_gate_delay;
+    and252 <= and251 and S2_not after AND_gate_delay;
+    and253 <= and252 and S3 after AND_gate_delay;
+    and254 <= and253 and S4 after AND_gate_delay; 
 
-    and100 <= I10 and S0_not after AND_gate_delay;
-    and101 <= and100 and S1 after AND_gate_delay;
-    and102 <= and101 and S2_not after AND_gate_delay;
-    and103 <= and102 and S3 after AND_gate_delay;
-    and104 <= and103 and S4_not after AND_gate_delay;
+    and260 <= I26 and S0_not after AND_gate_delay;
+    and261 <= and260 and S1 after AND_gate_delay;
+    and262 <= and261 and S2_not after AND_gate_delay;
+    and263 <= and262 and S3 after AND_gate_delay;
+    and264 <= and263 and S4 after AND_gate_delay;
 
-    and110 <= I11 and S0 after AND_gate_delay;
-    and111 <= and110 and S1 after AND_gate_delay;
-    and112 <= and111 and S2_not after AND_gate_delay;
-    and113 <= and112 and S3 after AND_gate_delay;
-    and114 <= and113 and S4_not after AND_gate_delay;
+    and270 <= I27 and S0 after AND_gate_delay;
+    and271 <= and270 and S1 after AND_gate_delay;
+    and272 <= and271 and S2_not after AND_gate_delay;
+    and273 <= and272 and S3 after AND_gate_delay;
+    and274 <= and273 and S4 after AND_gate_delay;
 
     and120 <= I12 and S0_not after AND_gate_delay;
     and121 <= and120 and S1_not after AND_gate_delay;
