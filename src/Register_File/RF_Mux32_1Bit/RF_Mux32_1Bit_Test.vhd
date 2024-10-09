@@ -10,40 +10,40 @@ entity RF_Mux32_1 is
 end RF_Mux32_1;
 
 architecture Behavioral of RF_Mux32_1 is
--- Internal signals for AND gates
-signal and00, and01, and02, and03, and04 : STD_LOGIC := '0';
-signal and10, and11, and12, and13, and14 : STD_LOGIC := '0';
-signal and20, and21, and22, and23, and24 : STD_LOGIC := '0';
-signal and30, and31, and32, and33, and34 : STD_LOGIC := '0';
-signal and40, and41, and42, and43, and44 : STD_LOGIC := '0';
-signal and50, and51, and52, and53, and54 : STD_LOGIC := '0';
-signal and60, and61, and62, and63, and64 : STD_LOGIC := '0';
-signal and70, and71, and72, and73, and74 : STD_LOGIC := '0';
-signal and80, and81, and82, and83, and84 : STD_LOGIC := '0';
-signal and90, and91, and92, and93, and94 : STD_LOGIC := '0';
-signal and100, and101, and102, and103, and104 : STD_LOGIC := '0';
-signal and110, and111, and112, and113, and114 : STD_LOGIC := '0';
-signal and120, and121, and122, and123, and124 : STD_LOGIC := '0';
-signal and130, and131, and132, and133, and134 : STD_LOGIC := '0';
-signal and140, and141, and142, and143, and144 : STD_LOGIC := '0';
-signal and150, and151, and152, and153, and154 : STD_LOGIC := '0';
-signal and160, and161, and162, and163, and164 : STD_LOGIC := '0';
-signal and170, and171, and172, and173, and174 : STD_LOGIC := '0';
-signal and180, and181, and182, and183, and184 : STD_LOGIC := '0';
-signal and190, and191, and192, and193, and194 : STD_LOGIC := '0';
-signal and200, and201, and202, and203, and204 : STD_LOGIC := '0';
-signal and210, and211, and212, and213, and214 : STD_LOGIC := '0';
-signal and220, and221, and222, and223, and224 : STD_LOGIC := '0';
-signal and230, and231, and232, and233, and234 : STD_LOGIC := '0';
-signal and240, and241, and242, and243, and244 : STD_LOGIC := '0';
-signal and250, and251, and252, and253, and254 : STD_LOGIC := '0';
-signal and260, and261, and262, and263, and264 : STD_LOGIC := '0';
-signal and270, and271, and272, and273, and274 : STD_LOGIC := '0';
-signal and280, and281, and282, and283, and284 : STD_LOGIC := '0';
-signal and290, and291, and292, and293, and294 : STD_LOGIC := '0';
-signal and300, and301, and302, and303, and304 : STD_LOGIC := '0';
-signal and310, and311, and312, and313, and314 : STD_LOGIC := '0';
-
+    -- Internal signals for AND gates
+    signal and00, and01, and02, and03, and04 : STD_LOGIC := '0';
+    signal and10, and11, and12, and13, and14 : STD_LOGIC := '0';
+    signal and20, and21, and22, and23, and24 : STD_LOGIC := '0';
+    signal and30, and31, and32, and33, and34 : STD_LOGIC := '0';
+    signal and40, and41, and42, and43, and44 : STD_LOGIC := '0';
+    signal and50, and51, and52, and53, and54 : STD_LOGIC := '0';
+    signal and60, and61, and62, and63, and64 : STD_LOGIC := '0';
+    signal and70, and71, and72, and73, and74 : STD_LOGIC := '0';
+    signal and80, and81, and82, and83, and84 : STD_LOGIC := '0';
+    signal and90, and91, and92, and93, and94 : STD_LOGIC := '0';
+    signal and100, and101, and102, and103, and104 : STD_LOGIC := '0';
+    signal and110, and111, and112, and113, and114 : STD_LOGIC := '0';
+    signal and120, and121, and122, and123, and124 : STD_LOGIC := '0';
+    signal and130, and131, and132, and133, and134 : STD_LOGIC := '0';
+    signal and140, and141, and142, and143, and144 : STD_LOGIC := '0';
+    signal and150, and151, and152, and153, and154 : STD_LOGIC := '0';
+    signal and160, and161, and162, and163, and164 : STD_LOGIC := '0';
+    signal and170, and171, and172, and173, and174 : STD_LOGIC := '0';
+    signal and180, and181, and182, and183, and184 : STD_LOGIC := '0';
+    signal and190, and191, and192, and193, and194 : STD_LOGIC := '0';
+    signal and200, and201, and202, and203, and204 : STD_LOGIC := '0';
+    signal and210, and211, and212, and213, and214 : STD_LOGIC := '0';
+    signal and220, and221, and222, and223, and224 : STD_LOGIC := '0';
+    signal and230, and231, and232, and233, and234 : STD_LOGIC := '0';
+    signal and240, and241, and242, and243, and244 : STD_LOGIC := '0';
+    signal and250, and251, and252, and253, and254 : STD_LOGIC := '0';
+    signal and260, and261, and262, and263, and264 : STD_LOGIC := '0';
+    signal and270, and271, and272, and273, and274 : STD_LOGIC := '0';
+    signal and280, and281, and282, and283, and284 : STD_LOGIC := '0';
+    signal and290, and291, and292, and293, and294 : STD_LOGIC := '0';
+    signal and300, and301, and302, and303, and304 : STD_LOGIC := '0';
+    signal and310, and311, and312, and313, and314 : STD_LOGIC := '0';
+    
     -- OR gates to combine the AND outputs
     signal or00, or01, or02, or03, or04, or05, or06, or07, or08, or09, or10, or11, or12, or13, or14 : STD_LOGIC := '0';
     signal or15, or16, or17, or18, or19, or20, or21, or22, or23, or24, or25, or26, or27, or28, or29, or30 : STD_LOGIC := '0';
