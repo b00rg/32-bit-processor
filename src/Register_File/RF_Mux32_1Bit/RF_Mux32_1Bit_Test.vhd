@@ -276,6 +276,6 @@ begin
     or15 <= or14 or and164; 
 
     -- Final output
-    Y <= or14;
+    Y <= or15;
 
 end Behavioral;
