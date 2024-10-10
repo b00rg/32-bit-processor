@@ -8,9 +8,9 @@
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: 16-to-1 Multiplexer using 1-bit 16-to-1 Muxes
+-- Description: 16-to-1 Multiplexer
 -- 
--- Dependencies: Mux16_1Bit
+-- Dependencies:
 -- 
 -- Revision:
 -- Revision 0.01 - File Created
@@ -40,7 +40,6 @@ architecture Behavioral of RF_Mux16_1Bit is
     constant AND_gate_delay : Time := 8ns;
     constant OR_gate_delay : Time := 2ns;
     constant NOT_gate_delay : Time := 3ns;
-    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
     
 
 begin
@@ -52,7 +51,7 @@ begin
 
     -- AND gates for each input (unpacked)
     and00 <= I0 and S0_not after AND_gate_delay;
-    and01 <= and00 and S1_not after AND_gate_delay;
+    and01 <= and00 and S1_not fter AND_gate_delay;
     and02 <= and01 and S2_not after AND_gate_delay;
     and03 <= and02 and S3_not after AND_gate_delay;
 
