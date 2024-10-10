@@ -26,11 +26,11 @@ end RF_Mux16_32Bit_TB;
 architecture simulation of RF_Mux16_32Bit_TB is
     -- Component Declaration for the UUT
     component RF_Mux16_32Bit
-        Port ( I0, I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16  : in  STD_LOGIC_VECTOR(31 downto 0);
+        Port ( I0, I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15  : in  STD_LOGIC_VECTOR(31 downto 0);
                S0 : in  STD_LOGIC;
                S1 : in  STD_LOGIC;
                S2 : in STD_LOGIC;
-                S3 : in STD_LOGIC;
+               S3 : in STD_LOGIC;
                Y  : out STD_LOGIC_VECTOR(31 downto 0)
              );
     end component;
@@ -84,9 +84,9 @@ begin
         I10_TB <= "0000001010101001101001010100111";
         I11_TB <= "0000001010101001101001010101000";
         I12_TB <= "0000001010101001101001010101001";
-        I12_TB <= "0000001010101001101001010101010";
-        I13_TB <= "0000001010101001101001010101011";
-        I14_TB <= "0000001010101001101001010101100";
+        I13_TB <= "0000001010101001101001010101010";
+        I14_TB <= "0000001010101001101001010101011";
+        I15_TB <= "0000001010101001101001010101100";
 
     
     -- Test case 1: Select I0 (S0 = '0', S1 = '0', S2 = '0', S3 = '0')
