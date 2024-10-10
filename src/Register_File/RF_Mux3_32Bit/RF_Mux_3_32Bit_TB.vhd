@@ -26,10 +26,11 @@ end RF_Mux3_32Bit_TB;
 architecture simulation of RF_Mux3_32Bit_TB is
     -- Component Declaration for the UUT
     component RF_Mux3_32Bit
-        Port ( I0, I1, I2, I3,  : in  STD_LOGIC_VECTOR(31 downto 0);
+        Port ( I0 : in  STD_LOGIC_VECTOR(31 downto 0);
+               I1 : in  STD_LOGIC_VECTOR(31 downto 0);
+               I2 : in  STD_LOGIC_VECTOR(31 downto 0);
                S0 : in  STD_LOGIC;
                S1 : in  STD_LOGIC;
-               S2 : in STD_LOGIC;
                Y  : out STD_LOGIC_VECTOR(31 downto 0)
              );
     end component;
