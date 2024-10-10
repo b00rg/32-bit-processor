@@ -30,6 +30,7 @@ architecture simulation of RF_Mux16_32Bit_TB is
                S0 : in  STD_LOGIC;
                S1 : in  STD_LOGIC;
                S2 : in STD_LOGIC;
+                S3 : in STD_LOGIC;
                Y  : out STD_LOGIC_VECTOR(31 downto 0)
              );
     end component;
