@@ -8,16 +8,15 @@
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: 16-to-1 Multiplexer
+-- Description: 16-to-1 Multiplexer using 1-bit 16-to-1 Muxes
 -- 
--- Dependencies: 
+-- Dependencies: Mux16_1Bit
 -- 
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
