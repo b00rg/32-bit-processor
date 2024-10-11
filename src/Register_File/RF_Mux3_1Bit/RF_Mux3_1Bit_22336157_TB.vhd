@@ -7,12 +7,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux3_1Bit_TB is
-end RF_Mux3_1Bit_TB;
+entity RF_Mux3_1Bit_22336157_TB is
+end RF_Mux3_1Bit_22336157_TB;
 
-architecture Simulation of RF_Mux3_1Bit_TB is
+architecture Simulation of RF_Mux3_1Bit_22336157_TB is
    -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT RF_Mux3_1Bit
+    COMPONENT RF_Mux3_1Bit_22336157_TB
         Port ( 
             I0 : in STD_LOGIC;
             I1 : in STD_LOGIC;
@@ -35,7 +35,7 @@ architecture Simulation of RF_Mux3_1Bit_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: RF_Mux3_1Bit PORT MAP (
+   uut: RF_Mux3_1Bit_22336157_TB PORT MAP (
         I0 => I0_TB,
         I1 => I1_TB,
         I2 => I2_TB,
