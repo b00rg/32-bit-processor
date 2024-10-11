@@ -133,7 +133,7 @@ begin
     S1_TB <= '0';
     S2_TB <= '0';
     S3_TB <= '0';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I0_TB) report "Error: Output Y_TB should be I0_TB" severity error;
     
     -- Test case 2: Select I1 (S0 = '1', S1 = '0', S2 = '0', S3 = '0')
@@ -141,7 +141,7 @@ begin
     S1_TB <= '0';
     S2_TB <= '0';
     S3_TB <= '0';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I1_TB) report "Error: Output Y_TB should be I1_TB" severity error;
     
     -- Test case 3: Select I2 (S0 = '0', S1 = '1', S2 = '0', S3 = '0')
@@ -149,7 +149,7 @@ begin
     S1_TB <= '1';
     S2_TB <= '0';
     S3_TB <= '0';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I2_TB) report "Error: Output Y_TB should be I2_TB" severity error;
     
     -- Test case 4: Select I3 (S0 = '1', S1 = '1', S2 = '0', S3 = '0')
@@ -157,7 +157,7 @@ begin
     S1_TB <= '1';
     S2_TB <= '0';
     S3_TB <= '0';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I3_TB) report "Error: Output Y_TB should be I3_TB" severity error;
     
     -- Test case 5: Select I4 (S0 = '0', S1 = '0', S2 = '1', S3 = '0')
@@ -165,7 +165,7 @@ begin
     S1_TB <= '0';
     S2_TB <= '1';
     S3_TB <= '0';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I4_TB) report "Error: Output Y_TB should be I4_TB" severity error;
     
     -- Test case 6: Select I5 (S0 = '1', S1 = '0', S2 = '1', S3 = '0')
@@ -173,7 +173,7 @@ begin
     S1_TB <= '0';
     S2_TB <= '1';
     S3_TB <= '0';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I5_TB) report "Error: Output Y_TB should be I5_TB" severity error;
     
     -- Test case 7: Select I6 (S0 = '0', S1 = '1', S2 = '1', S3 = '0')
@@ -181,7 +181,7 @@ begin
     S1_TB <= '1';
     S2_TB <= '1';
     S3_TB <= '0';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I6_TB) report "Error: Output Y_TB should be I6_TB" severity error;
     
     -- Test case 8: Select I7 (S0 = '1', S1 = '1', S2 = '1', S3 = '0')
@@ -189,7 +189,7 @@ begin
     S1_TB <= '1';
     S2_TB <= '1';
     S3_TB <= '0';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I7_TB) report "Error: Output Y_TB should be I7_TB" severity error;
     
     -- Test case 9: Select I8 (S0 = '0', S1 = '0', S2 = '0', S3 = '1')
@@ -197,7 +197,7 @@ begin
     S1_TB <= '0';
     S2_TB <= '0';
     S3_TB <= '1';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I8_TB) report "Error: Output Y_TB should be I8_TB" severity error;
     
     -- Test case 10: Select I9 (S0 = '1', S1 = '0', S2 = '0', S3 = '1')
@@ -205,7 +205,7 @@ begin
     S1_TB <= '0';
     S2_TB <= '0';
     S3_TB <= '1';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I9_TB) report "Error: Output Y_TB should be I9_TB" severity error;
     
     -- Test case 11: Select I10 (S0 = '0', S1 = '1', S2 = '0', S3 = '1')
@@ -213,7 +213,7 @@ begin
     S1_TB <= '1';
     S2_TB <= '0';
     S3_TB <= '1';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I10_TB) report "Error: Output Y_TB should be I10_TB" severity error;
     
     -- Test case 12: Select I11 (S0 = '1', S1 = '1', S2 = '0', S3 = '1')
@@ -221,7 +221,7 @@ begin
     S1_TB <= '1';
     S2_TB <= '0';
     S3_TB <= '1';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I11_TB) report "Error: Output Y_TB should be I11_TB" severity error;
     
     -- Test case 13: Select I12 (S0 = '0', S1 = '0', S2 = '1', S3 = '1')
@@ -229,7 +229,7 @@ begin
     S1_TB <= '0';
     S2_TB <= '1';
     S3_TB <= '1';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I12_TB) report "Error: Output Y_TB should be I12_TB" severity error;
     
     -- Test case 14: Select I13 (S0 = '1', S1 = '0', S2 = '1', S3 = '1')
@@ -237,7 +237,7 @@ begin
     S1_TB <= '0';
     S2_TB <= '1';
     S3_TB <= '1';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I13_TB) report "Error: Output Y_TB should be I13_TB" severity error;
     
     -- Test case 15: Select I14 (S0 = '0', S1 = '1', S2 = '1', S3 = '1')
@@ -245,7 +245,7 @@ begin
     S1_TB <= '1';
     S2_TB <= '1';
     S3_TB <= '1';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I14_TB) report "Error: Output Y_TB should be I14_TB" severity error;
     
     -- Test case 16: Select I15 (S0 = '1', S1 = '1', S2 = '1', S3 = '1')
@@ -253,9 +253,141 @@ begin
     S1_TB <= '1';
     S2_TB <= '1';
     S3_TB <= '1';
-    wait for 200 ns;
+    wait for 50 ns;
     assert (Y_TB = I15_TB) report "Error: Output Y_TB should be I15_TB" severity error;
     
+    
+    
+    
+    
+    
+    S4_TB <= '1'; 
+    S0_TB <= '0';
+    S1_TB <= '0';
+    S2_TB <= '0';
+    S3_TB <= '0';
+    wait for 50 ns;
+    assert (Y_TB = I16_TB) report "Error: Output Y_TB should be I16_TB" severity error;
+    
+    -- Test case 2: Select I1 (S0 = '1', S1 = '0', S2 = '0', S3 = '0')
+    S0_TB <= '1';
+    S1_TB <= '0';
+    S2_TB <= '0';
+    S3_TB <= '0';
+    wait for 50 ns;
+    assert (Y_TB = I17_TB) report "Error: Output Y_TB should be I17_TB" severity error;
+    
+    -- Test case 3: Select I2 (S0 = '0', S1 = '1', S2 = '0', S3 = '0')
+    S0_TB <= '0';
+    S1_TB <= '1';
+    S2_TB <= '0';
+    S3_TB <= '0';
+    wait for 50 ns;
+    assert (Y_TB = I18_TB) report "Error: Output Y_TB should be I18_TB" severity error;
+    
+    -- Test case 4: Select I3 (S0 = '1', S1 = '1', S2 = '0', S3 = '0')
+    S0_TB <= '1';
+    S1_TB <= '1';
+    S2_TB <= '0';
+    S3_TB <= '0';
+    wait for 50 ns;
+    assert (Y_TB = I19_TB) report "Error: Output Y_TB should be I19_TB" severity error;
+    
+    -- Test case 5: Select I4 (S0 = '0', S1 = '0', S2 = '1', S3 = '0')
+    S0_TB <= '0';
+    S1_TB <= '0';
+    S2_TB <= '1';
+    S3_TB <= '0';
+    wait for 50 ns;
+    assert (Y_TB = I20_TB) report "Error: Output Y_TB should be I20_TB" severity error;
+    
+    -- Test case 6: Select I5 (S0 = '1', S1 = '0', S2 = '1', S3 = '0')
+    S0_TB <= '1';
+    S1_TB <= '0';
+    S2_TB <= '1';
+    S3_TB <= '0';
+    wait for 50 ns;
+    assert (Y_TB = I21_TB) report "Error: Output Y_TB should be I21_TB" severity error;
+    
+    -- Test case 7: Select I6 (S0 = '0', S1 = '1', S2 = '1', S3 = '0')
+    S0_TB <= '0';
+    S1_TB <= '1';
+    S2_TB <= '1';
+    S3_TB <= '0';
+    wait for 50 ns;
+    assert (Y_TB = I22_TB) report "Error: Output Y_TB should be I22_TB" severity error;
+    
+    -- Test case 8: Select I7 (S0 = '1', S1 = '1', S2 = '1', S3 = '0')
+    S0_TB <= '1';
+    S1_TB <= '1';
+    S2_TB <= '1';
+    S3_TB <= '0';
+    wait for 50 ns;
+    assert (Y_TB = I23_TB) report "Error: Output Y_TB should be I23_TB" severity error;
+    
+    -- Test case 9: Select I8 (S0 = '0', S1 = '0', S2 = '0', S3 = '1')
+    S0_TB <= '0';
+    S1_TB <= '0';
+    S2_TB <= '0';
+    S3_TB <= '1';
+    wait for 50 ns;
+    assert (Y_TB = I24_TB) report "Error: Output Y_TB should be I24_TB" severity error;
+    
+    -- Test case 10: Select I9 (S0 = '1', S1 = '0', S2 = '0', S3 = '1')
+    S0_TB <= '1';
+    S1_TB <= '0';
+    S2_TB <= '0';
+    S3_TB <= '1';
+    wait for 50 ns;
+    assert (Y_TB = I25_TB) report "Error: Output Y_TB should be I25_TB" severity error;
+    
+    -- Test case 11: Select I10 (S0 = '0', S1 = '1', S2 = '0', S3 = '1')
+    S0_TB <= '0';
+    S1_TB <= '1';
+    S2_TB <= '0';
+    S3_TB <= '1';
+    wait for 50 ns;
+    assert (Y_TB = I26_TB) report "Error: Output Y_TB should be I26_TB" severity error;
+    
+    -- Test case 12: Select I11 (S0 = '1', S1 = '1', S2 = '0', S3 = '1')
+    S0_TB <= '1';
+    S1_TB <= '1';
+    S2_TB <= '0';
+    S3_TB <= '1';
+    wait for 50 ns;
+    assert (Y_TB = I27_TB) report "Error: Output Y_TB should be I27_TB" severity error;
+    
+    -- Test case 13: Select I12 (S0 = '0', S1 = '0', S2 = '1', S3 = '1')
+    S0_TB <= '0';
+    S1_TB <= '0';
+    S2_TB <= '1';
+    S3_TB <= '1';
+    wait for 50 ns;
+    assert (Y_TB = I28_TB) report "Error: Output Y_TB should be I28_TB" severity error;
+    
+    -- Test case 14: Select I13 (S0 = '1', S1 = '0', S2 = '1', S3 = '1')
+    S0_TB <= '1';
+    S1_TB <= '0';
+    S2_TB <= '1';
+    S3_TB <= '1';
+    wait for 50 ns;
+    assert (Y_TB = I29_TB) report "Error: Output Y_TB should be I29_TB" severity error;
+    
+    -- Test case 15: Select I14 (S0 = '0', S1 = '1', S2 = '1', S3 = '1')
+    S0_TB <= '0';
+    S1_TB <= '1';
+    S2_TB <= '1';
+    S3_TB <= '1';
+    wait for 50 ns;
+    assert (Y_TB = I30_TB) report "Error: Output Y_TB should be I30_TB" severity error;
+    
+    -- Test case 16: Select I15 (S0 = '1', S1 = '1', S2 = '1', S3 = '1')
+    S0_TB <= '1';
+    S1_TB <= '1';
+    S2_TB <= '1';
+    S3_TB <= '1';
+    wait for 50 ns;
+    assert (Y_TB = I31_TB) report "Error: Output Y_TB should be I31_TB" severity error;
     wait;
 
     end process;
