@@ -20,14 +20,14 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux16_1Bit is
+entity RF_Mux16_1Bit_22336157 is
     Port (
         I0, I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15 : in STD_LOGIC;
         S0, S1, S2, S3 : in STD_LOGIC;
         Y : out STD_LOGIC);
-end RF_Mux16_1Bit;
+end RF_Mux16_1Bit_22336157;
 
-architecture Behavioral of RF_Mux16_1Bit is
+architecture Behavioral of RF_Mux16_1Bit_22336157 is
     -- Internal signals for AND gates
     signal and00, and01, and02, and03, and10, and11, and12, and13, and20, and21, and22, and23, and30, and31, and32, and33 : STD_LOGIC; 
     signal and40, and41, and42, and43, and50, and51, and52, and53, and60, and61, and62, and63, and70, and71, and72, and73  : STD_LOGIC; 
