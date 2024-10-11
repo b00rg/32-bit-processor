@@ -23,14 +23,14 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity RF_Register32Bit_22336157 is
-    Port ( D : in STD_LOGIC_VECTOR (7 downto 0);
+    Port ( D : in STD_LOGIC_VECTOR (31 downto 0);
            Load : in STD_LOGIC;
            CLK : in STD_LOGIC;
            Reset : in STD_LOGIC;
-           Q : out STD_LOGIC_VECTOR (7 downto 0));
-end RF_Register32Bit__22336157;
+           Q : out STD_LOGIC_VECTOR (31 downto 0));
+end RF_Register32Bit_22336157;
 
-architecture Behavioral of RF_Register8Bit is
+architecture Behavioral of RF_Register32Bit_22336157 is
  
     COMPONENT RF_DFlipFlop_22336157
     Port ( CLK, D, Reset : in STD_LOGIC;
