@@ -20,30 +20,35 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux16_32Bit_TB is
-end RF_Mux16_32Bit_TB;
+entity RF_Mux32_32Bit_TB is
+end RF_Mux32_32Bit_TB;
 
-architecture simulation of RF_Mux16_32Bit_TB is
+architecture simulation of RF_Mux32_32Bit_TB is
     -- Component Declaration for the UUT
-    component RF_Mux16_32Bit
-        Port ( I0, I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15  : in  STD_LOGIC_VECTOR(31 downto 0);
-               S0 : in  STD_LOGIC;
-               S1 : in  STD_LOGIC;
-               S2 : in STD_LOGIC;
-               S3 : in STD_LOGIC;
-               Y  : out STD_LOGIC_VECTOR(31 downto 0)
-             );
+    component RF_Mux32_32Bit
+    Port ( 
+        I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC_VECTOR(31 downto 0);     -- Input Signals
+        I8, I9, I10, I11, I12, I13, I14, I15: in STD_LOGIC_VECTOR(31 downto 0);  
+        I16, I17, I18, I19, I20, I21, I22, I23: in STD_LOGIC_VECTOR(31 downto 0); 
+        I24, I25, I26, I27, I28, I29, I30, I31: in STD_LOGIC_VECTOR(31 downto 0);  
+        S0, S1, S2, S3, S4: in STD_LOGIC;                   -- Selection Signals (2^5 = 32)
+        Y : out STD_LOGIC_VECTOR(31 downto 0) 
+    ); 
     end component;
 
     -- Signals for inputs and outputs
-    signal I0_TB, I1_TB, I2_TB, I3_TB, I4_TB, I5_TB, I6_TB, I7_TB, I8_TB, I9_TB, I10_TB, I11_TB, I12_TB, I13_TB, I14_TB, I15_TB : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');  -- Initialize inputs
-    signal S0_TB, S1_TB, S2_TB, S3_TB : STD_LOGIC := '0';  -- Initialize selection signals
-    signal Y_TB : STD_LOGIC_VECTOR(31 downto 0);  -- Output
+    -- Signals to connect to UUT inputs and outputs
+    signal I0_TB, I1_TB, I2_TB, I3_TB, I4_TB, I5_TB, I6_TB, I7_TB : STD_LOGIC_VECTOR(31 downto 0);   -- Inputs for the MUX
+    signal I8_TB, I9_TB, I10_TB, I11_TB, I12_TB, I13_TB, I14_TB, I15_TB : STD_LOGIC_VECTOR(31 downto 0); 
+    signal I16_TB, I17_TB, I18_TB, I19_TB, I20_TB, I21_TB, I22_TB, I23_TB : STD_LOGIC_VECTOR(31 downto 0); 
+    signal I24_TB, I25_TB, I26_TB, I27_TB, I28_TB, I29_TB, I30_TB, I31_TB : STD_LOGIC_VECTOR(31 downto 0); 
+    signal S0_TB, S1_TB, S2_TB, S3_TB, S4_TB : STD_LOGIC := '0';  -- Selection lines
+    signal Y_TB : STD_LOGIC_VECTOR(31 downto 0);   -- Output for the MUX
     constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
     -- Instantiate the Unit Under Test (UUT)
-    uut: RF_Mux16_32Bit Port map (
+    uut: RF_Mux32_32Bit Port map (
  I0 => I0_TB,
         I1 => I1_TB,
         I2 => I2_TB,
@@ -105,37 +110,22 @@ begin
         I14_TB <= "00000001010101001101001010101011";
         I15_TB <= "00000001010101001101001010101100";
         
-        I16_TB <= "01010101001101001010101101"; 
-        I17_TB <= "01010101001101001010101110"; 
-        I18_TB <= "01010101001101001010101111";
-        I19_TB <= "01010101001101001010110000";
-        I20_TB <= "01010101001101001010110001";
-        I21_TB <= "01010101001101001010110010";
-        I22_TB <= "01010101001101001010110011";
-        I23_TB <= "01010101001101001010110100";
-        I24_TB <= "01010101001101001010110101";
-        I25_TB <= "01010101001101001010110110";
-        I26_TB <= "01010101001101001010110111";
-        I27_TB <= "01010101001101001010111000";
-        I28_TB <= "01010101001101001010111001";
-        I29_TB <= "01010101001101001010111010";
-        I30_TB <= "";
-        I31_TB <= "";
-        
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
+        I16_TB <= "00000001010101001101001010101101"; 
+        I17_TB <= "00000001010101001101001010101110"; 
+        I18_TB <= "00000001010101001101001010101111";
+        I19_TB <= "00000001010101001101001010110000";
+        I20_TB <= "00000001010101001101001010110001";
+        I21_TB <= "00000001010101001101001010110010";
+        I22_TB <= "00000001010101001101001010110011";
+        I23_TB <= "00000001010101001101001010110100";
+        I24_TB <= "00000001010101001101001010110101";
+        I25_TB <= "00000001010101001101001010110110";
+        I26_TB <= "00000001010101001101001010110111";
+        I27_TB <= "00000001010101001101001010111000";
+        I28_TB <= "00000001010101001101001010111001";
+        I29_TB <= "00000001010101001101001010111010";
+        I30_TB <= "00000001010101001101001010111011";
+        I31_TB <= "00000001010101001101001010111100";
         
     
     -- Test case 1: Select I0 (S0 = '0', S1 = '0', S2 = '0', S3 = '0')
