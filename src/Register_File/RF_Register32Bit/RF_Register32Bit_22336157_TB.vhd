@@ -67,137 +67,22 @@ begin
 
    begin
 
-      wait until CLK_TB'event and CLK_TB='1';
-      Reset_TB <= '1' after PERIOD/4; 
-
-      wait until CLK_TB'event and CLK_TB='1';
-      Reset_TB <= '0' after PERIOD/4; 
-
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00000000" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-   
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00000001" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00000010" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00000011" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-
--- 
-
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00000100" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-   
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00000101" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00000110" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00000111" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-      
---
-
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00001000" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-   
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00001001" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00001010" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00001011" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00001100" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-   
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00001101" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00001110" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "00001111" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-
---
-
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '0' after PERIOD/4;  
-      D_TB <= "11111111" after PERIOD/4;  
-      
-      wait until CLK_TB'event and CLK_TB='1';
-      Load_TB <= '1' after PERIOD/4;  
-
-    end process;
+	-- Initial reset
+	Reset_TB <= '1';
+	wait for PERIOD;
+	Reset_TB <= '0';
+	
+	-- Load the 32-bit StudentID (x"0191D9ED") into the register
+	D_TB <= StudentID;
+	Load_TB <= '1';
+	wait for PERIOD;
+	Load_TB <= '0';
+	
+	-- Wait to observe the result
+	wait for 10 * PERIOD;
+	
+	-- End simulation
+	wait;
+end process;
     
 end Simulation;
