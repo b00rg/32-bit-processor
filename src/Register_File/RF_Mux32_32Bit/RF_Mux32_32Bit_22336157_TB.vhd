@@ -20,12 +20,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux32_32Bit_TB is
-end RF_Mux32_32Bit_TB;
+entity RF_Mux32_32Bit_22336157_TB is
+end RF_Mux32_32Bit_22336157_TB;
 
-architecture simulation of RF_Mux32_32Bit_TB is
+architecture simulation of RF_Mux32_32Bit_22336157_TB is
     -- Component Declaration for the UUT
-    component RF_Mux32_32Bit
+    component RF_Mux32_32Bit_22336157
     Port ( 
         I0 , I1 , I2, I3, I4, I5, I6, I7 : in STD_LOGIC_VECTOR(31 downto 0);     -- Input Signals
         I8, I9, I10, I11, I12, I13, I14, I15: in STD_LOGIC_VECTOR(31 downto 0);  
@@ -48,7 +48,7 @@ architecture simulation of RF_Mux32_32Bit_TB is
 
 begin
     -- Instantiate the Unit Under Test (UUT)
-    uut: RF_Mux32_32Bit Port map (
+    uut: RF_Mux32_32Bit_22336157_TB Port map (
  I0 => I0_TB,
         I1 => I1_TB,
         I2 => I2_TB,
