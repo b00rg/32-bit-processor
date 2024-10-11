@@ -21,13 +21,13 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity D_Flip_Flop_PEdge_22336157_TB is
+entity RF_DFlipFlop_22336157_TB is
 --  we don't need ports
-end D_Flip_Flop_PEdge_22336157_TB;
+end RF_DFlipFlop_22336157_TB;
 
-architecture Simulation of D_Flip_Flop_PEdge_22336157_TB is
+architecture Simulation of RF_DFlipFlop_22336157_TB is
    -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT D_Flip_Flop_PEdge_22336157
+    COMPONENT RF_DFlipFlop_22336157
     Port ( CLK, D : in STD_LOGIC;
            Q, Q_not : out STD_LOGIC);
     END COMPONENT;
@@ -42,7 +42,7 @@ architecture Simulation of D_Flip_Flop_PEdge_22336157_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: D_Flip_Flop_PEdge_22336157 PORT MAP (
+   uut: RF_DFlipFlop_22336157 PORT MAP (
           CLK => CLK_TB,
           D => D_TB,
           Q => Q_TB, 
