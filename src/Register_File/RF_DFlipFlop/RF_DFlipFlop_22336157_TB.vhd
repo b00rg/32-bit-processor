@@ -1,10 +1,10 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer:
 -- 
--- Create Date: 20.09.2023 15:22:51
+-- Create Date: 10.10.2024 15:56:03
 -- Design Name: 
--- Module Name: D_Flip_Flop_PEdge_TB - Simulation
+-- Module Name: RF_DFlipFlop_22336157_TB - Simulation
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -22,52 +22,65 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity RF_DFlipFlop_22336157_TB is
---  we don't need ports
+--  Port ( );
 end RF_DFlipFlop_22336157_TB;
 
 architecture Simulation of RF_DFlipFlop_22336157_TB is
-   -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT RF_DFlipFlop_22336157
-    Port ( CLK, D : in STD_LOGIC;
-           Q, Q_not : out STD_LOGIC);
-    END COMPONENT;
-   --Inputs Signals 
-   signal CLK_TB, D_TB : STD_LOGIC := '0';
-   --Output Signal   
-   signal Q_TB, Q_not_TB : STD_LOGIC := '0';
+
+component RF_DFlipFlop_22336157
+    Port ( CLK, D, Reset : in STD_LOGIC;
+           Q : out STD_LOGIC);
+end component;
+
+--Inputs
+
+    signal D_TB : std_logic:= '0';
+    signal Reset_TB : std_logic:= '0';
+    signal CLK_TB : std_logic:= '0';
+    
+--Outputs
+
+    signal Q_TB : std_logic := '0';
+
    -- StudentID e.g. 26 33 57 25(DEC) = 1 91 D9 ED(HEX)
-   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
-   constant PERIOD : time := 200ns;  
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D"; 
+   constant PERIOD : time := 50ns;
 
 begin
 
-   -- Instantiate the Unit Under Test (UUT)
-   uut: RF_DFlipFlop_22336157 PORT MAP (
+-- Instantiate the Unit Under Test (UUT)
+	
+   uut: RF_DFlipFlop_22336157 port map (
           CLK => CLK_TB,
           D => D_TB,
-          Q => Q_TB, 
-          Q_not => Q_not_TB
+          Reset => Reset_TB,
+          Q => Q_TB
         );
         
-   Clk_TB <= not CLK_TB after PERIOD/2;
+   CLK_TB <= not CLK_TB after PERIOD/2;
    
    stim_proc: process
+
    begin
+ 
       wait until CLK_TB'event and CLK_TB='1';
-      D_TB <= '0' after PERIOD/4;                 -- Case A
+      Reset_TB <= '1' after PERIOD/4; 
+
+      wait until CLK_TB'event and CLK_TB='1';
+      Reset_TB <= '0' after PERIOD/4; 
    
       wait until CLK_TB'event and CLK_TB='1';
-      D_TB <= '0' after PERIOD/4;                 -- Case B
+      D_TB <= '1' after PERIOD/4;
       
       wait until CLK_TB'event and CLK_TB='1';
-      D_TB <= '1' after PERIOD/4;                 -- Case C
+      D_TB <= '0' after PERIOD/4;
       
       wait until CLK_TB'event and CLK_TB='1';
-      D_TB <= '0' after PERIOD/4;                 -- Case D
+      D_TB <= '1' after PERIOD/4;
       
       wait until CLK_TB'event and CLK_TB='1';
-      D_TB <= '1' after PERIOD/4;                 -- Case E
-      
-      wait until CLK_TB'event and CLK_TB='1';
-   end process;          
+      D_TB <= '0' after PERIOD/4;
+
+   end process;
+
 end Simulation;
