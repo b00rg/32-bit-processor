@@ -21,12 +21,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity D_Flip_Flop_PEdge_22336157 is
+entity RF_DFlipFlop_22336157 is
     Port ( CLK, D : in STD_LOGIC;
            Q, Q_not : out STD_LOGIC);
-end D_Flip_Flop_PEdge_22336157;
+end RF_DFlipFlop_22336157;
 
-architecture Behavioral of D_Flip_Flop_PEdge_22336157 is
+architecture Behavioral of RF_DFlipFlop_22336157 is
 
    signal Q_t, Q_not_t, X, S, R, Y, Z : std_logic;
    
