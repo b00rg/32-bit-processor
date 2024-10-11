@@ -1,10 +1,10 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: Michael Manzke
+-- Engineer: 
 -- 
 -- Create Date: 10.10.2024 17:12:37
 -- Design Name: 
--- Module Name: RF_Register8Bit_XXXXXXXX_TB - Simulation
+-- Module Name: RF_Register8Bit_22336157_TB - Simulation
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -29,11 +29,11 @@ architecture Simulation of RF_Register32Bit_22336157_TB is
 
 -- Component Declaration for the Unit Under Test (UUT)
 component RF_Register32Bit_22336157_TB
-    Port ( D : in STD_LOGIC_VECTOR (7 downto 0);
+    Port ( D : in STD_LOGIC_VECTOR (31 downto 0);
            Load : in STD_LOGIC;
            CLK : in STD_LOGIC;
            Reset : in STD_LOGIC;
-           Q : out STD_LOGIC_VECTOR (7 downto 0));      
+           Q : out STD_LOGIC_VECTOR (31 downto 0));      
 end component;
 
 --Inputs
@@ -43,7 +43,7 @@ end component;
     signal Reset_TB : std_logic:= '0';
      
 --Outputs
-    signal Q_TB : std_logic_vector(7 downto 0):= (others => '0');
+    signal Q_TB : std_logic_vector(31 downto 0):= (others => '0');
    
 -- StudentID e.g. 26 33 57 25(DEC) = 1 91 D9 ED(HEX)
     constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"191D9ED";  
