@@ -22,17 +22,17 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Register8Bit_XXXXXXXX is
+entity RF_Register32Bit_22336157 is
     Port ( D : in STD_LOGIC_VECTOR (7 downto 0);
            Load : in STD_LOGIC;
            CLK : in STD_LOGIC;
            Reset : in STD_LOGIC;
            Q : out STD_LOGIC_VECTOR (7 downto 0));
-end RF_Register8Bit_XXXXXXXX;
+end RF_Register32Bit__22336157;
 
-architecture Behavioral of RF_Register8Bit_XXXXXXXX is
+architecture Behavioral of RF_Register8Bit is
  
-    COMPONENT RF_DFlipFlop_XXXXXXXX
+    COMPONENT RF_DFlipFlop_22336157
     Port ( CLK, D, Reset : in STD_LOGIC;
            Q : out STD_LOGIC);
     END COMPONENT;
@@ -66,7 +66,7 @@ begin
    Load_FF <= not Not_Load_FF after NOT_gate_delay;
 
    -- Instantiate the least significant bit -------------------------
-   bit0: RF_DFlipFlop_XXXXXXXX PORT MAP (
+   bit0: RF_DFlipFlop_22336157 PORT MAP (
           CLK => CLK, D => OR_D0, Reset => Reset, Q => Q_bit0 );
    -- Load signal logic       
    Not_Load_And0 <= Q_bit0 and Not_Load_FF after AND_gate_delay;         
@@ -75,7 +75,7 @@ begin
    Q(0) <= Q_bit0;
    
    -- Instantiate bit 1 ---------------------------------------------
-   bit1: RF_DFlipFlop_XXXXXXXX PORT MAP (
+   bit1: RF_DFlipFlop_22336157 PORT MAP (
           CLK => CLK, D => OR_D1, Reset => Reset, Q => Q_bit1 );
    -- Load signal logic
    Not_Load_And1 <= Q_bit1 and Not_Load_FF after AND_gate_delay;    
@@ -84,7 +84,7 @@ begin
    Q(1) <= Q_bit1;
    
    -- Instantiate bit 2 ---------------------------------------------
-   bit2: RF_DFlipFlop_XXXXXXXX PORT MAP (
+   bit2: RF_DFlipFlop_22336157 PORT MAP (
           CLK => CLK, D => OR_D2, Reset => Reset,  Q => Q_bit2);          
    -- Load signal logic   
    Not_Load_And2 <= Q_bit2 and Not_Load_FF after AND_gate_delay;
@@ -93,7 +93,7 @@ begin
    Q(2) <= Q_bit2; 
    
    -- Instantiate bit 3 ---------------------------------------------
-   bit3: RF_DFlipFlop_XXXXXXXX PORT MAP (
+   bit3: RF_DFlipFlop_22336157 PORT MAP (
           CLK => CLK, D => OR_D3, Reset => Reset, Q => Q_bit3);          
    -- Load signal logic   
    Not_Load_And3 <= Q_bit3 and Not_Load_FF after AND_gate_delay;
@@ -102,7 +102,7 @@ begin
    Q(3) <= Q_bit3; 
    
    -- Instantiate bit 4 ---------------------------------------------
-   bit4: RF_DFlipFlop_XXXXXXXX PORT MAP (
+   bit4: RF_DFlipFlop_22336157 PORT MAP (
           CLK => CLK, D => OR_D4, Reset => Reset, Q => Q_bit4);          
    -- Load signal logic   
    Not_Load_And4 <= Q_bit4 and Not_Load_FF after AND_gate_delay;
@@ -111,7 +111,7 @@ begin
    Q(4) <= Q_bit4; 
    
    -- Instantiate bit 5 ---------------------------------------------
-   bit5: RF_DFlipFlop_XXXXXXXX PORT MAP (
+   bit5: RF_DFlipFlop_22336157 PORT MAP (
           CLK => CLK, D => OR_D5, Reset => Reset, Q => Q_bit5);          
    -- Load signal logic   
    Not_Load_And5 <= Q_bit5 and Not_Load_FF after AND_gate_delay;
@@ -120,7 +120,7 @@ begin
    Q(5) <= Q_bit5; 
    
    -- Instantiate bit 6 ---------------------------------------------
-   bit6: RF_DFlipFlop_XXXXXXXX PORT MAP (
+   bit6: RF_DFlipFlop_22336157 PORT MAP (
           CLK => CLK, D => OR_D6, Reset => Reset, Q => Q_bit6);          
    -- Load signal logic   
    Not_Load_And6 <= Q_bit6 and Not_Load_FF after AND_gate_delay;
@@ -129,7 +129,7 @@ begin
    Q(6) <= Q_bit6; 
    
    -- Instantiate the most significant bit
-   bit7: RF_DFlipFlop_XXXXXXXX PORT MAP (
+   bit7: RF_DFlipFlop_22336157 PORT MAP (
           CLK => CLK, D => OR_D7, Reset => Reset, Q => Q_bit7);          
    -- Load signal logic   
    Not_Load_And7 <= Q_bit7 and Not_Load_FF after AND_gate_delay;
