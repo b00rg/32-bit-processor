@@ -32,13 +32,13 @@ architecture Behavioral of RF_DFlipFlop_22336157 is
    signal Q_t, Q_not_t, Reset_not, X, K, S, R, L, Y, Z, M : std_logic;
    
    --  Propagation Delay according to StdentID e.g. 26 33 57 25(DEC)
-   constant AND_gate_delay : Time := 6ns;      --  6 = 5 + 1
-   constant NAND_gate_delay : Time := 3ns;     --  3 = 2 + 1
-   constant OR_gate_delay : Time := 8ns;       --  8 = 7 + 1
-   constant NOR_gate_delay : Time := 6ns;      --  6 = 5 + 1
-   constant XOR_gate_delay : Time := 4ns;      --  4 = 3 + 1
-   constant XNOR_gate_delay : Time := 4ns;     --  4 = 3 + 1
-   constant NOT_gate_delay : Time := 7ns;      --  7 = 6 + 1
+   constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
+   constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
+   constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
+   constant NOR_gate_delay : Time := 7ns;      -- next more significant digit 6 = 5 + 1
+   constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
+   constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
+   constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
    
 begin
 
