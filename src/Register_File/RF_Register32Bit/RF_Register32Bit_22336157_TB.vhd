@@ -21,14 +21,14 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Register8Bit_XXXXXXXX_TB is
+entity RF_Register32Bit_22336157_TB is
 --  Port ( ); We don't need ports
-end RF_Register8Bit_XXXXXXXX_TB;
+end RF_Register32Bit_22336157_TB;
 
-architecture Simulation of RF_Register8Bit_XXXXXXXX_TB is
+architecture Simulation of RF_Register32Bit_22336157_TB is
 
 -- Component Declaration for the Unit Under Test (UUT)
-component RF_Register8Bit_XXXXXXXX
+component RF_Register32Bit_22336157_TB
     Port ( D : in STD_LOGIC_VECTOR (7 downto 0);
            Load : in STD_LOGIC;
            CLK : in STD_LOGIC;
@@ -53,7 +53,7 @@ begin
 
 	-- Instantiate the Unit Under Test (UUT)
 	
-   uut: RF_Register8Bit_XXXXXXXX port map (
+   uut: RF_Register32Bit_22336157_TB port map (
           D => D_TB,
           Load => Load_TB,
           CLK => CLK_TB,
