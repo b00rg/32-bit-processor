@@ -21,13 +21,13 @@
 library IEEE ;
 use IEEE . STD_LOGIC_1164 .ALL;
 
-entity RF_Mux3_1Bit is
+entity RF_Mux3_1Bit_22336157 is
 	Port ( I0 , I1 , I2 :  in STD_LOGIC ; 		-- 1 bit inputs
 		S0, S1 : in STD_LOGIC; 			-- Selection Signals
 		Y : out STD_LOGIC ) ;  			-- 1 bit output
-end RF_Mux3_1Bit;
+end RF_Mux3_1Bit_22336157;
 
-architecture Behavioral of RF_Mux3_1Bit is
+architecture Behavioral of RF_Mux3_1Bit_22336157 is
     -- Internal signals to handle the inverted select lines
     signal S0_not, S1_not : STD_LOGIC;
     signal S0_S1_not, S0_not_S1 : STD_LOGIC;
