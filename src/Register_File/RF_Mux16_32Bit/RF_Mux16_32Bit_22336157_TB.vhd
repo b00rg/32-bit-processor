@@ -20,12 +20,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Mux16_32Bit_TB is
-end RF_Mux16_32Bit_TB;
+entity RF_Mux16_32Bit_22336157_TB is
+end RF_Mux16_32Bit_22336157_TB;
 
-architecture simulation of RF_Mux16_32Bit_TB is
+architecture simulation of RF_Mux16_32Bit_22336157_TB is
     -- Component Declaration for the UUT
-    component RF_Mux16_32Bit
+    component RF_Mux16_32Bit_22336157_TB
         Port ( I0, I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15  : in  STD_LOGIC_VECTOR(31 downto 0);
                S0 : in  STD_LOGIC;
                S1 : in  STD_LOGIC;
