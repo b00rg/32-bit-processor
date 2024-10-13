@@ -27,7 +27,7 @@ architecture Simulation of RF_Temp_DestReg_Decoder_1622336157_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: RF_Temp_DestReg_Decoder_1622336157_TB PORT MAP (
+   uut: RF_Temp_DestReg_Decoder_1622336157 PORT MAP (
           A => A_TB, 
           Q0 => Q0_TB, 
           Q1 => Q1_TB, 
