@@ -90,6 +90,38 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
    constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
    constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
+	
+signal AND_Gate_to_register000_i, AND_Gate_to_register010_i, AND_Gate_to_register020_i, 
+       AND_Gate_to_register030_i, AND_Gate_to_register040_i, AND_Gate_to_register050_i, 
+       AND_Gate_to_register060_i, AND_Gate_to_register070_i, AND_Gate_to_register080_i, 
+       AND_Gate_to_register090_i, AND_Gate_to_register100_i, AND_Gate_to_register110_i, 
+       AND_Gate_to_register120_i, AND_Gate_to_register130_i, AND_Gate_to_register140_i, 
+       AND_Gate_to_register150_i, AND_Gate_to_register160_i, AND_Gate_to_register170_i, 
+       AND_Gate_to_register180_i, AND_Gate_to_register190_i, AND_Gate_to_register200_i, 
+       AND_Gate_to_register210_i, AND_Gate_to_register220_i, AND_Gate_to_register230_i, 
+       AND_Gate_to_register240_i, AND_Gate_to_register250_i, AND_Gate_to_register260_i, 
+       AND_Gate_to_register270_i, AND_Gate_to_register280_i, AND_Gate_to_register290_i, 
+       AND_Gate_to_register300_i, AND_Gate_to_register310_i : STD_LOGIC;
+
+signal AND_Gate_to_register00_i, AND_Gate_to_register01_i, AND_Gate_to_register02_i, 
+       AND_Gate_to_register03_i, AND_Gate_to_register04_i, AND_Gate_to_register05_i, 
+       AND_Gate_to_register06_i, AND_Gate_to_register07_i, AND_Gate_to_register08_i, 
+       AND_Gate_to_register09_i, AND_Gate_to_register10_i, AND_Gate_to_register11_i, 
+       AND_Gate_to_register12_i, AND_Gate_to_register13_i, AND_Gate_to_register14_i, 
+       AND_Gate_to_register15_i, AND_Gate_to_register16_i, AND_Gate_to_register17_i, 
+       AND_Gate_to_register18_i, AND_Gate_to_register19_i, AND_Gate_to_register20_i, 
+       AND_Gate_to_register21_i, AND_Gate_to_register22_i, AND_Gate_to_register23_i, 
+       AND_Gate_to_register24_i, AND_Gate_to_register25_i, AND_Gate_to_register26_i, 
+       AND_Gate_to_register27_i, AND_Gate_to_register28_i, AND_Gate_to_register29_i, 
+       AND_Gate_to_register30_i, AND_Gate_to_register31_i : STD_LOGIC;
+
+signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i, 
+       AND_Gate_to_TempReg03_i, AND_Gate_to_TempReg04_i, AND_Gate_to_TempReg05_i, 
+       AND_Gate_to_TempReg06_i, AND_Gate_to_TempReg07_i, AND_Gate_to_TempReg08_i, 
+       AND_Gate_to_TempReg09_i, AND_Gate_to_TempReg10_i, AND_Gate_to_TempReg11_i, 
+       AND_Gate_to_TempReg12_i, AND_Gate_to_TempReg13_i, AND_Gate_to_TempReg14_i, 
+       AND_Gate_to_TempReg15_i : STD_LOGIC;
+
 
   begin
     DestReg_Decoder : RF_DestReg_Decoder_22336157 Port map(
