@@ -22,7 +22,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity RF_DestReg_Decoder_22336157 is
-    Port ( A : in STD_LOGIC_VECTOR (2 downto 0);
+    Port ( A : in STD_LOGIC_VECTOR (2 downto 0); -- three to 8 line decoder
            Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7 : out STD_LOGIC);
 end RF_DestReg_Decoder_22336157;
 
