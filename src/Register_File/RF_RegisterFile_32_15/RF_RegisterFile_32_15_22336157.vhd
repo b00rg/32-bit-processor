@@ -182,7 +182,7 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
       Q14 => Q14_TempReg, Q15 => Q15_TempReg
     );
 
-  AND_Gate_to_TempReg00_i <= RW and Q0_TempReg after AND_GATE_DELAY;
+  AND_Gate_to_TempReg00_i <= RW AND Q0_TempReg after AND_GATE_DELAY;
   AND_Gate_to_TempReg01_i <= RW and Q1_TempReg after AND_GATE_DELAY;
   AND_Gate_to_TempReg02_i <= RW and Q2_TempReg after AND_GATE_DELAY;
   AND_Gate_to_TempReg03_i <= RW and Q3_TempReg after AND_GATE_DELAY;
