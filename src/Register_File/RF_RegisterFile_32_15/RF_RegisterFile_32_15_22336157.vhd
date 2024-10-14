@@ -34,7 +34,7 @@ entity RF_RegisterFile_32_15_22336157 is
           TD : in STD_LOGIC_VECTOR (3 downto 0);
 	  A : out STD_LOGIC_VECTOR(31 downto 0);
 	  B : out STD_LOGIC_VECTOR(31 downto 0));
-end RF_Register32Bit_22336157;
+end RF_RegisterFile_32_15_22336157;
 
 architecture Behavioral of RF_RegisterFile_32_15_22336157 is
     COMPONENT RF_DestReg_Decoder_22336157
