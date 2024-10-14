@@ -257,20 +257,25 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
 
 	
 	Mux32_a : RF_Mux32_32Bit_22336157 Port Map(S0 => SA(0), S1 => SA(1), S2 => SA(2), S3 => SA(3), S4 => SA(4), -- Signals
-		I0 => Register0_Q, I1 => Register1, I2 => Register02, I3 => Register03, I4 => Register04, I5 => Register05, I6 => Register06, I7 => Register07, -- Inputs
-		I8 => Register08, I9 => Register09, I10 => Register10, I11 => Register11, I12 => Register12, I13 => Register13, I14 => Register14, I15 => Register15,
+		I0 => Register0_Q, I1 => Register1_Q, I2 => Register2_Q, I3 => Register3_Q, I4 => Register4_Q, I5 => Register5_Q, I6 => Register6_Q, I7 => Register7_Q, -- Inputs
+		I8 => Register8_Q, I9 => Register9_Q, I10 => Register10_Q, I11 => Register11_Q, I12 => Register12_Q, I13 => Register13_Q, I14 => Register14_Q, I15 => Register15_Q,
+		I16 => Register16_Q, I17 => Register17_Q, I18 => Register18_Q, I19 => Register19_Q, I20 => Register20_Q, I21 => Register21_Q, I22 => Register22_Q, I23 => Register23_Q,
+		I24 => Register24_Q, I25 => Register25_Q, I26 => Register26_Q, I27 => Register27_Q, I28 => Register28_Q, I29 => Register29_Q, I30 => Register30_Q, I31 => Register31_Q,
 		Y => Y_Mux32_a);
 
 	Mux32_b : RF_Mux32_32Bit_22336157 Port Map(S0 => SB(0), S1 => SB(1), S2 => SB(2), S3 => SB(3), S4 => SB(4), -- Signals
-		I0 => Register00, I1 => Register1, I2 => Register02, I3 => Register03, I4 => Register04, I5 => Register05, I6 => Register06, I7 => Register07, -- Inputs
-		I8 => Register08, I9 => Register09, I10 => Register10, I11 => Register11, I12 => Register12, I13 => Register13, I14 => Register14, I15 => Register15);
-
+		I0 => Register0_Q, I1 => Register1_Q, I2 => Register2_Q, I3 => Register3_Q, I4 => Register4_Q, I5 => Register5_Q, I6 => Register6_Q, I7 => Register7_Q, -- Inputs
+		I8 => Register8_Q, I9 => Register9_Q, I10 => Register10_Q, I11 => Register11_Q, I12 => Register12_Q, I13 => Register13_Q, I14 => Register14_Q, I15 => Register15_Q,
+		I16 => Register16_Q, I17 => Register17_Q, I18 => Register18_Q, I19 => Register19_Q, I20 => Register20_Q, I21 => Register21_Q, I22 => Register22_Q, I23 => Register23_Q,
+		I24 => Register24_Q, I25 => Register25_Q, I26 => Register26_Q, I27 => Register27_Q, I28 => Register28_Q, I29 => Register29_Q, I30 => Register30_Q, I31 => Register31_Q,
+        Y => Y_Mux32_B);
+        
 	Mux16_a : RF_Mux16_32Bit_22336157 Port Map(S0 => TA(0), S1 => TA(1), S2 => TA(2), S3 => TA(3), -- Signals
-		I0 => Mux32_a, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07, -- Inputs 
+		I0 => Y_Mux32_a, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07, -- Inputs 
 		I8 => TempReg08, I9 => TempReg09, I10 => TempReg10, I11 => TempReg11, I12 => TempReg12, I13 => TempReg13, I14 => TempReg14, I15 => TempReg15);
 
 	Mux16_b : RF_Mux16_32Bit_22336157 Port Map(S0 => TB(0), S1 => TB(1), S2 => TB(2), S3 => TB(3), -- Signals
-		I0 => Mux32_b, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07, -- Inputs
+		I0 => Y_Mux32_b, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07, -- Inputs
 		I8 => TempReg08, I9 => TempReg09, I10 => TempReg10, I11 => TempReg11, I12 => TempReg12, I13 => TempReg13, I14 => TempReg14, I15 => TempReg15);
 
 	A <= Mux16_a; -- outputs
