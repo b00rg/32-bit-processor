@@ -113,7 +113,7 @@ signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i
 
   begin
     DestReg_Decoder : RF_DestReg_Decoder_22336157 Port map(
-      A[4:0] => DR[4:0];
+      A => DR(4 downto 0),
       Q0 => Q0_DestReg, Q1 => Q1_DestReg, Q2 => Q2_DestReg, Q3 => Q3_DestReg;
       Q4 => Q4_DestReg, Q5 => Q5_DestReg, Q6 => Q6_DestReg, Q7 => Q7_DestReg;
       Q8 => Q8_DestReg, Q9 => Q9_DestReg, Q10 => Q10_DestReg, Q11 => Q11_DestReg;
