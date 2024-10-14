@@ -91,6 +91,7 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
     signal AND_Gate_to_register180_i, AND_Gate_to_register190_i, AND_Gate_to_register200_i, AND_Gate_to_register210_i, AND_Gate_to_register220_i, AND_Gate_to_register230_i, AND_Gate_to_register240_i, AND_Gate_to_register250_i, AND_Gate_to_register260_i : STD_LOGIC; 
     signal AND_Gate_to_register270_i, AND_Gate_to_register280_i, AND_Gate_to_register290_i, AND_Gate_to_register300_i, AND_Gate_to_register310_i : STD_LOGIC;
 
+	signal Q0_DestReg, Q1_DestReg, Q2_DestReg, Q3_DestReg, Q4_DestReg, Q5_DestReg, Q6_DestReg, Q7_DestReg, Q8_DestReg, Q9_DestReg, Q10_DestReg, Q11_DestReg, Q12_DestReg, Q13_DestReg, Q14_DestReg, Q15_DestReg, Q16_DestReg, Q17_DestReg, Q18_DestReg, Q19_DestReg, Q20_DestReg, Q21_DestReg, Q22_DestReg, Q23_DestReg, Q24_DestReg, Q25_DestReg, Q26_DestReg, Q27_DestReg, Q28_DestReg, Q29_DestReg, Q30_DestReg, Q31_DestReg : STD_LOGIC;
 signal AND_Gate_to_register00_i, AND_Gate_to_register01_i, AND_Gate_to_register02_i, 
        AND_Gate_to_register03_i, AND_Gate_to_register04_i, AND_Gate_to_register05_i, 
        AND_Gate_to_register06_i, AND_Gate_to_register07_i, AND_Gate_to_register08_i, 
