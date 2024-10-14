@@ -29,7 +29,7 @@ architecture Simulation of RF_DestReg_Decoder_22336157_TB is
    signal Q28_TB, Q29_TB, Q30_TB, Q31_TB : STD_LOGIC;
 
    -- StudentID e.g. 26 33 57 25(DEC) = 1 91 D9 ED(HEX)
-   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"191D9ED";
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
    constant WaitPeriod : time := 100ns;   
        
 begin
