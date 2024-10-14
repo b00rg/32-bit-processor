@@ -1,16 +1,16 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity RF_Temp_DestReg_Decoder_1622336157_TB is
+entity RF_Temp_DestReg_Decoder_22336157_TB is
 --  Port ( );
-end RF_Temp_DestReg_Decoder_1622336157_TB;
+end RF_Temp_DestReg_Decoder_22336157_TB;
 
-architecture Simulation of RF_Temp_DestReg_Decoder_1622336157_TB is
+architecture Simulation of RF_Temp_DestReg_Decoder_22336157_TB is
 
    -- Component Declaration for the Unit Under Test (UUT)
-   COMPONENT RF_Temp_DestReg_Decoder_1622336157
+   COMPONENT RF_Temp_DestReg_Decoder_22336157
    Port ( A : in STD_LOGIC_VECTOR (3 downto 0); -- 4-bit input for 4 to 16 decoder
-          Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, 
+          Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7 : out STD_LOGIC; 
           Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15 : out STD_LOGIC);
    END COMPONENT;
 
@@ -22,12 +22,12 @@ architecture Simulation of RF_Temp_DestReg_Decoder_1622336157_TB is
    signal Q8_TB, Q9_TB, Q10_TB, Q11_TB : STD_LOGIC;
    signal Q12_TB, Q13_TB, Q14_TB, Q15_TB : STD_LOGIC;
 
-   constant WaitPeriod : time := 100ns;   
+   constant WaitPeriod : time := 60ns;   
        
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: RF_Temp_DestReg_Decoder_1622336157 PORT MAP (
+   uut: RF_Temp_DestReg_Decoder_22336157 PORT MAP (
           A => A_TB, 
           Q0 => Q0_TB, 
           Q1 => Q1_TB, 
