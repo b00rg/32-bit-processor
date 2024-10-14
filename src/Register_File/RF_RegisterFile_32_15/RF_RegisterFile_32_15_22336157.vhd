@@ -99,7 +99,9 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
     signal AND_Gate_to_TempReg09_i, AND_Gate_to_TempReg10_i, AND_Gate_to_TempReg11_i, AND_Gate_to_TempReg12_i, AND_Gate_to_TempReg13_i, AND_Gate_to_TempReg14_i, AND_Gate_to_TempReg15_i : STD_LOGIC;
     
     	signal Q0_DestReg, Q1_DestReg, Q2_DestReg, Q3_DestReg, Q4_DestReg, Q5_DestReg, Q6_DestReg, Q7_DestReg, Q8_DestReg, Q9_DestReg, Q10_DestReg, Q11_DestReg, Q12_DestReg, Q13_DestReg, Q14_DestReg, Q15_DestReg, Q16_DestReg, Q17_DestReg, Q18_DestReg, Q19_DestReg, Q20_DestReg, Q21_DestReg, Q22_DestReg, Q23_DestReg, Q24_DestReg, Q25_DestReg, Q26_DestReg, Q27_DestReg, Q28_DestReg, Q29_DestReg, Q30_DestReg, Q31_DestReg : STD_LOGIC;
-    
+
+	signal Q0_TempReg, Q1_TempReg, Q2_TempReg, Q3_TempReg, Q4_TempReg, Q5_TempReg, Q6_TempReg, Q7_TempReg, Q8_TempReg, Q9_TempReg, Q10_TempReg, Q11_TempReg, Q12_TempReg, Q13_TempReg, Q14_TempReg, Q15_TempReg : STD_LOGIC;
+
   begin
     DestReg_Decoder : RF_DestReg_Decoder_22336157 Port map(
       A => DR(4 downto 0),
