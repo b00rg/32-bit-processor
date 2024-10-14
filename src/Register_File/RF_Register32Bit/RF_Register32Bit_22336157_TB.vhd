@@ -37,7 +37,7 @@ component RF_Register32Bit_22336157_TB
 end component;
 
 --Inputs
-    signal D_TB : std_logic_vector(7 downto 0):= (others => '0');
+    signal D_TB : std_logic_vector(31 downto 0):= (others => '0');
     signal CLK_TB : std_logic:= '0';
     signal Load_TB : std_logic:= '0';
     signal Reset_TB : std_logic:= '0';
