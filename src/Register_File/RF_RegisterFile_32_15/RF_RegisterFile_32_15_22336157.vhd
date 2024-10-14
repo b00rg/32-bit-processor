@@ -246,7 +246,6 @@ signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i
 		Q14 => Q14_TempReg, Q15 => Q15_TempReg
 	);
 
-	  AND_Gate_to_TempReg00_i <= RW and Q0_TempReg after AND_GATE_DELAY;
 	  AND_Gate_to_TempReg01_i <= RW and Q1_TempReg after AND_GATE_DELAY;
 	  AND_Gate_to_TempReg02_i <= RW and Q2_TempReg after AND_GATE_DELAY;
 	  AND_Gate_to_TempReg03_i <= RW and Q3_TempReg after AND_GATE_DELAY;
@@ -263,7 +262,6 @@ signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i
 	  AND_Gate_to_TempReg14_i <= RW and Q14_TempReg after AND_GATE_DELAY;
 	  AND_Gate_to_TempReg15_i <= RW and Q15_TempReg after AND_GATE_DELAY;
 
-	TempReg00 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg00_i);
 	TempReg01 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg01_i);
 	TempReg02 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg02_i);
 	TempReg03 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg03_i);
@@ -281,3 +279,18 @@ signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i
 	TempReg15 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg15_i);
 
 	
+	Mux32_a : RF_Mux32_32Bit_22336157 Port Map(S0 => SA(0), S1 => SA(1), S2 => SA(2), S3 => SA(3), S4 => SA(4); -- Signals
+		I0 => Register00, I1 => Register1, I2 => Register02, I3 => Register03, I4 => Register04, I5 => Register05, I6 => Register06, I7 => Register07; -- Inputs
+		I8 => Register08, I9 => Register09, I10 => Register10, I11 => Register11, I12 => Register12, I13 => Register13, I14 => Register14, I15 => Register15);
+
+	Mux32_b : RF_Mux32_32Bit_22336157 Port Map(S0 => SB(0), S1 => SB(1), S2 => SB(2), S3 => SB(3), S4 => SB(4); -- Signals
+		I0 => Register00, I1 => Register1, I2 => Register02, I3 => Register03, I4 => Register04, I5 => Register05, I6 => Register06, I7 => Register07; -- Inputs
+		I8 => Register08, I9 => Register09, I10 => Register10, I11 => Register11, I12 => Register12, I13 => Register13, I14 => Register14, I15 => Register15);
+
+	Mux16_a : RF_Mux16_32Bit_22336157 Port Map(S0 => TA(0), S1 => TA(1), S2 => TA(2), S3 => TA(3); -- Signals
+		I0 => Mux32_a, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07; -- Inputs 
+		I8 => TempReg08, I9 => TempReg09, I10 => TempReg10, I11 => TempReg11, I12 => TempReg12, I13 => TempReg13, I14 => TempReg14, I15 => TempReg15);
+
+	Mux16_b : RF_Mux16_32Bit_22336157 Port Map(S0 => TB(0), S1 => TB(1), S2 => TB(2), S3 => TB(3); -- Signals
+		I0 => Mux32_b, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07; -- Inputs
+		I8 => TempReg08, I9 => TempReg09, I10 => TempReg10, I11 => TempReg11, I12 => TempReg12, I13 => TempReg13, I14 => TempReg14, I15 => TempReg15);
