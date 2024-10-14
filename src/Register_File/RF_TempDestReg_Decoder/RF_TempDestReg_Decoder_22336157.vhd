@@ -36,6 +36,19 @@ architecture Behavioral of RF_Temp_DestReg_Decoder_22336157 is
     signal and10, and11, and12, and13 : std_logic;
     signal and20, and21, and22, and23 : std_logic;
     signal and30, and31, and32, and33 : std_logic;
+    signal and40, and41, and42, and43 : std_logic;
+    signal and50, and51, and52, and53 : std_logic;
+    signal and60, and61, and62, and63 : std_logic;
+    signal and70, and71, and72, and73 : std_logic;
+    signal and80, and81, and82, and83 : std_logic;
+    signal and90, and91, and92, and93 : std_logic;
+    signal and100, and101, and102, and103 : std_logic;
+    signal and110, and111, and112, and113 : std_logic;
+    signal and120, and121, and122, and123 : std_logic;
+    signal and130, and131, and132, and133 : std_logic;
+    signal and140, and141, and142, and143 : std_logic;
+    signal and150, and151, and152, and153 : std_logic;
+
     
     -- Propagation Delay
     constant AND_gate_delay : Time := 8 ns; -- Propagation delay for AND gates
