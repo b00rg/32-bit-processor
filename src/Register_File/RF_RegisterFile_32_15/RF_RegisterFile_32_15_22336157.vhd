@@ -178,38 +178,38 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
 	AND_Gate_to_register30_i <= AND_Gate_to_register300_i and Q30_DestReg after AND_GATE_DELAY;
 	AND_Gate_to_register31_i <= AND_Gate_to_register310_i and Q31_DestReg after AND_GATE_DELAY;
 	
-	Register00 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(4 downto 0), Rest => Reset, Load => AND_Gate_to_register00_i);
-	Register01 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register01_i);
-	Register02 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register02_i);
-	Register03 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register03_i);
-	Register04 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register04_i);
-	Register05 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register05_i);
-	Register06 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register06_i);
-	Register07 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register07_i);
-	Register08 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register08_i);
-	Register09 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register09_i);
-	Register10 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register10_i);
-	Register11 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register11_i);
-	Register12 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register12_i);
-	Register13 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register13_i);
-	Register14 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register14_i);
-	Register15 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register15_i);
-	Register16 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register16_i);
-	Register17 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register17_i);
-	Register18 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register18_i);
-	Register19 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register19_i);
-	Register20 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register20_i);
-	Register21 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register21_i);
-	Register22 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register22_i);
-	Register23 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register23_i);
-	Register24 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register24_i);
-	Register25 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register25_i);
-	Register26 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register26_i);
-	Register27 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register27_i);
-	Register28 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register28_i);
-	Register29 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register29_i);
-	Register30 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register30_i);
-	Register31 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register31_i);
+	Register00 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register00_i);
+	Register01 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register01_i);
+	Register02 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register02_i);
+	Register03 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register03_i);
+	Register04 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register04_i);
+	Register05 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register05_i);
+	Register06 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register06_i);
+	Register07 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register07_i);
+	Register08 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register08_i);
+	Register09 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register09_i);
+	Register10 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register10_i);
+	Register11 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register11_i);
+	Register12 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register12_i);
+	Register13 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register13_i);
+	Register14 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register14_i);
+	Register15 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register15_i);
+	Register16 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register16_i);
+	Register17 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register17_i);
+	Register18 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register18_i);
+	Register19 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register19_i);
+	Register20 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register20_i);
+	Register21 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register21_i);
+	Register22 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register22_i);
+	Register23 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register23_i);
+	Register24 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register24_i);
+	Register25 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register25_i);
+	Register26 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register26_i);
+	Register27 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register27_i);
+	Register28 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register28_i);
+	Register29 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register29_i);
+	Register30 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register30_i);
+	Register31 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register31_i);
 
 	DestTempRegDecoder : RF_Temp_DestReg_Decoder_22336157 Port map(
 		A => TD(4 downto 0), 
@@ -236,21 +236,21 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
 	  AND_Gate_to_TempReg14_i <= RW and Q14_TempReg after AND_GATE_DELAY;
 	  AND_Gate_to_TempReg15_i <= RW and Q15_TempReg after AND_GATE_DELAY;
 
-	TempReg01 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg01_i);
-	TempReg02 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg02_i);
-	TempReg03 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg03_i);
-	TempReg04 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg04_i);
-	TempReg05 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg05_i);
-	TempReg06 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg06_i);
-	TempReg07 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg07_i);
-	TempReg08 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg08_i);
-	TempReg09 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg09_i);
-	TempReg10 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg10_i);
-	TempReg11 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg11_i);
-	TempReg12 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg12_i);
-	TempReg13 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg13_i);
-	TempReg14 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg14_i);
-	TempReg15 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg15_i);
+	TempReg01 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg01_i);
+	TempReg02 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg02_i);
+	TempReg03 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg03_i);
+	TempReg04 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg04_i);
+	TempReg05 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg05_i);
+	TempReg06 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg06_i);
+	TempReg07 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg07_i);
+	TempReg08 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg08_i);
+	TempReg09 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg09_i);
+	TempReg10 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg10_i);
+	TempReg11 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg11_i);
+	TempReg12 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg12_i);
+	TempReg13 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg13_i);
+	TempReg14 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg14_i);
+	TempReg15 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_TempReg15_i);
 
 	
 	Mux32_a : RF_Mux32_32Bit_22336157 Port Map(S0 => SA(0), S1 => SA(1), S2 => SA(2), S3 => SA(3), S4 => SA(4), -- Signals
