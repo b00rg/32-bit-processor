@@ -39,15 +39,14 @@ end RF_RegisterFile_32_15_22336157;
 architecture Behavioral of RF_RegisterFile_32_15_22336157 is
     COMPONENT RF_DestReg_Decoder_22336157
     Port ( A : in STD_LOGIC_VECTOR (4 downto 0); -- five to 32 line decoder
-           Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15,
+           Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15 : out STD_LOGIC;
            Q16, Q17, Q18, Q19, Q20, Q21, Q22, Q23, Q24, Q25, Q26, Q27, Q28, Q29, Q30, Q31 : out STD_LOGIC);
     END COMPONENT;
 
   COMPONENT RF_Temp_DestReg_Decoder_22336157 
   Port (
         A : in STD_LOGIC_VECTOR (3 downto 0); -- Input: 4-bit binary
-        Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, 
-        Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15 : out STD_LOGIC -- Output: 16 lines
+        Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15 : out STD_LOGIC -- Output: 16 lines
     );
   END COMPONENT; 
 
@@ -90,28 +89,17 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
     signal AND_Gate_to_register000_i, AND_Gate_to_register010_i, AND_Gate_to_register020_i, AND_Gate_to_register030_i, AND_Gate_to_register040_i, AND_Gate_to_register050_i, AND_Gate_to_register060_i, AND_Gate_to_register070_i, AND_Gate_to_register080_i,AND_Gate_to_register090_i, AND_Gate_to_register100_i, AND_Gate_to_register110_i, AND_Gate_to_register120_i, AND_Gate_to_register130_i, AND_Gate_to_register140_i, AND_Gate_to_register150_i, AND_Gate_to_register160_i, AND_Gate_to_register170_i : STD_LOGIC;
     signal AND_Gate_to_register180_i, AND_Gate_to_register190_i, AND_Gate_to_register200_i, AND_Gate_to_register210_i, AND_Gate_to_register220_i, AND_Gate_to_register230_i, AND_Gate_to_register240_i, AND_Gate_to_register250_i, AND_Gate_to_register260_i : STD_LOGIC; 
     signal AND_Gate_to_register270_i, AND_Gate_to_register280_i, AND_Gate_to_register290_i, AND_Gate_to_register300_i, AND_Gate_to_register310_i : STD_LOGIC;
-
-	signal Q0_DestReg, Q1_DestReg, Q2_DestReg, Q3_DestReg, Q4_DestReg, Q5_DestReg, Q6_DestReg, Q7_DestReg, Q8_DestReg, Q9_DestReg, Q10_DestReg, Q11_DestReg, Q12_DestReg, Q13_DestReg, Q14_DestReg, Q15_DestReg, Q16_DestReg, Q17_DestReg, Q18_DestReg, Q19_DestReg, Q20_DestReg, Q21_DestReg, Q22_DestReg, Q23_DestReg, Q24_DestReg, Q25_DestReg, Q26_DestReg, Q27_DestReg, Q28_DestReg, Q29_DestReg, Q30_DestReg, Q31_DestReg : STD_LOGIC;
-signal AND_Gate_to_register00_i, AND_Gate_to_register01_i, AND_Gate_to_register02_i, 
-       AND_Gate_to_register03_i, AND_Gate_to_register04_i, AND_Gate_to_register05_i, 
-       AND_Gate_to_register06_i, AND_Gate_to_register07_i, AND_Gate_to_register08_i, 
-       AND_Gate_to_register09_i, AND_Gate_to_register10_i, AND_Gate_to_register11_i, 
-       AND_Gate_to_register12_i, AND_Gate_to_register13_i, AND_Gate_to_register14_i, 
-       AND_Gate_to_register15_i, AND_Gate_to_register16_i, AND_Gate_to_register17_i, 
-       AND_Gate_to_register18_i, AND_Gate_to_register19_i, AND_Gate_to_register20_i, 
-       AND_Gate_to_register21_i, AND_Gate_to_register22_i, AND_Gate_to_register23_i, 
-       AND_Gate_to_register24_i, AND_Gate_to_register25_i, AND_Gate_to_register26_i, 
-       AND_Gate_to_register27_i, AND_Gate_to_register28_i, AND_Gate_to_register29_i, 
-       AND_Gate_to_register30_i, AND_Gate_to_register31_i : STD_LOGIC;
-
-signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i, 
-       AND_Gate_to_TempReg03_i, AND_Gate_to_TempReg04_i, AND_Gate_to_TempReg05_i, 
-       AND_Gate_to_TempReg06_i, AND_Gate_to_TempReg07_i, AND_Gate_to_TempReg08_i, 
-       AND_Gate_to_TempReg09_i, AND_Gate_to_TempReg10_i, AND_Gate_to_TempReg11_i, 
-       AND_Gate_to_TempReg12_i, AND_Gate_to_TempReg13_i, AND_Gate_to_TempReg14_i, 
-       AND_Gate_to_TempReg15_i : STD_LOGIC;
-
-
+    
+    signal AND_Gate_to_register00_i, AND_Gate_to_register01_i, AND_Gate_to_register02_i, AND_Gate_to_register03_i, AND_Gate_to_register04_i, AND_Gate_to_register05_i, AND_Gate_to_register06_i, AND_Gate_to_register07_i, AND_Gate_to_register08_i : STD_LOGIC;
+    signal AND_Gate_to_register09_i, AND_Gate_to_register10_i, AND_Gate_to_register11_i, AND_Gate_to_register12_i, AND_Gate_to_register13_i, AND_Gate_to_register14_i, AND_Gate_to_register15_i, AND_Gate_to_register16_i, AND_Gate_to_register17_i : STD_LOGIC;
+    signal AND_Gate_to_register18_i, AND_Gate_to_register19_i, AND_Gate_to_register20_i, AND_Gate_to_register21_i, AND_Gate_to_register22_i, AND_Gate_to_register23_i, AND_Gate_to_register24_i, AND_Gate_to_register25_i, AND_Gate_to_register26_i : STD_LOGIC;
+    signal AND_Gate_to_register27_i, AND_Gate_to_register28_i, AND_Gate_to_register29_i, AND_Gate_to_register30_i, AND_Gate_to_register31_i : STD_LOGIC;
+    
+    signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i, AND_Gate_to_TempReg03_i, AND_Gate_to_TempReg04_i, AND_Gate_to_TempReg05_i, AND_Gate_to_TempReg06_i, AND_Gate_to_TempReg07_i, AND_Gate_to_TempReg08_i : STD_LOGIC; 
+    signal AND_Gate_to_TempReg09_i, AND_Gate_to_TempReg10_i, AND_Gate_to_TempReg11_i, AND_Gate_to_TempReg12_i, AND_Gate_to_TempReg13_i, AND_Gate_to_TempReg14_i, AND_Gate_to_TempReg15_i : STD_LOGIC;
+    
+    	signal Q0_DestReg, Q1_DestReg, Q2_DestReg, Q3_DestReg, Q4_DestReg, Q5_DestReg, Q6_DestReg, Q7_DestReg, Q8_DestReg, Q9_DestReg, Q10_DestReg, Q11_DestReg, Q12_DestReg, Q13_DestReg, Q14_DestReg, Q15_DestReg, Q16_DestReg, Q17_DestReg, Q18_DestReg, Q19_DestReg, Q20_DestReg, Q21_DestReg, Q22_DestReg, Q23_DestReg, Q24_DestReg, Q25_DestReg, Q26_DestReg, Q27_DestReg, Q28_DestReg, Q29_DestReg, Q30_DestReg, Q31_DestReg : STD_LOGIC;
+    
   begin
     DestReg_Decoder : RF_DestReg_Decoder_22336157 Port map(
       A => DR(4 downto 0),
@@ -126,9 +114,9 @@ signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i
       Q28 => Q28_DestReg, Q29 => Q29_DestReg, Q30 => Q30_DestReg;
       Q31 => Q31_DestReg
     );
-      
-	AND_Gate_to_register000_i <= RW and Q0_DestReg after AND_GATE_DELAY;
-	AND_Gate_to_register010_i <= RW and Q1_DestReg after AND_GATE_DELAY;
+    
+	AND_Gate_to_register000_i <= RW and DestReg(0) after AND_GATE_DELAY;
+	AND_Gate_to_register010_i <= RW and DestReg(1) after AND_GATE_DELAY;
 	AND_Gate_to_register020_i <= RW and Q2_DestReg after AND_GATE_DELAY;
 	AND_Gate_to_register030_i <= RW and Q3_DestReg after AND_GATE_DELAY;
 	AND_Gate_to_register040_i <= RW and Q4_DestReg after AND_GATE_DELAY;
