@@ -102,6 +102,7 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
 
 	signal Q0_TempReg, Q1_TempReg, Q2_TempReg, Q3_TempReg, Q4_TempReg, Q5_TempReg, Q6_TempReg, Q7_TempReg, Q8_TempReg, Q9_TempReg, Q10_TempReg, Q11_TempReg, Q12_TempReg, Q13_TempReg, Q14_TempReg, Q15_TempReg : STD_LOGIC;
 
+	signal Register0_Q, Register1_Q, Register2_Q, Register3_Q, Register4_Q, Register5_Q, Register6_Q, Register7_Q, Register8_Q, Register9_Q, Register10_Q, Register11_Q, Register12_Q, Register13_Q, Register14_Q, Register15_Q, Register16_Q, Register17_Q, Register18_Q, Register19_Q, Register20_Q, Register21_Q, Register22_Q, Register23_Q, Register24_Q, Register25_Q, Register26_Q, Register27_Q, Register28_Q, Register29_Q, Register30_Q, Register31_Q : STD_LOGIC; 
     
   begin
     DestReg_Decoder : RF_DestReg_Decoder_22336157 Port map(
