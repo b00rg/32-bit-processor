@@ -69,20 +69,20 @@ begin
     -- Stimulus process to drive inputs and test the register functionality
     stim_proc: process
     begin
-        -- Step 1: Apply an initial reset
+        -- Case 1: Apply an initial reset
         Reset_TB <= '1'; -- Assert reset
         wait for PERIOD;  -- Wait for 1 clock cycle
         Reset_TB <= '0'; -- Deassert reset
         
-        -- Step 2: Load the student ID into the register
+        -- Case 2: Load the student ID into the register
         D_TB <= StudentID;  -- Set input D to student ID
         Load_TB <= '1';     -- Assert load to load the value into the register
         wait for PERIOD;    -- Wait for 1 clock cycle
         
-        -- Step 3: Deassert the load signal, so the register holds the value
+        -- Case 3: Deassert the load signal, so the register holds the value
         Load_TB <= '0';
         
-        -- Step 4: Wait for several clock cycles to observe the output
+        -- Case 4: Wait for several clock cycles to observe the output
         wait for 10 * PERIOD; -- Wait for 10 clock cycles
         
         -- End simulation after observing the behavior
