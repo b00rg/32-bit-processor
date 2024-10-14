@@ -97,28 +97,23 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
     
     signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i, AND_Gate_to_TempReg03_i, AND_Gate_to_TempReg04_i, AND_Gate_to_TempReg05_i, AND_Gate_to_TempReg06_i, AND_Gate_to_TempReg07_i, AND_Gate_to_TempReg08_i : STD_LOGIC; 
     signal AND_Gate_to_TempReg09_i, AND_Gate_to_TempReg10_i, AND_Gate_to_TempReg11_i, AND_Gate_to_TempReg12_i, AND_Gate_to_TempReg13_i, AND_Gate_to_TempReg14_i, AND_Gate_to_TempReg15_i : STD_LOGIC;
-    
-    	signal Q0_DestReg, Q1_DestReg, Q2_DestReg, Q3_DestReg, Q4_DestReg, Q5_DestReg, Q6_DestReg, Q7_DestReg, Q8_DestReg, Q9_DestReg, Q10_DestReg, Q11_DestReg, Q12_DestReg, Q13_DestReg, Q14_DestReg, Q15_DestReg, Q16_DestReg, Q17_DestReg, Q18_DestReg, Q19_DestReg, Q20_DestReg, Q21_DestReg, Q22_DestReg, Q23_DestReg, Q24_DestReg, Q25_DestReg, Q26_DestReg, Q27_DestReg, Q28_DestReg, Q29_DestReg, Q30_DestReg, Q31_DestReg : STD_LOGIC;
+    	
+    signal Q0_DestReg, Q1_DestReg, Q2_DestReg, Q3_DestReg, Q4_DestReg, Q5_DestReg, Q6_DestReg, Q7_DestReg, Q8_DestReg, Q9_DestReg, Q10_DestReg, Q11_DestReg, Q12_DestReg, Q13_DestReg, Q14_DestReg, Q15_DestReg, Q16_DestReg, Q17_DestReg, Q18_DestReg, Q19_DestReg, Q20_DestReg, Q21_DestReg, Q22_DestReg, Q23_DestReg, Q24_DestReg, Q25_DestReg, Q26_DestReg, Q27_DestReg, Q28_DestReg, Q29_DestReg, Q30_DestReg, Q31_DestReg : STD_LOGIC;
 
 	signal Q0_TempReg, Q1_TempReg, Q2_TempReg, Q3_TempReg, Q4_TempReg, Q5_TempReg, Q6_TempReg, Q7_TempReg, Q8_TempReg, Q9_TempReg, Q10_TempReg, Q11_TempReg, Q12_TempReg, Q13_TempReg, Q14_TempReg, Q15_TempReg : STD_LOGIC;
 
+    
   begin
     DestReg_Decoder : RF_DestReg_Decoder_22336157 Port map(
       A => DR(4 downto 0),
-      Q0 => Q0_DestReg, Q1 => Q1_DestReg, Q2 => Q2_DestReg, Q3 => Q3_DestReg;
-      Q4 => Q4_DestReg, Q5 => Q5_DestReg, Q6 => Q6_DestReg, Q7 => Q7_DestReg;
-      Q8 => Q8_DestReg, Q9 => Q9_DestReg, Q10 => Q10_DestReg, Q11 => Q11_DestReg;
-      Q12 => Q12_DestReg, Q13 => Q13_DestReg, Q14 => Q14_DestReg, Q15 => Q15_DestReg;
-      Q16 => Q16_DestReg, Q17 => Q17_DestReg, Q18 => Q18_DestReg;
-      Q19 => Q19_DestReg, Q20 => Q20_DestReg, Q21 => Q21_DestReg;
-      Q22 => Q22_DestReg, Q23 => Q23_DestReg, Q24 => Q24_DestReg;
-      Q25 => Q25_DestReg, Q26 => Q26_DestReg, Q27 => Q27_DestReg;
-      Q28 => Q28_DestReg, Q29 => Q29_DestReg, Q30 => Q30_DestReg;
-      Q31 => Q31_DestReg
+      Q0 => Q0_DestReg, Q1 => Q1_DestReg, Q2 => Q2_DestReg, Q3 => Q3_DestReg, Q4 => Q4_DestReg, Q5 => Q5_DestReg, Q6 => Q6_DestReg, Q7 => Q7_DestReg,
+      Q8 => Q8_DestReg, Q9 => Q9_DestReg, Q10 => Q10_DestReg, Q11 => Q11_DestReg, Q12 => Q12_DestReg, Q13 => Q13_DestReg, Q14 => Q14_DestReg, Q15 => Q15_DestReg, 
+      Q16 => Q16_DestReg, Q17 => Q17_DestReg, Q18 => Q18_DestReg, Q19 => Q19_DestReg, Q20 => Q20_DestReg, Q21 => Q21_DestReg, Q22 => Q22_DestReg, Q23 => Q23_DestReg, 
+      Q24 => Q24_DestReg, Q25 => Q25_DestReg, Q26 => Q26_DestReg, Q27 => Q27_DestReg, Q28 => Q28_DestReg, Q29 => Q29_DestReg, Q30 => Q30_DestReg, Q31 => Q31_DestReg
     );
     
-	AND_Gate_to_register000_i <= RW and DestReg(0) after AND_GATE_DELAY;
-	AND_Gate_to_register010_i <= RW and DestReg(1) after AND_GATE_DELAY;
+	AND_Gate_to_register000_i <= RW and Q0_DestReg after AND_GATE_DELAY;
+	AND_Gate_to_register010_i <= RW and Q1_DestReg after AND_GATE_DELAY;
 	AND_Gate_to_register020_i <= RW and Q2_DestReg after AND_GATE_DELAY;
 	AND_Gate_to_register030_i <= RW and Q3_DestReg after AND_GATE_DELAY;
 	AND_Gate_to_register040_i <= RW and Q4_DestReg after AND_GATE_DELAY;
@@ -183,7 +178,7 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
 	AND_Gate_to_register30_i <= AND_Gate_to_register300_i and Q30_DestReg after AND_GATE_DELAY;
 	AND_Gate_to_register31_i <= AND_Gate_to_register310_i and Q31_DestReg after AND_GATE_DELAY;
 	
-	Register00 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register00_i);
+	Register00 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(4 downto 0), Rest => Reset, Load => AND_Gate_to_register00_i);
 	Register01 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register01_i);
 	Register02 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register02_i);
 	Register03 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register03_i);
@@ -217,7 +212,7 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
 	Register31 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_register31_i);
 
 	DestTempRegDecoder : RF_Temp_DestReg_Decoder_22336157 Port map(
-		A[4:0] => TD[4:0], 
+		A => TD(4 downto 0), 
 		Q0 => Q0_TempReg, Q1 => Q1_TempReg, Q2 => Q2_TempReg, Q3 => Q3_TempReg, 
 		Q4 => Q4_TempReg, Q5 => Q5_TempReg, Q6 => Q6_TempReg, Q7 => Q7_TempReg, 
 		Q8 => Q8_TempReg, Q9 => Q9_TempReg, Q10 => Q10_TempReg, 
@@ -258,20 +253,20 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
 	TempReg15 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D[31:0] => D[31:0], Rest => Reset, Load => AND_Gate_to_TempReg15_i);
 
 	
-	Mux32_a : RF_Mux32_32Bit_22336157 Port Map(S0 => SA(0), S1 => SA(1), S2 => SA(2), S3 => SA(3), S4 => SA(4); -- Signals
-		I0 => Register00, I1 => Register1, I2 => Register02, I3 => Register03, I4 => Register04, I5 => Register05, I6 => Register06, I7 => Register07; -- Inputs
+	Mux32_a : RF_Mux32_32Bit_22336157 Port Map(S0 => SA(0), S1 => SA(1), S2 => SA(2), S3 => SA(3), S4 => SA(4), -- Signals
+		I0 => Register00, I1 => Register1, I2 => Register02, I3 => Register03, I4 => Register04, I5 => Register05, I6 => Register06, I7 => Register07, -- Inputs
 		I8 => Register08, I9 => Register09, I10 => Register10, I11 => Register11, I12 => Register12, I13 => Register13, I14 => Register14, I15 => Register15);
 
-	Mux32_b : RF_Mux32_32Bit_22336157 Port Map(S0 => SB(0), S1 => SB(1), S2 => SB(2), S3 => SB(3), S4 => SB(4); -- Signals
-		I0 => Register00, I1 => Register1, I2 => Register02, I3 => Register03, I4 => Register04, I5 => Register05, I6 => Register06, I7 => Register07; -- Inputs
+	Mux32_b : RF_Mux32_32Bit_22336157 Port Map(S0 => SB(0), S1 => SB(1), S2 => SB(2), S3 => SB(3), S4 => SB(4), -- Signals
+		I0 => Register00, I1 => Register1, I2 => Register02, I3 => Register03, I4 => Register04, I5 => Register05, I6 => Register06, I7 => Register07, -- Inputs
 		I8 => Register08, I9 => Register09, I10 => Register10, I11 => Register11, I12 => Register12, I13 => Register13, I14 => Register14, I15 => Register15);
 
-	Mux16_a : RF_Mux16_32Bit_22336157 Port Map(S0 => TA(0), S1 => TA(1), S2 => TA(2), S3 => TA(3); -- Signals
-		I0 => Mux32_a, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07; -- Inputs 
+	Mux16_a : RF_Mux16_32Bit_22336157 Port Map(S0 => TA(0), S1 => TA(1), S2 => TA(2), S3 => TA(3), -- Signals
+		I0 => Mux32_a, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07, -- Inputs 
 		I8 => TempReg08, I9 => TempReg09, I10 => TempReg10, I11 => TempReg11, I12 => TempReg12, I13 => TempReg13, I14 => TempReg14, I15 => TempReg15);
 
-	Mux16_b : RF_Mux16_32Bit_22336157 Port Map(S0 => TB(0), S1 => TB(1), S2 => TB(2), S3 => TB(3); -- Signals
-		I0 => Mux32_b, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07; -- Inputs
+	Mux16_b : RF_Mux16_32Bit_22336157 Port Map(S0 => TB(0), S1 => TB(1), S2 => TB(2), S3 => TB(3), -- Signals
+		I0 => Mux32_b, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07, -- Inputs
 		I8 => TempReg08, I9 => TempReg09, I10 => TempReg10, I11 => TempReg11, I12 => TempReg12, I13 => TempReg13, I14 => TempReg14, I15 => TempReg15);
 
 	A <= Mux16_a; -- outputs
