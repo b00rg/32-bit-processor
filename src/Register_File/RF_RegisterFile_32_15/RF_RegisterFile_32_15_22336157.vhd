@@ -31,7 +31,9 @@ entity RF_RegisterFile_32_15_22336157 is
           Reset : in STD_LOGIC;
           TB : in STD_LOGIC_VECTOR (3 downto 0);
           TA : in STD_LOGIC_VECTOR (3 downto 0);
-          TD : in STD_LOGIC_VECTOR (3 downto 0));
+          TD : in STD_LOGIC_VECTOR (3 downto 0);
+	  A : out STD_LOGIC_VECTOR(31 downto 0);
+	  B : out STD_LOGIC_VECTOR(31 downto 0));
 end RF_Register32Bit_22336157;
 
 architecture Behavioral of RF_RegisterFile_32_15_22336157 is
@@ -294,3 +296,8 @@ signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i
 	Mux16_b : RF_Mux16_32Bit_22336157 Port Map(S0 => TB(0), S1 => TB(1), S2 => TB(2), S3 => TB(3); -- Signals
 		I0 => Mux32_b, I1 => TempReg01, I2 => TempReg02, I3 => TempReg03, I4 => TempReg04, I5 => TempReg05, I6 => TempReg06, I7 => TempReg07; -- Inputs
 		I8 => TempReg08, I9 => TempReg09, I10 => TempReg10, I11 => TempReg11, I12 => TempReg12, I13 => TempReg13, I14 => TempReg14, I15 => TempReg15);
+
+	A <= Mux16_a; -- outputs
+	B <= Mux16_b; 
+
+end Behavioral;
