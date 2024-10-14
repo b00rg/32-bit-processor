@@ -46,7 +46,7 @@ end component;
     signal Q_TB : std_logic_vector(31 downto 0):= (others => '0');
    
 -- StudentID e.g. 26 33 57 25(DEC) = 1 91 D9 ED(HEX)
-    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"191D9ED";  
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := "00000001010101001101001010011101";
     constant PERIOD : time := 100ns;
    
 begin
@@ -72,8 +72,7 @@ begin
 	wait for PERIOD;
 	Reset_TB <= '0';
 	
-	-- Load the 32-bit StudentID (x"0191D9ED") into the register
-	D_TB <= StudentID;
+	D_TB <= "00000001010101001101001010011101";
 	Load_TB <= '1';
 	wait for PERIOD;
 	Load_TB <= '0';
