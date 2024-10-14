@@ -39,7 +39,7 @@ component RF_Register32Bit_22336157
 end component;
 
 -- Signals for testbench to drive inputs and observe outputs
-signal D_TB : std_logic_vector(31 downto 0) := (others => '0');
+signal D_TB : std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
 signal CLK_TB : std_logic := '0';
 signal Load_TB : std_logic := '0';
 signal Reset_TB : std_logic := '0';
