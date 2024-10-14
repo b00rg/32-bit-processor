@@ -43,12 +43,6 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
            Q16, Q17, Q18, Q19, Q20, Q21, Q22, Q23, Q24, Q25, Q26, Q27, Q28, Q29, Q30, Q31 : out STD_LOGIC);
     END COMPONENT;
 
-  COMPONENT RF_DestReg_Decoder_22336157 is
-    Port ( A : in STD_LOGIC_VECTOR (4 downto 0); -- five to 32 line decoder
-           Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15,
-           Q16, Q17, Q18, Q19, Q20, Q21, Q22, Q23, Q24, Q25, Q26, Q27, Q28, Q29, Q30, Q31 : out STD_LOGIC);
-    END COMPONENT;
-
   COMPONENT RF_Temp_DestReg_Decoder_22336157 
   Port (
         A : in STD_LOGIC_VECTOR (3 downto 0); -- Input: 4-bit binary
@@ -127,16 +121,16 @@ signal AND_Gate_to_TempReg00_i, AND_Gate_to_TempReg01_i, AND_Gate_to_TempReg02_i
 
   begin
     DestReg_Decoder : RF_DestReg_Decoder_22336157 Port map(
-      A[4:0] => DR[4:0],
-      Q0 => Q0_DestReg, Q1 => Q1_DestReg, Q2 => Q2_DestReg, Q3 => Q3_DestReg, 
-      Q4 => Q4_DestReg, Q5 => Q5_DestReg, Q6 => Q6_DestReg, Q7 => Q7_DestReg, 
-      Q8 => Q8_DestReg, Q9 => Q9_DestReg, Q10 => Q10_DestReg, Q11 => Q11_DestReg, 
-      Q12 => Q12_DestReg, Q13 => Q13_DestReg, Q14 => Q14_DestReg, Q15 => Q15_DestReg,
-      Q16 => Q16_DestReg, Q17 => Q17_DestReg, Q18 => Q18_DestReg, 
-      Q19 => Q19_DestReg, Q20 => Q20_DestReg, Q21 => Q21_DestReg, 
-      Q22 => Q22_DestReg, Q23 => Q23_DestReg, Q24 => Q24_DestReg, 
-      Q25 => Q25_DestReg, Q26 => Q26_DestReg, Q27 => Q27_DestReg, 
-      Q28 => Q28_DestReg, Q29 => Q29_DestReg, Q30 => Q30_DestReg, 
+      A[4:0] => DR[4:0];
+      Q0 => Q0_DestReg, Q1 => Q1_DestReg, Q2 => Q2_DestReg, Q3 => Q3_DestReg;
+      Q4 => Q4_DestReg, Q5 => Q5_DestReg, Q6 => Q6_DestReg, Q7 => Q7_DestReg;
+      Q8 => Q8_DestReg, Q9 => Q9_DestReg, Q10 => Q10_DestReg, Q11 => Q11_DestReg;
+      Q12 => Q12_DestReg, Q13 => Q13_DestReg, Q14 => Q14_DestReg, Q15 => Q15_DestReg;
+      Q16 => Q16_DestReg, Q17 => Q17_DestReg, Q18 => Q18_DestReg;
+      Q19 => Q19_DestReg, Q20 => Q20_DestReg, Q21 => Q21_DestReg;
+      Q22 => Q22_DestReg, Q23 => Q23_DestReg, Q24 => Q24_DestReg;
+      Q25 => Q25_DestReg, Q26 => Q26_DestReg, Q27 => Q27_DestReg;
+      Q28 => Q28_DestReg, Q29 => Q29_DestReg, Q30 => Q30_DestReg;
       Q31 => Q31_DestReg
     );
       
