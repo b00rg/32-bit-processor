@@ -79,9 +79,9 @@ begin
         Load_TB <= '1';     -- Assert load to load the value into the register
         wait for PERIOD;    -- Wait for 1 clock cycle
         
-        -- Case 3: Deassert the load signal, so the register holds the value
+        -- Deassert the load signal, so the register holds the value
         Load_TB <= '0';
-        
+
         -- Case 4: Wait for several clock cycles to observe the output
         wait for 10 * PERIOD; -- Wait for 10 clock cycles
         
