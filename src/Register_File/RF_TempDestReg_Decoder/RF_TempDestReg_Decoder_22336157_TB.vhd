@@ -23,7 +23,7 @@ architecture Simulation of RF_Temp_DestReg_Decoder_22336157_TB is
    signal Q12_TB, Q13_TB, Q14_TB, Q15_TB : STD_LOGIC;
 
    constant WaitPeriod : time := 60ns;   
-       
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 begin
 
    -- Instantiate the Unit Under Test (UUT)
