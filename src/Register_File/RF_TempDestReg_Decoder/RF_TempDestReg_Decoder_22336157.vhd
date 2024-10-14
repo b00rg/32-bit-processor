@@ -56,6 +56,7 @@ architecture Behavioral of RF_Temp_DestReg_Decoder_22336157 is
 
 begin
 
+
     -- NOT operations to generate inverted signals
     A0_not <= not A(0) after NOT_gate_delay;
     A1_not <= not A(1) after NOT_gate_delay;
@@ -91,11 +92,11 @@ begin
     Q3 <= and33 after AND_gate_delay;
 
     -- S4: Breakdown of AND operations
-    and40 <= A(3) after AND_gate_delay;
-    and41 <= and40 and A2_not after AND_gate_delay;
-    and42 <= and41 and A1_not after AND_gate_delay;
-    and43 <= and42 and A0_not after AND_gate_delay;
-    Q4 <= and43 after AND_gate_delay;
+    and40 <=  A3_not after AND_gate_delay;
+    and41 <= and40 and  A(2) after AND_gate_delay;
+    and42 <= and41 and  A(1) after AND_gate_delay;
+    and43 <= and42 and  A(0) after AND_gate_delay;
+    Q4 <= and43 after AND_gate_delay; -- working until here
 
     -- S5: Breakdown of AND operations
     and50 <= A(3) after AND_gate_delay;
