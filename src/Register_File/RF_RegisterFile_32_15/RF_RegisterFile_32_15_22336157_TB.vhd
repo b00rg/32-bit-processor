@@ -70,12 +70,6 @@ BEGIN
         td <= "0000";       
         D <= "00000000000000000000000000000010";  -- Write 1 to register 0
         wait for clk_period;
-        
-        RW <= '1';
-        wait for clk_period*2; 
-        dr <= "00000"; 
-        D <= "00000000000000000000000000000001";
-        wait for clk_period;
 
         wait;
     end process;
