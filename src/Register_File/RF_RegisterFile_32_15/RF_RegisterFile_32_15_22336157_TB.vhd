@@ -1,72 +1,113 @@
-module tb_top_module;
-    // Inputs
-    reg [4:0] DR;        // Destination register (5-bit)
-    reg [3:0] TD;        // Temporary destination (4-bit)
-    reg [4:0] SA;        // Source register A (5-bit)
-    reg [4:0] SB;        // Source register B (5-bit)
-    reg [3:0] TA;        // Temporary source A (4-bit)
-    reg [3:0] TB;        // Temporary source B (4-bit)
-    reg RW;              // Read/Write signal
-    reg CLK;             // Clock signal
-    reg reset;           // Reset signal
-    reg [31:0] D;        // Data input (32-bit)
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_unsigned.ALL;
 
-    // Outputs
-    wire [31:0] A;       // Output A from Mux16_A
-    wire [31:0] B;       // Output B from Mux16_B
+ENTITY TB_RF_RegisterFile_32_15_22336157 IS
+END TB_RF_RegisterFile_32_15_22336157;
 
-    // Internal signals (can add more as necessary for module interconnections)
+ARCHITECTURE behavior OF TB_RF_RegisterFile_32_15_22336157 IS
 
-    // Clock generation
-    initial begin
-        CLK = 0;
-        forever #5 CLK = ~CLK;  // Toggle clock every 5 time units
-    end
+    -- Component Declaration for the Unit Under Test (UUT)
+    COMPONENT RF_RegisterFile_32_15_22336157
+    PORT(
+        RW    : IN  std_logic;                      -- Read/Write signal (1 = write, 0 = read)
+        DR    : IN  std_logic_vector(4 downto 0);   -- Destination register address (5-bit)
+        D     : IN  std_logic_vector(31 downto 0);  -- Data input (32-bit)
+        CLK   : IN  std_logic;                      -- Clock signal
+        Reset : IN  std_logic;                      -- Reset signal
+        sa    : IN  std_logic;                      -- Selection input A
+        sb    : IN  std_logic;                      -- Selection input B
+        ta    : IN  std_logic;                      -- Temporary selection A
+        td    : IN  std_logic;                      -- Temporary selection B
+        a     : IN  std_logic;                      -- Additional input A
+        b     : IN  std_logic;                      -- Additional input B
+        Y     : OUT std_logic_vector(31 downto 0)   -- Data output (32-bit)
+    );
+    END COMPONENT;
 
-    // Instantiate top-level module
-    top_module uut (
-        .DR(DR), .TD(TD), .SA(SA), .SB(SB), .TA(TA), .TB(TB), 
-        .RW(RW), .CLK(CLK), .reset(reset), .D(D), .A(A), .B(B)
+    -- Signals Declaration
+    signal CLK : std_logic := '0';
+    signal RW : std_logic := '0';                     -- Read/Write signal
+    signal Reset : std_logic := '0';                  -- Reset signal
+    signal DR : std_logic_vector(4 downto 0) := (others => '0'); -- 5-bit destination register address
+    signal D : std_logic_vector(31 downto 0) := (others => '0'); -- 32-bit data input
+    signal sa, sb, ta, td, a, b : std_logic := '0';  -- Selection/control inputs
+    signal Y : std_logic_vector(31 downto 0);        -- 32-bit data output
+
+    -- Clock period definition
+    constant clk_period : time := 10 ns;
+
+BEGIN
+
+    -- Clock generation without a process
+    CLK <= not CLK after clk_period / 2;
+
+    -- Instantiate the Unit Under Test (UUT)
+    uut: RF_RegisterFile_32_15_22336157 PORT MAP (
+          RW    => RW,
+          DR    => DR,
+          D     => D,
+          CLK   => CLK,
+          Reset => Reset,
+          sa    => sa,
+          sb    => sb,
+          ta    => ta,
+          td    => td,
+          a     => a,
+          b     => b,
+          Y     => Y
     );
 
-    // Testbench stimulus
-    initial begin
-        // Initialize inputs
-        DR = 5'b00000;
-        TD = 4'b0000;
-        SA = 5'b00000;
-        SB = 5'b00000;
-        TA = 4'b0000;
-        TB = 4'b0000;
-        RW = 0;          // Initially in Read mode
-        reset = 1;       // Assert reset
-        D = 32'h00000000; // Clear data input
+    -- Stimulus process
+    stim_proc: process
+    begin		
+        -- Initialize Inputs
+        Reset <= '1';  -- Assert reset
+        wait for 20 ns;
+        Reset <= '0';  -- Deassert reset
+        
+        -- Test Case 1: Write to register 0
+        RW <= '1';  -- Enable write
+        DR <= "00000";  -- Select register 0
+        D <= x"00000001";  -- Write 1 to register 0
+        wait for clk_period;
+        
+        -- Test Case 2: Write to register 1
+        DR <= "00001";  -- Select register 1
+        D <= x"00000002";  -- Write 2 to register 1
+        wait for clk_period;
 
-        // Wait for a few clock cycles
-        #10 reset = 0;   // Deassert reset
+        -- Test Case 3: Write to register 31
+        DR <= "11111";  -- Select register 31
+        D <= x"12345678";  -- Write a specific value to register 31
+        wait for clk_period;
 
-        // Test 1: Write to register 0
-        RW = 1;          // Enable Write mode
-        DR = 5'b00001;   // Destination register 1
-        TD = 4'b0001;    // Temporary register 1
-        D = 32'hDEADBEEF; // Data to write
-        #10;
+        -- Test Case 4: Read from register 0
+        RW <= '0';  -- Disable write (read mode)
+        sa <= '0';  sb <= '0';  ta <= '0';  td <= '0';  a <= '0';  b <= '0';  -- Select register 0
+        wait for clk_period;
+        
+        -- Test Case 5: Read from register 1
+        sa <= '1';  sb <= '0';  ta <= '0';  td <= '0';  a <= '0';  b <= '0';  -- Select register 1
+        wait for clk_period;
 
-        // Test 2: Read from register 1
-        RW = 0;          // Set to Read mode
-        SA = 5'b00001;   // Source register A = 1
-        SB = 5'b00001;   // Source register B = 1
-        TA = 4'b0001;    // Temporary source A
-        TB = 4'b0001;    // Temporary source B
-        #10;
+        -- Test Case 6: Read from register 31
+        sa <= '1';  sb <= '1';  ta <= '1';  td <= '1';  a <= '1';  b <= '1';  -- Select register 31
+        wait for clk_period;
+        
+        -- Test Case 7: Reset the registers
+        Reset <= '1';  -- Assert reset to clear all registers
+        wait for 20 ns;
+        Reset <= '0';  -- Deassert reset
+        wait for clk_period;
 
-        // Check outputs A and B
-        $display("Output A: %h", A);  // Should output DEADBEEF
-        $display("Output B: %h", B);  // Should output DEADBEEF
-        #10;
+        -- Test Case 8: Try reading register 0 after reset (should be 0)
+        RW <= '0';  -- Read mode
+        sa <= '0';  sb <= '0';  ta <= '0';  td <= '0';  a <= '0';  b <= '0';  -- Select register 0
+        wait for clk_period;
 
-        // Add more tests here for different register and temporary register combinations
+        -- Test completed
+        wait;
+    end process;
 
-        $stop;           // Stop simulation
-    end
-endmodule
+END behavior;
