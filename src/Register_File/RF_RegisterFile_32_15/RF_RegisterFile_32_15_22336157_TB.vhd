@@ -9,13 +9,13 @@ ARCHITECTURE behavior OF TB_RF_RegisterFile_32_15_22336157 IS
     -- Component Declaration for the Unit Under Test (UUT)
     COMPONENT RF_RegisterFile_32_15_22336157
     PORT(
-        RW : IN  std_logic;             -- Read/Write signal (1 = write, 0 = read)
-        DR : IN  std_logic_vector(4 downto 0); -- Destination register address
-        D  : IN  std_logic_vector(31 downto 0); -- Data input
-        CLK : IN std_logic;             -- Clock signal
-        Reset : IN std_logic;           -- Reset signal
-        S0, S1, S2, S3, S4 : IN std_logic; -- Selection inputs
-        Y : OUT std_logic_vector(31 downto 0) -- Data output
+        RW    : IN  std_logic;              -- Read/Write signal (1 = write, 0 = read)
+        DR    : IN  std_logic_vector(4 downto 0); -- Destination register address
+        D     : IN  std_logic_vector(31 downto 0); -- Data input
+        CLK   : IN  std_logic;              -- Clock signal
+        Reset : IN  std_logic;              -- Reset signal
+        S0, S1, S2, S3, S4 : IN std_logic;  -- Selection inputs
+        Y     : OUT std_logic_vector(31 downto 0) -- Data output
     );
     END COMPONENT;
 
@@ -33,28 +33,22 @@ ARCHITECTURE behavior OF TB_RF_RegisterFile_32_15_22336157 IS
 
 BEGIN
 
-    -- Clock generation process
-    clk_process :process
-    begin
-        CLK <= '0';
-        wait for clk_period/2;
-        CLK <= '1';
-        wait for clk_period/2;
-    end process;
+    -- Clock generation without a process
+    CLK <= not CLK after clk_period / 2;
 
     -- Instantiate the Unit Under Test (UUT)
     uut: RF_RegisterFile_32_15_22336157 PORT MAP (
-          RW => RW,
-          DR => DR,
-          D => D,
-          CLK => CLK,
+          RW    => RW,
+          DR    => DR,
+          D     => D,
+          CLK   => CLK,
           Reset => Reset,
-          S0 => S0,
-          S1 => S1,
-          S2 => S2,
-          S3 => S3,
-          S4 => S4,
-          Y => Y
+          S0    => S0,
+          S1    => S1,
+          S2    => S2,
+          S3    => S3,
+          S4    => S4,
+          Y     => Y
     );
 
     -- Stimulus process
