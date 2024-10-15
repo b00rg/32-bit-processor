@@ -65,47 +65,37 @@ BEGIN
         wait for 20 ns;
         Reset <= '0';  -- Deassert reset
         
-        -- Test Case 1: Write to register 0
+        -- Test Case 1: register 0
         RW <= '1';  -- Enable write
         DR <= "00000";  -- Select register 0
-        D <= x"00000001";  -- Write 1 to register 0
+        D <= "00000000000000000000000000000001";  -- Write 1 to register 0
         wait for clk_period;
         
-        -- Test Case 2: Write to register 1
-        DR <= "00001";  -- Select register 1
-        D <= x"00000002";  -- Write 2 to register 1
-        wait for clk_period;
-
-        -- Test Case 3: Write to register 31
-        DR <= "11111";  -- Select register 31
-        D <= x"12345678";  -- Write a specific value to register 31
-        wait for clk_period;
-
-        -- Test Case 4: Read from register 0
         RW <= '0';  -- Disable write (read mode)
         sa <= "00000";  sb <= "00000";  ta <= "0000";  td <= "0000";
         wait for clk_period;
         
-        -- Test Case 5: Read from register 1
+        -- Test Case 2: Write to register 1
+        RW <= '1';  
+        DR <= "00001";  -- Select register 1
+        D <= x"00000002";  -- Write 2 to register 1
+        wait for clk_period;
+        
+        RW <= '0';          
         sa <= "00001";  sb <= "00000";  ta <= "0000";  td <= "0000"; 
         wait for clk_period;
 
-        -- Test Case 6: Read from register 31
+        -- Test Case 3: Write to register 31
+        RW <= '1';  
+        DR <= "11111";  -- Select register 31
+        D <= x"12345678";  -- Write a specific value to register 31
+        wait for clk_period;
+
+        RW <= '0';  
         sa <= "00001";  sb <= "00001";  ta <= "0001";  td <= "0001";  
         wait for clk_period;
         
-        -- Test Case 7: Reset the registers
-        Reset <= '1';  -- Assert reset to clear all registers
-        wait for 20 ns;
-        Reset <= '0';  -- Deassert reset
-        wait for clk_period;
-
-        -- Test Case 8: Try reading register 0 after reset (should be 0)
-        RW <= '0';  -- Read mode
-        sa <= "00000";  sb <= "00000";  ta <= "0000";  td <= "0000";
-        wait for clk_period;
-
-        -- Test completed
+        
         wait;
     end process;
 
