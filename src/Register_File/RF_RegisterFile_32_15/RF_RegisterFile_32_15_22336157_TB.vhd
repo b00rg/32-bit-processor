@@ -62,16 +62,91 @@ BEGIN
     begin	
         reset_TB <= '1';
         wait for clk_period;
-        -- Test Case 1: register 0
+        
+        -- Test Case 0: register 0
         Reset_TB <= '0';
         wait for clk_period; 
         RW_TB <= '0';  -- Enable write
         dr_TB <= "00000"; 
         td_TB <= "0000";       
-        D_TB <= x"00000001"; 
+        D_TB <=  "00000001010101001101001010011101"; 
         wait for clk_period;
         RW_TB  <= '1';
-        wait;
+        wait for clk_period;
+            
+        -- Test Case 1: register 1
+        RW_TB <= '0';
+        dr_TB <= "00001"; 
+        td_TB <= "0000";  
+        D_TB <= "00000001010101001101001010011110"; 
+        wait for clk_period; 
+        RW_TB <= '1';
+        wait for clk_period;
+
+        -- Test Case 2: register 2
+        RW_TB <= '0';
+        dr_TB <= "00010"; 
+        td_TB <= "0000";  
+        D_TB <= "00000001010101001101001010011111"; 
+        wait for clk_period; 
+        RW_TB <= '1';
+        wait for clk_period;
+        
+        -- Test Case 3: register 3
+        RW_TB <= '0';
+        dr_TB <= "00011"; 
+        td_TB <= "0000";  
+        D_TB <= "00000001010101001101001010100000";
+        wait for clk_period; 
+        RW_TB <= '1';
+        wait for clk_period;
+
+        -- Test Case 4: register 4
+        RW_TB <= '0';
+        dr_TB <= "00100"; 
+        td_TB <= "0000";  
+        D_TB <= "00000001010101001101001010100001";
+        wait for clk_period; 
+        RW_TB <= '1';
+        wait for clk_period;
+
+        -- Test Case 5: register 5
+        RW_TB <= '0';
+        dr_TB <= "00101";
+        td_TB <= "0000";
+        D_TB <= "00000001010101001101001010100010";
+        wait for clk_period; 
+        RW_TB <= '1';
+        wait for clk_period;
+
+        -- Test Case 5: register 5
+        RW_TB <= '0';
+        dr_TB <= "00110";
+        td_TB <= "0000";
+        D_TB <= "00000001010101001101001010100011";
+        wait for clk_period; 
+        RW_TB <= '1';
+        wait for clk_period;
+
+        -- Test Case 5: register 5
+        RW_TB <= '0';
+        dr_TB <= "00111";
+        td_TB <= "0000";
+        D_TB <=  "00000001010101001101001010100100";
+        wait for clk_period; 
+        RW_TB <= '1';
+        wait for clk_period;
+
+        -- Test Case 6: register 6
+        RW_TB <= '0';
+        dr_TB <= "01000";
+        td_TB <= "0000";
+        D_TB <=  "00000001010101001101001010100101";
+        wait for clk_period; 
+        RW_TB <= '1';
+        wait for clk_period;
+
+        
     end process;
 
 END simulation;
