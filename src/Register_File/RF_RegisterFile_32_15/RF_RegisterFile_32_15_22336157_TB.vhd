@@ -9,18 +9,20 @@ ARCHITECTURE behavior OF RF_RegisterFile_32_15_22336157_TB IS
 
     -- Component Declaration for the Unit Under Test (UUT)
     COMPONENT RF_RegisterFile_32_15_22336157
-    Port ( DR : in STD_LOGIC_VECTOR (4 downto 0); 
-          RW : in STD_LOGIC; 
-          SA : in STD_LOGIC_VECTOR(4 downto 0);
-          SB : in STD_LOGIC_VECTOR(4 downto 0);
-          CLK : in STD_LOGIC;
-          D : in STD_LOGIC_VECTOR (31 downto 0);
+    Port ( 
+          DR    : in STD_LOGIC_VECTOR (4 downto 0); 
+          RW    : in STD_LOGIC; 
+          SA    : in STD_LOGIC_VECTOR(4 downto 0);
+          SB    : in STD_LOGIC_VECTOR(4 downto 0);
+          CLK   : in STD_LOGIC;
+          D     : in STD_LOGIC_VECTOR (31 downto 0);
           Reset : in STD_LOGIC;
-          TB : in STD_LOGIC_VECTOR (3 downto 0);
-          TA : in STD_LOGIC_VECTOR (3 downto 0);
-          TD : in STD_LOGIC_VECTOR (3 downto 0);
-          A : out STD_LOGIC_VECTOR(31 downto 0);
-          B : out STD_LOGIC_VECTOR(31 downto 0));
+          TB    : in STD_LOGIC_VECTOR (3 downto 0);
+          TA    : in STD_LOGIC_VECTOR (3 downto 0);
+          TD    : in STD_LOGIC_VECTOR (3 downto 0);
+          A     : out STD_LOGIC_VECTOR(31 downto 0);
+          B     : out STD_LOGIC_VECTOR(31 downto 0)
+    );
     END COMPONENT;
 
     -- Signals Declaration
@@ -29,9 +31,9 @@ ARCHITECTURE behavior OF RF_RegisterFile_32_15_22336157_TB IS
     signal Reset : std_logic := '0';                  -- Reset signal
     signal DR : std_logic_vector(4 downto 0) := (others => '0'); -- 5-bit destination register address
     signal D : std_logic_vector(31 downto 0) := (others => '0'); -- 32-bit data input
-    signal sa, sb : std_logic_vector(4 downto 0) := (others => '0'); 
-    signal ta, td, tb : std_logic_vector(3 downto 0) := (others => '0'); 
-    signal a, b : std_logic_vector(3 downto 0) := (others => '0');  -- Selection/control inputs
+    signal sa, sb : std_logic_vector(4 downto 0) := (others => '0'); -- Selection inputs
+    signal ta, tb, td : std_logic_vector(3 downto 0) := (others => '0'); -- Temporary selection inputs
+    signal a, b : std_logic_vector(31 downto 0);      -- Output data signals
 
     -- Clock period definition
     constant clk_period : time := 10 ns;
@@ -48,13 +50,13 @@ BEGIN
           D     => D,
           CLK   => CLK,
           Reset => Reset,
-          sa    => sa,
-          sb    => sb,
-          ta    => ta,
-          tb    => tb, 
-          td    => td,
-          a     => a,
-          b     => b 
+          SA    => sa,
+          SB    => sb,
+          TA    => ta,
+          TB    => tb, 
+          TD    => td,
+          A     => a,
+          B     => b 
     );
 
     -- Stimulus process
@@ -83,15 +85,27 @@ BEGIN
 
         -- Test Case 4: Read from register 0
         RW <= '0';  -- Disable write (read mode)
-        sa <= "00000";  sb <= "000000";  ta <= "000000";  td <= "000000";  a <= "0000";  b <= "00000";  -- Select register 0
+        sa <= "00000";  
+        sb <= "00000";  
+        ta <= "0000";  
+        tb <= "0000";  
+        td <= "0000";  
         wait for clk_period;
         
         -- Test Case 5: Read from register 1
-        sa <= "00001";  sb <= "000000";  ta <= "000000";  td <= "000000";  a <= "0000";  b <= "00000";
+        sa <= "00001";  
+        sb <= "00000";  
+        ta <= "0000";  
+        tb <= "0000";  
+        td <= "0000";  
         wait for clk_period;
 
         -- Test Case 6: Read from register 31
-                sa <= "00001";  sb <= "000001";  ta <= "000001";  td <= "000001";  a <= "0001";  b <= "00001";
+        sa <= "11111";  
+        sb <= "11111";  
+        ta <= "0000";  
+        tb <= "0000";  
+        td <= "0000";  
         wait for clk_period;
         
         -- Test Case 7: Reset the registers
@@ -102,7 +116,11 @@ BEGIN
 
         -- Test Case 8: Try reading register 0 after reset (should be 0)
         RW <= '0';  -- Read mode
-        sa <= "00000";  sb <= "000000";  ta <= "000000";  td <= "000000";  a <= "0000";  b <= "00000";
+        sa <= "00000";  
+        sb <= "00000";  
+        ta <= "0000";  
+        tb <= "0000";  
+        td <= "0000";  
         wait for clk_period;
 
         -- Test completed
