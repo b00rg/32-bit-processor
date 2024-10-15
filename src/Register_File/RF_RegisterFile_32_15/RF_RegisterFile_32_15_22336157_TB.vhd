@@ -83,15 +83,15 @@ BEGIN
 
         -- Test Case 4: Read from register 0
         RW <= '0';  -- Disable write (read mode)
-        sa <= "00000";  sb <= "00000";  ta <= "0000";  td <= "0000";  a <= "00000000000000000000000000000000";  b <= "00000000000000000000000000000000";
+        sa <= "00000";  sb <= "00000";  ta <= "0000";  td <= "0000";
         wait for clk_period;
         
         -- Test Case 5: Read from register 1
-        sa <= "00001";  sb <= "00000";  ta <= "0000";  td <= "0000";  a <= "00000000000000000000000000000001";  b <= "00000000000000000000000000000001";
+        sa <= "00001";  sb <= "00000";  ta <= "0000";  td <= "0000"; 
         wait for clk_period;
 
         -- Test Case 6: Read from register 31
-        sa <= "00001";  sb <= "00001";  ta <= "0001";  td <= "0001";  a <= "00000000000000000000000000000010";  b <= "00000000000000000000000000000010";
+        sa <= "00001";  sb <= "00001";  ta <= "0001";  td <= "0001";  
         wait for clk_period;
         
         -- Test Case 7: Reset the registers
@@ -102,7 +102,7 @@ BEGIN
 
         -- Test Case 8: Try reading register 0 after reset (should be 0)
         RW <= '0';  -- Read mode
-        sa <= "00000";  sb <= "00000";  ta <= "0000";  td <= "0000"; a <= "00000000000000000000000000000000";  b <= "00000000000000000000000000000000";
+        sa <= "00000";  sb <= "00000";  ta <= "0000";  td <= "0000";
         wait for clk_period;
 
         -- Test completed
