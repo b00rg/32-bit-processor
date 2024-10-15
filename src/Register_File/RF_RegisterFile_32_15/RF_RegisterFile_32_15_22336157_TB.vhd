@@ -78,17 +78,17 @@ BEGIN
         -- Test Case 2: Write to register 1
         RW <= '1';  
         DR <= "00001";  -- Select register 1
-        D <= x"00000002";  -- Write 2 to register 1
+        D <= "00000000000000000000000000000010";  -- Write 2 to register 1
         wait for clk_period;
         
         RW <= '0';          
-        sa <= "00001";  sb <= "00000";  ta <= "0000";  td <= "0000"; 
+        sa <= "00001";  sb <= "00001";  ta <= "0000";  td <= "0000"; 
         wait for clk_period;
 
         -- Test Case 3: Write to register 31
         RW <= '1';  
         DR <= "11111";  -- Select register 31
-        D <= x"12345678";  -- Write a specific value to register 31
+        D <= "00000000000000000000000000000011";   -- Write a specific value to register 31
         wait for clk_period;
 
         RW <= '0';  
