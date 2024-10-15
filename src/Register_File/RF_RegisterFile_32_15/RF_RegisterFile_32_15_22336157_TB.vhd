@@ -60,19 +60,14 @@ BEGIN
     -- Stimulus process
     stim_proc: process
     begin		
-        -- Initialize Inputs
-        Reset <= '1';  -- Assert reset
-        wait for 20 ns;
-        Reset <= '0';  -- Deassert reset
-        
         -- Test Case 1: register 0
         RW <= '1';  -- Enable write
-        DR <= "00000";  -- Select register 0
+        Reset <= '0';
+        dr <= "00000";  ta <= "0000"; tb <= "0000"; td <= "0000";
         D <= "00000000000000000000000000000001";  -- Write 1 to register 0
         wait for clk_period;
-        
+        SA <= "00000";
         RW <= '0';  -- Disable write (read mode)
-        sa <= "00000";  sb <= "00000";  ta <= "0000";  td <= "0000";
         wait for clk_period;
         
         -- Test Case 2: Write to register 1
