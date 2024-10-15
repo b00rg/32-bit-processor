@@ -119,7 +119,7 @@ BEGIN
         RW_TB <= '1';
         wait for clk_period;
 
-        -- Test Case 5: register 5
+        -- Test Case 6: register 6
         RW_TB <= '0';
         dr_TB <= "00110";
         td_TB <= "0000";
@@ -128,7 +128,7 @@ BEGIN
         RW_TB <= '1';
         wait for clk_period;
 
-        -- Test Case 5: register 5
+        -- Test Case 7: register 7
         RW_TB <= '0';
         dr_TB <= "00111";
         td_TB <= "0000";
@@ -137,7 +137,7 @@ BEGIN
         RW_TB <= '1';
         wait for clk_period;
 
-        -- Test Case 6: register 6
+        -- Test Case 8: register 8
         RW_TB <= '0';
         dr_TB <= "01000";
         td_TB <= "0000";
