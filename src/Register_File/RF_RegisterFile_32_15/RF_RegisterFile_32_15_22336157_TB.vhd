@@ -5,7 +5,7 @@ USE ieee.std_logic_unsigned.ALL;
 ENTITY RF_RegisterFile_32_15_22336157_TB IS
 END RF_RegisterFile_32_15_22336157_TB;
 
-ARCHITECTURE behavior OF RF_RegisterFile_32_15_22336157_TB IS
+ARCHITECTURE simulation OF RF_RegisterFile_32_15_22336157_TB IS
 
     -- Component Declaration for the Unit Under Test (UUT)
     COMPONENT RF_RegisterFile_32_15_22336157
@@ -31,7 +31,7 @@ ARCHITECTURE behavior OF RF_RegisterFile_32_15_22336157_TB IS
     signal D : std_logic_vector(31 downto 0) := (others => '0'); -- 32-bit data input
     signal sa, sb : std_logic_vector(4 downto 0) := (others => '0'); 
     signal ta, td, tb : std_logic_vector(3 downto 0) := (others => '0'); 
-    signal a, b : std_logic_vector(3 downto 0) := (others => '0');  -- Selection/control inputs
+    signal a, b : std_logic_vector(31 downto 0) := (others => '0');  -- Selection/control inputs
 
     -- Clock period definition
     constant clk_period : time := 10 ns;
@@ -83,15 +83,15 @@ BEGIN
 
         -- Test Case 4: Read from register 0
         RW <= '0';  -- Disable write (read mode)
-        sa <= "00000";  sb <= "000000";  ta <= "000000";  td <= "000000";  a <= "0000";  b <= "00000";  -- Select register 0
+        sa <= "00000";  sb <= "00000";  ta <= "0000";  td <= "0000";  a <= "00000000000000000000000000000000";  b <= "00000000000000000000000000000000";
         wait for clk_period;
         
         -- Test Case 5: Read from register 1
-        sa <= "00001";  sb <= "000000";  ta <= "000000";  td <= "000000";  a <= "0000";  b <= "00000";
+        sa <= "00001";  sb <= "00000";  ta <= "0000";  td <= "0000";  a <= "00000000000000000000000000000001";  b <= "00000000000000000000000000000001";
         wait for clk_period;
 
         -- Test Case 6: Read from register 31
-                sa <= "00001";  sb <= "000001";  ta <= "000001";  td <= "000001";  a <= "0001";  b <= "00001";
+        sa <= "00001";  sb <= "00001";  ta <= "0001";  td <= "0001";  a <= "00000000000000000000000000000010";  b <= "00000000000000000000000000000010";
         wait for clk_period;
         
         -- Test Case 7: Reset the registers
@@ -102,11 +102,11 @@ BEGIN
 
         -- Test Case 8: Try reading register 0 after reset (should be 0)
         RW <= '0';  -- Read mode
-        sa <= "00000";  sb <= "000000";  ta <= "000000";  td <= "000000";  a <= "0000";  b <= "00000";
+        sa <= "00000";  sb <= "00000";  ta <= "0000";  td <= "0000"; a <= "00000000000000000000000000000000";  b <= "00000000000000000000000000000000";
         wait for clk_period;
 
         -- Test completed
         wait;
     end process;
 
-END behavior;
+END simulation;
