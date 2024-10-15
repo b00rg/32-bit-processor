@@ -2,27 +2,25 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
-ENTITY TB_RF_RegisterFile_32_15_22336157 IS
-END TB_RF_RegisterFile_32_15_22336157;
+ENTITY RF_RegisterFile_32_15_22336157_TB IS
+END RF_RegisterFile_32_15_22336157_TB;
 
-ARCHITECTURE behavior OF TB_RF_RegisterFile_32_15_22336157 IS
+ARCHITECTURE behavior OF RF_RegisterFile_32_15_22336157_TB IS
 
     -- Component Declaration for the Unit Under Test (UUT)
     COMPONENT RF_RegisterFile_32_15_22336157
-    PORT(
-        RW    : IN  std_logic;                      -- Read/Write signal (1 = write, 0 = read)
-        DR    : IN  std_logic_vector(4 downto 0);   -- Destination register address (5-bit)
-        D     : IN  std_logic_vector(31 downto 0);  -- Data input (32-bit)
-        CLK   : IN  std_logic;                      -- Clock signal
-        Reset : IN  std_logic;                      -- Reset signal
-        sa    : IN  std_logic;                      -- Selection input A
-        sb    : IN  std_logic;                      -- Selection input B
-        ta    : IN  std_logic;                      -- Temporary selection A
-        td    : IN  std_logic;                      -- Temporary selection B
-        a     : IN  std_logic;                      -- Additional input A
-        b     : IN  std_logic;                      -- Additional input B
-        Y     : OUT std_logic_vector(31 downto 0)   -- Data output (32-bit)
-    );
+    Port ( DR : in STD_LOGIC_VECTOR (4 downto 0); 
+          RW : in STD_LOGIC; 
+          SA : in STD_LOGIC_VECTOR(4 downto 0);
+          SB : in STD_LOGIC_VECTOR(4 downto 0);
+          CLK : in STD_LOGIC;
+          D : in STD_LOGIC_VECTOR (31 downto 0);
+          Reset : in STD_LOGIC;
+          TB : in STD_LOGIC_VECTOR (3 downto 0);
+          TA : in STD_LOGIC_VECTOR (3 downto 0);
+          TD : in STD_LOGIC_VECTOR (3 downto 0);
+          A : out STD_LOGIC_VECTOR(31 downto 0);
+          B : out STD_LOGIC_VECTOR(31 downto 0));
     END COMPONENT;
 
     -- Signals Declaration
@@ -31,8 +29,9 @@ ARCHITECTURE behavior OF TB_RF_RegisterFile_32_15_22336157 IS
     signal Reset : std_logic := '0';                  -- Reset signal
     signal DR : std_logic_vector(4 downto 0) := (others => '0'); -- 5-bit destination register address
     signal D : std_logic_vector(31 downto 0) := (others => '0'); -- 32-bit data input
-    signal sa, sb, ta, td, a, b : std_logic := '0';  -- Selection/control inputs
-    signal Y : std_logic_vector(31 downto 0);        -- 32-bit data output
+    signal sa, sb : std_logic_vector(4 downto 0) := (others => '0'); 
+    signal ta, td, tb : std_logic_vector(3 downto 0) := (others => '0'); 
+    signal a, b : std_logic_vector(3 downto 0) := (others => '0');  -- Selection/control inputs
 
     -- Clock period definition
     constant clk_period : time := 10 ns;
@@ -52,10 +51,10 @@ BEGIN
           sa    => sa,
           sb    => sb,
           ta    => ta,
+          tb    => tb, 
           td    => td,
           a     => a,
-          b     => b,
-          Y     => Y
+          b     => b 
     );
 
     -- Stimulus process
@@ -84,15 +83,15 @@ BEGIN
 
         -- Test Case 4: Read from register 0
         RW <= '0';  -- Disable write (read mode)
-        sa <= '0';  sb <= '0';  ta <= '0';  td <= '0';  a <= '0';  b <= '0';  -- Select register 0
+        sa <= "00000";  sb <= "000000";  ta <= "000000";  td <= "000000";  a <= "0000";  b <= "00000";  -- Select register 0
         wait for clk_period;
         
         -- Test Case 5: Read from register 1
-        sa <= '1';  sb <= '0';  ta <= '0';  td <= '0';  a <= '0';  b <= '0';  -- Select register 1
+        sa <= "00001";  sb <= "000000";  ta <= "000000";  td <= "000000";  a <= "0000";  b <= "00000";
         wait for clk_period;
 
         -- Test Case 6: Read from register 31
-        sa <= '1';  sb <= '1';  ta <= '1';  td <= '1';  a <= '1';  b <= '1';  -- Select register 31
+                sa <= "00001";  sb <= "000001";  ta <= "000001";  td <= "000001";  a <= "0001";  b <= "00001";
         wait for clk_period;
         
         -- Test Case 7: Reset the registers
@@ -103,7 +102,7 @@ BEGIN
 
         -- Test Case 8: Try reading register 0 after reset (should be 0)
         RW <= '0';  -- Read mode
-        sa <= '0';  sb <= '0';  ta <= '0';  td <= '0';  a <= '0';  b <= '0';  -- Select register 0
+        sa <= "00000";  sb <= "000000";  ta <= "000000";  td <= "000000";  a <= "0000";  b <= "00000";
         wait for clk_period;
 
         -- Test completed
