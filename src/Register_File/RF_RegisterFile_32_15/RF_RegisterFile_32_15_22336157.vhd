@@ -149,6 +149,15 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
 	AND_Gate_to_register300_i <= RW and Q30_DestReg after AND_GATE_DELAY;
 	AND_Gate_to_register310_i <= RW and Q31_DestReg after AND_GATE_DELAY;
 	
+	DestTempRegDecoder : RF_Temp_DestReg_Decoder_22336157 Port map(
+		A => TD(3 downto 0), 
+		Q0 => Q0_TempReg, Q1 => Q1_TempReg, Q2 => Q2_TempReg, Q3 => Q3_TempReg, 
+		Q4 => Q4_TempReg, Q5 => Q5_TempReg, Q6 => Q6_TempReg, Q7 => Q7_TempReg, 
+		Q8 => Q8_TempReg, Q9 => Q9_TempReg, Q10 => Q10_TempReg, 
+		Q11 => Q11_TempReg, Q12 => Q12_TempReg, Q13 => Q13_TempReg, 
+		Q14 => Q14_TempReg, Q15 => Q15_TempReg
+	);
+	
 	AND_Gate_to_register00_i <= AND_Gate_to_register000_i and Q0_TempReg after AND_GATE_DELAY;
 	AND_Gate_to_register01_i <= AND_Gate_to_register010_i and Q0_TempReg after AND_GATE_DELAY;
 	AND_Gate_to_register02_i <= AND_Gate_to_register020_i and Q0_TempReg after AND_GATE_DELAY;
@@ -215,14 +224,7 @@ architecture Behavioral of RF_RegisterFile_32_15_22336157 is
 	Register30 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register30_i, Q => Register30_Q);
 	Register31 : RF_Register32Bit_22336157 Port Map(CLK => CLK, D=> D(31 downto 0), Reset => Reset, Load => AND_Gate_to_register31_i, Q => Register31_Q);
 
-	DestTempRegDecoder : RF_Temp_DestReg_Decoder_22336157 Port map(
-		A => TD(3 downto 0), 
-		Q0 => Q0_TempReg, Q1 => Q1_TempReg, Q2 => Q2_TempReg, Q3 => Q3_TempReg, 
-		Q4 => Q4_TempReg, Q5 => Q5_TempReg, Q6 => Q6_TempReg, Q7 => Q7_TempReg, 
-		Q8 => Q8_TempReg, Q9 => Q9_TempReg, Q10 => Q10_TempReg, 
-		Q11 => Q11_TempReg, Q12 => Q12_TempReg, Q13 => Q13_TempReg, 
-		Q14 => Q14_TempReg, Q15 => Q15_TempReg
-	);
+
 
 	  AND_Gate_to_TempReg01_i <= RW and Q1_TempReg after AND_GATE_DELAY;
 	  AND_Gate_to_TempReg02_i <= RW and Q2_TempReg after AND_GATE_DELAY;
