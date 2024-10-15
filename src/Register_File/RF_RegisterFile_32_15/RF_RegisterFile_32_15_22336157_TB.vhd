@@ -59,17 +59,20 @@ BEGIN
 
     -- Stimulus process
     stim_proc: process
-    begin		
-        wait for clk_period; 
+    begin	
+        reset <= '1';
+        wait for clk_period*2; 
         -- Test Case 1: register 0
         Reset <= '0';
+        wait for clk_period*2; 
         RW <= '0';  -- Enable write
         dr <= "00000"; 
         td <= "0000";       
-        D <= "00000000000000000000000000000000";  -- Write 1 to register 0
+        D <= "00000000000000000000000000000010";  -- Write 1 to register 0
         wait for clk_period;
         
         RW <= '1';
+        wait for clk_period*2; 
         dr <= "00000"; 
         D <= "00000000000000000000000000000001";
         wait for clk_period;
