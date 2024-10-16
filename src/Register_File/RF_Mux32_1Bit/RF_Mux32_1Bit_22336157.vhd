@@ -69,10 +69,15 @@ architecture Behavioral of RF_Mux32_1Bit_22336157 is
     signal or15, or16, or17, or18, or19, or20, or21, or22, or23, or24, or25, or26, or27, or28, or29, or30 : STD_LOGIC := '0';
     
     signal S0_not, S1_not, S2_not, S3_not, S4_not : STD_LOGIC := '0';
-        -- Propagation Delay (as per your original specification)
-    constant AND_gate_delay : Time := 8ns;
-    constant OR_gate_delay : Time := 2ns;
-    constant NOT_gate_delay : Time := 3ns;
+
+   --  Propagation Delay according to StdentID e.g. 26 33 57 25(DEC)
+   constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
+   constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
+   constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
+   constant NOR_gate_delay : Time := 7ns;      -- next more significant digit 6 = 5 + 1
+   constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
+   constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
+   constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
     constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
     
 
