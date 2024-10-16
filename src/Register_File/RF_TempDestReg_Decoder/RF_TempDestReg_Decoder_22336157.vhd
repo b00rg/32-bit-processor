@@ -49,9 +49,14 @@ architecture Behavioral of RF_Temp_DestReg_Decoder_22336157 is
     signal and140, and141, and142, and143 : std_logic;
     signal and150, and151, and152, and153 : std_logic;
     
-    -- Propagation Delay
-    constant AND_gate_delay : Time := 8 ns; -- Propagation delay for AND gates
-    constant NOT_gate_delay : Time := 3 ns; -- Propagation delay for NOT gates
+   --  Propagation Delay according to StdentID e.g. 26 33 57 25(DEC)
+   constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
+   constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
+   constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
+   constant NOR_gate_delay : Time := 7ns;      -- next more significant digit 6 = 5 + 1
+   constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
+   constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
+   constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
 
 begin
 
