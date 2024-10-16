@@ -1,8 +1,21 @@
+----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer: Emma Burgess
 -- 
--- Create Date: 20.09.2023
--- Module Name: RF_Mux3_1Bit_TB - Testbench for 3-to-1 1-bit Mux
+-- Create Date: 20.09.2023 14:53:59
+-- Design Name: 
+-- Module Name: Mux3_1Bit_TB - Simulation
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
