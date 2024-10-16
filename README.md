@@ -10,7 +10,8 @@ This repository contains:
 6. The propagation delay as per the simulation waveform testbench (FILENAME_TD02.png).
 
 The project is separated into three different folders:
-1. The Register File, which includes all the essential components required to simulate the Register File (Register_File/RF_FILENAME)
+1. The Register File, which includes all the components required to simulate the Register File (Register_File/RF_FILENAME)
+2. The Functional Unit, which includes all the components required to simulate the Functional Unit (Functional_Unit/DF_FILENAME)
 
 The schematic of the final processor is as follows:
 
