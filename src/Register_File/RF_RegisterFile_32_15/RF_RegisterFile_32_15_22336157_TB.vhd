@@ -414,13 +414,12 @@ BEGIN
     wait for clk_period;
     RW_TB <= '1';
     wait for clk_period;
-
 -- Test Case 32: register 0
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "100000";
+    td_TB <= "000";
     D_TB <= "00000001010101001101001010111101";
     wait for clk_period;
     RW_TB <= '1';
@@ -431,7 +430,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "100001";
+    td_TB <= "001";
     D_TB <= "00000001010101001101001010111110";
     wait for clk_period;
     RW_TB <= '1';
@@ -442,7 +441,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "100010";
+    td_TB <= "010";
     D_TB <= "00000001010101001101001010111111";
     wait for clk_period;
     RW_TB <= '1';
@@ -453,7 +452,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "100011";
+    td_TB <= "011";
     D_TB <= "00000001010101001101001011000000";
     wait for clk_period;
     RW_TB <= '1';
@@ -464,7 +463,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "100100";
+    td_TB <= "100";
     D_TB <= "00000001010101001101001011000001";
     wait for clk_period;
     RW_TB <= '1';
@@ -475,7 +474,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "100101";
+    td_TB <= "101";
     D_TB <= "00000001010101001101001011000010";
     wait for clk_period;
     RW_TB <= '1';
@@ -486,7 +485,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "100110";
+    td_TB <= "110";
     D_TB <= "00000001010101001101001011000011";
     wait for clk_period;
     RW_TB <= '1';
@@ -497,7 +496,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "100111";
+    td_TB <= "111";
     D_TB <= "00000001010101001101001011000100";
     wait for clk_period;
     RW_TB <= '1';
@@ -508,7 +507,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "101000";
+    td_TB <= "1000";
     D_TB <= "00000001010101001101001011000101";
     wait for clk_period;
     RW_TB <= '1';
@@ -519,7 +518,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "101001";
+    td_TB <= "1001";
     D_TB <= "00000001010101001101001011000110";
     wait for clk_period;
     RW_TB <= '1';
@@ -530,7 +529,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "101010";
+    td_TB <= "1010";
     D_TB <= "00000001010101001101001011000111";
     wait for clk_period;
     RW_TB <= '1';
@@ -541,7 +540,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "101011";
+    td_TB <= "1011";
     D_TB <= "00000001010101001101001011001000";
     wait for clk_period;
     RW_TB <= '1';
@@ -552,7 +551,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "101100";
+    td_TB <= "1100";
     D_TB <= "00000001010101001101001011001001";
     wait for clk_period;
     RW_TB <= '1';
@@ -563,7 +562,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "101101";
+    td_TB <= "1101";
     D_TB <= "00000001010101001101001011001010";
     wait for clk_period;
     RW_TB <= '1';
@@ -574,7 +573,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "101110";
+    td_TB <= "1110";
     D_TB <= "00000001010101001101001011001011";
     wait for clk_period;
     RW_TB <= '1';
@@ -585,7 +584,7 @@ BEGIN
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
-    td_TB <= "101111";
+    td_TB <= "1111";
     D_TB <= "00000001010101001101001011001100";
     wait for clk_period;
     RW_TB <= '1';
