@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 16.10.2024 11:56:43
 -- Design Name: 
--- Module Name: RF_Test_RegisterFile_32_15_22336157_TB - Simulation
+-- Module Name: RF_RegisterFile_32_15_22336157_TB - Simulation
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,10 +21,10 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
-ENTITY RF_Testbench_RegisterFile_32_15_22336157 IS
-END RF_Testbench_RegisterFile_32_15_22336157;
+ENTITY RF_Test_RegisterFile_32_15_22336157_TB IS
+END RF_Test_RegisterFile_32_15_22336157_TB;
 
-ARCHITECTURE behavior OF RF_Testbench_RegisterFile_32_15_22336157 IS 
+ARCHITECTURE behavior OF RF_Test_RegisterFile_32_15_22336157_TB IS 
 
     -- Component Declaration for the Unit Under Test (UUT)
     COMPONENT RF_Test_RegisterFile_32_15_22336157
@@ -59,10 +59,10 @@ ARCHITECTURE behavior OF RF_Testbench_RegisterFile_32_15_22336157 IS
     constant StudentID : STD_LOGIC_VECTOR(31 downto 0) := x"0154D29D"; -- Student ID 22336157
 
     -- Clock period definition
-    constant CLK_period : time := 10 ns;
+    constant CLK_period : time := 500 ns;
 
 BEGIN
-
+    CLK_Test <= not CLK_Test after clk_period / 2;
     -- Instantiate the Unit Under Test (UUT)
     uut: RF_Test_RegisterFile_32_15_22336157 PORT MAP (
         DR_Test => DR_Test,
@@ -98,7 +98,7 @@ BEGIN
         -- Loading Registers via RF_Mux3_32Bit
         -- Register00 = StudentID, Register01 = StudentID + 1, Register02 = StudentID + 2...
         
-    Reset_TB <= '0';
+    Reset_Test <= '0';
 -- Test Case 0: write to register 0
 -- Test Case 0: write to register 0
     D_Test <= "00000001010101001101001010011101";
@@ -569,4 +569,4 @@ BEGIN
         wait;
     end process;
 
-END;
+END ;
