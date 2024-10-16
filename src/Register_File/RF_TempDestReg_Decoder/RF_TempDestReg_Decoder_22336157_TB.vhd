@@ -1,3 +1,23 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Emma Burgess
+-- 
+-- Create Date: 08.10.2023 18:06:29
+-- Design Name: 
+-- Module Name: RF_DestReg_Decoder_22336157_TB - Simulation
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 4 to 16 line decoder
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
