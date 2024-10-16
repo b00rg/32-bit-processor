@@ -4,11 +4,11 @@
 -- 
 -- Create Date: 20.09.2023
 -- Design Name: 
--- Module Name: Mux16_32Bit_TB - Simulation
+-- Module Name: Mux16_1Bit_TB - Simulation
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: 16-to-32 Multiplexer
+-- Description: 16-to-1 Multiplexer
 -- 
 -- Dependencies:
 -- 
