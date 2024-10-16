@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer: Emma Burgess
 -- 
 -- Create Date: 20.09.2023
 -- Design Name: 
