@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 20.09.2023
 -- Design Name: 
--- Module Name: Mux16_32Bit - Behavioral
+-- Module Name: Mux16_1Bit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
