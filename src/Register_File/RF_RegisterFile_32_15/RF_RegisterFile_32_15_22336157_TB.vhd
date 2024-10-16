@@ -415,6 +415,170 @@ BEGIN
     RW_TB <= '1';
     wait for clk_period;
 
+        -- Test Case 32: register 32
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001010111101";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 33: register 33
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001010111110";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 34: register 34
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001010111111";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 35: register 35
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011000000";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 36: register 36
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011000001";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 37: register 37
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011000010";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 38: register 38
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011000011";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 39: register 39
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011000100";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 40: register 40
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011000101";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 41: register 41
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011000110";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 42: register 42
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011000111";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 43: register 43
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011001000";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 44: register 44
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011001001";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 45: register 45
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011001010";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
+
+-- Test Case 46: register 46
+    Reset_TB <= '0';
+    wait for clk_period;
+    RW_TB <= '0';  -- Enable write
+    dr_TB <= "0000";
+    td_TB <= "{td_TB}";
+    D_TB <= "00000001010101001101001011001011";
+    wait for clk_period;
+    RW_TB <= '1';
+    wait for clk_period;
         
     end process;
 
