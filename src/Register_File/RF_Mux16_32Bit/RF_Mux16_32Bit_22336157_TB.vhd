@@ -1,10 +1,10 @@
 ----------------------------------------------------------------------------------                                                                                      
 -- Company:                                                                                                                                                             
--- Engineer:                                                                                                                                                            
+-- Engineer: Emma Burgess                                                                                                                                                        
 --                                                                                                                                                                      
 -- Create Date: 20.09.2023 14:53:59                                                                                                                                     
 -- Design Name:                                                                                                                                                         
--- Module Name: Mux3_32Bit - Behavioral                                                                                                                                 
+-- Module Name: Mux3_32Bit_TB - Simulation                                                                                                                               
 -- Project Name:                                                                                                                                                        
 -- Target Devices:                                                                                                                                                      
 -- Tool Versions:                                                                                                                                                       
