@@ -98,66 +98,166 @@ BEGIN
         -- Loading Registers via RF_Mux3_32Bit
         -- Register00 = StudentID, Register01 = StudentID + 1, Register02 = StudentID + 2...
         
-        -- Write StudentID to Register 0
-        D_Test <= StudentID;
-        DR_Test <= "00000"; -- Register 0
-        RW_Test <= '1'; -- Write enable
-        wait for CLK_period;
+    Reset_TB <= '0';
+-- Test Case 0: write to register 0
+    D_Test <= "00000001010101001101001010011101";
+    dr_Test <= "0";
+    wait for clk_period;
 
-        -- Write StudentID + 1 to Register 1
-        D_Test <= StudentID + 1;
-        DR_Test <= "00001"; -- Register 1
-        wait for CLK_period;
+-- Test Case 1: write to register 1
+    D_Test <= "00000001010101001101001010011110";
+    dr_Test <= "1";
+    wait for clk_period;
 
-        -- Write StudentID + 2 to Register 2
-        D_Test <= StudentID + 2;
-        DR_Test <= "00010"; -- Register 2
-        wait for CLK_period;
+-- Test Case 2: write to register 2
+    D_Test <= "00000001010101001101001010011111";
+    dr_Test <= "2";
+    wait for clk_period;
 
-        -- Write StudentID + 3 to Register 3
-        D_Test <= StudentID + 3;
-        DR_Test <= "00011"; -- Register 3
-        wait for CLK_period;
+-- Test Case 3: write to register 3
+    D_Test <= "00000001010101001101001010100000";
+    dr_Test <= "3";
+    wait for clk_period;
 
-        -- Continue for other registers if needed ...
+-- Test Case 4: write to register 4
+    D_Test <= "00000001010101001101001010100001";
+    dr_Test <= "4";
+    wait for clk_period;
 
-        -- Read back from the registers and confirm values
-        RW_Test <= '0'; -- Disable write, enable read
-        
-        -- Read Register 0
-        SA_Test <= "00000";
-        wait for CLK_period;
+-- Test Case 5: write to register 5
+    D_Test <= "00000001010101001101001010100010";
+    dr_Test <= "5";
+    wait for clk_period;
 
-        -- Read Register 1
-        SA_Test <= "00001";
-        wait for CLK_period;
+-- Test Case 6: write to register 6
+    D_Test <= "00000001010101001101001010100011";
+    dr_Test <= "6";
+    wait for clk_period;
 
-        -- Read Register 2
-        SA_Test <= "00010";
-        wait for CLK_period;
+-- Test Case 7: write to register 7
+    D_Test <= "00000001010101001101001010100100";
+    dr_Test <= "7";
+    wait for clk_period;
 
-        -- Read Register 3
-        SA_Test <= "00011";
-        wait for CLK_period;
+-- Test Case 8: write to register 8
+    D_Test <= "00000001010101001101001010100101";
+    dr_Test <= "8";
+    wait for clk_period;
 
-        -- Perform register transfers on Port A and Port B
-        -- Example of Port A operations
-        A_B_DataIN_Test <= "00"; -- Select input from port A
-        SA_Test <= "00000"; -- Source register 0
-        wait for CLK_period;
-        
-        SA_Test <= "00001"; -- Source register 1
-        wait for CLK_period;
-        
-        SA_Test <= "00010"; -- Source register 2
-        wait for CLK_period;
+-- Test Case 9: write to register 9
+    D_Test <= "00000001010101001101001010100110";
+    dr_Test <= "9";
+    wait for clk_period;
 
-        -- Example of Port B operations
-        SB_Test <= "00011"; -- Source register 3
-        wait for CLK_period;
+-- Test Case 10: write to register 10
+    D_Test <= "00000001010101001101001010100111";
+    dr_Test <= "10";
+    wait for clk_period;
 
-        SB_Test <= "00010"; -- Source register 2
-        wait for CLK_period;
+-- Test Case 11: write to register 11
+    D_Test <= "00000001010101001101001010101000";
+    dr_Test <= "11";
+    wait for clk_period;
+
+-- Test Case 12: write to register 12
+    D_Test <= "00000001010101001101001010101001";
+    dr_Test <= "12";
+    wait for clk_period;
+
+-- Test Case 13: write to register 13
+    D_Test <= "00000001010101001101001010101010";
+    dr_Test <= "13";
+    wait for clk_period;
+
+-- Test Case 14: write to register 14
+    D_Test <= "00000001010101001101001010101011";
+    dr_Test <= "14";
+    wait for clk_period;
+
+-- Test Case 15: write to register 15
+    D_Test <= "00000001010101001101001010101100";
+    dr_Test <= "15";
+    wait for clk_period;
+
+-- Test Case 16: write to register 16
+    D_Test <= "00000001010101001101001010101101";
+    dr_Test <= "16";
+    wait for clk_period;
+
+-- Test Case 17: write to register 17
+    D_Test <= "00000001010101001101001010101110";
+    dr_Test <= "17";
+    wait for clk_period;
+
+-- Test Case 18: write to register 18
+    D_Test <= "00000001010101001101001010101111";
+    dr_Test <= "18";
+    wait for clk_period;
+
+-- Test Case 19: write to register 19
+    D_Test <= "00000001010101001101001010110000";
+    dr_Test <= "19";
+    wait for clk_period;
+
+-- Test Case 20: write to register 20
+    D_Test <= "00000001010101001101001010110001";
+    dr_Test <= "20";
+    wait for clk_period;
+
+-- Test Case 21: write to register 21
+    D_Test <= "00000001010101001101001010110010";
+    dr_Test <= "21";
+    wait for clk_period;
+
+-- Test Case 22: write to register 22
+    D_Test <= "00000001010101001101001010110011";
+    dr_Test <= "22";
+    wait for clk_period;
+
+-- Test Case 23: write to register 23
+    D_Test <= "00000001010101001101001010110100";
+    dr_Test <= "23";
+    wait for clk_period;
+
+-- Test Case 24: write to register 24
+    D_Test <= "00000001010101001101001010110101";
+    dr_Test <= "24";
+    wait for clk_period;
+
+-- Test Case 25: write to register 25
+    D_Test <= "00000001010101001101001010110110";
+    dr_Test <= "25";
+    wait for clk_period;
+
+-- Test Case 26: write to register 26
+    D_Test <= "00000001010101001101001010110111";
+    dr_Test <= "26";
+    wait for clk_period;
+
+-- Test Case 27: write to register 27
+    D_Test <= "00000001010101001101001010111000";
+    dr_Test <= "27";
+    wait for clk_period;
+
+-- Test Case 28: write to register 28
+    D_Test <= "00000001010101001101001010111001";
+    dr_Test <= "28";
+    wait for clk_period;
+
+-- Test Case 29: write to register 29
+    D_Test <= "00000001010101001101001010111010";
+    dr_Test <= "29";
+    wait for clk_period;
+
+-- Test Case 30: write to register 30
+    D_Test <= "00000001010101001101001010111011";
+    dr_Test <= "30";
+    wait for clk_period;
+
+-- Test Case 31: write to register 31
+    D_Test <= "00000001010101001101001010111100";
+    dr_Test <= "31";
+    wait for clk_period;
 
         -- Test completed
         wait;
