@@ -100,163 +100,244 @@ BEGIN
         
     Reset_TB <= '0';
 -- Test Case 0: write to register 0
+-- Test Case 0: write to register 0
     D_Test <= "00000001010101001101001010011101";
-    dr_Test <= "0";
+    dr_Test <= "00000";
     wait for clk_period;
 
 -- Test Case 1: write to register 1
     D_Test <= "00000001010101001101001010011110";
-    dr_Test <= "1";
+    dr_Test <= "00001";
     wait for clk_period;
 
 -- Test Case 2: write to register 2
     D_Test <= "00000001010101001101001010011111";
-    dr_Test <= "2";
+    dr_Test <= "00010";
     wait for clk_period;
 
 -- Test Case 3: write to register 3
     D_Test <= "00000001010101001101001010100000";
-    dr_Test <= "3";
+    dr_Test <= "00011";
     wait for clk_period;
 
 -- Test Case 4: write to register 4
     D_Test <= "00000001010101001101001010100001";
-    dr_Test <= "4";
+    dr_Test <= "00100";
     wait for clk_period;
 
 -- Test Case 5: write to register 5
     D_Test <= "00000001010101001101001010100010";
-    dr_Test <= "5";
+    dr_Test <= "00101";
     wait for clk_period;
 
 -- Test Case 6: write to register 6
     D_Test <= "00000001010101001101001010100011";
-    dr_Test <= "6";
+    dr_Test <= "00110";
     wait for clk_period;
 
 -- Test Case 7: write to register 7
     D_Test <= "00000001010101001101001010100100";
-    dr_Test <= "7";
+    dr_Test <= "00111";
     wait for clk_period;
 
 -- Test Case 8: write to register 8
     D_Test <= "00000001010101001101001010100101";
-    dr_Test <= "8";
+    dr_Test <= "01000";
     wait for clk_period;
 
 -- Test Case 9: write to register 9
     D_Test <= "00000001010101001101001010100110";
-    dr_Test <= "9";
+    dr_Test <= "01001";
     wait for clk_period;
 
 -- Test Case 10: write to register 10
     D_Test <= "00000001010101001101001010100111";
-    dr_Test <= "10";
+    dr_Test <= "01010";
     wait for clk_period;
 
 -- Test Case 11: write to register 11
     D_Test <= "00000001010101001101001010101000";
-    dr_Test <= "11";
+    dr_Test <= "01011";
     wait for clk_period;
 
 -- Test Case 12: write to register 12
     D_Test <= "00000001010101001101001010101001";
-    dr_Test <= "12";
+    dr_Test <= "01100";
     wait for clk_period;
 
 -- Test Case 13: write to register 13
     D_Test <= "00000001010101001101001010101010";
-    dr_Test <= "13";
+    dr_Test <= "01101";
     wait for clk_period;
 
 -- Test Case 14: write to register 14
     D_Test <= "00000001010101001101001010101011";
-    dr_Test <= "14";
+    dr_Test <= "01110";
     wait for clk_period;
 
 -- Test Case 15: write to register 15
     D_Test <= "00000001010101001101001010101100";
-    dr_Test <= "15";
+    dr_Test <= "01111";
     wait for clk_period;
 
 -- Test Case 16: write to register 16
     D_Test <= "00000001010101001101001010101101";
-    dr_Test <= "16";
+    dr_Test <= "10000";
     wait for clk_period;
 
 -- Test Case 17: write to register 17
     D_Test <= "00000001010101001101001010101110";
-    dr_Test <= "17";
+    dr_Test <= "10001";
     wait for clk_period;
 
 -- Test Case 18: write to register 18
     D_Test <= "00000001010101001101001010101111";
-    dr_Test <= "18";
+    dr_Test <= "10010";
     wait for clk_period;
 
 -- Test Case 19: write to register 19
     D_Test <= "00000001010101001101001010110000";
-    dr_Test <= "19";
+    dr_Test <= "10011";
     wait for clk_period;
 
 -- Test Case 20: write to register 20
     D_Test <= "00000001010101001101001010110001";
-    dr_Test <= "20";
+    dr_Test <= "10100";
     wait for clk_period;
 
 -- Test Case 21: write to register 21
     D_Test <= "00000001010101001101001010110010";
-    dr_Test <= "21";
+    dr_Test <= "10101";
     wait for clk_period;
 
 -- Test Case 22: write to register 22
     D_Test <= "00000001010101001101001010110011";
-    dr_Test <= "22";
+    dr_Test <= "10110";
     wait for clk_period;
 
 -- Test Case 23: write to register 23
     D_Test <= "00000001010101001101001010110100";
-    dr_Test <= "23";
+    dr_Test <= "10111";
     wait for clk_period;
 
 -- Test Case 24: write to register 24
     D_Test <= "00000001010101001101001010110101";
-    dr_Test <= "24";
+    dr_Test <= "11000";
     wait for clk_period;
 
 -- Test Case 25: write to register 25
     D_Test <= "00000001010101001101001010110110";
-    dr_Test <= "25";
+    dr_Test <= "11001";
     wait for clk_period;
 
 -- Test Case 26: write to register 26
     D_Test <= "00000001010101001101001010110111";
-    dr_Test <= "26";
+    dr_Test <= "11010";
     wait for clk_period;
 
 -- Test Case 27: write to register 27
     D_Test <= "00000001010101001101001010111000";
-    dr_Test <= "27";
+    dr_Test <= "11011";
     wait for clk_period;
 
 -- Test Case 28: write to register 28
     D_Test <= "00000001010101001101001010111001";
-    dr_Test <= "28";
+    dr_Test <= "11100";
     wait for clk_period;
 
 -- Test Case 29: write to register 29
     D_Test <= "00000001010101001101001010111010";
-    dr_Test <= "29";
+    dr_Test <= "11101";
     wait for clk_period;
 
 -- Test Case 30: write to register 30
     D_Test <= "00000001010101001101001010111011";
-    dr_Test <= "30";
+    dr_Test <= "11110";
     wait for clk_period;
 
 -- Test Case 31: write to register 31
     D_Test <= "00000001010101001101001010111100";
-    dr_Test <= "31";
+    dr_Test <= "11111";
+    wait for clk_period;
+
+-- Test Case 32: write to register 32
+    D_Test <= "00000001010101001101001010111101";
+    dr_Test <= "100000";
+    wait for clk_period;
+
+-- Test Case 33: write to register 33
+    D_Test <= "00000001010101001101001010111110";
+    dr_Test <= "100001";
+    wait for clk_period;
+
+-- Test Case 34: write to register 34
+    D_Test <= "00000001010101001101001010111111";
+    dr_Test <= "100010";
+    wait for clk_period;
+
+-- Test Case 35: write to register 35
+    D_Test <= "00000001010101001101001011000000";
+    dr_Test <= "100011";
+    wait for clk_period;
+
+-- Test Case 36: write to register 36
+    D_Test <= "00000001010101001101001011000001";
+    dr_Test <= "100100";
+    wait for clk_period;
+
+-- Test Case 37: write to register 37
+    D_Test <= "00000001010101001101001011000010";
+    dr_Test <= "100101";
+    wait for clk_period;
+
+-- Test Case 38: write to register 38
+    D_Test <= "00000001010101001101001011000011";
+    dr_Test <= "100110";
+    wait for clk_period;
+
+-- Test Case 39: write to register 39
+    D_Test <= "00000001010101001101001011000100";
+    dr_Test <= "100111";
+    wait for clk_period;
+
+-- Test Case 40: write to register 40
+    D_Test <= "00000001010101001101001011000101";
+    dr_Test <= "101000";
+    wait for clk_period;
+
+-- Test Case 41: write to register 41
+    D_Test <= "00000001010101001101001011000110";
+    dr_Test <= "101001";
+    wait for clk_period;
+
+-- Test Case 42: write to register 42
+    D_Test <= "00000001010101001101001011000111";
+    dr_Test <= "101010";
+    wait for clk_period;
+
+-- Test Case 43: write to register 43
+    D_Test <= "00000001010101001101001011001000";
+    dr_Test <= "101011";
+    wait for clk_period;
+
+-- Test Case 44: write to register 44
+    D_Test <= "00000001010101001101001011001001";
+    dr_Test <= "101100";
+    wait for clk_period;
+
+-- Test Case 45: write to register 45
+    D_Test <= "00000001010101001101001011001010";
+    dr_Test <= "101101";
+    wait for clk_period;
+
+-- Test Case 46: write to register 46
+    D_Test <= "00000001010101001101001011001011";
+    dr_Test <= "101110";
+    wait for clk_period;
+
+-- Test Case 47: write to register 47
+    D_Test <= "00000001010101001101001011001100";
+    dr_Test <= "101111";
     wait for clk_period;
 
         A_B_DataIN_Test <= "00";
