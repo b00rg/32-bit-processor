@@ -479,35 +479,22 @@ BEGIN
     sb_TB <= "11111";
     wait for period;
 
--- Test Case 32: register 0
-    Reset_TB <= '0';
-    wait for clk_period;
-    RW_TB <= '0';  -- Enable write
-    dr_TB <= "00000";
-    td_TB <= "0000";
-    D_TB <= "00000001010101001101001010111101";
-    wait for clk_period;
-    RW_TB <= '1';
-        sa_TB <=  "00000";
-    sb_TB <=  "00000";
-    ta_TB <= "0001";
-    tb_TB <= "0001";
-    wait for period;
-
--- Test Case 33: register 1
+-- Test Case 32: register 1
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
     dr_TB <= "00000";
     td_TB <= "0001";
+    SA_TB <= "00000";
+    SB_TB <= "00000"; 
     D_TB <= "00000001010101001101001010111110";
     wait for clk_period;
     RW_TB <= '1';
-        ta_TB <= "0001";
+    ta_TB <= "0001";
     tb_TB <= "0001";
     wait for period;
 
--- Test Case 34: register 2
+-- Test Case 33: register 2
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -516,11 +503,11 @@ BEGIN
     D_TB <= "00000001010101001101001010111111";
     wait for clk_period;
     RW_TB <= '1';
-            ta_TB <= "0011";
-    tb_TB <= "0011";
+    ta_TB <= "0010";
+    tb_TB <= "0010";
     wait for period;
 
--- Test Case 35: register 3
+-- Test Case 34: register 3
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -529,11 +516,11 @@ BEGIN
     D_TB <= "00000001010101001101001011000000";
     wait for clk_period;
     RW_TB <= '1';
-                ta_TB <= "0100";
-    tb_TB <= "0100";
+    ta_TB <= "0011";
+    tb_TB <= "0011";
     wait for period;
 
--- Test Case 36: register 4
+-- Test Case 35: register 4
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -542,11 +529,11 @@ BEGIN
     D_TB <= "00000001010101001101001011000001";
     wait for clk_period;
     RW_TB <= '1';
-                    ta_TB <= "0101";
-    tb_TB <= "0101";
+    ta_TB <= "0100";
+    tb_TB <= "0100";
     wait for period;
 
--- Test Case 37: register 5
+-- Test Case 36: register 5
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -555,11 +542,11 @@ BEGIN
     D_TB <= "00000001010101001101001011000010";
     wait for clk_period;
     RW_TB <= '1';
-                    ta_TB <= "0110";
-    tb_TB <= "0110";
+    ta_TB <="0101";
+    tb_TB <= "0101";
     wait for period;
 
--- Test Case 38: register 6
+-- Test Case 37: register 6
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -568,11 +555,11 @@ BEGIN
     D_TB <= "00000001010101001101001011000011";
     wait for clk_period;
     RW_TB <= '1';
-                    ta_TB <= "0111";
-    tb_TB <= "0111";
+    ta_TB <= "0110";
+    tb_TB <= "0110";
     wait for period;
 
--- Test Case 39: register 7
+-- Test Case 38: register 7
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -581,11 +568,11 @@ BEGIN
     D_TB <= "00000001010101001101001011000100";
     wait for clk_period;
     RW_TB <= '1';
-    ta_TB <= "1000";
-    tb_TB <= "1000";
+    ta_TB <= "0111";
+    tb_TB <= "0111";
     wait for period;
 
--- Test Case 40: register 8
+-- Test Case 39: register 8
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -594,11 +581,11 @@ BEGIN
     D_TB <= "00000001010101001101001011000101";
     wait for clk_period;
     RW_TB <= '1';
-            ta_TB <= "1001";
-    tb_TB <= "1001";
+    ta_TB <= "1000";
+    tb_TB <= "1000";
     wait for period;
 
--- Test Case 41: register 9
+-- Test Case 40: register 9
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -607,11 +594,11 @@ BEGIN
     D_TB <= "00000001010101001101001011000110";
     wait for clk_period;
     RW_TB <= '1';
-        ta_TB <= "1010";
-    tb_TB <= "1010";
+    ta_TB <= "1001";
+    tb_TB <= "1001";
     wait for period;
 
--- Test Case 42: register 10
+-- Test Case 41: register 10
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -620,11 +607,11 @@ BEGIN
     D_TB <= "00000001010101001101001011000111";
     wait for clk_period;
     RW_TB <= '1';
-        ta_TB <= "1010";
+    ta_TB <= "1010";
     tb_TB <= "1010";
     wait for period;
 
--- Test Case 43: register 11
+-- Test Case 42: register 11
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -633,11 +620,11 @@ BEGIN
     D_TB <= "00000001010101001101001011001000";
     wait for clk_period;
     RW_TB <= '1';
-        ta_TB <= "1011";
+    ta_TB <= "1011";
     tb_TB <= "1011";
     wait for period;
 
--- Test Case 44: register 12
+-- Test Case 43: register 12
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -646,11 +633,11 @@ BEGIN
     D_TB <= "00000001010101001101001011001001";
     wait for clk_period;
     RW_TB <= '1';
-        ta_TB <= "1100";
+    ta_TB <= "1100";
     tb_TB <= "1100";
     wait for period;
 
--- Test Case 45: register 13
+-- Test Case 44: register 13
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -659,11 +646,11 @@ BEGIN
     D_TB <= "00000001010101001101001011001010";
     wait for clk_period;
     RW_TB <= '1';
-        ta_TB <= "1101";
+    ta_TB <= "1101";
     tb_TB <= "1101";
     wait for period;
 
--- Test Case 46: register 14
+-- Test Case 45: register 14
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -672,11 +659,11 @@ BEGIN
     D_TB <= "00000001010101001101001011001011";
     wait for clk_period;
     RW_TB <= '1';
-        ta_TB <= "1110";
+    ta_TB <= "1110";
     tb_TB <= "1110";
     wait for period;
 
--- Test Case 47: register 15
+-- Test Case 46: register 15
     Reset_TB <= '0';
     wait for clk_period;
     RW_TB <= '0';  -- Enable write
@@ -685,11 +672,8 @@ BEGIN
     D_TB <= "00000001010101001101001011001100";
     wait for clk_period;
     RW_TB <= '1';
-        ta_TB <= "1111";
+    ta_TB <= "1111";
     tb_TB <= "1111";
-    wait for period;
-       
-    
     wait for period; 
     end process;
 
