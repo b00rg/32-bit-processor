@@ -24,7 +24,7 @@ USE ieee.std_logic_unsigned.ALL;
 ENTITY RF_Test_RegisterFile_32_15_22336157_TB IS
 END RF_Test_RegisterFile_32_15_22336157_TB;
 
-ARCHITECTURE behavior OF RF_Test_RegisterFile_32_15_22336157_TB IS 
+ARCHITECTURE simulation OF RF_Test_RegisterFile_32_15_22336157_TB IS 
 
     -- Component Declaration for the Unit Under Test (UUT)
     COMPONENT RF_Test_RegisterFile_32_15_22336157
@@ -62,7 +62,7 @@ ARCHITECTURE behavior OF RF_Test_RegisterFile_32_15_22336157_TB IS
     constant clk_period : time := 400 ns;
     constant period : time := 1000ns; 
 
-BEGIN
+BEGIN 
     CLK_Test <= not CLK_Test after clk_period / 2;
     -- Instantiate the Unit Under Test (UUT)
     uut: RF_Test_RegisterFile_32_15_22336157 PORT MAP (
@@ -105,6 +105,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     wait for clk_period*2;
+    
 -- Test Case 1: register 1
     Reset_Test <= '0';
     wait for clk_period;
@@ -522,7 +523,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "0001";
-    Test_Test <= "0001";
+    Tb_Test <= "0001";
     wait for period;
 
 -- Test Case 33: register 2
@@ -535,7 +536,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "0010";
-    Test_Test <= "0010";
+    Tb_Test <= "0010";
     wait for period;
 
 -- Test Case 34: register 3
@@ -548,7 +549,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "0011";
-    Test_Test <= "0011";
+    Tb_Test <= "0011";
     wait for period;
 
 -- Test Case 35: register 4
@@ -561,7 +562,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "0100";
-    Test_Test <= "0100";
+    Tb_Test <= "0100";
     wait for period;
 
 -- Test Case 36: register 5
@@ -574,7 +575,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <="0101";
-    Test_Test <= "0101";
+    Tb_Test <= "0101";
     wait for period;
 
 -- Test Case 37: register 6
@@ -587,7 +588,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "0110";
-    Test_Test <= "0110";
+    Tb_Test <= "0110";
     wait for period;
 
 -- Test Case 38: register 7
@@ -600,7 +601,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "0111";
-    Test_Test <= "0111";
+    Tb_Test <= "0111";
     wait for period;
 
 -- Test Case 39: register 8
@@ -613,7 +614,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "1000";
-    Test_Test <= "1000";
+    Tb_Test <= "1000";
     wait for period;
 
 -- Test Case 40: register 9
@@ -626,7 +627,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "1001";
-    Test_Test <= "1001";
+    Tb_Test <= "1001";
     wait for period;
 
 -- Test Case 41: register 10
@@ -639,7 +640,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "1010";
-    Test_Test <= "1010";
+    Tb_Test <= "1010";
     wait for period;
 
 -- Test Case 42: register 11
@@ -652,7 +653,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "1011";
-    Test_Test <= "1011";
+    Tb_Test <= "1011";
     wait for period;
 
 -- Test Case 43: register 12
@@ -665,7 +666,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "1100";
-    Test_Test <= "1100";
+    Tb_Test <= "1100";
     wait for period;
 
 -- Test Case 44: register 13
@@ -678,7 +679,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "1101";
-    Test_Test <= "1101";
+    Tb_Test <= "1101";
     wait for period;
 
 -- Test Case 45: register 14
@@ -691,7 +692,7 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "1110";
-    Test_Test <= "1110";
+    Tb_Test <= "1110";
     wait for period;
 
 -- Test Case 46: register 15
@@ -704,14 +705,9 @@ BEGIN
     wait for clk_period;
     RW_Test <= '1';
     ta_Test <= "1111";
-    Test_Test <= "1111";
+    Tb_Test <= "1111";
     wait for period; 
     end process;
 
 END simulation;
 
-        -- Test completed
-        wait;
-    end process;
-
-END ;
