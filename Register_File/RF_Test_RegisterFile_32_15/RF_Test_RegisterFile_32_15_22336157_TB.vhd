@@ -707,37 +707,72 @@ BEGIN
     ta_Test <= "1111";
     Tb_Test <= "1111";
     wait for period; 
+    
+    -- Test Case 47: perm to perm (A) 
+    
+     A_B_DataIN_Test <= "00"; --(Select A)
+    TD_Test <= "0000"; --(Disable temp)
+    DR_Test <= "00011"; --(Move into 3)
+    TA_Test <= "0000";
+    SA_Test <= "00101"; --(Select from 5)
+    SB_Test <= "00000";   
+    wait for period;       
+    
+ -- Test case 48: Perm to Temp
+     A_B_DataIN_Test <= "00"; --(Select A)
+    TD_Test <= "0001"; --(Enable Temp and move into Temp 1)
+    TA_Test <= "0101";
+    SB_Test <= "00000";    
+    wait for period;    
+    
+-- Test case 49: Temp to Perm
+    A_B_DataIN_Test <= "00"; --(Select A)
+    TD_Test <= "0000"; -- (Disable Temp)
+    DR_Test <= "00011"; --(Move into Perm 3)
+    TA_Test <= "0010"; --(Select from Temp 2)
+    SB_Test <= "00000";         
+    wait for period;
+    
+-- Test case 50: Temp to Temp
+    A_B_DataIN_Test <= "00"; --(Select A)
+    TD_Test <= "0011"; --(Enable Temp and move into Temp 3)
+    TA_Test <= "0101"; --(Select from Temp 5)
+    SB_Test <= "00000";
+    wait for period;
+    
+    
+-- Test case 51: perm to perm (B)
+         A_B_DataIN_Test <= "01"; --(Select B)
+    TD_Test <= "0000"; --(Disable temp)
+    DR_Test <= "00011"; --(Move into 3)
+    TA_Test <= "0000";
+    SA_Test <= "00000";  
+    SB_Test <= "00101"; --(Select from 5)
+ 
+    wait for period;       
+    
+ -- Test case 52: Perm to Temp
+    TD_Test <= "0001"; --(Enable Temp and move into Temp 1)
+    TA_Test <= "0000";
+    SB_Test <= "00101"; --(Select from 5)
+    wait for period;    
+    
+-- Test case 53: Temp to Perm
+    A_B_DataIN_Test <= "00"; --(Select A)
+    TD_Test <= "0000"; -- (Disable Temp)
+    DR_Test <= "00101"; --(Move into Perm 3)
+    TB_Test <= "0010"; --(Select from Temp 2)      
+    wait for period;
+    
+-- Test case 54: Temp to Temp
+    A_B_DataIN_Test <= "00"; --(Select A)
+    TD_Test <= "0011"; --(Enable Temp and move into Temp 3)
+    TB_Test <= "0101"; --(Select from Temp 5)
+    wait for period;
+      
+
+      wait for period; 
     end process;
-
-
-
-        wait until CLK_Tb'event and CLK_TB='1'; -- Perm to Perm
-A_B_DataIn_Test_TB <= "00"; --(Select A)
-TD_TB <= "0000"; --(Disable temp)
-DR_TB <= "00011"; --(Move into 3)
-TA_TB <= "0000";
-SA_TB <= "00101"; --(Select from 5)
-SB_TB <= "00000";         
-
-wait until CLK_Tb'event and CLK_TB='1'; -- Perm to Temp
-A_B_DataIn_Test_TB <= "00"; --(Select A)
-TD_TB <= "0001"; --(Enable Temp and move into Temp 1)
-TA_TB <= "0000";
-SA_TB <= "00101"; --(Select from 5)
-SB_TB <= "00000";         
-
-wait until CLK_Tb'event and CLK_TB='1'; -- Temp to Perm
-A_B_DataIn_Test_TB <= "00"; --(Select A)
-TD_TB <= "0000"; -- (Disable Temp)
-DR_TB <= "00011"; --(Move into Perm 3)
-TA_TB <= "0010"; --(Select from Temp 2)
-SB_TB <= "00000";         
-
-wait until CLK_Tb'event and CLK_TB='1'; -- Temp to Temp
-A_B_DataIn_Test_TB <= "00"; --(Select A)
-TD_TB <= "0011"; --(Enable Temp and move into Temp 3)
-TA_TB <= "0101"; --(Select from Temp 5)
-SB_TB <= "00000";
 
 END simulation;
 
