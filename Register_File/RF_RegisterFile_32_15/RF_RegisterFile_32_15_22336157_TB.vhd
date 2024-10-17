@@ -488,6 +488,10 @@ BEGIN
     D_TB <= "00000001010101001101001010111101";
     wait for clk_period;
     RW_TB <= '1';
+        sa_TB <=  "00000";
+    sb_TB <=  "00000";
+    ta_TB <= "0001";
+    tb_TB <= "0001";
     wait for period;
 
 -- Test Case 33: register 1
@@ -499,6 +503,8 @@ BEGIN
     D_TB <= "00000001010101001101001010111110";
     wait for clk_period;
     RW_TB <= '1';
+        ta_TB <= "0001";
+    tb_TB <= "0001";
     wait for period;
 
 -- Test Case 34: register 2
@@ -510,6 +516,8 @@ BEGIN
     D_TB <= "00000001010101001101001010111111";
     wait for clk_period;
     RW_TB <= '1';
+            ta_TB <= "0011";
+    tb_TB <= "0011";
     wait for period;
 
 -- Test Case 35: register 3
@@ -521,6 +529,8 @@ BEGIN
     D_TB <= "00000001010101001101001011000000";
     wait for clk_period;
     RW_TB <= '1';
+                ta_TB <= "0100";
+    tb_TB <= "0100";
     wait for period;
 
 -- Test Case 36: register 4
@@ -532,6 +542,8 @@ BEGIN
     D_TB <= "00000001010101001101001011000001";
     wait for clk_period;
     RW_TB <= '1';
+                    ta_TB <= "0101";
+    tb_TB <= "0101";
     wait for period;
 
 -- Test Case 37: register 5
@@ -543,6 +555,8 @@ BEGIN
     D_TB <= "00000001010101001101001011000010";
     wait for clk_period;
     RW_TB <= '1';
+                    ta_TB <= "0110";
+    tb_TB <= "0110";
     wait for period;
 
 -- Test Case 38: register 6
@@ -554,6 +568,8 @@ BEGIN
     D_TB <= "00000001010101001101001011000011";
     wait for clk_period;
     RW_TB <= '1';
+                    ta_TB <= "0111";
+    tb_TB <= "0111";
     wait for period;
 
 -- Test Case 39: register 7
@@ -565,6 +581,8 @@ BEGIN
     D_TB <= "00000001010101001101001011000100";
     wait for clk_period;
     RW_TB <= '1';
+    ta_TB <= "1000";
+    tb_TB <= "1000";
     wait for period;
 
 -- Test Case 40: register 8
@@ -576,6 +594,8 @@ BEGIN
     D_TB <= "00000001010101001101001011000101";
     wait for clk_period;
     RW_TB <= '1';
+            ta_TB <= "1001";
+    tb_TB <= "1001";
     wait for period;
 
 -- Test Case 41: register 9
@@ -587,6 +607,8 @@ BEGIN
     D_TB <= "00000001010101001101001011000110";
     wait for clk_period;
     RW_TB <= '1';
+        ta_TB <= "1010";
+    tb_TB <= "1010";
     wait for period;
 
 -- Test Case 42: register 10
@@ -598,6 +620,8 @@ BEGIN
     D_TB <= "00000001010101001101001011000111";
     wait for clk_period;
     RW_TB <= '1';
+        ta_TB <= "1010";
+    tb_TB <= "1010";
     wait for period;
 
 -- Test Case 43: register 11
@@ -609,6 +633,8 @@ BEGIN
     D_TB <= "00000001010101001101001011001000";
     wait for clk_period;
     RW_TB <= '1';
+        ta_TB <= "1011";
+    tb_TB <= "1011";
     wait for period;
 
 -- Test Case 44: register 12
@@ -620,6 +646,8 @@ BEGIN
     D_TB <= "00000001010101001101001011001001";
     wait for clk_period;
     RW_TB <= '1';
+        ta_TB <= "1100";
+    tb_TB <= "1100";
     wait for period;
 
 -- Test Case 45: register 13
@@ -631,6 +659,8 @@ BEGIN
     D_TB <= "00000001010101001101001011001010";
     wait for clk_period;
     RW_TB <= '1';
+        ta_TB <= "1101";
+    tb_TB <= "1101";
     wait for period;
 
 -- Test Case 46: register 14
@@ -642,6 +672,8 @@ BEGIN
     D_TB <= "00000001010101001101001011001011";
     wait for clk_period;
     RW_TB <= '1';
+        ta_TB <= "1110";
+    tb_TB <= "1110";
     wait for period;
 
 -- Test Case 47: register 15
@@ -653,8 +685,12 @@ BEGIN
     D_TB <= "00000001010101001101001011001100";
     wait for clk_period;
     RW_TB <= '1';
+        ta_TB <= "1111";
+    tb_TB <= "1111";
     wait for period;
-        
+       
+    
+    wait for period; 
     end process;
 
 END simulation;
