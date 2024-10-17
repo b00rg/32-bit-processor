@@ -709,5 +709,35 @@ BEGIN
     wait for period; 
     end process;
 
+
+
+        wait until CLK_Tb'event and CLK_TB='1'; -- Perm to Perm
+A_B_DataIn_Test_TB <= "00"; --(Select A)
+TD_TB <= "0000"; --(Disable temp)
+DR_TB <= "00011"; --(Move into 3)
+TA_TB <= "0000";
+SA_TB <= "00101"; --(Select from 5)
+SB_TB <= "00000";         
+
+wait until CLK_Tb'event and CLK_TB='1'; -- Perm to Temp
+A_B_DataIn_Test_TB <= "00"; --(Select A)
+TD_TB <= "0001"; --(Enable Temp and move into Temp 1)
+TA_TB <= "0000";
+SA_TB <= "00101"; --(Select from 5)
+SB_TB <= "00000";         
+
+wait until CLK_Tb'event and CLK_TB='1'; -- Temp to Perm
+A_B_DataIn_Test_TB <= "00"; --(Select A)
+TD_TB <= "0000"; -- (Disable Temp)
+DR_TB <= "00011"; --(Move into Perm 3)
+TA_TB <= "0010"; --(Select from Temp 2)
+SB_TB <= "00000";         
+
+wait until CLK_Tb'event and CLK_TB='1'; -- Temp to Temp
+A_B_DataIn_Test_TB <= "00"; --(Select A)
+TD_TB <= "0011"; --(Enable Temp and move into Temp 3)
+TA_TB <= "0101"; --(Select from Temp 5)
+SB_TB <= "00000";
+
 END simulation;
 
