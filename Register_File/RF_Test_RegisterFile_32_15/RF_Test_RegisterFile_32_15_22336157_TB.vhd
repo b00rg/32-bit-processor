@@ -59,7 +59,8 @@ ARCHITECTURE behavior OF RF_Test_RegisterFile_32_15_22336157_TB IS
     constant StudentID : STD_LOGIC_VECTOR(31 downto 0) := x"0154D29D"; -- Student ID 22336157
 
     -- Clock period definition
-    constant CLK_period : time := 500 ns;
+    constant clk_period : time := 400 ns;
+    constant period : time := 1000ns; 
 
 BEGIN
     CLK_Test <= not CLK_Test after clk_period / 2;
@@ -91,479 +92,623 @@ BEGIN
     Stimulus: process
     begin	
 
-        -- Hold reset for a few cycles
-        wait for 20 ns;
-        Reset_Test <= '0'; -- Deassert reset
-
-        -- Loading Registers via RF_Mux3_32Bit
-        -- Register00 = StudentID, Register01 = StudentID + 1, Register02 = StudentID + 2...
+            reset_Test <= '1';
+        wait for clk_period;
         
+-- Test Case 0: register 0
     Reset_Test <= '0';
--- Test Case 0: write to register 0
--- Test Case 0: write to register 0
-    D_Test <= "00000001010101001101001010011101";
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "00000";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010011101";
     wait for clk_period;
-
--- Test Case 1: write to register 1
-    D_Test <= "00000001010101001101001010011110";
+    RW_Test <= '1';
+    wait for clk_period*2;
+-- Test Case 1: register 1
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "00001";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010011110";
     wait for clk_period;
+    RW_Test <= '1';
+    sa_Test <="00001";
+    sb_Test <= "00001";
+    wait for period;
 
--- Test Case 2: write to register 2
-    D_Test <= "00000001010101001101001010011111";
+-- Test Case 2: register 2
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "00010";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010011111";
     wait for clk_period;
+    RW_Test <= '1';
+    sa_Test <="00010";
+    sb_Test <= "00010";
+    wait for period;
 
--- Test Case 3: write to register 3
-    D_Test <= "00000001010101001101001010100000";
+-- Test Case 3: register 3
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "00011";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010100000";
     wait for clk_period;
+    RW_Test <= '1';
+    sa_Test <="00011";
+    sb_Test <="00011";
+    wait for period;
 
--- Test Case 4: write to register 4
-    D_Test <= "00000001010101001101001010100001";
+-- Test Case 4: register 4
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "00100";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010100001";
     wait for clk_period;
+    RW_Test <= '1';
+    sa_Test <="00100";
+    sb_Test <= "00100";
+    wait for period;
 
--- Test Case 5: write to register 5
-    D_Test <= "00000001010101001101001010100010";
+-- Test Case 5: register 5
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "00101";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010100010";
     wait for clk_period;
+    RW_Test <= '1';
+    sa_Test <="00101";
+    sb_Test <= "00101";
+    wait for period;
 
--- Test Case 6: write to register 6
-    D_Test <= "00000001010101001101001010100011";
+-- Test Case 6: register 6
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "00110";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010100011";
     wait for clk_period;
+    RW_Test <= '1';
+    sa_Test <="00110";
+    sb_Test <= "00110";
+    wait for period;
 
--- Test Case 7: write to register 7
-    D_Test <= "00000001010101001101001010100100";
+-- Test Case 7: register 7
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "00111";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010100100";
     wait for clk_period;
+    RW_Test <= '1';
+    sa_Test <="00111";
+    sb_Test <= "00111";
+    wait for period;
 
--- Test Case 8: write to register 8
-    D_Test <= "00000001010101001101001010100101";
+-- Test Case 8: register 8
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "01000";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010100101";
     wait for clk_period;
-
--- Test Case 9: write to register 9
-    D_Test <= "00000001010101001101001010100110";
+    RW_Test <= '1';
+    sa_Test <="01000";
+    sb_Test <= "01000";
+    wait for period;
+-- Test Case 9: register 9
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "01001";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010100110";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <="01001";
+    sb_Test <="01001";
+    wait for period;
 
--- Test Case 10: write to register 10
-    D_Test <= "00000001010101001101001010100111";
+-- Test Case 10: register 10
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "01010";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010100111";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "01010";
+    sb_Test <= "01010";
+    wait for period;
 
--- Test Case 11: write to register 11
-    D_Test <= "00000001010101001101001010101000";
+-- Test Case 11: register 11
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "01011";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010101000";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "01011";
+    sb_Test <="01011";
+    wait for period;
 
--- Test Case 12: write to register 12
-    D_Test <= "00000001010101001101001010101001";
+-- Test Case 12: register 12
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "01100";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010101001";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "01100";
+    sb_Test <="01100";
+    wait for period;
 
--- Test Case 13: write to register 13
-    D_Test <= "00000001010101001101001010101010";
+-- Test Case 13: register 13
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "01101";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010101010";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "01101";
+    sb_Test <="01101";
+    wait for period;
 
--- Test Case 14: write to register 14
-    D_Test <= "00000001010101001101001010101011";
+-- Test Case 14: register 14
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "01110";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010101011";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "01110";
+    sb_Test <="01110";
+    wait for period;
 
--- Test Case 15: write to register 15
-    D_Test <= "00000001010101001101001010101100";
+-- Test Case 15: register 15
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
     dr_Test <= "01111";
+    td_Test <= "0000";
+    D_Test <= "00000001010101001101001010101100";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "01111";
+    sb_Test <="01111";
+    wait for period;
 
--- Test Case 16: write to register 16
+-- Test Case 16: register 16
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "10000";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010101101";
-    dr_Test <= "10000";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "10000";
+    sb_Test <="10000";
+    wait for period;
 
--- Test Case 17: write to register 17
+
+-- Test Case 17: register 17
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "10001";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010101110";
-    dr_Test <= "10001";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "10001";
+    sb_Test <="10001";
+    wait for period;
 
--- Test Case 18: write to register 18
+-- Test Case 18: register 18
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "10010";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010101111";
-    dr_Test <= "10010";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <=  "10010";
+    sb_Test <= "10010";
+    wait for period;
 
--- Test Case 19: write to register 19
+-- Test Case 19: register 19
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "10011";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010110000";
-    dr_Test <= "10011";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <=  "10011";
+    sb_Test <= "10011";
+    wait for period;
 
--- Test Case 20: write to register 20
+-- Test Case 20: register 20
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "10100";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010110001";
-    dr_Test <= "10100";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <=   "10100";
+    sb_Test <=  "10100";
+    wait for period;
 
--- Test Case 21: write to register 21
+-- Test Case 21: register 21
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "10101";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010110010";
-    dr_Test <= "10101";
     wait for clk_period;
-
--- Test Case 22: write to register 22
+        RW_Test <= '1';
+    sa_Test <=  "10101";
+    sb_Test <=  "10101";
+    wait for period;
+-- Test Case 22: register 22
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "10110";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010110011";
-    dr_Test <= "10110";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <=  "10110";
+    sb_Test <= "10110";
+    wait for period;
 
--- Test Case 23: write to register 23
+-- Test Case 23: register 23
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "10111";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010110100";
-    dr_Test <= "10111";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "10111";
+    sb_Test <="10111";
+    wait for period;
 
--- Test Case 24: write to register 24
+
+-- Test Case 24: register 24
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "11000";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010110101";
-    dr_Test <= "11000";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "11000";
+    sb_Test <="11000";
+    wait for period;
 
--- Test Case 25: write to register 25
+-- Test Case 25: register 25
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "11001";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010110110";
-    dr_Test <= "11001";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "11001";
+    sb_Test <="11001";
+    wait for period;
 
--- Test Case 26: write to register 26
+-- Test Case 26: register 26
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "11010";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010110111";
-    dr_Test <= "11010";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "11010";
+    sb_Test <="11010";
+    wait for period;
 
--- Test Case 27: write to register 27
+
+-- Test Case 27: register 27
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "11011";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010111000";
-    dr_Test <= "11011";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "11011";
+    sb_Test <="11011";
+    wait for period;
 
--- Test Case 28: write to register 28
+-- Test Case 28: register 28
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "11100";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010111001";
-    dr_Test <= "11100";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "11100";
+    sb_Test <="11100";
+    wait for period;
 
--- Test Case 29: write to register 29
+
+-- Test Case 29: register 29
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "11101";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010111010";
-    dr_Test <= "11101";
     wait for clk_period;
+        RW_Test <= '1';
+    sa_Test <= "11101";
+    sb_Test <="11101";
+    wait for period;
 
--- Test Case 30: write to register 30
+-- Test Case 30: register 30
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "11110";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010111011";
-    dr_Test <= "11110";
     wait for clk_period;
+       RW_Test <= '1';
+    sa_Test <= "11110";
+    sb_Test <="11110";
+    wait for period;
 
--- Test Case 31: write to register 31
+-- Test Case 31: register 31
+    Reset_Test <= '0';
+    wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "11111";
+    td_Test <= "0000";
     D_Test <= "00000001010101001101001010111100";
-    dr_Test <= "11111";
     wait for clk_period;
+       RW_Test <= '1';
+    sa_Test <=  "11111";
+    sb_Test <= "11111";
+    wait for period;
 
--- Test Case 32: write to register 32
-    D_Test <= "00000001010101001101001010111101";
-    dr_Test <= "10000";
+-- Test Case 32: register 1
+    Reset_Test <= '0';
     wait for clk_period;
-
--- Test Case 33: write to register 33
-    D_Test <= "00000001010101001101001010111110";
-    dr_Test <= "10001";
-    wait for clk_period;
-
--- Test Case 34: write to register 34
-    D_Test <= "00000001010101001101001010111111";
-    dr_Test <= "10010";
-    wait for clk_period;
-
--- Test Case 35: write to register 35
-    D_Test <= "00000001010101001101001011000000";
-    dr_Test <= "10011";
-    wait for clk_period;
-
--- Test Case 36: write to register 36
-    D_Test <= "00000001010101001101001011000001";
-    dr_Test <= "10100";
-    wait for clk_period;
-
--- Test Case 37: write to register 37
-    D_Test <= "00000001010101001101001011000010";
-    dr_Test <= "10101";
-    wait for clk_period;
-
--- Test Case 38: write to register 38
-    D_Test <= "00000001010101001101001011000011";
-    dr_Test <= "10110";
-    wait for clk_period;
-
--- Test Case 39: write to register 39
-    D_Test <= "00000001010101001101001011000100";
-    dr_Test <= "10111";
-    wait for clk_period;
-
--- Test Case 40: write to register 40
-    D_Test <= "00000001010101001101001011000101";
-    dr_Test <= "11000";
-    wait for clk_period;
-
--- Test Case 41: write to register 41
-    D_Test <= "00000001010101001101001011000110";
-    dr_Test <= "11001";
-    wait for clk_period;
-
--- Test Case 42: write to register 42
-    D_Test <= "00000001010101001101001011000111";
-    dr_Test <= "11010";
-    wait for clk_period;
-
--- Test Case 43: write to register 43
-    D_Test <= "00000001010101001101001011001000";
-    dr_Test <= "11011";
-    wait for clk_period;
-
--- Test Case 44: write to register 44
-    D_Test <= "00000001010101001101001011001001";
-    dr_Test <= "11100";
-    wait for clk_period;
-
--- Test Case 45: write to register 45
-    D_Test <= "00000001010101001101001011001010";
-    dr_Test <= "11101";
-    wait for clk_period;
-
--- Test Case 46: write to register 46
-    D_Test <= "00000001010101001101001011001011";
-    dr_Test <= "11110";
-    wait for clk_period;
-
--- Test Case 47: write to register 47
-    D_Test <= "00000001010101001101001011001100";
-    dr_Test <= "11111";
-    wait for clk_period;
-
-    A_B_DataIN_Test <= "00";
--- Test Case 32A: select input from port A, source register 0
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "0001";
     SA_Test <= "00000";
-    wait for CLK_period;
--- Test Case 32B: select input from port B, source register 0
-    SB_Test <= "00000";
+    SB_Test <= "00000"; 
+    D_Test <= "00000001010101001101001010111110";
     wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "0001";
+    Test_Test <= "0001";
+    wait for period;
 
--- Test Case 33A: select input from port A, source register 1
-    SA_Test <= "00001";
-    wait for CLK_period;
--- Test Case 33B: select input from port B, source register 1
-    SB_Test <= "00001";
+-- Test Case 33: register 2
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "0010";
+    D_Test <= "00000001010101001101001010111111";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "0010";
+    Test_Test <= "0010";
+    wait for period;
 
--- Test Case 34A: select input from port A, source register 2
-    SA_Test <= "00010";
-    wait for CLK_period;
--- Test Case 34B: select input from port B, source register 2
-    SB_Test <= "00010";
+-- Test Case 34: register 3
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "0011";
+    D_Test <= "00000001010101001101001011000000";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "0011";
+    Test_Test <= "0011";
+    wait for period;
 
--- Test Case 35A: select input from port A, source register 3
-    SA_Test <= "00011";
-    wait for CLK_period;
--- Test Case 35B: select input from port B, source register 3
-    SB_Test <= "00011";
+-- Test Case 35: register 4
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "0100";
+    D_Test <= "00000001010101001101001011000001";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "0100";
+    Test_Test <= "0100";
+    wait for period;
 
--- Test Case 36A: select input from port A, source register 4
-    SA_Test <= "00100";
-    wait for CLK_period;
--- Test Case 36B: select input from port B, source register 4
-    SB_Test <= "00100";
+-- Test Case 36: register 5
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "0101";
+    D_Test <= "00000001010101001101001011000010";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <="0101";
+    Test_Test <= "0101";
+    wait for period;
 
--- Test Case 37A: select input from port A, source register 5
-    SA_Test <= "00101";
-    wait for CLK_period;
--- Test Case 37B: select input from port B, source register 5
-    SB_Test <= "00101";
+-- Test Case 37: register 6
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "0110";
+    D_Test <= "00000001010101001101001011000011";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "0110";
+    Test_Test <= "0110";
+    wait for period;
 
--- Test Case 38A: select input from port A, source register 6
-    SA_Test <= "00110";
-    wait for CLK_period;
--- Test Case 38B: select input from port B, source register 6
-    SB_Test <= "00110";
+-- Test Case 38: register 7
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "0111";
+    D_Test <= "00000001010101001101001011000100";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "0111";
+    Test_Test <= "0111";
+    wait for period;
 
--- Test Case 39A: select input from port A, source register 7
-    SA_Test <= "00111";
-    wait for CLK_period;
--- Test Case 39B: select input from port B, source register 7
-    SB_Test <= "00111";
+-- Test Case 39: register 8
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "1000";
+    D_Test <= "00000001010101001101001011000101";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "1000";
+    Test_Test <= "1000";
+    wait for period;
 
--- Test Case 40A: select input from port A, source register 8
-    SA_Test <= "01000";
-    wait for CLK_period;
--- Test Case 40B: select input from port B, source register 8
-    SB_Test <= "01000";
+-- Test Case 40: register 9
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "1001";
+    D_Test <= "00000001010101001101001011000110";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "1001";
+    Test_Test <= "1001";
+    wait for period;
 
--- Test Case 41A: select input from port A, source register 9
-    SA_Test <= "01001";
-    wait for CLK_period;
--- Test Case 41B: select input from port B, source register 9
-    SB_Test <= "01001";
+-- Test Case 41: register 10
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "1010";
+    D_Test <= "00000001010101001101001011000111";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "1010";
+    Test_Test <= "1010";
+    wait for period;
 
--- Test Case 42A: select input from port A, source register 10
-    SA_Test <= "01010";
-    wait for CLK_period;
--- Test Case 42B: select input from port B, source register 10
-    SB_Test <= "01010";
+-- Test Case 42: register 11
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "1011";
+    D_Test <= "00000001010101001101001011001000";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "1011";
+    Test_Test <= "1011";
+    wait for period;
 
--- Test Case 43A: select input from port A, source register 11
-    SA_Test <= "01011";
-    wait for CLK_period;
--- Test Case 43B: select input from port B, source register 11
-    SB_Test <= "01011";
+-- Test Case 43: register 12
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "1100";
+    D_Test <= "00000001010101001101001011001001";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "1100";
+    Test_Test <= "1100";
+    wait for period;
 
--- Test Case 44A: select input from port A, source register 12
-    SA_Test <= "01100";
-    wait for CLK_period;
--- Test Case 44B: select input from port B, source register 12
-    SB_Test <= "01100";
+-- Test Case 44: register 13
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "1101";
+    D_Test <= "00000001010101001101001011001010";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "1101";
+    Test_Test <= "1101";
+    wait for period;
 
--- Test Case 45A: select input from port A, source register 13
-    SA_Test <= "01101";
-    wait for CLK_period;
--- Test Case 45B: select input from port B, source register 13
-    SB_Test <= "01101";
+-- Test Case 45: register 14
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "1110";
+    D_Test <= "00000001010101001101001011001011";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "1110";
+    Test_Test <= "1110";
+    wait for period;
 
--- Test Case 46A: select input from port A, source register 14
-    SA_Test <= "01110";
-    wait for CLK_period;
--- Test Case 46B: select input from port B, source register 14
-    SB_Test <= "01110";
+-- Test Case 46: register 15
+    Reset_Test <= '0';
     wait for clk_period;
+    RW_Test <= '0';  -- Enable write
+    dr_Test <= "00000";
+    td_Test <= "1111";
+    D_Test <= "00000001010101001101001011001100";
+    wait for clk_period;
+    RW_Test <= '1';
+    ta_Test <= "1111";
+    Test_Test <= "1111";
+    wait for period; 
+    end process;
 
--- Test Case 47A: select input from port A, source register 15
-    SA_Test <= "01111";
-    wait for CLK_period;
--- Test Case 47B: select input from port B, source register 15
-    SB_Test <= "01111";
-    wait for clk_period;
-
--- Test Case 48A: select input from port A, source register 16
-    SA_Test <= "10000";
-    wait for CLK_period;
--- Test Case 48B: select input from port B, source register 16
-    SB_Test <= "10000";
-    wait for clk_period;
-
--- Test Case 49A: select input from port A, source register 17
-    SA_Test <= "10001";
-    wait for CLK_period;
--- Test Case 49B: select input from port B, source register 17
-    SB_Test <= "10001";
-    wait for clk_period;
-
--- Test Case 50A: select input from port A, source register 18
-    SA_Test <= "10010";
-    wait for CLK_period;
--- Test Case 50B: select input from port B, source register 18
-    SB_Test <= "10010";
-    wait for clk_period;
-
--- Test Case 51A: select input from port A, source register 19
-    SA_Test <= "10011";
-    wait for CLK_period;
--- Test Case 51B: select input from port B, source register 19
-    SB_Test <= "10011";
-    wait for clk_period;
-
--- Test Case 52A: select input from port A, source register 20
-    SA_Test <= "10100";
-    wait for CLK_period;
--- Test Case 52B: select input from port B, source register 20
-    SB_Test <= "10100";
-    wait for clk_period;
-
--- Test Case 53A: select input from port A, source register 21
-    SA_Test <= "10101";
-    wait for CLK_period;
--- Test Case 53B: select input from port B, source register 21
-    SB_Test <= "10101";
-    wait for clk_period;
-
--- Test Case 54A: select input from port A, source register 22
-    SA_Test <= "10110";
-    wait for CLK_period;
--- Test Case 54B: select input from port B, source register 22
-    SB_Test <= "10110";
-    wait for clk_period;
-
--- Test Case 55A: select input from port A, source register 23
-    SA_Test <= "10111";
-    wait for CLK_period;
--- Test Case 55B: select input from port B, source register 23
-    SB_Test <= "10111";
-    wait for clk_period;
-
--- Test Case 56A: select input from port A, source register 24
-    SA_Test <= "11000";
-    wait for CLK_period;
--- Test Case 56B: select input from port B, source register 24
-    SB_Test <= "11000";
-    wait for clk_period;
-
--- Test Case 57A: select input from port A, source register 25
-    SA_Test <= "11001";
-    wait for CLK_period;
--- Test Case 57B: select input from port B, source register 25
-    SB_Test <= "11001";
-    wait for clk_period;
-
--- Test Case 58A: select input from port A, source register 26
-    SA_Test <= "11010";
-    wait for CLK_period;
--- Test Case 58B: select input from port B, source register 26
-    SB_Test <= "11010";
-    wait for clk_period;
-
--- Test Case 59A: select input from port A, source register 27
-    SA_Test <= "11011";
-    wait for CLK_period;
--- Test Case 59B: select input from port B, source register 27
-    SB_Test <= "11011";
-    wait for clk_period;
-
--- Test Case 60A: select input from port A, source register 28
-    SA_Test <= "11100";
-    wait for CLK_period;
--- Test Case 60B: select input from port B, source register 28
-    SB_Test <= "11100";
-    wait for clk_period;
-
--- Test Case 61A: select input from port A, source register 29
-    SA_Test <= "11101";
-    wait for CLK_period;
--- Test Case 61B: select input from port B, source register 29
-    SB_Test <= "11101";
-    wait for clk_period;
-
--- Test Case 62A: select input from port A, source register 30
-    SA_Test <= "11110";
-    wait for CLK_period;
--- Test Case 62B: select input from port B, source register 30
-    SB_Test <= "11110";
-    wait for clk_period;
-
--- Test Case 63A: select input from port A, source register 31
-    SA_Test <= "11111";
-    wait for CLK_period;
--- Test Case 63B: select input from port B, source register 31
-    SB_Test <= "11111";
-    wait for clk_period;
+END simulation;
 
         -- Test completed
         wait;
