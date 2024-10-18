@@ -6,8 +6,8 @@ This repository contains:
 2. The test bench code (FILENAME_TB.VHD)
 3. The test documentation, which specifies how the code was testbenched (FILENAME_DOC.pdf)
 4. The schematic generated using Vivado (FILENAME_Schematic.pdf)
-5. The simulation waveform testbench with labelled cases as coded in the test bench (FILENAME_TD01.png)
-6. The propagation delay as per the simulation waveform testbench (FILENAME_TD02.png).
+5. The simulation waveform testbench with labelled cases as coded in the test bench (FILENAME_TD0X.png)
+6. The propagation delay as per the simulation waveform testbench (FILENAME_TD0X.png).
 
 The project is separated into three different folders:
 1. The Register File, which includes all the components required to simulate the Register File (Register_File/RF_FILENAME)
