@@ -758,14 +758,12 @@ BEGIN
     wait for period;    
     
 -- Test case 53: Temp to Perm
-    A_B_DataIN_Test <= "00"; --(Select A)
     TD_Test <= "0000"; -- (Disable Temp)
     DR_Test <= "00101"; --(Move into Perm 3)
     TB_Test <= "0010"; --(Select from Temp 2)      
     wait for period;
     
 -- Test case 54: Temp to Temp
-    A_B_DataIN_Test <= "00"; --(Select A)
     TD_Test <= "0011"; --(Enable Temp and move into Temp 3)
     TB_Test <= "0101"; --(Select from Temp 5)
     wait for period;
