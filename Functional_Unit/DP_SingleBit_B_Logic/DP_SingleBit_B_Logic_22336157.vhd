@@ -43,7 +43,7 @@ architecture Behavioral of DP_SingleBit_B_Logic_22336157 is
 begin
   AndIN_to_And_i <= A AND B after AND_gate_delay; 
   OrIN_to_And_i <= A or B after OR_gate_delay; 
-  NotS0_i <= not S) after NOT_gate_delay; 
+  NotS0_i <= not S0 after NOT_gate_delay; 
 
   AndAnd_to_Or0_i  <= AndIN_to_And_i and NotS0_i after AND_gate_delay;
   OrAnd_to_Or0_i <= OrIN_to_And_i and S0 after AND_gate_delay; 
