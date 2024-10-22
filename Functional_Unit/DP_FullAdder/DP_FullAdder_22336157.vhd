@@ -1,10 +1,10 @@
 ----------------------------------------------------------------------------------
--- Company: Trinity College Dublin
--- Engineer: Michael Manzke
+-- Company: 
+-- Engineer: Emma Burgess
 -- 
 -- Create Date: 06.10.2022 22:19:50
 -- Design Name: 
--- Module Name: FullAdder_XXXXXXXX - Behavioral
+-- Module Name: FullAdder_22336157 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,15 +31,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity FullAdder_XXXXXXXX is
+entity FullAdder_22336157 is
     Port ( A : in STD_LOGIC;
          B : in STD_LOGIC;
          C_IN : in STD_LOGIC;
          SUM : out STD_LOGIC;
          C_OUT : out STD_LOGIC);
-end FullAdder_XXXXXXXX;
+end FullAdder_22336157;
 
-architecture Behavioral of FullAdder_XXXXXXXX is
+architecture Behavioral of FullAdder_22336157 is
 
     Signal S_XOR1_to_XOR2, S_AND1_OR, S_AND2_OR : STD_LOGIC;
 
