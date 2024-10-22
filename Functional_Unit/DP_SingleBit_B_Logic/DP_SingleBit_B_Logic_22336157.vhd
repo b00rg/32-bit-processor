@@ -40,6 +40,13 @@ architecture Behavioral of DP_SingleBit_B_Logic_22336157 is
    constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
+	   -- Signal declarations
+    signal AndIN_to_And_i, OrIN_to_And_i, NotS0_i : STD_LOGIC;
+    signal AndAnd_to_Or0_i, OrAnd_to_Or0_i, XorIN_to_And_i : STD_LOGIC;
+    signal NotS1_i, AndAnd_to_Or_i, OrAnd_to_Or_i, XorAnd_to_Or0_i : STD_LOGIC;
+    signal G1_i, XorAnd_to_Or_i, NotAnd_to_Or0_i, G0_i, NotAnd_to_Or_i : STD_LOGIC;
+    signal G_i : STD_LOGIC;
+
 begin
   AndIN_to_And_i <= A AND B after AND_gate_delay; 
   OrIN_to_And_i <= A or B after OR_gate_delay; 
