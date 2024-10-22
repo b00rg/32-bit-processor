@@ -1,10 +1,10 @@
 ----------------------------------------------------------------------------------
--- Company: Trinity College Dublin
--- Engineer: Prof. Michael Manzke 
+-- Company: 
+-- Engineer: Emma Burgess
 -- 
 -- Create Date: 06.10.2022 22:44:13
 -- Design Name: 
--- Module Name: FullAdder_XXXXXXXX_TB - Behavioral
+-- Module Name: FullAdder_22336157_TB - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,15 +31,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity FullAdder_XXXXXXXX_TB is
+entity FullAdder_22336157_TB is
 --  Port ( ); We don't need ports
-end FullAdder_XXXXXXXX_TB;
+end FullAdder_22336157_TB;
 
-architecture Sim of FullAdder_XXXXXXXX_TB is
+architecture Sim of FullAdder_22336157_TB is
 
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT FullAdder_XXXXXXXX
+    COMPONENT FullAdder_22336157
     
     PORT(
          A : in STD_LOGIC;
@@ -61,13 +61,13 @@ architecture Sim of FullAdder_XXXXXXXX_TB is
    signal C_OUT_TB : STD_LOGIC := '0';
    
    -- StudentID e.g. 26 33 57 25(DEC) = 1 91 D9 ED(HEX)
-   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"191D9ED";  
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D"; 
    constant WaitPERIOD : time := 100ns;
       
 begin
 
 	-- Instantiate the Unit Under Test (UUT)
-   uut: FullAdder_XXXXXXXX PORT MAP (
+   uut: FullAdder_22336157 PORT MAP (
           A => A_TB,
           B => B_TB,
           C_IN => C_IN_TB,
