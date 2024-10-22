@@ -352,15 +352,11 @@ begin
             B => B(31),
             C_IN => C(30),
             SUM => SUM(31),
-            C_OUT => C31_to_COut
+            C_OUT => C_OUT
         );
 
 
-    -- Carry and Overflow 
-
-    C_OUT <= C31_to_COut;
-
-    V <= C31_to_COut XOR C1_to_C2 after XOR_gate_delay;
+    V <= C(30) XOR C_OUT after XOR_gate_delay;
 
 end Behavioral;
 
