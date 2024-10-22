@@ -24,7 +24,6 @@ use IEEE . STD_LOGIC_1164 .ALL;
 entity DP_SingleBit_B_Logic_22336157 is
 	Port ( A , B , C :  in STD_LOGIC ; 		-- 1 bit inputs
 		S0, S1 : in STD_LOGIC; 			-- Selection Signals
-    I0, I1 : in STD_LOGIC;
 		G : out STD_LOGIC ) ;  			-- 1 bit output
 end DP_SingleBit_B_Logic_22336157;
 
