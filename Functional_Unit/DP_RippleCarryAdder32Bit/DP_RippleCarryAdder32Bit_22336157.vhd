@@ -55,14 +55,14 @@ architecture Behavioral of RippleCarryAdder32Bit_22336157 is
 
     -- Internal signals for carries between each full adder
     signal carry : STD_LOGIC_VECTOR(31 downto 1);
-
+    signal internal_C_out : STD_Logic; 
 begin
 
     -- First bit (Bit 0)
     BIT0: FullAdder_22336157 PORT MAP (
             A => A(0),
             B => B(0),
-            C_IN => C_IN after NOT_gate_delay, -- initial carry-in
+            C_IN => C_IN, -- initial carry-in
             SUM => SUM(0),
             C_OUT => carry(1)
         );
@@ -111,10 +111,11 @@ begin
             B => B(31),
             C_IN => carry(31),
             SUM => SUM(31),
-            C_OUT => C_OUT after AND_gate_delay
+            C_OUT => C_OUT
         );
 
+    C_Out <= internal_C_OUT;
     -- Overflow calculation
-    V <= carry(30) XOR C_OUT after XOR_gate_delay;
+    V <= carry(30) XOR internal_C_OUT after XOR_gate_delay;
 
 end Behavioral;
