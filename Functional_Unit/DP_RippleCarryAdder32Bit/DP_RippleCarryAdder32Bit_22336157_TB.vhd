@@ -71,7 +71,7 @@ begin
  stim_proc: process
    begin
    		
-A_TB <= x"00
+A_TB <= x"00";
 B_TB <= x"01";
 C_IN_TB <= '0'
 --Test case 0
