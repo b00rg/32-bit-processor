@@ -31,15 +31,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity FullAdder_22336157_TB is
+entity DP_FullAdder_22336157_TB is
 --  Port ( ); We don't need ports
-end FullAdder_22336157_TB;
+end DP_FullAdder_22336157_TB;
 
-architecture Sim of FullAdder_22336157_TB is
+architecture Sim of DP_FullAdder_22336157_TB is
 
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT FullAdder_22336157
+    COMPONENT DP_FullAdder_22336157
     
     PORT(
          A : in STD_LOGIC;
@@ -67,7 +67,7 @@ architecture Sim of FullAdder_22336157_TB is
 begin
 
 	-- Instantiate the Unit Under Test (UUT)
-   uut: FullAdder_22336157 PORT MAP (
+   uut: DP_FullAdder_22336157 PORT MAP (
           A => A_TB,
           B => B_TB,
           C_IN => C_IN_TB,
