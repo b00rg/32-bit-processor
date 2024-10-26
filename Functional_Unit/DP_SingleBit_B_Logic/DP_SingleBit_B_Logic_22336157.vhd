@@ -54,7 +54,7 @@ begin
   AndAnd_to_Or0_i  <= AndIN_to_And_i and NotS0_i after AND_gate_delay;
   OrAnd_to_Or0_i <= OrIN_to_And_i and S0 after AND_gate_delay; 
   XorIN_to_And_i <= A XOR B after XOR_gate_delay;
-  NotS1_i <=  not S1 after after NOT_gate_delay; 
+  NotS1_i <=  not S1 after NOT_gate_delay; 
 
   AndAnd_to_Or_i <= AndAnd_to_Or0_i and NotS1_i after AND_gate_delay;
   OrAnd_to_Or_i <= OrAnd_to_Or0_i and NotS1_i after AND_gate_delay;
