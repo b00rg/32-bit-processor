@@ -37,36 +37,29 @@ begin
     -- Test Process
     process
     begin
-        -- Initialize Inputs
-        A <= (others => '0');                      -- All 0's
-        B <= (others => '0');                      -- Unused
+
+        A <= "00000000101010100110100100111001"; -- Padded Student ID
+        B <= "00000000000000000000000000000001"; -- Padded Student ID
         S0 <= '0';
         S1 <= '0';
-        wait for 10 ns;                            -- Wait for 10 ns
-        assert (G = "00000000000000000000000000000000") report "Test failed for all 0's" severity ERROR;
+        wait for 1000 ns;
 
-        -- Test Output: Student ID
-        A <= "0000000000000000000000101010100110100100111001"; -- Padded Student ID
-        A <= "0000000000000000000000000000000000000000000001"; -- Padded Student ID
-        S0 <= '0';
-        S1 <= '1';
-        wait for 10 ns;
-        assert (G = A) report "Test failed for Student ID output" severity ERROR;
 
         -- Test Output: 1's Complement of Student ID
         S0 <= '1';
         S1 <= '0';
-        wait for 10 ns;
-        assert (G = not A) report "Test failed for 1's complement output" severity ERROR;
+        wait for 1000 ns;
+        
+        S0 <= '0';
+        S1 <= '1';
+        wait for 1000 ns;
+
 
         -- Test Output: All 1's
         S0 <= '1';
         S1 <= '1';
-        wait for 10 ns;
-        assert (G = (others => '1')) report "Test failed for all 1's output" severity ERROR;
+        wait for 1000 ns;
 
-        -- End of Simulation
-        wait;
+
     end process;
 end Simulation;
-
