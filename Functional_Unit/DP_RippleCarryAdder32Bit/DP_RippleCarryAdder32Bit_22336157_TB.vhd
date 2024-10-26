@@ -70,336 +70,458 @@ begin
 
  stim_proc: process
    begin
-   
-	-- carry unset 
-	A_TB <= 00000;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00001;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00010;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00011;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00100;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00101;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00110;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00111;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01000;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01001;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01010;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01011;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01100;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01101;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01110;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01111;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10000;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10001;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10010;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10011;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10100;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10101;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10110;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10111;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11000;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11001;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11010;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11011;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11100;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11101;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11110;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11111;
-	B_TB <= "00001";
-	C_IN_TB <= '0';     
-	
-	wait for WaitPERIOD;
-        
-  -- carry set 
    		
-      A_TB <= "000";
-      B_TB <= "000";
-      C_IN_TB <= '1';
-      
-      wait for WaitPERIOD;	
-	A_TB <= 00000;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00001;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00010;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00011;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00100;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00101;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00110;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 00111;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01000;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01001;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01010;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01011;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01100;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01101;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01110;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 01111;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10000;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10001;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10010;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10011;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10100;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10101;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10110;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 10111;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11000;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11001;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11010;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11011;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11100;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11101;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11110;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
-	A_TB <= 11111;
-	B_TB <= "00001";
-	C_IN_TB <= '1';     
-	
-	wait for WaitPERIOD;
+A_TB <= x"00
+B_TB <= x"01";
+C_IN_TB <= '0'
+--Test case 0
+A_TB <= x"00";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 1
+A_TB <= x"01";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 2
+A_TB <= x"02";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 3
+A_TB <= x"03";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 4
+A_TB <= x"04";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 5
+A_TB <= x"05";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 6
+A_TB <= x"06";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 7
+A_TB <= x"07";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 8
+A_TB <= x"08";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 9
+A_TB <= x"09";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 10
+A_TB <= x"0a";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 11
+A_TB <= x"0b";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 12
+A_TB <= x"0c";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 13
+A_TB <= x"0d";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 14
+A_TB <= x"0e";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 15
+A_TB <= x"0f";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 16
+A_TB <= x"10";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 17
+A_TB <= x"11";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 18
+A_TB <= x"12";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 19
+A_TB <= x"13";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 20
+A_TB <= x"14";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 21
+A_TB <= x"15";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 22
+A_TB <= x"16";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 23
+A_TB <= x"17";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 24
+A_TB <= x"18";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 25
+A_TB <= x"19";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 26
+A_TB <= x"1a";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 27
+A_TB <= x"1b";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 28
+A_TB <= x"1c";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 29
+A_TB <= x"1d";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 30
+A_TB <= x"1e";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 31
+A_TB <= x"1f";
+B_TB <= x"01";
+C_IN_TB <= '0';
+wait for WaitPERIOD;
+
+
+--Test case 32
+A_TB <= x"00";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 33
+A_TB <= x"01";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 34
+A_TB <= x"02";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 35
+A_TB <= x"03";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 36
+A_TB <= x"04";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 37
+A_TB <= x"05";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 38
+A_TB <= x"06";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 39
+A_TB <= x"07";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 40
+A_TB <= x"08";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 41
+A_TB <= x"09";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 42
+A_TB <= x"0a";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 43
+A_TB <= x"0b";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 44
+A_TB <= x"0c";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 45
+A_TB <= x"0d";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 46
+A_TB <= x"0e";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 47
+A_TB <= x"0f";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 48
+A_TB <= x"10";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 49
+A_TB <= x"11";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 50
+A_TB <= x"12";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 51
+A_TB <= x"13";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 52
+A_TB <= x"14";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 53
+A_TB <= x"15";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 54
+A_TB <= x"16";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 55
+A_TB <= x"17";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 56
+A_TB <= x"18";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 57
+A_TB <= x"19";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 58
+A_TB <= x"1a";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 59
+A_TB <= x"1b";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 60
+A_TB <= x"1c";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 61
+A_TB <= x"1d";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 62
+A_TB <= x"1e";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
+--Test case 63
+A_TB <= x"1f";
+B_TB <= x"01;
+C_IN_TB <= '1'; 
+wait for WaitPERIOD;
+
+
  
    end process;
 end Sim;
