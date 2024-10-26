@@ -23,7 +23,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity DP_32Bit_B_Logic_22336157 is
 	Port ( A , B , C :  in STD_LOGIC_VECTOR(31 downto 0) ; 		-- 1 bit inputs
 		S0, S1 : in STD_LOGIC; 			-- Selection Signals
-		G : out STD_LOGIC_VECTOR(31 downto 0) 			-- 1 bit output
+		G : out STD_LOGIC_VECTOR(31 downto 0));		-- 1 bit output
 end DP_32Bit_B_Logic_22336157;
 
 architecture Behavioral of DP_32Bit_B_Logic_22336157 is 
@@ -41,7 +41,7 @@ begin
    BIT04: DP_SingleBit_B_Logic_22336157 Port map (A => A(4), B => B(4), S0 => S0, S1 => S1, G => G(4));
    BIT05:  DP_SingleBit_B_Logic_22336157 Port map (A => A(5), B => B(5), S0 => S0, S1 => S1, G => G(5));
    BIT06:  DP_SingleBit_B_Logic_22336157 Port map (A => A(6), B => B(6), S0 => S0, S1 => S1, G => G(6));
-   BIT07:  DP_SingleBit_B_Logic_22336157Port map (A => A(7), B => B(7), S0 => S0, S1 => S1, G => G(7));
+   BIT07:  DP_SingleBit_B_Logic_22336157 Port map (A => A(7), B => B(7), S0 => S0, S1 => S1, G => G(7));
    BIT08: DP_SingleBit_B_Logic_22336157 Port map (A => A(8), B => B(8), S0 => S0, S1 => S1, G => G(8));
    BIT09: DP_SingleBit_B_Logic_22336157 Port map (A => A(9), B => B(9), S0 => S0, S1 => S1, G => G(9));
    BIT10:  DP_SingleBit_B_Logic_22336157 Port map (A => A(10), B => B(10), S0 => S0, S1 => S1, G => G(10));
@@ -60,7 +60,7 @@ begin
    BIT23:  DP_SingleBit_B_Logic_22336157 Port map (A => A(23), B => B(23), S0 => S0, S1 => S1, G => G(23));
    BIT24:  DP_SingleBit_B_Logic_22336157 Port map (A => A(24), B => B(24), S0 => S0, S1 => S1, G => G(24));
    BIT25:  DP_SingleBit_B_Logic_22336157 Port map (A => A(25), B => B(25), S0 => S0, S1 => S1, G => G(25));
-   BIT26: DP_32Bit_B_Logic_22336157 Port map (A => A(26), B => B(26), S0 => S0, S1 => S1, G => G(26));
+   BIT26: DP_SingleBit_B_Logic_22336157 Port map (A => A(26), B => B(26), S0 => S0, S1 => S1, G => G(26));
    BIT27: DP_SingleBit_B_Logic_22336157 Port map (A => A(27), B => B(27), S0 => S0, S1 => S1, G => G(27));
    BIT28:  DP_SingleBit_B_Logic_22336157 Port map (A => A(28), B => B(28), S0 => S0, S1 => S1, G => G(28));
    BIT29:  DP_SingleBit_B_Logic_22336157 Port map (A => A(29), B => B(29), S0 => S0, S1 => S1, G => G(29));
