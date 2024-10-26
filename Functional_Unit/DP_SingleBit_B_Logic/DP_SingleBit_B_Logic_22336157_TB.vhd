@@ -10,14 +10,13 @@ architecture Behavioral of tb_DP_SingleBit_B_Logic_22336157 is
     component DP_SingleBit_B_Logic_22336157
         Port ( A : in STD_LOGIC;
                B : in STD_LOGIC;
-               C : in STD_LOGIC;
                S0 : in STD_LOGIC;
                S1 : in STD_LOGIC;
                G  : out STD_LOGIC);
     end component;
 
     -- Signals for inputs and output
-    signal A, B, C, S0, S1 : STD_LOGIC;
+    signal A, B, S0, S1 : STD_LOGIC;
     signal G : STD_LOGIC;
 
 begin
@@ -27,7 +26,6 @@ begin
         Port Map (
             A => A,
             B => B,
-            C => C,
             S0 => S0,
             S1 => S1,
             G => G
@@ -36,134 +34,70 @@ begin
     -- Test process
     process
     begin
-        -- Test Case 1: A=0, B=0, C=0, S0=0, S1=0
-        A <= '0'; B <= '0'; C <= '0'; S0 <= '0'; S1 <= '0';
+        -- Test Case 1: A=0, B=0, S0=0, S1=0
+        A <= '0'; B <= '0'; S0 <= '0'; S1 <= '0';
         wait for 10 ns;
 
-        -- Test Case 2: A=0, B=0, C=0, S0=0, S1=1
-        A <= '0'; B <= '0'; C <= '0'; S0 <= '0'; S1 <= '1';
+        -- Test Case 2: A=0, B=0, S0=0, S1=1
+        A <= '0'; B <= '0'; S0 <= '0'; S1 <= '1';
         wait for 10 ns;
 
-        -- Test Case 3: A=0, B=0, C=0, S0=1, S1=0
-        A <= '0'; B <= '0'; C <= '0'; S0 <= '1'; S1 <= '0';
+        -- Test Case 3: A=0, B=0, S0=1, S1=0
+        A <= '0'; B <= '0'; S0 <= '1'; S1 <= '0';
         wait for 10 ns;
 
-        -- Test Case 4: A=0, B=0, C=0, S0=1, S1=1
-        A <= '0'; B <= '0'; C <= '0'; S0 <= '1'; S1 <= '1';
+        -- Test Case 4: A=0, B=0, S0=1, S1=1
+        A <= '0'; B <= '0'; S0 <= '1'; S1 <= '1';
         wait for 10 ns;
 
-        -- Test Case 5: A=0, B=0, C=1, S0=0, S1=0
-        A <= '0'; B <= '0'; C <= '1'; S0 <= '0'; S1 <= '0';
+        -- Test Case 5: A=0, B=1, S0=0, S1=0
+        A <= '0'; B <= '1'; S0 <= '0'; S1 <= '0';
         wait for 10 ns;
 
-        -- Test Case 6: A=0, B=0, C=1, S0=0, S1=1
-        A <= '0'; B <= '0'; C <= '1'; S0 <= '0'; S1 <= '1';
+        -- Test Case 6: A=0, B=1, S0=0, S1=1
+        A <= '0'; B <= '1'; S0 <= '0'; S1 <= '1';
         wait for 10 ns;
 
-        -- Test Case 7: A=0, B=0, C=1, S0=1, S1=0
-        A <= '0'; B <= '0'; C <= '1'; S0 <= '1'; S1 <= '0';
+        -- Test Case 7: A=0, B=1, S0=1, S1=0
+        A <= '0'; B <= '1'; S0 <= '1'; S1 <= '0';
         wait for 10 ns;
 
-        -- Test Case 8: A=0, B=0, C=1, S0=1, S1=1
-        A <= '0'; B <= '0'; C <= '1'; S0 <= '1'; S1 <= '1';
-        wait for 10 ns;
-          
-        -- Test Case 9: A=0, B=1, C=0, S0=0, S1=0
-        A <= '0'; B <= '1'; C <= '0'; S0 <= '0'; S1 <= '0';
+        -- Test Case 8: A=0, B=1, S0=1, S1=1
+        A <= '0'; B <= '1'; S0 <= '1'; S1 <= '1';
         wait for 10 ns;
 
-        -- Test Case 10: A=0, B=1, C=0, S0=0, S1=1
-        A <= '0'; B <= '1'; C <= '0'; S0 <= '0'; S1 <= '1';
+        -- Test Case 9: A=1, B=0, S0=0, S1=0
+        A <= '1'; B <= '0'; S0 <= '0'; S1 <= '0';
         wait for 10 ns;
 
-        -- Test Case 11: A=0, B=1, C=0, S0=1, S1=0
-        A <= '0'; B <= '1'; C <= '0'; S0 <= '1'; S1 <= '0';
+        -- Test Case 10: A=1, B=0, S0=0, S1=1
+        A <= '1'; B <= '0'; S0 <= '0'; S1 <= '1';
         wait for 10 ns;
 
-        -- Test Case 12: A=0, B=1, C=0, S0=1, S1=1
-        A <= '0'; B <= '1'; C <= '0'; S0 <= '1'; S1 <= '1';
+        -- Test Case 11: A=1, B=0, S0=1, S1=0
+        A <= '1'; B <= '0'; S0 <= '1'; S1 <= '0';
         wait for 10 ns;
 
-        -- Test Case 13: A=0, B=1, C=1, S0=0, S1=0
-        A <= '0'; B <= '1'; C <= '1'; S0 <= '0'; S1 <= '0';
+        -- Test Case 12: A=1, B=0, S0=1, S1=1
+        A <= '1'; B <= '0'; S0 <= '1'; S1 <= '1';
         wait for 10 ns;
 
-        -- Test Case 14: A=0, B=1, C=1, S0=0, S1=1
-        A <= '0'; B <= '1'; C <= '1'; S0 <= '0'; S1 <= '1';
+        -- Test Case 13: A=1, B=1, S0=0, S1=0
+        A <= '1'; B <= '1'; S0 <= '0'; S1 <= '0';
         wait for 10 ns;
 
-        -- Test Case 15: A=0, B=1, C=1, S0=1, S1=0
-        A <= '0'; B <= '1'; C <= '1'; S0 <= '1'; S1 <= '0';
+        -- Test Case 14: A=1, B=1, S0=0, S1=1
+        A <= '1'; B <= '1'; S0 <= '0'; S1 <= '1';
         wait for 10 ns;
 
-        -- Test Case 16: A=0, B=1, C=1, S0=1, S1=1
-        A <= '0'; B <= '1'; C <= '1'; S0 <= '1'; S1 <= '1';
+        -- Test Case 15: A=1, B=1, S0=1, S1=0
+        A <= '1'; B <= '1'; S0 <= '1'; S1 <= '0';
         wait for 10 ns;
 
-        -- Test Case 17: A=1, B=0, C=0, S0=0, S1=0
-        A <= '1'; B <= '0'; C <= '0'; S0 <= '0'; S1 <= '0';
+        -- Test Case 16: A=1, B=1, S0=1, S1=1
+        A <= '1'; B <= '1'; S0 <= '1'; S1 <= '1';
         wait for 10 ns;
 
-        -- Test Case 18: A=1, B=0, C=0, S0=0, S1=1
-        A <= '1'; B <= '0'; C <= '0'; S0 <= '0'; S1 <= '1';
-        wait for 10 ns;
-
-        -- Test Case 19: A=1, B=0, C=0, S0=1, S1=0
-        A <= '1'; B <= '0'; C <= '0'; S0 <= '1'; S1 <= '0';
-        wait for 10 ns;
-
-        -- Test Case 20: A=1, B=0, C=0, S0=1, S1=1
-        A <= '1'; B <= '0'; C <= '0'; S0 <= '1'; S1 <= '1';
-        wait for 10 ns;
-
-        -- Test Case 21: A=1, B=0, C=1, S0=0, S1=0
-        A <= '1'; B <= '0'; C <= '1'; S0 <= '0'; S1 <= '0';
-        wait for 10 ns;
-
-        -- Test Case 22: A=1, B=0, C=1, S0=0, S1=1
-        A <= '1'; B <= '0'; C <= '1'; S0 <= '0'; S1 <= '1';
-        wait for 10 ns;
-
-        -- Test Case 23: A=1, B=0, C=1, S0=1, S1=0
-        A <= '1'; B <= '0'; C <= '1'; S0 <= '1'; S1 <= '0';
-        wait for 10 ns;
-
-        -- Test Case 24: A=1, B=0, C=1, S0=1, S1=1
-        A <= '1'; B <= '0'; C <= '1'; S0 <= '1'; S1 <= '1';
-        wait for 10 ns;
-
-        -- Test Case 25: A=1, B=1, C=0, S0=0, S1=0
-        A <= '1'; B <= '1'; C <= '0'; S0 <= '0'; S1 <= '0';
-        wait for 10 ns;
-
-        -- Test Case 26: A=1, B=1, C=0, S0=0, S1=1
-        A <= '1'; B <= '1'; C <= '0'; S0 <= '0'; S1 <= '1';
-        wait for 10 ns;
-
-        -- Test Case 27: A=1, B=1, C=0, S0=1, S1=0
-        A <= '1'; B <= '1'; C <= '0'; S0 <= '1'; S1 <= '0';
-        wait for 10 ns;
-
-        -- Test Case 28: A=1, B=1, C=0, S0=1, S1=1
-        A <= '1'; B <= '1'; C <= '0'; S0 <= '1'; S1 <= '1';
-        wait for 10 ns;
-
-        -- Test Case 29: A=1, B=1, C=1, S0=0, S1=0
-        A <= '1'; B <= '1'; C <= '1'; S0 <= '0'; S1 <= '0';
-        wait for 10 ns;
-
-        -- Test Case 30: A=1, B=1, C=1, S0=0, S1=1
-        A <= '1'; B <= '1'; C <= '1'; S0 <= '0'; S1 <= '1';
-        wait for 10 ns;
-
-        -- Test Case 31: A=1, B=1, C=1, S0=1, S1=0
-        A <= '1'; B <= '1'; C <= '1'; S0 <= '1'; S1 <= '0';
-        wait for 10 ns;
-
-        -- Test Case 32: A=1, B=1, C=1, S0=1, S1=1
-        A <= '1'; B <= '1'; C <= '1'; S0 <= '1'; S1 <= '1';
-        wait for 10 ns;
-          
         wait; -- Wait indefinitely after testing
     end process;
 
