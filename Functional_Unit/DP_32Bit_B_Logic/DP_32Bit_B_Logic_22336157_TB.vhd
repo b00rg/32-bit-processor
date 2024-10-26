@@ -70,5 +70,5 @@ begin
         -- End of Simulation
         wait;
     end process;
-end Simulation
+end Simulation;
 
