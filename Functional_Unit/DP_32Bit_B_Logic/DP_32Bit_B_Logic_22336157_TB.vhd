@@ -4,7 +4,7 @@ use IEEE.STD_LOGIC_ARITH.ALL; -- Needed for arithmetic operations
 use IEEE.STD_LOGIC_UNSIGNED.ALL; -- Needed for vector operations
 
 entity DP_32Bit_B_Logic_22336157_TB is
-end tb_DP_32Bit_B_Logic_22336157_TB;
+end DP_32Bit_B_Logic_22336157_TB;
 
 architecture Simulation of DP_32Bit_B_Logic_22336157_TB is
     -- Component Declaration for the Unit Under Test (UUT)
