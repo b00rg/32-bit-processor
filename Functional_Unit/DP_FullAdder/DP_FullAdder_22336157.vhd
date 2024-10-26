@@ -31,15 +31,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity FullAdder_22336157 is
+entity DP_FullAdder_22336157 is
     Port ( A : in STD_LOGIC;
          B : in STD_LOGIC;
          C_IN : in STD_LOGIC;
          SUM : out STD_LOGIC;
          C_OUT : out STD_LOGIC);
-end FullAdder_22336157;
+end DP_FullAdder_22336157;
 
-architecture Behavioral of FullAdder_22336157 is
+architecture Behavioral of DP_FullAdder_22336157 is
 
     Signal S_XOR1_to_XOR2, S_AND1_OR, S_AND2_OR : STD_LOGIC;
 
@@ -62,4 +62,3 @@ begin
     C_OUT <= S_AND1_OR OR S_AND2_OR after OR_gate_delay;
 
 end Behavioral;
-
