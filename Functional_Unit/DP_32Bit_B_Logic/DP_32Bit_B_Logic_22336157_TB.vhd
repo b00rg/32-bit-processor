@@ -47,21 +47,19 @@ begin
 
         -- Test Output: Student ID
         A <= "0000000000000000000000101010100110100100111001"; -- Padded Student ID
+        A <= "0000000000000000000000000000000000000000000001"; -- Padded Student ID
         S0 <= '0';
         S1 <= '1';
         wait for 10 ns;
         assert (G = A) report "Test failed for Student ID output" severity ERROR;
 
         -- Test Output: 1's Complement of Student ID
-        A <= "0000000000000000000000101010100110100100111001"; -- Same input
         S0 <= '1';
         S1 <= '0';
         wait for 10 ns;
         assert (G = not A) report "Test failed for 1's complement output" severity ERROR;
 
         -- Test Output: All 1's
-        A <= (others => '0');                      -- Unused
-        B <= (others => '1');                      -- All 1's
         S0 <= '1';
         S1 <= '1';
         wait for 10 ns;
