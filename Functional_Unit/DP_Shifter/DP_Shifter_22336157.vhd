@@ -78,3 +78,5 @@ begin
     BIT31: DP_Mux3_1Bit_22336157 PORT MAP (Bi => B(31), S1 => S1, slBi => B(30), srBi => 0, Gi => G(31));
 
     CFlagMux : DP_ShifterCFlagMux2_1Bit_22336157 PORT MAP (LSB => B(0), MSB => B(31), S1 => S1, S2 => S2, C => C));
+
+end Behavioral; 
