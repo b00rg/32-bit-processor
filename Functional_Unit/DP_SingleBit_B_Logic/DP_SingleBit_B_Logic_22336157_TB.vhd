@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity DP_SingleBit_B_LogicCircuit_22336157_TB is
 end DP_SingleBit_B_LogicCircuit_22336157_TB;
 
-architecture Behavioral of DP_SingleBit_B_LogicCircuit_22336157_TB is
+architecture Simulation of DP_SingleBit_B_LogicCircuit_22336157_TB is
 
     -- Component Declaration for the Unit Under Test (UUT)
     component DP_SingleBit_B_LogicCircuit_22336157
