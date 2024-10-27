@@ -3,12 +3,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL; -- Needed for arithmetic operations
 use IEEE.STD_LOGIC_UNSIGNED.ALL; -- Needed for vector operations
 
-entity DP_32Bit_B_Logic_22336157_TB is
-end DP_32Bit_B_Logic_22336157_TB;
+entity DP_32Bit_Logic_22336157_TB is
+end DP_32Bit_Logic_22336157_TB;
 
-architecture Simulation of DP_32Bit_B_Logic_22336157_TB is
+architecture Simulation of DP_32Bit_Logic_22336157_TB is
     -- Component Declaration for the Unit Under Test (UUT)
-    component DP_32Bit_B_Logic_22336157
+    component DP_32Bit_Logic_22336157
         Port ( 
             A : in STD_LOGIC_VECTOR(31 downto 0);   -- Input A (Student ID)
             B : in STD_LOGIC_VECTOR(31 downto 0);   -- Input B (Unused in this example)
@@ -25,7 +25,7 @@ architecture Simulation of DP_32Bit_B_Logic_22336157_TB is
 
 begin
     -- Instantiate the Unit Under Test (UUT)
-    uut: DP_32Bit_B_Logic_22336157 
+    uut: DP_32Bit_Logic_22336157 
         Port Map (
             A => A,
             B => B,
