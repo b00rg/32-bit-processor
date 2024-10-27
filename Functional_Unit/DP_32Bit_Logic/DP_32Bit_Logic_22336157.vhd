@@ -21,7 +21,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity DP_32Bit_Logic_22336157 is
-	Port ( A , B , C :  in STD_LOGIC_VECTOR(31 downto 0) ; 		-- 1 bit inputs
+	Port ( A , B :  in STD_LOGIC_VECTOR(31 downto 0) ; 		-- 1 bit inputs
 		S0, S1 : in STD_LOGIC; 			-- Selection Signals
 		G : out STD_LOGIC_VECTOR(31 downto 0));		-- 1 bit output
 end DP_32Bit_Logic_22336157;
