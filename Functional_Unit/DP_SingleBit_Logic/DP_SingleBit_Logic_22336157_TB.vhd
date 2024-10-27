@@ -1,13 +1,13 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity tb_DP_SingleBit_B_Logic_22336157 is
-end tb_DP_SingleBit_B_Logic_22336157;
+entity DP_SingleBit_Logic_22336157 is
+end DP_SingleBit_Logic_22336157;
 
-architecture Behavioral of tb_DP_SingleBit_B_Logic_22336157 is
+architecture Behavioral of DP_SingleBit_Logic_22336157 is
 
     -- Component declaration for the DUT (Device Under Test)
-    component DP_SingleBit_B_Logic_22336157
+    component DP_SingleBit_Logic_22336157
         Port ( A : in STD_LOGIC;
                B : in STD_LOGIC;
                S0 : in STD_LOGIC;
@@ -22,7 +22,7 @@ architecture Behavioral of tb_DP_SingleBit_B_Logic_22336157 is
 begin
 
     -- Instantiate the DUT
-    uut: DP_SingleBit_B_Logic_22336157
+    uut: DP_SingleBit_Logic_22336157
         Port Map (
             A => A,
             B => B,
