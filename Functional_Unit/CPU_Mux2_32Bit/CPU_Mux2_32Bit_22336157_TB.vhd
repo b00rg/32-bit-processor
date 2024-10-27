@@ -22,7 +22,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity CPU_Mux2_32Bit_TB is
-end CPU_Mux2_32Bit;
+end CPU_Mux2_32Bit_TB;
 
 architecture simulation of CPU_Mux2_32Bit_TB is
     -- Component Declaration for the UUT
