@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 20.09.2023 14:53:59
 -- Design Name: 
--- Module Name: Single Bit B Logic - Behavioral
+-- Module Name: Single Bit Logic Circuit - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,13 +21,13 @@
 library IEEE ;
 use IEEE . STD_LOGIC_1164 .ALL;
 
-entity DP_SingleBit_Logic_22336157 is
+entity DP_SingleBit_LogicCircuit_22336157 is
 	Port ( A , B , C :  in STD_LOGIC ; 		-- 1 bit inputs
 		S0, S1 : in STD_LOGIC; 			-- Selection Signals
 		G : out STD_LOGIC ) ;  			-- 1 bit output
-end DP_SingleBit_Logic_22336157;
+end DP_SingleBit_LogicCircuit_22336157;
 
-architecture Behavioral of DP_SingleBit_Logic_22336157 is
+architecture Behavioral of DP_SingleBit_LogicCircuit_22336157 is
 
      -- Propagation Delay
    constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
