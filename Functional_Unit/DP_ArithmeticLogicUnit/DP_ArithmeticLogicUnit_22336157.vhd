@@ -70,3 +70,4 @@ begin
   LogicCircuit : DP_32Bit_LogicCircuit_22336157 Port map(A => A, B => B, S0 => S0, S1=> S1, G => LogicCircuitToALUMux);
   
   ALUMux : CPU_Mux2_32Bit_22336157 Port map(I0 => AdderToALUMux, I1 => LogicCircuitToALUMux, S=> S2, Y => G); 
+end Behavioral; 
