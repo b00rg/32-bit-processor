@@ -1,15 +1,15 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity Mux_2_to_1_32bit is
+entity CPU_Mux2_32Bit_22336157 is
     Port (
         I0, I1 : in STD_LOGIC_VECTOR(31 downto 0);  -- 32-bit inputs
         S      : in STD_LOGIC;                      -- single select bit
         Y      : out STD_LOGIC_VECTOR(31 downto 0)  -- 32-bit output
     );
-end Mux_2_to_1_32bit;
+end CPU_Mux2_32Bit_22336157;
 
-architecture Behavioral of Mux_2_to_1_32bit is
+architecture Behavioral of CPU_Mux2_32Bit_22336157 is
    constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
    constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
    constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
