@@ -22,7 +22,7 @@ library IEEE ;
 use IEEE . STD_LOGIC_1164 .ALL;
 
 entity DP_SingleBit_B_LogicCircuit_22336157 is
-	Port ( A :   in STD_LOGIC ; 		-- 1 bit inputs
+	Port ( B :   in STD_LOGIC ; 		-- 1 bit inputs
 		S0, S1 : in STD_LOGIC; 			-- Selection Signals
 		Y : out STD_LOGIC ) ;  			-- 1 bit output
 end DP_SingleBit_B_LogicCircuit_22336157;
@@ -40,13 +40,12 @@ architecture Behavioral of DP_SingleBit_B_LogicCircuit_22336157 is
 	constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 	
 	   -- Signal declarations
-	signal S0andB, S1andNOTB, Y : STD_LOGIC;
-	signal notB : STD_LOGIC
+	signal B_AND_S0_to_OR, notB, B_AND_S0_to_OR : STD_LOGIC;
 
 begin
-	S0andB <= S0 and B after AND_gate_delay;
+	B_AND_S0_to_OR <= B and S0 after AND_gate_delay;
 	notB <= not B after NOT_gate_delay;
-	S1andBn <= S1 and notB after AND_gate_delay; 
-	Y <= S0andB or S1andNOTB after OR_gate_delay;
+	NOT_B_AND_S1_to_OR <= notB and S1 after AND_gate_delay; 
+	Y <= B_AND_S0_to_OR or NOT_B_AND_S1_to_OR after OR_gate_delay;
 
 end Behavioral;
