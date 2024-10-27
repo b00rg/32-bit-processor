@@ -34,7 +34,7 @@ end DP_RippleCarryAdder32Bit_22336157;
 
 architecture Behavioral of DP_RippleCarryAdder32Bit_22336157 is
 
-    COMPONENT DP_DP_FullAdder_22336157
+    COMPONENT DP_FullAdder_22336157
         PORT(
             A : in STD_LOGIC;
             B : in STD_LOGIC;
