@@ -1,16 +1,16 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity tb_Zero_Detection_Flag is
+entity DP_ZeroDetection_22336157_TB is
     -- Testbench has no ports
-end tb_Zero_Detection_Flag;
+end tb_DP_ZeroDetection_22336157;
 
-architecture Simulation of tb_Zero_Detection_Flag is
+architecture Simulation of DP_ZeroDetection_22336157_TB is
     signal input_vector : STD_LOGIC_VECTOR(30 downto 0);  -- 31-bit input vector
     signal zero_flag    : STD_LOGIC;                       -- 1-bit output flag
 
-    -- Instantiate the Zero_Detection_Flag
-    component Zero_Detection_Flag
+    -- Instantiate the DP_ZeroDetection_22336157
+    component DP_ZeroDetection_22336157_TB
         Port (
             input_vector : in  STD_LOGIC_VECTOR(30 downto 0);
             zero_flag    : out STD_LOGIC
@@ -18,7 +18,7 @@ architecture Simulation of tb_Zero_Detection_Flag is
     end component;
 
 begin
-    uut: Zero_Detection_Flag
+    uut: DP_ZeroDetection_22336157
         Port Map (
             input_vector => input_vector,
             zero_flag    => zero_flag
