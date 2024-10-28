@@ -20,12 +20,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity DP_ShifterCFlagMux2_1Bit_22336157_TB is
-end DP_ShifterCFlagMux2_1Bit_22336157_TB;
+entity DP_CFlagMux2_1Bit_22336157_TB is
+end DP_CFlagMux2_1Bit_22336157_TB;
 
-architecture Simulation of DP_ShifterCFlagMux2_1Bit_22336157_TB is
+architecture Simulation of DP_CFlagMux2_1Bit_22336157_TB is
    -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT DP_ShifterCFlagMux2_1Bit_22336157_TB
+    COMPONENT DP_CFlagMux2_1Bit_22336157_TB
         Port ( 
             I0 : in STD_LOGIC;
             I1 : in STD_LOGIC;
@@ -46,7 +46,7 @@ architecture Simulation of DP_ShifterCFlagMux2_1Bit_22336157_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: DP_ShifterCFlagMux2_1Bit_22336157_TB PORT MAP (
+   uut: DP_CFlagMux2_1Bit_22336157_TB PORT MAP (
         I0 => I0_TB,
         I1 => I1_TB,
         S => S_TB,
