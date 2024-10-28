@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 06.10.2022 22:19:50
 -- Design Name: 
--- Module Name: DP_ShifterCFlagMux2_1Bit_22336157 - Behavioral
+-- Module Name: DP_CFlagMux2_1Bit_22336157 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -22,12 +22,12 @@
 library IEEE ;
 use IEEE . STD_LOGIC_1164 .ALL;
 
-entity DP_ShifterCFlagMux2_1Bit_22336157 is
+entity DP_CFlagMux2_1Bit_22336157 is
   Port (I0 , I1 , S : in STD_LOGIC ;
   Y : out STD_LOGIC );
-  end DP_ShifterCFlagMux2_1Bit_22336157 ;
+  end DP_CFlagMux2_1Bit_22336157 ;
 
-  architecture Behavioral of DP_ShifterCFlagMux2_1Bit_22336157 is
+  architecture Behavioral of DP_CFlagMux2_1Bit_22336157 is
     signal S_not , and0 , and1 : std_logic ;
     constant AND_gate_delay : Time := 6ns; -- 6 =5+1
     constant NAND_gate_delay : Time := 3ns;-- 3=2+1
