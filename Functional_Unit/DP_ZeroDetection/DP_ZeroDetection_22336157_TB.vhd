@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity DP_ZeroDetection_22336157_TB is
     -- Testbench has no ports
-end tb_DP_ZeroDetection_22336157;
+end DP_ZeroDetection_22336157_TB;
 
 architecture Simulation of DP_ZeroDetection_22336157_TB is
     signal input_vector : STD_LOGIC_VECTOR(30 downto 0);  -- 31-bit input vector
