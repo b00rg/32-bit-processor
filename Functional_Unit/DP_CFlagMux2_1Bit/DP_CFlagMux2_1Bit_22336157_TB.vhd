@@ -25,13 +25,9 @@ end DP_CFlagMux2_1Bit_22336157_TB;
 
 architecture Simulation of DP_CFlagMux2_1Bit_22336157_TB is
    -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT DP_CFlagMux2_1Bit_22336157_TB
-        Port ( 
-            I0 : in STD_LOGIC;
-            I1 : in STD_LOGIC;
-            S : in STD_LOGIC;
-            Y  : out STD_LOGIC
-        );
+    COMPONENT DP_CFlagMux2_1Bit_22336157
+  Port (I0_TB , I1_TB , S_TB : in STD_LOGIC ;
+  Y_TB : out STD_LOGIC );
     END COMPONENT;
 
     -- Signals to connect to UUT inputs and outputs
