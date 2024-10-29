@@ -25,7 +25,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity DP_Shifter_22336157 is
     Port ( B : in STD_LOGIC_VECTOR(31 downto 0);
          S1, S2 : in STD_LOGIC;
-          G : out STD_LOGIC_VECTOR(31 downto 0)
+          G : out STD_LOGIC_VECTOR(31 downto 0);
           C : out STD_LOGIC);
 end DP_Shifter_22336157;
 
