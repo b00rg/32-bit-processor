@@ -31,7 +31,9 @@ end DP_Shifter_22336157;
 
 architecture Behavioral of DP_Shifter_22336157 is:
   component DP_Mux3_1Bit
-    Port();
+	Port ( I0 , I1 , I2 :  in STD_LOGIC ; 		-- 1 bit inputs
+		S0, S1 : in STD_LOGIC; 			-- Selection Signals
+		Y : out STD_LOGIC ) ;  			-- 1 bit output
   end_component; 
 
       -- Propagation Delay according to Student ID
