@@ -33,35 +33,35 @@ begin
     -- Test process
     process
     begin
-        -- Test Case 1: A=0, B=0, S0=0, S1=0
+        -- Test Case 0: A=0, B=0, S0=0, S1=0
         B <= '0'; S0 <= '0'; S1 <= '0';
         wait for 10 ns;
 
-        -- Test Case 2: A=0, B=0, S0=0, S1=1
+        -- Test Case 1: A=0, B=0, S0=0, S1=1
         B <= '0'; S0 <= '0'; S1 <= '1';
         wait for WAITPERIOD;
 
-        -- Test Case 3: A=0, B=0, S0=1, S1=0
+        -- Test Case 2: A=0, B=0, S0=1, S1=0
         B <= '0'; S0 <= '1'; S1 <= '0';
         wait for WAITPERIOD;
 
-        -- Test Case 4: A=0, B=0, S0=1, S1=1
+        -- Test Case 3: A=0, B=0, S0=1, S1=1
         B <= '0'; S0 <= '1'; S1 <= '1';
         wait for WAITPERIOD;
 
-        -- Test Case 5: A=0, B=1, S0=0, S1=0
+        -- Test Case 4: A=0, B=1, S0=0, S1=0
         B <= '1'; S0 <= '0'; S1 <= '0';
         wait for WAITPERIOD;
 
-        -- Test Case 6: A=0, B=1, S0=0, S1=1
+        -- Test Case 5: A=0, B=1, S0=0, S1=1
         B <= '1'; S0 <= '0'; S1 <= '1';
         wait for WAITPERIOD;
 
-        -- Test Case 7: A=0, B=1, S0=1, S1=0
+        -- Test Case 6: A=0, B=1, S0=1, S1=0
         B <= '1'; S0 <= '1'; S1 <= '0';
         wait for WAITPERIOD;
 
-        -- Test Case 8: A=0, B=1, S0=1, S1=1
+        -- Test Case 7: A=0, B=1, S0=1, S1=1
         B <= '1'; S0 <= '1'; S1 <= '1';
         wait for WAITPERIOD;
 
