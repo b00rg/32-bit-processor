@@ -26,8 +26,8 @@ begin
     
     process
     begin
-        -- Test Case 1: A=0, B=0, S0=0, S1=0
-        A <= '0'; B <= '0'; S0 <= '0'; S1 <= '0';
+        -- Test Case 1: A=0, B=0, c = 1, S0=0, S1=0
+        A <= '0'; B <= '0'; C <= '0'; S0 <= '0'; S1 <= '0';
         wait for 10 ns;
 
         -- Test Case 2: A=0, B=0, S0=0, S1=1
@@ -90,6 +90,75 @@ begin
         A <= '1'; B <= '1'; S0 <= '1'; S1 <= '1';
         wait for 10 ns;
 
+
+
+
+
+
+    -- Test Case 17: A=0, B=0, C = 1, S0=0, S1=0
+        A <= '0'; B <= '0'; C <= '1'; S0 <= '0'; S1 <= '0';
+        wait for 10 ns;
+
+        -- Test Case 18: A=0, B=0, S0=0, S1=1
+        A <= '0'; B <= '0'; S0 <= '0'; S1 <= '1';
+        wait for 10 ns;
+
+        -- Test Case 19: A=0, B=0, S0=1, S1=0
+        A <= '0'; B <= '0'; S0 <= '1'; S1 <= '0';
+        wait for 10 ns;
+
+        -- Test Case 20: A=0, B=0, S0=1, S1=1
+        A <= '0'; B <= '0'; S0 <= '1'; S1 <= '1';
+        wait for 10 ns;
+
+        -- Test Case 21: A=0, B=1, S0=0, S1=0
+        A <= '0'; B <= '1'; S0 <= '0'; S1 <= '0';
+        wait for 10 ns;
+
+        -- Test Case 22: A=0, B=1, S0=0, S1=1
+        A <= '0'; B <= '1'; S0 <= '0'; S1 <= '1';
+        wait for 10 ns;
+
+        -- Test Case 23: A=0, B=1, S0=1, S1=0
+        A <= '0'; B <= '1'; S0 <= '1'; S1 <= '0';
+        wait for 10 ns;
+
+        -- Test Case 24: A=0, B=1, S0=1, S1=1
+        A <= '0'; B <= '1'; S0 <= '1'; S1 <= '1';
+        wait for 10 ns;
+
+        -- Test Case 25: A=1, B=0, S0=0, S1=0
+        A <= '1'; B <= '0'; S0 <= '0'; S1 <= '0';
+        wait for 10 ns;
+
+        -- Test Case 26: A=1, B=0, S0=0, S1=1
+        A <= '1'; B <= '0'; S0 <= '0'; S1 <= '1';
+        wait for 10 ns;
+
+        -- Test Case 27: A=1, B=0, S0=1, S1=0
+        A <= '1'; B <= '0'; S0 <= '1'; S1 <= '0';
+        wait for 10 ns;
+
+        -- Test Case 28: A=1, B=0, S0=1, S1=1
+        A <= '1'; B <= '0'; S0 <= '1'; S1 <= '1';
+        wait for 10 ns;
+
+        -- Test Case 29: A=1, B=1, S0=0, S1=0
+        A <= '1'; B <= '1'; S0 <= '0'; S1 <= '0';
+        wait for 10 ns;
+
+        -- Test Case 30: A=1, B=1, S0=0, S1=1
+        A <= '1'; B <= '1'; S0 <= '0'; S1 <= '1';
+        wait for 10 ns;
+
+        -- Test Case 31: A=1, B=1, S0=1, S1=0
+        A <= '1'; B <= '1'; S0 <= '1'; S1 <= '0';
+        wait for 10 ns;
+
+        -- Test Case 32: A=1, B=1, S0=1, S1=1
+        A <= '1'; B <= '1'; S0 <= '1'; S1 <= '1';
+        wait for 10 ns;
+        
         wait; -- Wait indefinitely after testing
     end process;
 
