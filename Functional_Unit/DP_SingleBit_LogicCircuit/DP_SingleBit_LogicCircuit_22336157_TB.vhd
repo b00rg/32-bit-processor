@@ -21,9 +21,7 @@ begin
 
     -- Instantiate the DUT
     uut: DP_SingleBit_Logic_Circuit_22336157
-	Port ( A , B , C :  in STD_LOGIC ; 		-- 1 bit inputs
-		S0, S1 : in STD_LOGIC; 			-- Selection Signals
-		G : out STD_LOGIC ) ;  
+	Port map (A => A, B=> B, C => C, S0 => S0, S1 => S1, G => G);  
     -- Test process
     
     process
