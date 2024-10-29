@@ -60,7 +60,7 @@ begin
    -- Stimulus process to apply test cases
    stim_proc: process
    begin
-        -- Test Case 1: S1 = 0, S0 = 0 -> Select I0
+        -- Test Case 0: S1 = 0, S0 = 0 -> Select I0
         I0_TB <= '1';   -- Set I0 to '1'
         I1_TB <= '0';   -- I1 -> don't care
         I2_TB <= '0';   -- I2 -> don't care
@@ -69,7 +69,7 @@ begin
         wait for PERIOD; 
         assert (Y_TB = I0_TB) report "Test Case 1 Failed: I0 was not selected!" severity error;
 
-        -- Test Case 2: S1 = 0, S0 = 1 -> Select I1
+        -- Test Case 1: S1 = 0, S0 = 1 -> Select I1
         I0_TB <= '0';   -- I0 -> don't care
         I1_TB <= '1';   -- Set I1 to '1'
         I2_TB <= '0';   -- I2 -> don't care
@@ -78,7 +78,7 @@ begin
         wait for PERIOD;
         assert (Y_TB = I1_TB) report "Test Case 2 Failed: I1 was not selected!" severity error;
 
-        -- Test Case 3: S1 = 1, S0 = 0 -> Select I2
+        -- Test Case 2: S1 = 1, S0 = 0 -> Select I2
         I0_TB <= '0';   -- I0 -> don't care
         I1_TB <= '0';   -- I1 -> don't care
         I2_TB <= '1';   -- Set I2 to '1'
@@ -87,7 +87,7 @@ begin
         wait for PERIOD;
         assert (Y_TB = I2_TB) report "Test Case 3 Failed: I2 was not selected!" severity error;
 
-        -- Test Case 4: S1 = 1, S0 = 1 -> Undefined state or invalid combination (depending on design)
+        -- Test Case 3: S1 = 1, S0 = 1 -> Undefined state or invalid combination (depending on design)
         -- Here, depending on design you may set this case as invalid, or if it's handled, check the expected output.
         I0_TB <= '0';   -- I0 -> don't care
         I1_TB <= '0';   -- I1 -> don't care
