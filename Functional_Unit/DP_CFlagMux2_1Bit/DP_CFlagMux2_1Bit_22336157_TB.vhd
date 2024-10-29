@@ -46,7 +46,7 @@ architecture Simulation of DP_CFlagMux2_1Bit_22336157_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: DP_CFlagMux2_1Bit_22336157_TB PORT MAP (
+   uut: DP_CFlagMux2_1Bit_22336157 PORT MAP (
         I0 => I0_TB,
         I1 => I1_TB,
         S => S_TB,
