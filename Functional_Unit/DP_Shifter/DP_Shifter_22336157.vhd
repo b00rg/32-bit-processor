@@ -86,8 +86,11 @@ begin
     BIT31: DP_Mux3_1Bit PORT MAP (I0 => B(31), I1 => '0', I2 => B(30), S0 => S1, S1 => S2, Y => G(31));
 
     -- Define the carry output based on shifts
-    C <= (S1 and not S2) ? B(0) : -- Right shift, carry is LSB
-         (not S1 and S2) ? B(31) : -- Left shift, carry is MSB
-         '0';                         -- No shift, carry is zero
+    CFlagMux : DP_ShifterCFlagMux2_1Bit PORT MAP (
+        I0 => B(0),          -- Input from LSB
+        I1 => B(31),         -- Input from MSB
+        S => S1,             -- Selection signal
+        Y => C                -- Carry output
+    );                      -- No shift, carry is zero
 
 end Behavioral;
