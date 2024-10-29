@@ -11,6 +11,6 @@ end DP_ZeroDetection_22336157;
 architecture Behavioral of DP_ZeroDetection_22336157 is
 begin
     -- Directly assign zero_flag based on the condition of input_vector
-    zero_flag <= '1' when input_vector = "0000000000000000000000000000000" else '0'; 
+    zero_flag <= '1' when input_vector = "00000000000000000000000000000000" else '0'; 
 
 end Behavioral;
