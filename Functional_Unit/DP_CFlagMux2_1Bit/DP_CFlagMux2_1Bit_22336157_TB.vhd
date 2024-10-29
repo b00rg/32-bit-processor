@@ -53,6 +53,8 @@ begin
    -- Stimulus process to apply test cases
    stim_proc: process
    begin
+
+         -- Test Case 0: I0 = 0, S1 = 0, S0 = 0
         S_TB <= '1';   -- S1 = 0
         wait for PERIOD; 
 
