@@ -25,7 +25,7 @@ end DP_Mux3_1Bit_22336157_TB;
 
 architecture Simulation of DP_Mux3_1Bit_22336157_TB is
    -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT DP_Mux3_1Bit_22336157_TB
+    COMPONENT DP_Mux3_1Bit_22336157
         Port ( 
             I0 : in STD_LOGIC;
             I1 : in STD_LOGIC;
@@ -48,7 +48,7 @@ architecture Simulation of DP_Mux3_1Bit_22336157_TB is
 begin
 
    -- Instantiate the Unit Under Test (UUT)
-   uut: DP_Mux3_1Bit_22336157_TB PORT MAP (
+   uut: DP_Mux3_1Bit_22336157 PORT MAP (
         I0 => I0_TB,
         I1 => I1_TB,
         I2 => I2_TB,
