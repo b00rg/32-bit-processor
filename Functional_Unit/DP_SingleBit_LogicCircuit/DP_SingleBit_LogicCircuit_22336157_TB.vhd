@@ -1,37 +1,31 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity DP_SingleBit_LogicCircuit_22336157 is
-end DP_SingleBit_LogicCircuit_22336157;
+entity DP_SingleBit_Logic_Circuit_22336157_TB is
+end DP_SingleBit_Logic_Circuit_22336157_TB;
 
-architecture Behavioral of DP_SingleBit_LogicCircuit_22336157 is
+architecture Simulation of DP_SingleBit_Logic_Circuit_22336157_TB is
 
     -- Component declaration for the DUT (Device Under Test)
-    component DP_SingleBit_LogicCircuit_22336157
-        Port ( A : in STD_LOGIC;
-               B : in STD_LOGIC;
-               S0 : in STD_LOGIC;
-               S1 : in STD_LOGIC;
-               G  : out STD_LOGIC);
+    component DP_SingleBit_Logic_Circuit_22336157
+	Port ( A , B , C :  in STD_LOGIC ; 		-- 1 bit inputs
+		S0, S1 : in STD_LOGIC; 			-- Selection Signals
+		G : out STD_LOGIC ) ;  
     end component;
 
     -- Signals for inputs and output
-    signal A, B, S0, S1 : STD_LOGIC;
+    signal A, B, C, S0, S1 : STD_LOGIC;
     signal G : STD_LOGIC;
 
 begin
 
     -- Instantiate the DUT
-    uut: DP_SingleBit_LogicCircuit_22336157
-        Port Map (
-            A => A,
-            B => B,
-            S0 => S0,
-            S1 => S1,
-            G => G
-        );
-
+    uut: DP_SingleBit_Logic_Circuit_22336157
+	Port ( A , B , C :  in STD_LOGIC ; 		-- 1 bit inputs
+		S0, S1 : in STD_LOGIC; 			-- Selection Signals
+		G : out STD_LOGIC ) ;  
     -- Test process
+    
     process
     begin
         -- Test Case 1: A=0, B=0, S0=0, S1=0
@@ -101,4 +95,4 @@ begin
         wait; -- Wait indefinitely after testing
     end process;
 
-end Behavioral;
+end Simulation;
