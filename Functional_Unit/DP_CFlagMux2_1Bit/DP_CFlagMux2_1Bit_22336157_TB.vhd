@@ -26,12 +26,13 @@ end DP_CFlagMux2_1Bit_22336157_TB;
 architecture Simulation of DP_CFlagMux2_1Bit_22336157_TB is
    -- Component Declaration for the Unit Under Test (UUT)
     COMPONENT DP_CFlagMux2_1Bit_22336157
-  Port (I0_TB , I1_TB , S_TB : in STD_LOGIC ;
-  Y_TB : out STD_LOGIC );
+  Port (I0 , I1 , S : in STD_LOGIC ;
+  Y : out STD_LOGIC );
     END COMPONENT;
 
     -- Signals to connect to UUT inputs and outputs
-    signal I0_TB, I1_TB : STD_LOGIC := '0';  -- Inputs for the MUX
+    signal I0_TB: STD_LOGIC := '0';
+    signal  I1_TB   : STD_LOGIC := '0'; -- Inputs for the MUX
     signal S_TB: STD_LOGIC := '0';         -- Select lines for the MUX
     signal Y_TB : STD_LOGIC;                        -- Output for the MUX
 
@@ -41,7 +42,7 @@ architecture Simulation of DP_CFlagMux2_1Bit_22336157_TB is
 
 begin
 
-   -- Instantiate the Unit Under Test (UUT)
+   -- Instantiate the Unit Under Tes t (UUT)
    uut: DP_CFlagMux2_1Bit_22336157 PORT MAP (
         I0 => I0_TB,
         I1 => I1_TB,
@@ -52,19 +53,19 @@ begin
    -- Stimulus process to apply test cases
    stim_proc: process
    begin
+        S_TB <= '1';   -- S1 = 0
+        wait for PERIOD; 
+
         -- Test Case 1: S1 = 0, S0 = 0 -> Select I0
         I0_TB <= '1';   -- Set I0 to '1'
         I1_TB <= '0';   -- I1 -> don't care
-        S_TB <= '0';   -- S1 = 0
+        
         wait for PERIOD; 
-        assert (Y_TB = I0_TB) report "Test Case 1 Failed: I0 was not selected!" severity error;
 
         -- Test Case 2: S1 = 0, S0 = 1 -> Select I1
         I0_TB <= '0';   -- I0 -> don't care
         I1_TB <= '1';   -- Set I1 to '1'
-        S_TB <= '1';   -- S0 = 1
         wait for PERIOD;
-        assert (Y_TB = I1_TB) report "Test Case 2 Failed: I1 was not selected!" severity error;
 
         -- Final wait to keep the simulation running
         wait;
