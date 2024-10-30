@@ -52,11 +52,11 @@ begin
         S0 <= '0'; S1 <= '0'; S2 <= '0';  C_IN <= '1';
         wait for 1000 ns;
         
-        -- Test A + B    /   A or B 
+        -- Test A + B   
         S0 <= '1'; S1 <= '0'; S2 <= '0';  C_IN <= '0';
         wait for 1000 ns;
         
-        -- Test A + B + 1 !! CIN does not work hereeeeee
+        -- Test A + B + 1 
         S0 <= '1'; S1 <= '0'; S2 <= '0';  C_IN <= '1';
         wait for 1000 ns;
         
@@ -72,11 +72,21 @@ begin
          S0 <= '1'; S1 <= '1'; S2 <= '0'; C_IN <='0'; 
         wait for 1000 ns;
         
+        -- Test A AND B !! from hereeee 
+        S0 <= '0'; S1 <= '0'; S2 <= '1';  C_IN <= '0';
+        wait for 1000 ns;
+        
+        -- Test A OR B 
+        S0 <= '1'; S1 <= '0'; S2 <= '1';  C_IN <= '0';
+        wait for 1000 ns;
+        
+        -- Test A XOR B
+        S0 <= '0'; S1 <= '1'; S2 <= '1';  C_IN <= '0';
+        wait for 1000 ns;
+        
         -- Test NOT(A) 
         S0 <= '1'; S1 <= '1'; S2 <= '1';  C_IN <= '0';
         wait for 1000 ns;
-        
-        
 
     end process;
 
