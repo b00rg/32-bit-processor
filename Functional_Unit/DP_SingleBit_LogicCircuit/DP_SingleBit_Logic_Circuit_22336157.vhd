@@ -40,35 +40,34 @@ architecture Behavioral of DP_SingleBit_Logic_Circuit_22336157 is
    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 	   -- Signal declarations
-    signal AndIN_to_And_i, OrIN_to_And_i, NotS0_i : STD_LOGIC;
-    signal AndAnd_to_Or0_i, OrAnd_to_Or0_i, XorIN_to_And_i : STD_LOGIC;
-    signal NotS1_i, AndAnd_to_Or_i, OrAnd_to_Or_i, XorAnd_to_Or0_i : STD_LOGIC;
-    signal G1_i, XorAnd_to_Or_i, NotAnd_to_Or0_i, G0_i, NotAnd_to_Or_i : STD_LOGIC;
-    signal G_i : STD_LOGIC;
+    signal AndIN_to_And, OrIN_to_And, NotS0 : STD_LOGIC;
+    signal AndAnd_to_Or0, notA, OrAnd_to_Or0, XorIN_to_And : STD_LOGIC;
+    signal NotS1, AndAnd_to_Or, OrAnd_to_Or, XorAnd_to_Or0 : STD_LOGIC;
+    signal G1, XorAnd_to_Or, NotAnd_to_Or0, G0, NotAnd_to_Or : STD_LOGIC;
 
 begin
-  AndIN_to_And_i <= A AND B after AND_gate_delay; 
-  OrIN_to_And_i <= A or B after OR_gate_delay; 
-  NotS0_i <= not S0 after NOT_gate_delay; 
+  AndIN_to_And <= A AND B after AND_gate_delay; 
+  OrIN_to_And <= A or B after OR_gate_delay; 
+  NotS0 <= not S0 after NOT_gate_delay; 
 
-  AndAnd_to_Or0_i  <= AndIN_to_And_i and NotS0_i after AND_gate_delay;
-  OrAnd_to_Or0_i <= OrIN_to_And_i and S0 after AND_gate_delay; 
-  XorIN_to_And_i <= A XOR B after XOR_gate_delay;
-  NotS1_i <=  not S1 after NOT_gate_delay; 
+  NotA <= not A after NOT_gate_delay;
+  AndAnd_to_Or0  <= AndIN_to_And and NotS0 after AND_gate_delay;
+  OrAnd_to_Or0 <= OrIN_to_And and S0 after AND_gate_delay; 
+  XorIN_to_And <= A XOR B after XOR_gate_delay;
+  NotS1 <=  not S1 after NOT_gate_delay; 
 
-  AndAnd_to_Or_i <= AndAnd_to_Or0_i and NotS1_i after AND_gate_delay;
-  OrAnd_to_Or_i <= OrAnd_to_Or0_i and NotS1_i after AND_gate_delay;
-  XorAnd_to_Or0_i <= XorIN_to_And_i and NotS0_i after AND_gate_delay; 
+  AndAnd_to_Or <= AndAnd_to_Or0 and NotS1 after AND_gate_delay;
+  OrAnd_to_Or <= OrAnd_to_Or0 and NotS1 after AND_gate_delay;
+  XorAnd_to_Or0 <= XorIN_to_And and NotS0 after AND_gate_delay; 
 
-  G1_i <= AndAnd_to_Or_i or OrAnd_to_Or_i after OR_gate_delay; 
-  XorAnd_to_Or_i <= XorAnd_to_Or0_i and S1 after AND_gate_delay;
-  NotAnd_to_Or0_i <= S0 and A after AND_gate_delay; 
+  G1 <= AndAnd_to_Or or OrAnd_to_Or after OR_gate_delay; 
+  XorAnd_to_Or <= XorAnd_to_Or0 and S1 after AND_gate_delay;
+  NotAnd_to_Or0 <= S0 and NotA after AND_gate_delay; 
 
-  G0_i <= G1_i or XorAnd_to_Or_i after OR_gate_delay; 
-  NotAnd_to_Or_i <= NotAnd_to_Or0_i and S1 after AND_gate_delay; 
+  G0 <= G1 or XorAnd_to_Or after OR_gate_delay; 
+  NotAnd_to_Or <= NotAnd_to_Or0 and S1 after AND_gate_delay; 
 
-  G_i <= G0_i or NotAnd_to_Or_i after OR_gate_delay; 
+  G <= G0 or NotAnd_to_Or after OR_gate_delay; 
 
-  G <= G_i;
 
 end Behavioral;
