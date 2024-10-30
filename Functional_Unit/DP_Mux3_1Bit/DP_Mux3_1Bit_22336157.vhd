@@ -22,7 +22,7 @@ library IEEE ;
 use IEEE . STD_LOGIC_1164 .ALL;
 
 entity DP_Mux3_1Bit_22336157 is
-	Port ( I0 , I1 , I2 :  in STD_LOGIC ; 		-- 1 bit inputs
+	Port ( B , SLB , srB :  in STD_LOGIC ; 		-- 1 bit inputs
 		S0, S1 : in STD_LOGIC; 			-- Selection Signals
 		Y : out STD_LOGIC ) ;  			-- 1 bit output
 end DP_Mux3_1Bit_22336157;
@@ -55,9 +55,9 @@ begin
 	S0_not_S1 <= S0_not or S1 after OR_gate_delay;
 	
 	-- Two-input AND gates
-	and0 <= I0 and S0_S1_not after AND_gate_delay;  -- S0_not and S1_not
-	and1 <= I1 and S0 and S1_not after AND_gate_delay; 
-	and2 <= I2 and S0_not_S1 after AND_gate_delay; -- S0_not and S1
+	and0 <= B and S0_S1_not after AND_gate_delay;  -- S0_not and S1_not
+	and1 <= SLB and S0 and S1_not after AND_gate_delay; 
+	and2 <= srB and S0_not_S1 after AND_gate_delay; -- S0_not and S1
 
 	-- Intermediate OR signals using two-input OR gates
 	or0 <= and0 or and1 after OR_gate_delay;
