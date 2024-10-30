@@ -1,71 +1,73 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Emma Burgess
+-- 
+-- Create Date: 06.10.2022 22:19:50
+-- Design Name: 
+-- Module Name: 32Bit_B_Logic_22336157 - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity DP_ArithmeticLogicUnit_22336157_TB is
-end DP_ArithmeticLogicUnit_22336157_TB;
+entity DP_ArithmeticLogicUnit_22336157 is
+	Port ( A, B :  in STD_LOGIC_VECTOR(31 downto 0) ; 		
+		S0, S1, S2, C_IN : in STD_LOGIC; 			
+		G : out STD_LOGIC_VECTOR(31 downto 0);		
+    C, V : out STD_LOGIC);
+end DP_ArithmeticLogicUnit_22336157;
 
-architecture Simulation of DP_ArithmeticLogicUnit_22336157_TB is
+architecture Behavioral of DP_ArithmeticLogicUnit_22336157 is 
 
-    -- Test signals
-    signal A, B, G : STD_LOGIC_VECTOR(31 downto 0);
-    signal S0, S1, S2, C_IN : STD_LOGIC;
-    signal C, V : STD_LOGIC;
-
-    -- Instantiate the DP_ArithmeticLogicUnit_22336157 unit under test (UUT)
-    component DP_ArithmeticLogicUnit_22336157
-        Port ( 
-            A, B : in STD_LOGIC_VECTOR(31 downto 0);
-            S0, S1, S2, C_IN : in STD_LOGIC;
-            G : out STD_LOGIC_VECTOR(31 downto 0);
-            C, V : out STD_LOGIC
-        );
-    end component;
-
-begin
-
-    -- Instantiate the Unit Under Test (UUT)
-    UUT: DP_ArithmeticLogicUnit_22336157 Port map (
-        A => A,
-        B => B,
-        S0 => S0,
-        S1 => S1,
-        S2 => S2,
-        C_IN => C_IN,
-        G => G,
-        C => C,
-        V => V
+    component DP_32Bit_B_Logic_22336157
+      Port (
+        B : in STD_LOGIC_VECTOR(31 downto 0);        -- 32-bit input
+        S0, S1 : in STD_LOGIC;                        -- Selection Signals
+        G : out STD_LOGIC_VECTOR(31 downto 0)        -- 32-bit output
     );
+  end component; 
 
-    -- Test process
-    stim_proc: process
-    begin
-        -- Initialize Inputs
-        A <= X"22336157";    -- Student ID in hexadecimal
-        B <= X"FFFFFFFF";     -- Example B value (all bits set to 1 for simplicity)
-        C_IN <= '0';
+  component DP_RippleCarryAdder32Bit_22336157
+      Port ( A : in STD_LOGIC_VECTOR (31 downto 0);
+        B : in STD_LOGIC_VECTOR (31 downto 0);
+        C_IN : in STD_LOGIC; -- single bit initial carry-in
+        SUM : out STD_LOGIC_VECTOR (31 downto 0);
+        C_OUT : out STD_LOGIC; -- final carry-out bit
+        V : out STD_LOGIC); -- overflow indicator
+  end component;
 
-        -- Test AND operation
-        S0 <= '0'; S1 <= '0'; S2 <= '1'; -- Select AND operation
-        wait for 10 ns;
+  component DP_32Bit_LogicCircuit_22336157 is
+	Port ( A , B :  in STD_LOGIC_VECTOR(31 downto 0) ; 		-- 1 bit inputs
+		S0, S1 : in STD_LOGIC; 			-- Selection Signals
+		G : out STD_LOGIC_VECTOR(31 downto 0));		-- 1 bit output
+end component;
+
+  component CPU_Mux2_32Bit_22336157 is
+    Port (
+        I0, I1 : in STD_LOGIC_VECTOR(31 downto 0);  -- 32-bit inputs
+        S      : in STD_LOGIC;                      -- single select bit
+        Y      : out STD_LOGIC_VECTOR(31 downto 0));  -- 32-bit output
+end component;
+
+  signal BLogicToAdder, AdderToALUMux, LogicCircuitToALUMux : STD_LOGIC_VECTOR(31 downto 0);
+  
         
-        -- Test OR operation
-        S0 <= '0'; S1 <= '1'; S2 <= '1'; -- Select OR operation
-        wait for 10 ns;
-
-        -- Test XOR operation
-        S0 <= '1'; S1 <= '0'; S2 <= '1'; -- Select XOR operation
-        wait for 10 ns;
-
-        -- Test NOT operation
-        S0 <= '1'; S1 <= '1'; S2 <= '1'; -- Select NOT operation
-        wait for 10 ns;
-
-        -- Test Addition
-        S0 <= '0'; S1 <= '0'; S2 <= '0'; -- Select Adder operation
-        wait for 10 ns;
-
-        -- Finish simulation
-        wait;
-    end process;
-
-end simulation;
+begin 
+  BLogic: DP_32Bit_B_Logic_22336157 Port map(B => B, S0 => S0, S1 => S1, G=> BLogicToAdder);
+  
+  Adder : DP_RippleCarryAdder32Bit_22336157 Port map(A => A, B => BLogicToAdder, C_IN => C_IN, C_OUT => C, SUM => AdderToALUMux, V=>V);
+  
+  LogicCircuit : DP_32Bit_LogicCircuit_22336157 Port map(A => A, B => B, S0 => S0, S1=> S1, G => LogicCircuitToALUMux);
+  
+  ALUMux : CPU_Mux2_32Bit_22336157 Port map(I0 => AdderToALUMux, I1 => LogicCircuitToALUMux, S=> S2, Y => G); 
+end Behavioral; 
