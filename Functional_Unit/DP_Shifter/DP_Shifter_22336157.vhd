@@ -41,9 +41,9 @@ architecture Behavioral of DP_Shifter_22336157 is
         );
     end component; 
     
-    component DP_CFlagMux2_1Bit_22336157 
-    Port (I0 , I1 , S : in STD_LOGIC ;
-  Y : out STD_LOGIC );
+    component DP_ShifterCFlagMux2_1Bit_22336157
+    Port (MSB, LSB, S1, S2  : in STD_LOGIC ;
+  C : out STD_LOGIC );
   end component; 
 
     -- Propagation Delay according to Student ID
@@ -90,11 +90,12 @@ begin
     BIT30: DP_Mux3_1Bit PORT MAP (I0 => B(30), I1 => B(31), I2 => B(29), S0 => S1, S1 => S2, Y => G(30));
     BIT31: DP_Mux3_1Bit PORT MAP (I0 => B(31), I1 => '0', I2 => B(30), S0 => S1, S1 => S2, Y => G(31));
 
-    CFlagMux : DP_CFlagMux2_1Bit_22336157 PORT MAP (
-        I0 => B(0),          -- Input from LSB
-        I1 => B(31),         -- Input from MSB
-        S => S1,             -- Selection signal
-        Y => C                -- Carry output
+    CFlagMux :  DP_ShifterCFlagMux2_1Bit_22336157 PORT MAP (
+        LSB => B(0),          -- Input from LSB
+        MSB => B(31),         -- Input from MSB
+        S1 => S1,             -- Selection signal
+        S2 => S2, 
+        C => C                -- Carry output
     );                         -- No shift, carry is zero
 
 end Behavioral;
