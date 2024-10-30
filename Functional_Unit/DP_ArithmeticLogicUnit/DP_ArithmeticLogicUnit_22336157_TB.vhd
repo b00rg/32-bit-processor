@@ -40,32 +40,44 @@ begin
     stim_proc: process
     begin
         -- Initialize Inputs
-        A <= X"22336157";    -- Student ID in hexadecimal
-        B <= X"FFFFFFFF";     -- Example B value (all bits set to 1 for simplicity)
+        A <= "00000001010101001101001010011101";    -- Student ID in hexadecimal
+        B <= "00000000000000000000000000000111";    -- Example B value (all bits set to 1 for simplicity)
         C_IN <= '0';
 
-        -- Test AND operation
-        S0 <= '0'; S1 <= '0'; S2 <= '1'; -- Select AND operation
-        wait for 10 ns;
+        -- Test A
+        S0 <= '0'; S1 <= '0'; S2 <= '0';  C_IN <= '0';
+        wait for 1000 ns;
         
-        -- Test OR operation
-        S0 <= '0'; S1 <= '1'; S2 <= '1'; -- Select OR operation
-        wait for 10 ns;
+        -- Test A + 1
+        S0 <= '0'; S1 <= '0'; S2 <= '0';  C_IN <= '1';
+        wait for 1000 ns;
+        
+        -- Test A + B    /   A or B 
+        S0 <= '1'; S1 <= '0'; S2 <= '0';  C_IN <= '0';
+        wait for 1000 ns;
+        
+        -- Test A + B + 1 !! CIN does not work hereeeeee
+        S0 <= '1'; S1 <= '0'; S2 <= '0';  C_IN <= '1';
+        wait for 1000 ns;
+        
+        -- Test A + NOT(B) 
+        S0 <= '0'; S1 <= '1'; S2 <= '0'; C_IN <='0'; 
+        wait for 1000 ns;
+        
+        -- Test A + NOT(B) + 1 
+        S0 <= '0'; S1 <= '1'; S2 <= '0'; C_IN <='1'; 
+        wait for 1000 ns;
+        
+        -- Test A - 1
+         S0 <= '1'; S1 <= '1'; S2 <= '0'; C_IN <='0'; 
+        wait for 1000 ns;
+        
+        -- Test NOT(A) 
+        S0 <= '1'; S1 <= '1'; S2 <= '1';  C_IN <= '0';
+        wait for 1000 ns;
+        
+        
 
-        -- Test XOR operation
-        S0 <= '1'; S1 <= '0'; S2 <= '1'; -- Select XOR operation
-        wait for 10 ns;
-
-        -- Test NOT operation
-        S0 <= '1'; S1 <= '1'; S2 <= '1'; -- Select NOT operation
-        wait for 10 ns;
-
-        -- Test Addition
-        S0 <= '0'; S1 <= '0'; S2 <= '0'; -- Select Adder operation
-        wait for 10 ns;
-
-        -- Finish simulation
-        wait;
     end process;
 
 end simulation;
