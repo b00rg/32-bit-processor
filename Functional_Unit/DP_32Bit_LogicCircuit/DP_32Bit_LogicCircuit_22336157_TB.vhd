@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL; -- Needed for arithmetic operations
-use IEEE.STD_LOGIC_UNSIGNED.ALL; -- Needed for vector operations
+use IEEE.std_logic_signed; -- Needed for vector operations
 
 entity DP_32Bit_LogicCircuit_22336157_TB is
 end DP_32Bit_LogicCircuit_22336157_TB;
@@ -38,8 +38,8 @@ begin
     process
     begin
 
-        A <= "00000000101010100110100100111001"; -- Padded Student ID
-        B <= "00000000000000000000000000000001"; -- Padded Student ID
+        A <= "00000000000000000000000000000001";  -- Padded Student ID
+        B <= "00000000000000000000000000000011"; -- Padded Student ID
         S0 <= '0';
         S1 <= '0';
         wait for 1000 ns;
