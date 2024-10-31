@@ -76,10 +76,10 @@ input_vector : in  STD_LOGIC_VECTOR(31 downto 0);  -- 31-bit input vector
     signal shifterGOUT, ALUGOUT, MuxFOUT: STD_LOGIC_VECTOR(31 downto 0); 
 begin
     shifter : DP_Shifter_22336157 Port Map(B=>B, S1 => FS(2), S2 => FS(3), C => shifterCOUT, G => shifterGOUT);
-    ALU : DP_ArithmeticLogicUnit_22336157 Port Map(A=>A, B=>B, C_IN=>FS(0), S0=>FS(1), S1 => FS(2), S2 => FS(3), C => C, G => G, V=>V);
+    ALU : DP_ArithmeticLogicUnit_22336157 Port Map(A=>A, B=>B, C_IN=>FS(0), S0=>FS(1), S1 => FS(2), S2 => FS(3), C => C, G => ALUGOUT, V=>V);
     MuxF : CPU_Mux2_32Bit_22336157 Port Map(I0 => ALUGOUT, I1 => shifterGOUT, S => FS(4), Y=> MuxFOUT);
     C_Flag : DP_CFlagMux2_1Bit_22336157 Port Map(I0 => ALUCOUT, I1 => shifterCOUT, S => FS(4), Y => C);
-    Z_Flag : DP_ZeroDetection_22336157  Port Map(input_vector => MuxFOUT, output_vector => Z); 
+    Z_Flag : DP_ZeroDetection_22336157  Port Map(input_vector => MuxFOUT, zero_flag => Z); 
     F <= MuxFOUT;
     N <= MuxFOUT(31);
 end Behavioral;
