@@ -23,17 +23,15 @@ use IEEE . STD_LOGIC_1164 .ALL;
 
 entity DP_Mux3_1Bit_22336157 is
 	Port ( B , SLB , srB :  in STD_LOGIC ; 		-- 1 bit inputs
-		S0, S1 : in STD_LOGIC; 			-- Selection Signals
-		Y : out STD_LOGIC ) ;  			-- 1 bit output
+		S1, S2 : in STD_LOGIC; 			-- Selection Signals
+		G : out STD_LOGIC ) ;  			-- 1 bit output
 end DP_Mux3_1Bit_22336157;
 
 architecture Behavioral of DP_Mux3_1Bit_22336157 is
     -- Internal signals to handle the inverted select lines
-    signal S0_not, S1_not : STD_LOGIC;
-    signal S0_S1_not, S0_not_S1 : STD_LOGIC;
-    signal or0, or1 : STD_LOGIC; 
-    -- Intermediate signals for AND gates
-    signal and0, and1, and2 : STD_LOGIC;
+
+    
+    signal nots1, nots2, and1, and2, and3, and4, and5, and6, or1 : STD_LOGIC; 
 
    -- Propagation Delay
    constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
@@ -47,23 +45,18 @@ architecture Behavioral of DP_Mux3_1Bit_22336157 is
 
 begin
     -- Invert the selection signals
-    S0_not <= not S0 after NOT_gate_delay;		
-    S1_not <= not S1 after NOT_gate_delay;
-
-	-- Selection signals using OR gates
-	S0_S1_not <= S0 or S1_not after OR_gate_delay;
-	S0_not_S1 <= S0_not or S1 after OR_gate_delay;
-	
-	-- Two-input AND gates
-	and0 <= B and S0_S1_not after AND_gate_delay;  -- S0_not and S1_not
-	and1 <= SLB and S0 and S1_not after AND_gate_delay; 
-	and2 <= srB and S0_not_S1 after AND_gate_delay; -- S0_not and S1
-
-	-- Intermediate OR signals using two-input OR gates
-	or0 <= and0 or and1 after OR_gate_delay;
-	or1 <= or0 or and2 after OR_gate_delay;
-	
-	-- Final output
-	Y <= or1 after OR_gate_delay;
+    nots1 <= not S1 after NOT_gate_delay;
+    nots2 <= not S2 after NOT_gate_delay;
+    and1 <= nots1 and nots2 after AND_gate_delay;
+    and2 <= s1 and nots2 after AND_gate_delay;
+    
+    and3 <= nots1 and s2 after AND_gate_delay;
+    and4 <= and1 and B after AND_gate_delay;
+    and5 <= and2 and SrB after AND_gate_delay;
+    
+    or1 <= and4 or and5 after OR_gate_delay; 
+    and6 <= and3 and SlB after and_gate_delay;
+    
+    G <= or1 or and6 after OR_gate_delay; 
 
 end Behavioral;
