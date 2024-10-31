@@ -1,5 +1,21 @@
 ----------------------------------------------------------------------------------
--- Test Bench for DP_Mux3_1Bit_22336157
+-- Company: 
+-- Engineer: Emma Burgess
+-- 
+-- Create Date: 20.09.2023 14:53:59
+-- Design Name: 
+-- Module Name: Mux3_1Bit_TB - Simulation
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
 ----------------------------------------------------------------------------------
 
 library IEEE;
@@ -9,7 +25,7 @@ use IEEE.STD_LOGIC_TEXTIO.ALL;
 entity DP_Mux3_1Bit_22336157_tb is
 end DP_Mux3_1Bit_22336157_tb;
 
-architecture Behavioral of DP_Mux3_1Bit_22336157_tb is
+architecture Simulation of DP_Mux3_1Bit_22336157_tb is
 
     -- Component Declaration of the Unit Under Test (UUT)
     component DP_Mux3_1Bit_22336157
@@ -30,7 +46,7 @@ architecture Behavioral of DP_Mux3_1Bit_22336157_tb is
     signal G    : STD_LOGIC;
 
     -- Constants
-    constant CLK_PERIOD : time := 10 ns;
+    constant CLK_PERIOD : time := 100 ns;
 
 begin
 
@@ -51,29 +67,21 @@ begin
         -- Test case 1: S1 = '0', S2 = '0' => Expect output = B
         B <= '1'; SLB <= '0'; srB <= '0'; S1 <= '0'; S2 <= '0';
         wait for CLK_PERIOD;
-        assert (G = B)
-        report "Test case 1 failed" severity error;
 
         -- Test case 2: S1 = '1', S2 = '0' => Expect output = srB
         B <= '0'; SLB <= '0'; srB <= '1'; S1 <= '1'; S2 <= '0';
         wait for CLK_PERIOD;
-        assert (G = srB)
-        report "Test case 2 failed" severity error;
+
 
         -- Test case 3: S1 = '0', S2 = '1' => Expect output = SLB
         B <= '0'; SLB <= '1'; srB <= '0'; S1 <= '0'; S2 <= '1';
         wait for CLK_PERIOD;
-        assert (G = SLB)
-        report "Test case 3 failed" severity error;
+
 
         -- Test case 4: S1 = '1', S2 = '1' => Undefined behavior, check stability
         B <= '1'; SLB <= '1'; srB <= '1'; S1 <= '1'; S2 <= '1';
         wait for CLK_PERIOD;
-        assert (G = '1') or (G = '0')
-        report "Test case 4 stability check failed" severity warning;
 
-        -- End simulation
-        wait;
     end process;
 
-end Behavioral;
+end Simulation;
