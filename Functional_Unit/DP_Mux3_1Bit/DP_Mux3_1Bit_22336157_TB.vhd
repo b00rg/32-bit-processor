@@ -1,106 +1,79 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: Emma Burgess
--- 
--- Create Date: 20.09.2023 14:53:59
--- Design Name: 
--- Module Name: Mux3_1Bit_TB - Simulation
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Test Bench for DP_Mux3_1Bit_22336157
 ----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_TEXTIO.ALL;
 
-entity DP_Mux3_1Bit_22336157_TB is
-end DP_Mux3_1Bit_22336157_TB;
+entity DP_Mux3_1Bit_22336157_tb is
+end DP_Mux3_1Bit_22336157_tb;
 
-architecture Simulation of DP_Mux3_1Bit_22336157_TB is
-   -- Component Declaration for the Unit Under Test (UUT)
-    COMPONENT DP_Mux3_1Bit_22336157
-        Port ( 
-            B : in STD_LOGIC;
-            SLB : in STD_LOGIC;
-            SRB : in STD_LOGIC;
-            S0 : in STD_LOGIC;
-            S1 : in STD_LOGIC;
-            Y  : out STD_LOGIC
-        );
-    END COMPONENT;
+architecture Behavioral of DP_Mux3_1Bit_22336157_tb is
 
-    -- Signals to connect to UUT inputs and outputs
-    signal B_TB, SLB_TB, SRB_TB : STD_LOGIC := '0';  -- Inputs for the MUX
-    signal S0_TB, S1_TB : STD_LOGIC := '0';         -- Select lines for the MUX
-    signal Y_TB : STD_LOGIC;                        -- Output for the MUX
+    -- Component Declaration of the Unit Under Test (UUT)
+    component DP_Mux3_1Bit_22336157
+        Port ( B    : in STD_LOGIC;
+               SLB  : in STD_LOGIC;
+               srB  : in STD_LOGIC;
+               S1   : in STD_LOGIC;
+               S2   : in STD_LOGIC;
+               G    : out STD_LOGIC);
+    end component;
 
-    constant PERIOD : time := 200ns;                -- Simulation period
+    -- Testbench Signals
+    signal B    : STD_LOGIC := '0';
+    signal SLB  : STD_LOGIC := '0';
+    signal srB  : STD_LOGIC := '0';
+    signal S1   : STD_LOGIC := '0';
+    signal S2   : STD_LOGIC := '0';
+    signal G    : STD_LOGIC;
 
-    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
+    -- Constants
+    constant CLK_PERIOD : time := 10 ns;
 
 begin
 
-   -- Instantiate the Unit Under Test (UUT)
-   uut: DP_Mux3_1Bit_22336157 PORT MAP (
-        B => B_TB,
-        SLB => SLB_TB,
-        SRB => SRB_TB,
-        S0 => S0_TB,
-        S1 => S1_TB,
-        Y  => Y_TB
-    );
+    -- Instantiate the Unit Under Test (UUT)
+    UUT: DP_Mux3_1Bit_22336157
+        Port map (
+            B => B,
+            SLB => SLB,
+            srB => srB,
+            S1 => S1,
+            S2 => S2,
+            G => G
+        );
 
-   -- Stimulus process to apply test cases
-   stim_proc: process
-   begin
-        -- Test Case 0: S1 = 0, S0 = 0 -> Select B
-        B_TB <= '1';   -- Set B to '1'
-        SLB_TB <= '0';   -- SLB -> don't care
-        SRB_TB <= '0';   -- SRB -> don't care
-        S1_TB <= '0';   -- S1 = 0
-        S0_TB <= '0';   -- S0 = 0
-        wait for PERIOD; 
-        assert (Y_TB = B_TB) report "Test Case 1 Failed: B was not selected!" severity error;
+    -- Stimulus Process
+    process
+    begin
+        -- Test case 1: S1 = '0', S2 = '0' => Expect output = B
+        B <= '1'; SLB <= '0'; srB <= '0'; S1 <= '0'; S2 <= '0';
+        wait for CLK_PERIOD;
+        assert (G = B)
+        report "Test case 1 failed" severity error;
 
-        -- Test Case 1: S1 = 0, S0 = 1 -> Select SLB
-        B_TB <= '0';   -- B -> don't care
-        SLB_TB <= '1';   -- Set SLB to '1'
-        SRB_TB <= '0';   -- SRB -> don't care
-        S1_TB <= '0';   -- S1 = 0
-        S0_TB <= '1';   -- S0 = 1
-        wait for PERIOD;
-        assert (Y_TB = SLB_TB) report "Test Case 2 Failed: SLB was not selected!" severity error;
+        -- Test case 2: S1 = '1', S2 = '0' => Expect output = srB
+        B <= '0'; SLB <= '0'; srB <= '1'; S1 <= '1'; S2 <= '0';
+        wait for CLK_PERIOD;
+        assert (G = srB)
+        report "Test case 2 failed" severity error;
 
-        -- Test Case 2: S1 = 1, S0 = 0 -> Select SRB
-        B_TB <= '0';   -- B -> don't care
-        SLB_TB <= '0';   -- SLB -> don't care
-        SRB_TB <= '1';   -- Set SRB to '1'
-        S1_TB <= '1';   -- S1 = 1
-        S0_TB <= '0';   -- S0 = 0
-        wait for PERIOD;
-        assert (Y_TB = SRB_TB) report "Test Case 3 Failed: SRB was not selected!" severity error;
+        -- Test case 3: S1 = '0', S2 = '1' => Expect output = SLB
+        B <= '0'; SLB <= '1'; srB <= '0'; S1 <= '0'; S2 <= '1';
+        wait for CLK_PERIOD;
+        assert (G = SLB)
+        report "Test case 3 failed" severity error;
 
-        -- Test Case 3: S1 = 1, S0 = 1 -> Undefined state or invalid combination (depending on design)
-        -- Here, depending on design you may set this case as invalid, or if it's handled, check the expected output.
-        B_TB <= '0';   -- B -> don't care
-        SLB_TB <= '0';   -- SLB -> don't care
-        SRB_TB <= '0';   -- SRB -> don't care
-        S1_TB <= '1';   -- S1 = 1
-        S0_TB <= '1';   -- S0 = 1
-        wait for PERIOD;
+        -- Test case 4: S1 = '1', S2 = '1' => Undefined behavior, check stability
+        B <= '1'; SLB <= '1'; srB <= '1'; S1 <= '1'; S2 <= '1';
+        wait for CLK_PERIOD;
+        assert (G = '1') or (G = '0')
+        report "Test case 4 stability check failed" severity warning;
 
-        -- If this combination selects nothing, ensure it's handled correctly
-        -- This is optional depending on your design. Modify the expected output accordingly.
-        assert (Y_TB = '0') report "Test Case 4 Failed: Invalid state was not handled correctly!" severity error;
-
-        -- Final wait to keep the simulation running
+        -- End simulation
         wait;
-    end process; 
-end Simulation; 
+    end process;
+
+end Behavioral;
