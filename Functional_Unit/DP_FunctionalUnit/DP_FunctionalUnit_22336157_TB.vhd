@@ -1,10 +1,30 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date: 31.10.2024 13:47:34
+-- Design Name: 
+-- Module Name: DP_FunctionalUnit_22336157_TB - Simulation
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity DP_FunctionalUnit_22336157_tb is
 end DP_FunctionalUnit_22336157_tb;
 
-architecture Behavioral of DP_FunctionalUnit_22336157_tb is
+architecture Simulation of DP_FunctionalUnit_22336157_tb is
     -- Component Declaration for the Unit Under Test (UUT)
     component DP_FunctionalUnit_22336157
         Port ( 
@@ -41,53 +61,44 @@ begin
     -- Test Process
     stim_proc: process
     begin
+    
+    
         -- Test 1st Group
         A <= X"00000002";
         B <= X"00000003";
-        FS <= "00000"; -- F = A
+        
+        -- A + B + 1
+        FS <= "00011"; 
         wait for 10 ns;
         
-        FS <= "00001"; -- F = A + B
-        wait for 10 ns;
         
-        FS <= "00010"; -- F = A + B + 1
-        wait for 10 ns;
+        -- A + 1's Complement B 
+        FS <= "00101"; 
         
-        FS <= "00011"; -- F = A + 1's complement B
-        wait for 10 ns;
+        -- A + 1
+        FS <= "00001";
         
-        FS <= "00100"; -- F = A + 1's complement B + 1
-        wait for 10 ns;
-
-        -- Additional instructions follow for each configuration in sequence
-        -- Test 2nd Group
-        FS <= "01000"; -- F = shift left B
-        wait for 10 ns;
+        -- A 
+        FS <= "00000";
         
-        FS <= "01001"; -- F = A OR B
-        wait for 10 ns;
+        -- A + B
+        FS <= "00010";
         
-        FS <= "01010"; -- F = A XOR B
-        wait for 10 ns;
-
-        -- (Continue to add the remaining operations as described in your prompt)
-
-        -- Test 3rd Group
-        -- Repeat similar settings for FS as per the prompt descriptions
-        -- Make sure to change A and B values as necessary between groups
-
-        -- Test 4th Group
-        -- Continue similar structure of setting FS and observing outputs
-
-        -- Test 5th Group
-        -- Again, set FS to apply different operations and observe F
-
-        -- Test 6th Group and so on through each operation sequence.
-
-        -- Repeat until all operation groups are tested.
-
-        -- End simulation
-        wait;
+        -- A + B + 1
+        FS <= "00011";
+        
+        -- A + 1's Complement B 
+        FS <= "00101"; 
+        
+        -- A + 1's Complement B  + 1 
+        FS <= "00101";
+        
+        -- A - 1 
+        FS <= "00110"; 
+        
+        -- A AND B 
+        FS <= "01000";
+        
+        
     end process;
-end Behavioral;
-
+end Simulation;
