@@ -34,12 +34,6 @@ architecture Simulation of DP_Shifter_22336157_TB is
                C : out STD_LOGIC);
     end component;
 
-    -- Signals to connect to the DUT
-    signal B : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
-    signal S1, S2 : STD_LOGIC := '0';
-    signal G : STD_LOGIC_VECTOR(31 downto 0);
-    signal C : STD_LOGIC;
-
 begin
     -- Instantiate the DUT
     UUT: DP_Shifter_22336157
@@ -52,7 +46,6 @@ begin
     -- Test process
     process
     begin
-        G <= (others => '0'); 
         -- Test case 1: Initial value
         B <= "00000001010101001101001010011101";  -- Input = 0
         S1 <= '0'; S2 <= '0';  -- No shift
