@@ -49,7 +49,7 @@ begin
             Y => G
         );
 
-
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
     -- Test process
     process
     begin
