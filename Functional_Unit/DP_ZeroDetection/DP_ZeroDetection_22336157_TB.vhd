@@ -42,7 +42,7 @@ begin
             input_vector => input_vector,
             zero_flag    => zero_flag
         );
-
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
     -- Test procedure
     process
     begin
