@@ -44,6 +44,7 @@ architecture Simulation of DP_FunctionalUnit_22336157_tb is
     signal FS : STD_LOGIC_VECTOR(4 downto 0);
     signal C, N, Z, V : STD_LOGIC;
     signal F : STD_LOGIC_VECTOR(31 downto 0);
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
     -- Instantiate the Unit Under Test (UUT)
