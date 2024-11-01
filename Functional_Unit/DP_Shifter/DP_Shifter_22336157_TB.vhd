@@ -44,6 +44,7 @@ begin
                    C => C);
 
     -- Test process
+        constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
     process
     begin
         -- Test case 1: Initial value
