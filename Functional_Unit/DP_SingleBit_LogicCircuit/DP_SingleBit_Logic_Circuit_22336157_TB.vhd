@@ -36,6 +36,7 @@ architecture Simulation of DP_SingleBit_Logic_Circuit_22336157_TB is
     -- Signals for inputs and output
     signal A, B, S0, S1 : STD_LOGIC;
     signal G : STD_LOGIC;
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
 
