@@ -47,6 +47,7 @@ architecture Simulation of DP_Mux3_1Bit_22336157_tb is
 
     -- Constants
     constant CLK_PERIOD : time := 100 ns;
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
 
