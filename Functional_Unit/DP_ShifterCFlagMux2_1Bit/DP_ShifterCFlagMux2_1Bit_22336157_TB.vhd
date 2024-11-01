@@ -36,6 +36,7 @@ architecture Simulation of DP_ShifterCFlagMux2_1Bit_22336157_tb is
     -- Signals to connect to the UUT
     signal LSB, MSB, S1, S2 : STD_LOGIC := '0';
     signal C : STD_LOGIC;
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 begin
     -- Instantiate the Unit Under Test (UUT)
