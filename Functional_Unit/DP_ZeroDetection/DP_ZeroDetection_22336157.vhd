@@ -1,3 +1,23 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Emma Burgess
+-- 
+-- Create Date: 20.09.2023 14:53:59
+-- Design Name: 
+-- Module Name: DP_ZeroDetection_22336157 - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
