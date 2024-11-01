@@ -55,7 +55,7 @@ begin
         C => C,
         V => V
     );
-
+    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
     -- Test process
     stim_proc: process
     begin
