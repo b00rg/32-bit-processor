@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 06.10.2022 22:44:13
 -- Design Name: 
--- Module Name: FullAdder_22336157_TB - Behavioral
+-- Module Name: FullAdder_22336157_TB - Simulation
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
