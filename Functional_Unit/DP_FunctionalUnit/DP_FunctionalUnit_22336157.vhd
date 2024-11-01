@@ -74,6 +74,14 @@ input_vector : in  STD_LOGIC_VECTOR(31 downto 0);  -- 31-bit input vector
 
     signal shifterCOUT, ALUCOUT, ALUVOUT: STD_LOGIC;
     signal shifterGOUT, ALUGOUT, MuxFOUT: STD_LOGIC_VECTOR(31 downto 0); 
+
+   constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
+   constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
+   constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
+   constant NOR_gate_delay : Time := 7ns;      -- next more significant digit 6 = 5 + 1
+   constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
+   constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
+   constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
 begin
     shifter : DP_Shifter_22336157 Port Map(B=>B, S1 => FS(2), S2 => FS(3), C => shifterCOUT, G => shifterGOUT);
     ALU : DP_ArithmeticLogicUnit_22336157 Port Map(A=>A, B=>B, C_IN=>FS(0), S0=>FS(1), S1 => FS(2), S2 => FS(3), C => C, G => ALUGOUT, V=>V);
