@@ -20,7 +20,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity DP_ShifterCFlagMux2_1Bit_22336157_tb is
 end DP_ShifterCFlagMux2_1Bit_22336157_tb;
 
-architecture Behavioral of DP_ShifterCFlagMux2_1Bit_22336157_tb is
+architecture Simulation of DP_ShifterCFlagMux2_1Bit_22336157_tb is
 
     -- Component Declaration of the Unit Under Test (UUT)
     component DP_ShifterCFlagMux2_1Bit_22336157
@@ -89,4 +89,4 @@ begin
         -- End of tests
         wait;
     end process;
-end Behavioral;
+end Simulation;
