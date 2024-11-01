@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 06.10.2022 22:19:50
 -- Design Name: 
--- Module Name: 32Bit_B_Logic_22336157 - Behavioral
+-- Module Name: DP_ArithmeticLogicUnit_22336157. - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
