@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 20.09.2023 14:53:59
 -- Design Name: 
--- Module Name: Single Bit B Logic - Behavioral
+-- Module Name: Single Bit Logic - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
