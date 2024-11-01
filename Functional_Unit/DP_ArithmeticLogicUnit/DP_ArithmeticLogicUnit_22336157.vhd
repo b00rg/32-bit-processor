@@ -60,7 +60,14 @@ end component;
 end component;
 
   signal BLogicToAdder, AdderToALUMux, LogicCircuitToALUMux : STD_LOGIC_VECTOR(31 downto 0);
-  
+
+   constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
+   constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
+   constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
+   constant NOR_gate_delay : Time := 7ns;      -- next more significant digit 6 = 5 + 1
+   constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
+   constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
+   constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
         
 begin 
   BLogic: DP_32Bit_B_Logic_22336157 Port map(B => B, S0 => S0, S1 => S1, G=> BLogicToAdder);
