@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 20.09.2023 14:53:59
 -- Design Name: 
--- Module Name: Mux3_1Bit_TB - Simulation
+-- Module Name: DP_CFlagMux2_1Bit_22336157_TB - Simulation
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
