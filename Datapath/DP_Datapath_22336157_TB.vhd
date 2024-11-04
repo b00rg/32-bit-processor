@@ -33,6 +33,7 @@ ARCHITECTURE simulation OF DP_Datapath_22336157_TB IS
     -- Clock period definition
     constant clk_period : time := 400 ns;
     constant period : time := 1000ns; 
+    constant operation_wait_time : time := 1000 ns;
 
 BEGIN
   -- Clock generation without a process
@@ -349,6 +350,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "0001";
     D_TB <= "00000001010101001101001010111110";
+    wait for clk_period;
 
 -- Test Case 33: temp register 2
     Reset_TB <= '0';
@@ -357,6 +359,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "0010";
     D_TB <= "00000001010101001101001010111101";
+    wait for clk_period;
 
 -- Test Case 34: temp register 3
     Reset_TB <= '0';
@@ -365,6 +368,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "0011";
     D_TB <= "00000001010101001101001010111100";
+    wait for clk_period;
 
 -- Test Case 35: temp register 4
     Reset_TB <= '0';
@@ -373,6 +377,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "0100";
     D_TB <= "00000001010101001101001010111011";
+    wait for clk_period;
 
 -- Test Case 36: temp register 5
     Reset_TB <= '0';
@@ -381,6 +386,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "0101";
     D_TB <= "00000001010101001101001010111010";
+    wait for clk_period;
 
 -- Test Case 37: temp register 6
     Reset_TB <= '0';
@@ -389,6 +395,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "0110";
     D_TB <= "00000001010101001101001010111001";
+    wait for clk_period;
 
 -- Test Case 38: temp register 7
     Reset_TB <= '0';
@@ -397,6 +404,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "0111";
     D_TB <= "00000001010101001101001010111000";
+    wait for clk_period;
 
 -- Test Case 39: temp register 8
     Reset_TB <= '0';
@@ -405,6 +413,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "1000";
     D_TB <= "00000001010101001101001010110111";
+    wait for clk_period;
 
 -- Test Case 40: temp register 9
     Reset_TB <= '0';
@@ -413,6 +422,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "1001";
     D_TB <= "00000001010101001101001010110110";
+    wait for clk_period;
 
 -- Test Case 41: temp register 10
     Reset_TB <= '0';
@@ -421,6 +431,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "1010";
     D_TB <= "00000001010101001101001010110101";
+    wait for clk_period;
 
 -- Test Case 42: temp register 11
     Reset_TB <= '0';
@@ -429,6 +440,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "1011";
     D_TB <= "00000001010101001101001010110100";
+    wait for clk_period;
 
 -- Test Case 43: temp register 12
     Reset_TB <= '0';
@@ -437,6 +449,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "1100";
     D_TB <= "00000001010101001101001010110011";
+    wait for clk_period;
 
 -- Test Case 44: temp register 13
     Reset_TB <= '0';
@@ -445,6 +458,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "1101";
     D_TB <= "00000001010101001101001010110010";
+    wait for clk_period;
 
 -- Test Case 45: temp register 14
     Reset_TB <= '0';
@@ -453,6 +467,7 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "1110";
     D_TB <= "00000001010101001101001010110001";
+    wait for clk_period;
 
 -- Test Case 46: temp register 15
     Reset_TB <= '0';
@@ -461,6 +476,57 @@ BEGIN
     dr_TB <= "00000";
     td_TB <= "1111";
     D_TB <= "00000001010101001101001010110000";
+    wait for clk_period;
+
+-- Register Selection
+        
+-- Test Case 47: select register 7 as the destination address
+
+-- Test Case 48: select register 12 as the source-register A ( A address )
+
+-- Test Case 49: select register 22 as the source-register B ( B address )
+
+-- register operations
+
+    -- Test Case 50: A + B + 1
+    FS <= "00011"; 
+    wait for operation_wait_time;
+    
+    -- Test Case 51: A + 1's Complement B 
+    FS <= "00101"; 
+    wait for operation_wait_time;
+    
+    -- Test Case 52: A + 1
+    FS <= "00001";
+    wait for operation_wait_time;
+    
+    -- Test Case 53: A 
+    FS <= "00000";
+    wait for operation_wait_time;
+    
+    -- Test Case 54: A + B
+    FS <= "00010";
+    wait for operation_wait_time;
+    
+    -- Test Case 55: A + B + 1
+    FS <= "00011";
+    wait for operation_wait_time;
+    
+    -- Test Case 56: A + 1's Complement B 
+    FS <= "00101"; 
+    wait for operation_wait_time;
+    
+    -- Test Case 57: A + 1's Complement B  + 1 
+    FS <= "00101";
+    wait for operation_wait_time;
+    
+    -- Test Case 58: A - 1 
+    FS <= "00110"; 
+    wait for operation_wait_time;
+    
+    -- Test Case 59: A AND B 
+    FS <= "01000";
+    wait for operation_wait_time;
 
     end process;
 END simulation; 
