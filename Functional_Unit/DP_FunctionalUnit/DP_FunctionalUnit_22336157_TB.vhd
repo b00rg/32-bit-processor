@@ -70,35 +70,44 @@ begin
         
         -- A + B + 1
         FS <= "00011"; 
-        wait for 10 ns;
+        wait for 1000 ns;
         
         
         -- A + 1's Complement B 
         FS <= "00101"; 
+        wait for 1000 ns;
         
         -- A + 1
         FS <= "00001";
+        wait for 1000 ns;
         
         -- A 
         FS <= "00000";
+        wait for 1000 ns;
         
         -- A + B
         FS <= "00010";
+        wait for 1000 ns;
         
         -- A + B + 1
         FS <= "00011";
+        wait for 1000 ns;
         
         -- A + 1's Complement B 
         FS <= "00101"; 
+        wait for 1000 ns;
         
         -- A + 1's Complement B  + 1 
         FS <= "00101";
+        wait for 1000 ns;
         
         -- A - 1 
         FS <= "00110"; 
+        wait for 1000 ns;
         
         -- A AND B 
         FS <= "01000";
+        wait for 1000 ns;
         
         
     end process;
