@@ -481,10 +481,18 @@ BEGIN
 -- Register Selection
         
 -- Test Case 47: select register 7 as the destination address
+    RW = '1';
+    dr_TB <= "00111";
+    wait for clk_period;
 
 -- Test Case 48: select register 12 as the source-register A ( A address )
+    sa_TB <= "01100";
+    wait for clk_period;
 
 -- Test Case 49: select register 22 as the source-register B ( B address )
+    sb_TB <= "10110";
+    wait for clk_period; 
+    RW = '0'; 
 
 -- register operations
 
