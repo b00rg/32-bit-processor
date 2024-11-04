@@ -28,7 +28,7 @@ entity DP_Datapath_22336157 is
       FS, SA, SB             : in STD_LOGIC_VECTOR(4 downto 0);
       TA, TB, TD             : in STD_LOGIC_VECTOR(3 downto 0);
       DATA_OUT, ADD          : out STD_LOGIC_VECTOR(31 downto 0)  
-      C, N, V, Z             : out STD_LOGIC; 
+      C, N, V, Z             : out STD_LOGIC
     );
 end DP_Datapath_22336157;
 
