@@ -76,8 +76,8 @@ begin
   MuxB : CPU_Mux2_32Bit_22336157 Port map(I0 => RegFileAOut, I1 => IR_IN, S=> MB, Y => MuxBOut);
   DATA_OUT <= MuxBout; 
   MuxD : CPU_Mux2_32Bit_22336157 Port map(I0 => FunctionalUnitFout, I1 => DATA_IN, S=> MD, Y => MuxDout);
-  FunctionalUnit : DP_FunctionalUnit_22336157 Port Map(A => RegFileBOut, B => MuxBOut, FS => FS, C => C, F => FunctionalUnitFout, N, V, Z);
+  FunctionalUnit : DP_FunctionalUnit_22336157 Port Map(A => RegFileBOut, B => MuxBOut, FS => FS, C => C, F => FunctionalUnitFout, N=>N, V=>V, Z=>Z);
   RegFile : RF_RegisterFile_32_15_22336157 Port Map(Clk => Clock, D => MuxDOut, DR => Dr, RW => RW, Reset => Reset, SA => SA, SB => SB, TA=> TA, TB => TB, TD=>TD,
                                                    A=> RegFileAout, B => RegFileBout);
-  ADD => RegFileAout; 
+  ADD <= RegFileAout; 
 end Behavioral; 
