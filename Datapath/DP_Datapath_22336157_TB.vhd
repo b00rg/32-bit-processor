@@ -1,9 +1,30 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Emma Burgess
+-- 
+-- Create Date: 20.09.2023 14:53:59
+-- Design Name: 
+-- Module Name: DP_Datapath_22336157_TB - Simulation
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.ALL;
 
-ENTITY RF_RegisterFile_32_15_22336157_TB IS
-END RF_RegisterFile_32_15_22336157_TB;
+ENTITY DP_Datapath_22336157_TB IS
+END DP_Datapath_22336157_TB;
 
 ARCHITECTURE simulation OF DP_Datapath_22336157_TB IS
 
@@ -15,7 +36,7 @@ ARCHITECTURE simulation OF DP_Datapath_22336157_TB IS
         MB, MD, RW, Reset      : in STD_LOGIC;                     
         FS, SA, SB             : in STD_LOGIC_VECTOR(4 downto 0);
         TA, TB, TD             : in STD_LOGIC_VECTOR(3 downto 0);
-        DATA_OUT, ADD          : out STD_LOGIC_VECTOR(31 downto 0)  
+        DATA_OUT, ADD          : out STD_LOGIC_VECTOR(31 downto 0);
         C, N, V, Z             : out STD_LOGIC
       );
     END COMPONENT;
@@ -42,10 +63,10 @@ BEGIN
     -- Instantiate the Unit Under Test (UUT)
     uut: DP_Datapath_22336157 Port Map(
         IR_IN => IR_IN, DATA_IN => DATA_IN; 
-        MB => MB_TB, MD => MD , RW => RW , Reset => Reset ;                  
-        FS => FS , SA => SA, SB => SB; 
+        MB => MB_TB, MD => MD , RW => RW , Reset => Reset;              
+        FS => FS , SA => SA, SB => SB;
         TA => TA, TB => TB, TD => TD ;
-        DATA_OUT => DATA_OUT_TB, ADD => ADD ;
+        DATA_OUT => DATA_OUT_TB, ADD => ADD ,
         C => C, N => N, V => V, Z => Z 
       );
 
