@@ -11,8 +11,9 @@ This repository contains:
 
 The project is separated into four different folders:
 1. The Register File, which includes all the components required to simulate the Register File (Register_File/RF_FILENAME)
-2. The Functional Unit, which includes all the components required to simulate the Functional Unit (Functional_Unit/DF_FILENAME)
-3. The Datapath, which includes all the components required to simulate the Datapath (Datapath/DP_FILENAME)
+2. The Functional Unit, which includes all the components required to simulate the Functional Unit (Functional_Unit/DP_FILENAME)
+3. The Datapath, which includes all the components required to simulate the Datapath, combining the Register File and Functional Unit (Datapath/DP_FILENAME)
+4. The Processor, which includes all the components necessary to simulate the 32 Bit Processor, including the Datapath (Processor/FILENAME)
 
 The schematic of the final processor is as follows:
 
