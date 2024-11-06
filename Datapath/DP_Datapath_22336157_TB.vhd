@@ -30,47 +30,46 @@ ARCHITECTURE simulation OF DP_Datapath_22336157_TB IS
 
     -- Component Declaration for the Unit Under Test (UUT)
 
-    Component DP_Datapath_22336157 is
-      Port (
-        IR_IN, DATA_IN         :  in STD_LOGIC_VECTOR(31 downto 0); 
-        MB, MD, RW, Reset      : in STD_LOGIC;                     
-        FS, SA, SB             : in STD_LOGIC_VECTOR(4 downto 0);
-        TA, TB, TD             : in STD_LOGIC_VECTOR(3 downto 0);
-        DATA_OUT, ADD          : out STD_LOGIC_VECTOR(31 downto 0);
-        C, N, V, Z             : out STD_LOGIC
-      );
-    END COMPONENT;
+component DP_Datapath_22336157 is
+    Port (
+      IR_IN, DATA_IN         :  in STD_LOGIC_VECTOR(31 downto 0); 
+      MB, MD, RW, Reset, clock      : in STD_LOGIC;                     
+      DR, FS, SA, SB         : in STD_LOGIC_VECTOR(4 downto 0);
+      TA, TB, TD             : in STD_LOGIC_VECTOR(3 downto 0);
+      DATA_OUT, ADD          : out STD_LOGIC_VECTOR(31 downto 0);  
+      C, N, V, Z             : out STD_LOGIC
+    );
+end component;
 
     -- Signals Declaration
-    signal CLK_TB : std_logic := '0';
-    signal RW  : std_logic := '0';                     -- Read/Write signal
+    signal RW, MB, clock, MD : std_logic := '0';                     -- Read/Write signal
     signal Reset  : std_logic := '0';                  -- Reset signal
     signal DR  : std_logic_vector(4 downto 0) := (others => '0'); -- 5-bit destination register address
-    signal D  : std_logic_vector(31 downto 0) := (others => '0'); -- 32-bit data input
-    signal sa, sb : std_logic_vector(4 downto 0) := (others => '0'); 
+    signal D, IR_IN, Data_IN : std_logic_vector(31 downto 0) := (others => '0'); -- 32-bit data input
+    signal sa, sb, fs : std_logic_vector(4 downto 0) := (others => '0'); 
     signal ta, tD , tb : std_logic_vector(3 downto 0) := (others => '0'); 
-    signal a, b : std_logic_vector(31 downto 0) := (others => '0');  -- Selection/control inputs
-
+    signal DATA_OUT, ADD : std_logic_vector(31 downto 0) := (others => '0');  -- Selection/control inputs
+    signal C, N, V, Z : std_logic; 
     -- Clock period definition
     constant clk_period : time := 400 ns;
     constant period : time := 1000ns; 
     constant operation_wait_time : time := 1000 ns;
 
 BEGIN
-  -- Clock generation without a process
-    CLK_TB <= not CLK_TB after clk_period / 2;
+
+
 
     -- Instantiate the Unit Under Test (UUT)
     uut: DP_Datapath_22336157 Port Map(
-        IR_IN => IR_IN, DATA_IN => DATA_IN; 
-        MB => MB_TB, MD => MD , RW => RW , Reset => Reset;              
-        FS => FS , SA => SA, SB => SB;
-        TA => TA, TB => TB, TD => TD ;
-        DATA_OUT => DATA_OUT_TB, ADD => ADD ,
-        C => C, N => N, V => V, Z => Z 
+        IR_IN => IR_IN, DATA_IN => DATA_IN,
+        MB => MB, MD => MD , RW => RW , Reset => Reset,       
+        FS => FS , SA => SA, SB => SB,
+        TA => TA, TB => TB, TD => TD ,
+        DATA_OUT => DATA_OUT, ADD => ADD,
+        C => C, N => N, V => V, Z => Z, clock => clock, DR => DR
       );
-
-    -- Stimulus process
+  -- Clock generation without a process      
+    clock <= not clock after clk_period / 2;    -- Stimulus process
     stim_proc: process
     begin
       Reset  <= '1';
@@ -502,18 +501,18 @@ BEGIN
 -- Register Selection
         
 -- Test Case 47: select register 7 as the destination address
-    RW = '1';
+    RW <= '1';
     DR  <= "00111";
     wait for clk_period;
 
 -- Test Case 48: select register 12 as the source-register A ( A address )
-    sa_TB <= "01100";
+    sa <= "01100";
     wait for clk_period;
 
 -- Test Case 49: select register 22 as the source-register B ( B address )
-    sb_TB <= "10110";
+    sb <= "10110";
     wait for clk_period; 
-    RW = '0'; 
+    RW  <= '0'; 
 
 -- register operations
 
