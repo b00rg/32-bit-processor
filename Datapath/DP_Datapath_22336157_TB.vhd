@@ -57,8 +57,6 @@ end component;
 
 BEGIN
 
-
-
     -- Instantiate the Unit Under Test (UUT)
     uut: DP_Datapath_22336157 Port Map(
         IR_IN => IR_IN, DATA_IN => DATA_IN,
@@ -68,6 +66,7 @@ BEGIN
         DATA_OUT => DATA_OUT, ADD => ADD,
         C => C, N => N, V => V, Z => Z, clock => clock, DR => DR
       );
+      
   -- Clock generation without a process      
     clock <= not clock after clk_period / 2;    -- Stimulus process
     stim_proc: process
@@ -83,6 +82,8 @@ BEGIN
       TD <= "0000";
       D  <= "00000001010101001101001010011101";  -- Data to load
       wait for clk_period;
+      RW <= '1';
+      wait for clk_period;
 
       -- Load value into register 1
       Reset  <= '0';
@@ -92,6 +93,10 @@ BEGIN
       TD <= "0000";
       D  <= "00000001010101001101001010011100";  -- Data to load
       wait for clk_period;
+      RW <= '1';
+      sa <= "00001";
+      sb <= "00001"; 
+      wait for clk_period;
 
       -- Load value into register 2
       Reset  <= '0';
@@ -100,6 +105,9 @@ BEGIN
       DR  <= "00010";  -- Register address in binary
       TD <= "0000";
       D  <= "00000001010101001101001010011011";  -- Data to load
+      wait for clk_period;
+      sa <= "00010";
+      sb <= "00010"; 
       wait for clk_period;
 
       -- Load value into register 3
@@ -512,10 +520,9 @@ BEGIN
 -- Test Case 49: select register 22 as the source-register B ( B address )
     sb <= "10110";
     wait for clk_period; 
-    RW  <= '0'; 
+    RW  <= '0';  
 
 -- register operations
-
     -- Test Case 50: A + B + 1
     FS <= "00011"; 
     wait for operation_wait_time;
