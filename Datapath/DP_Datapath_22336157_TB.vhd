@@ -497,8 +497,8 @@ BEGIN
     DATA_IN <= "00000001010101001101001010111110";
     wait for clk_period*2;
     RW <= '1';
-    sa <= "0000";
-    sb <= "0000"; 
+    sa <= "00000";
+    sb <= "00000"; 
     ta <= "0001";
     wait for clk_period*2;
 
