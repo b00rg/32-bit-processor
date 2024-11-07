@@ -715,7 +715,7 @@ BEGIN
     wait for operation_wait_time;
     
     -- Test Case 53: B
-    FS <= "01010";
+    FS <= "10000";
     wait for operation_wait_time;
     
     -- Test Case 54: A - 1 
