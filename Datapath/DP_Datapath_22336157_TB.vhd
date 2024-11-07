@@ -45,7 +45,7 @@ end component;
     signal RW, MB, clock, MD : std_logic := '0';                     -- Read/Write signal
     signal Reset  : std_logic := '0';                  -- Reset signal
     signal DR  : std_logic_vector(4 downto 0) := (others => '0'); -- 5-bit destination register address
-    signal D, IR_IN, Data_IN : std_logic_vector(31 downto 0) := (others => '0'); -- 32-bit data input
+    signal IR_IN, Data_IN : std_logic_vector(31 downto 0) := (others => '0'); -- 32-bit data input
     signal sa, sb, fs : std_logic_vector(4 downto 0) := (others => '0'); 
     signal ta, tD , tb : std_logic_vector(3 downto 0) := (others => '0'); 
     signal DATA_OUT, ADD : std_logic_vector(31 downto 0) := (others => '0');  -- Selection/control inputs
@@ -80,7 +80,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "00000";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010011101";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010011101";  -- Data to load
       wait for clk_period;
       RW <= '1';
       wait for clk_period;
@@ -91,7 +91,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "00001";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010011100";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010011100";  -- Data to load
       wait for clk_period;
       RW <= '1';
       sa <= "00001";
@@ -104,7 +104,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "00010";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010011011";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010011011";  -- Data to load
       wait for clk_period;
       sa <= "00010";
       sb <= "00010"; 
@@ -116,7 +116,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "00011";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010011010";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010011010";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 4
@@ -125,7 +125,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "00100";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010011001";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010011001";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 5
@@ -134,7 +134,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "00101";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010011000";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010011000";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 6
@@ -143,7 +143,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "00110";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010010111";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010010111";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 7
@@ -152,7 +152,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "00111";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010010110";  -- Data to load
+      DATA_IN <= "00000001010101001101001010010110";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 8
@@ -161,7 +161,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "01000";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010010101";  -- Data to load
+      DATA_IN <= "00000001010101001101001010010101";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 9
@@ -170,7 +170,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "01001";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010010100";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010010100";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 10
@@ -179,7 +179,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "01010";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010010011";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010010011";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 11
@@ -188,7 +188,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "01011";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010010010";  -- Data to load
+      DATA_IN <= "00000001010101001101001010010010";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 12
@@ -197,7 +197,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "01100";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010010001";  -- Data to load
+      DATA_IN <= "00000001010101001101001010010001";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 13
@@ -206,7 +206,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "01101";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010010000";  -- Data to load
+      DATA_IN <= "00000001010101001101001010010000";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 14
@@ -215,7 +215,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "01110";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010001111";  -- Data to load
+      DATA_IN <= "00000001010101001101001010001111";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 15
@@ -224,7 +224,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "01111";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010001110";  -- Data to load
+      DATA_IN <= "00000001010101001101001010001110";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 16
@@ -233,7 +233,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "10000";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010001101";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010001101";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 17
@@ -242,7 +242,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "10001";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010001100";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010001100";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 18
@@ -251,7 +251,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "10010";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010001011";  -- Data to load
+      DATA_IN  <= "00000001010101001101001010001011";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 19
@@ -260,7 +260,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "10011";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010001010";  -- Data to load
+      DATA_IN <= "00000001010101001101001010001010";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 20
@@ -269,7 +269,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "10100";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010001001";  -- Data to load
+      DATA_IN <= "00000001010101001101001010001001";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 21
@@ -278,7 +278,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "10101";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010001000";  -- Data to load
+      DATA_IN <= "00000001010101001101001010001000";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 22
@@ -287,7 +287,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "10110";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010000111";  -- Data to load
+      DATA_IN <= "00000001010101001101001010000111";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 23
@@ -296,7 +296,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "10111";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010000110";  -- Data to load
+      DATA_IN<= "00000001010101001101001010000110";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 24
@@ -305,7 +305,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "11000";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010000101";  -- Data to load
+      DATA_IN <= "00000001010101001101001010000101";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 25
@@ -314,7 +314,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "11001";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010000100";  -- Data to load
+      DATA_IN <= "00000001010101001101001010000100";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 26
@@ -323,7 +323,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "11010";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010000011";  -- Data to load
+      DATA_IN <= "00000001010101001101001010000011";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 27
@@ -332,7 +332,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "11011";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010000010";  -- Data to load
+      DATA_IN <= "00000001010101001101001010000010";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 28
@@ -341,7 +341,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "11100";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010000001";  -- Data to load
+      DATA_IN <= "00000001010101001101001010000001";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 29
@@ -350,7 +350,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "11101";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001010000000";  -- Data to load
+      DATA_IN <= "00000001010101001101001010000000";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 30
@@ -359,7 +359,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "11110";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001001111111";  -- Data to load
+      DATA_IN <= "00000001010101001101001001111111";  -- Data to load
       wait for clk_period;
 
       -- Load value into register 31
@@ -368,7 +368,7 @@ BEGIN
       RW  <= '0';  -- Enable write
       DR  <= "11111";  -- Register address in binary
       TD <= "0000";
-      D  <= "00000001010101001101001001111110";  -- Data to load
+      DATA_IN <= "00000001010101001101001001111110";  -- Data to load
       wait for clk_period;
 
     -- Test Case 32: temp register 1
@@ -377,7 +377,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "0001";
-    D  <= "00000001010101001101001010111110";
+    DATA_IN <= "00000001010101001101001010111110";
     wait for clk_period;
 
 -- Test Case 33: temp register 2
@@ -386,7 +386,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "0010";
-    D  <= "00000001010101001101001010111101";
+    DATA_IN <= "00000001010101001101001010111101";
     wait for clk_period;
 
 -- Test Case 34: temp register 3
@@ -395,7 +395,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "0011";
-    D  <= "00000001010101001101001010111100";
+    DATA_IN <= "00000001010101001101001010111100";
     wait for clk_period;
 
 -- Test Case 35: temp register 4
@@ -404,7 +404,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "0100";
-    D  <= "00000001010101001101001010111011";
+    DATA_IN <= "00000001010101001101001010111011";
     wait for clk_period;
 
 -- Test Case 36: temp register 5
@@ -413,7 +413,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "0101";
-    D  <= "00000001010101001101001010111010";
+    DATA_IN <= "00000001010101001101001010111010";
     wait for clk_period;
 
 -- Test Case 37: temp register 6
@@ -422,7 +422,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "0110";
-    D  <= "00000001010101001101001010111001";
+    DATA_IN  <= "00000001010101001101001010111001";
     wait for clk_period;
 
 -- Test Case 38: temp register 7
@@ -431,7 +431,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "0111";
-    D  <= "00000001010101001101001010111000";
+    DATA_IN <= "00000001010101001101001010111000";
     wait for clk_period;
 
 -- Test Case 39: temp register 8
@@ -440,7 +440,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "1000";
-    D  <= "00000001010101001101001010110111";
+    DATA_IN  <= "00000001010101001101001010110111";
     wait for clk_period;
 
 -- Test Case 40: temp register 9
@@ -449,7 +449,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "1001";
-    D  <= "00000001010101001101001010110110";
+    DATA_IN <= "00000001010101001101001010110110";
     wait for clk_period;
 
 -- Test Case 41: temp register 10
@@ -458,7 +458,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "1010";
-    D  <= "00000001010101001101001010110101";
+    DATA_IN <= "00000001010101001101001010110101";
     wait for clk_period;
 
 -- Test Case 42: temp register 11
@@ -467,7 +467,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "1011";
-    D  <= "00000001010101001101001010110100";
+    DATA_IN <= "00000001010101001101001010110100";
     wait for clk_period;
 
 -- Test Case 43: temp register 12
@@ -476,7 +476,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "1100";
-    D  <= "00000001010101001101001010110011";
+    DATA_IN <= "00000001010101001101001010110011";
     wait for clk_period;
 
 -- Test Case 44: temp register 13
@@ -485,7 +485,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "1101";
-    D  <= "00000001010101001101001010110010";
+    DATA_IN <= "00000001010101001101001010110010";
     wait for clk_period;
 
 -- Test Case 45: temp register 14
@@ -494,7 +494,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "1110";
-    D  <= "00000001010101001101001010110001";
+    DATA_IN <= "00000001010101001101001010110001";
     wait for clk_period;
 
 -- Test Case 46: temp register 15
@@ -503,7 +503,7 @@ BEGIN
     RW  <= '0';  -- Enable write
     DR  <= "00000";
     TD <= "1111";
-    D  <= "00000001010101001101001010110000";
+    DATA_IN <= "00000001010101001101001010110000";
     wait for clk_period;
 
 -- Register Selection
