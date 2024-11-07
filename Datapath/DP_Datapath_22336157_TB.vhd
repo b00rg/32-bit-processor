@@ -501,6 +501,7 @@ BEGIN
     sb <= "00000"; 
     ta <= "0001";
     tb <= "0001"; 
+
     wait for clk_period*2;
 
 -- Test Case 33: temp register 2
@@ -511,6 +512,7 @@ BEGIN
     TD <= "0010";
     DATA_IN <= "00000001010101001101001010111101";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "0010";
     tb <= "0010";
     wait for clk_period*2; 
@@ -535,6 +537,7 @@ BEGIN
     TD <= "0100";
     DATA_IN <= "00000001010101001101001010111011";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "0100";
     tb <= "0100"; 
     wait for clk_period*2; 
@@ -547,6 +550,7 @@ BEGIN
     TD <= "0101";
     DATA_IN <= "00000001010101001101001010111010";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "0101";
     tb <= "0101"; 
     wait for clk_period;
@@ -559,6 +563,7 @@ BEGIN
     TD <= "0110";
     DATA_IN  <= "00000001010101001101001010111001";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "0110";
     tb <= "0110"; 
     wait for clk_period*2; 
@@ -571,6 +576,7 @@ BEGIN
     TD <= "0111";
     DATA_IN <= "00000001010101001101001010111000";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "0111";
     tb <= "0111"; 
     wait for clk_period*2;
@@ -583,6 +589,7 @@ BEGIN
     TD <= "1000";
     DATA_IN  <= "00000001010101001101001010110111";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "1000";
     tb <= "1000"; 
     wait for clk_period*2; 
@@ -595,6 +602,7 @@ BEGIN
     TD <= "1001";
     DATA_IN <= "00000001010101001101001010110110";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "1001";
     tb <= "1001"; 
     wait for clk_period*2; 
@@ -607,6 +615,7 @@ BEGIN
     TD <= "1010";
     DATA_IN <= "00000001010101001101001010110101";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "1010";
     tb <= "1010"; 
     wait for clk_period*2; 
@@ -619,6 +628,7 @@ BEGIN
     TD <= "1011";
     DATA_IN <= "00000001010101001101001010110100";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "1011";
     tb <= "1011"; 
     wait for clk_period*2; 
@@ -631,6 +641,7 @@ BEGIN
     TD <= "1100";
     DATA_IN <= "00000001010101001101001010110011";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "1100";
     tb <= "1100"; 
     wait for clk_period*2; 
@@ -643,6 +654,7 @@ BEGIN
     TD <= "1101";
     DATA_IN <= "00000001010101001101001010110010";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "1101";
     tb <= "1101"; 
     wait for clk_period*2; 
@@ -655,6 +667,7 @@ BEGIN
     TD <= "1110";
     DATA_IN <= "00000001010101001101001010110001";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "1110";
     tb <= "1110"; 
     wait for clk_period*2; 
@@ -667,6 +680,7 @@ BEGIN
     TD <= "1111";
     DATA_IN <= "00000001010101001101001010110000";
     wait for clk_period*2;
+    RW <= '1';
     ta <= "1111"; 
     tb <= "1111"; 
     wait for clk_period*2; 
