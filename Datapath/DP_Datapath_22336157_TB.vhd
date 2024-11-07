@@ -688,46 +688,66 @@ BEGIN
     RW  <= '0';  
 
 -- register operations
-    -- Test Case 50: A + B + 1
-    MD <= '0'; 
-    FS <= "00011"; 
+    -- Test Case 50: A OR B
+    FS <= "01010"; 
+    wait for operation_wait_time; 
+    
+    -- Test Case 51: A XOR B
+    FS <= "01100";
+    wait for operation_wait_time; 
+    
+    -- Test Case 52: A AND B
+    FS <= "01000";
     wait for operation_wait_time;
     
-    -- Test Case 51: A + 1's Complement B 
-    FS <= "00101"; 
+    -- Test Case 53: B
+    FS <= "01010";
     wait for operation_wait_time;
     
-    -- Test Case 52: A + 1
-    FS <= "00001";
-    wait for operation_wait_time;
-    
-    -- Test Case 53: A 
-    FS <= "00000";
-    wait for operation_wait_time;
-    
-    -- Test Case 54: A + B
-    FS <= "00010";
-    wait for operation_wait_time;
-    
-    -- Test Case 55: A + B + 1
-    FS <= "00011";
-    wait for operation_wait_time;
-    
-    -- Test Case 56: A + 1's Complement B 
-    FS <= "00101"; 
-    wait for operation_wait_time;
-    
-    -- Test Case 57: A + 1's Complement B  + 1 
-    FS <= "00101";
-    wait for operation_wait_time;
-    
-    -- Test Case 58: A - 1 
+    -- Test Case 54: A - 1 
     FS <= "00110"; 
     wait for operation_wait_time;
     
-    -- Test Case 59: A AND B 
-    FS <= "01000";
+    -- Test case 55: slB
+    FS <= "11000"; 
+    wait for operation_wait_time; 
+    
+    -- Test case 56: A + 1's complement B + 1 
+    FS <= "00101";
     wait for operation_wait_time;
+
+    -- Test case 57: A (FS=00111)
+    FS <= "00111";
+    wait for operation_wait_time;
+    
+    -- Test case 58: A + 1's complement B 
+    FS <= "00101"; 
+    wait for operation_wait_time;
+    
+    -- Test case 59: srB 
+    FS <= "10100";
+    wait for operation_wait_time; 
+    
+    -- Test case 60: A + B + 1
+    FS <= "00011"; 
+    wait for operation_wait_time;
+    
+    -- Test case 61: 1's c A 
+    FS <= "01110";
+    wait for operation_wait_time;
+    
+    -- Test case 62: A + B
+    FS <= "00010";
+    wait for operation_wait_time;
+    
+    -- Test case 63: FS = 0000
+    FS <= "00000"; 
+    wait for operation_wait_time;
+    
+    -- Test case 64: A + 1
+    FS <= "00001";
+    wait for operation_wait_time; 
+    
 
     end process;
 END simulation; 
