@@ -61,8 +61,8 @@ architecture Behavioral of DP_Datapath_22336157 is
           TB : in STD_LOGIC_VECTOR (3 downto 0);
           TA : in STD_LOGIC_VECTOR (3 downto 0);
           TD : in STD_LOGIC_VECTOR (3 downto 0);
-	  A : out STD_LOGIC_VECTOR(31 downto 0);
-	  B : out STD_LOGIC_VECTOR(31 downto 0));
+          A : out STD_LOGIC_VECTOR(31 downto 0);
+          B : out STD_LOGIC_VECTOR(31 downto 0));
 end component;
 
 component DP_FunctionalUnit_22336157 is
@@ -71,6 +71,7 @@ component DP_FunctionalUnit_22336157 is
         C, N, Z, V : out STD_LOGIC; 
         F : out STD_LOGIC_VECTOR(31 downto 0));
 end component;
+
   signal MuxBOut, MuxDout, FunctionalUnitFout, RegFileAout, RegFileBout : STD_LOGIC_Vector(31 downto 0);
 begin
   MuxB : CPU_Mux2_32Bit_22336157 Port map(I0 => RegFileBOut, I1 => IR_IN, S=> MB, Y => MuxBOut);
