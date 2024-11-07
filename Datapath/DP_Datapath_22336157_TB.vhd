@@ -500,6 +500,7 @@ BEGIN
     sa <= "00000";
     sb <= "00000"; 
     ta <= "0001";
+    tb <= "0001"; 
     wait for clk_period*2;
 
 -- Test Case 33: temp register 2
@@ -511,6 +512,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010111101";
     wait for clk_period*2;
     ta <= "0010";
+    tb <= "0010";
     wait for clk_period*2; 
 
 -- Test Case 34: temp register 3
@@ -522,6 +524,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010111100";
     wait for clk_period*2;
     ta <= "0011";
+    tb <= "0011"; 
     wait for clk_period*2;
 
 -- Test Case 35: temp register 4
@@ -533,6 +536,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010111011";
     wait for clk_period*2;
     ta <= "0100";
+    tb <= "0100"; 
     wait for clk_period*2; 
 
 -- Test Case 36: temp register 5
@@ -544,6 +548,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010111010";
     wait for clk_period*2;
     ta <= "0101";
+    tb <= "0101"; 
     wait for clk_period;
 
 -- Test Case 37: temp register 6
@@ -555,6 +560,7 @@ BEGIN
     DATA_IN  <= "00000001010101001101001010111001";
     wait for clk_period*2;
     ta <= "0110";
+    tb <= "0110"; 
     wait for clk_period*2; 
 
 -- Test Case 38: temp register 7
@@ -566,6 +572,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010111000";
     wait for clk_period*2;
     ta <= "0111";
+    tb <= "0111"; 
     wait for clk_period*2;
 
 -- Test Case 39: temp register 8
@@ -577,6 +584,7 @@ BEGIN
     DATA_IN  <= "00000001010101001101001010110111";
     wait for clk_period*2;
     ta <= "1000";
+    tb <= "1000"; 
     wait for clk_period*2; 
 
 -- Test Case 40: temp register 9
@@ -588,6 +596,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010110110";
     wait for clk_period*2;
     ta <= "1001";
+    tb <= "1001"; 
     wait for clk_period*2; 
 
 -- Test Case 41: temp register 10
@@ -599,6 +608,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010110101";
     wait for clk_period*2;
     ta <= "1010";
+    tb <= "1010"; 
     wait for clk_period*2; 
 
 -- Test Case 42: temp register 11
@@ -610,6 +620,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010110100";
     wait for clk_period*2;
     ta <= "1011";
+    tb <= "1011"; 
     wait for clk_period*2; 
 
 -- Test Case 43: temp register 12
@@ -621,6 +632,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010110011";
     wait for clk_period*2;
     ta <= "1100";
+    tb <= "1100"; 
     wait for clk_period*2; 
 
 -- Test Case 44: temp register 13
@@ -632,6 +644,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010110010";
     wait for clk_period*2;
     ta <= "1101";
+    tb <= "1101"; 
     wait for clk_period*2; 
 
 -- Test Case 45: temp register 14
@@ -643,6 +656,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010110001";
     wait for clk_period*2;
     ta <= "1110";
+    tb <= "1110"; 
     wait for clk_period*2; 
 
 -- Test Case 46: temp register 15
@@ -654,6 +668,7 @@ BEGIN
     DATA_IN <= "00000001010101001101001010110000";
     wait for clk_period*2;
     ta <= "1111"; 
+    tb <= "1111"; 
     wait for clk_period*2; 
 
 -- Register Selection
