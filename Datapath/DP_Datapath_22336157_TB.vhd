@@ -762,6 +762,5 @@ BEGIN
     FS <= "00001";
     wait for operation_wait_time; 
     
-
     end process;
 END simulation; 
