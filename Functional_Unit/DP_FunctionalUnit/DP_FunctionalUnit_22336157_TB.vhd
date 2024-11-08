@@ -45,6 +45,7 @@ architecture Simulation of DP_FunctionalUnit_22336157_tb is
     signal C, N, Z, V : STD_LOGIC;
     signal F : STD_LOGIC_VECTOR(31 downto 0);
     constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
+    constant operation_wait_time : time := 1000 ns;
 
 begin
     -- Instantiate the Unit Under Test (UUT)
@@ -65,49 +66,68 @@ begin
     
     
         -- Test 1st Group
-        A <= "00000001010101001101001010011101"; 
-        B <= "00000001010101001101001010100100";
+        A <= "00000000000000000000000000000101"; 
+        B <= "00000000000000000000000000000110";
         
-        -- A + B + 1
-        FS <= "00011"; 
-        wait for 1000 ns;
-        
-        
-        -- A + 1's Complement B 
-        FS <= "00101"; 
-        wait for 1000 ns;
-        
-        -- A + 1
-        FS <= "00001";
-        wait for 1000 ns;
-        
-        -- A 
-        FS <= "00000";
-        wait for 1000 ns;
-        
-        -- A + B
-        FS <= "00010";
-        wait for 1000 ns;
-        
-        -- A + B + 1
-        FS <= "00011";
-        wait for 1000 ns;
-        
-        -- A + 1's Complement B 
-        FS <= "00101"; 
-        wait for 1000 ns;
-        
-        -- A + 1's Complement B  + 1 
-        FS <= "00101";
-        wait for 1000 ns;
-        
-        -- A - 1 
-        FS <= "00110"; 
-        wait for 1000 ns;
-        
-        -- A AND B 
-        FS <= "01000";
-        wait for 1000 ns;
+   -- Test Case 50: A OR B
+    FS <= "01010";
+    wait for operation_wait_time; 
+    
+    -- Test Case 51: A XOR B
+    FS <= "01100";
+    wait for operation_wait_time; 
+    
+    -- Test Case 52: A AND B
+    FS <= "01000";
+    wait for operation_wait_time;
+    
+    -- Test Case 53: B
+    FS <= "10000";
+    wait for operation_wait_time;
+    
+    -- Test Case 54: A - 1 
+    FS <= "00110"; 
+    wait for operation_wait_time;
+    
+    -- Test case 55: slB
+    FS <= "11000"; 
+    wait for operation_wait_time; 
+    
+    -- Test case 56: A + 1's complement B + 1 
+    FS <= "00101";
+    wait for operation_wait_time;
+
+    -- Test case 57: A (FS=00111)
+    FS <= "00111";
+    wait for operation_wait_time;
+    
+    -- Test case 58: A + 1's complement B 
+    FS <= "00100"; 
+    wait for operation_wait_time;
+    
+    -- Test case 59: srB 
+    FS <= "10100";
+    wait for operation_wait_time; 
+    
+    -- Test case 60: A + B + 1
+    FS <= "00011"; 
+    wait for operation_wait_time;
+    
+    -- Test case 61: 1's c A 
+    FS <= "01110";
+    wait for operation_wait_time;
+    
+    -- Test case 62: A + B
+    FS <= "00010";
+    wait for operation_wait_time;
+    
+    -- Test case 63: FS = 0000
+    FS <= "00000"; 
+    wait for operation_wait_time;
+    
+    -- Test case 64: A + 1
+    FS <= "00001";
+    wait for operation_wait_time; 
         
         
     end process;
