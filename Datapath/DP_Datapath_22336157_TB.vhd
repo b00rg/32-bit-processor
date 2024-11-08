@@ -689,6 +689,7 @@ BEGIN
         
 -- Test Case 47: select register 7 as the destination address
     RW <= '1';
+    MB <= '1'; 
     DR  <= "00111";
     wait for clk_period*2;
 
@@ -698,12 +699,13 @@ BEGIN
 
 -- Test Case 49: select register 22 as the source-register B ( B address )
     sb <= "10110";
-    wait for clk_period*2; 
-    RW  <= '0';  
+    wait for clk_period*2;  
 
 -- register operations
     -- Test Case 50: A OR B
-    FS <= "01010"; 
+    RW <= '0'; 
+    FS <= "01010";
+    RW <= '1'; 
     wait for operation_wait_time; 
     
     -- Test Case 51: A XOR B
