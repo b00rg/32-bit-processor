@@ -700,27 +700,32 @@ BEGIN
 -- Test Case 49: select register 22 as the source-register B ( B address )
     sb <= "10110";
     wait for clk_period*2;  
+    
+    MB <= '0';
+    MD <= '0';
 
 -- register operations
     -- Test Case 50: A OR B
-    RW <= '0'; 
     FS <= "01010";
-    RW <= '1'; 
     wait for operation_wait_time; 
     
     -- Test Case 51: A XOR B
+    MB <= '0'; 
     FS <= "01100";
     wait for operation_wait_time; 
     
     -- Test Case 52: A AND B
+    MB <= '0';
     FS <= "01000";
     wait for operation_wait_time;
     
     -- Test Case 53: B
+    MB <= '0'; 
     FS <= "10000";
     wait for operation_wait_time;
     
     -- Test Case 54: A - 1 
+    MB <= '0'; 
     FS <= "00110"; 
     wait for operation_wait_time;
     
@@ -737,7 +742,7 @@ BEGIN
     wait for operation_wait_time;
     
     -- Test case 58: A + 1's complement B 
-    FS <= "00101"; 
+    FS <= "00100"; 
     wait for operation_wait_time;
     
     -- Test case 59: srB 
@@ -763,6 +768,50 @@ BEGIN
     -- Test case 64: A + 1
     FS <= "00001";
     wait for operation_wait_time; 
+    
+    MB <= '1';
+   -- Test Case 65: A OR B (Mux B constant in) 
+    FS <= "01010";
+    wait for operation_wait_time; 
+    
+        -- Test Case 66: A XOR B
+    MB <= '0'; 
+    FS <= "01100";
+    wait for operation_wait_time; 
+    
+    -- Test Case 67: A AND B
+    MB <= '0';
+    FS <= "01000";
+    wait for operation_wait_time;
+    
+    -- Test Case 68: B
+    MB <= '0'; 
+    FS <= "10000";
+    wait for operation_wait_time;
+    
+     -- Test case 69: slB
+    FS <= "11000"; 
+    wait for operation_wait_time; 
+    
+    -- Test case 70: A + 1's complement B + 1 
+    FS <= "00101";
+    wait for operation_wait_time;
+
+ -- Test case 71: A + 1's complement B 
+    FS <= "00100"; 
+    wait for operation_wait_time;
+    
+    -- Test case 72: srB 
+    FS <= "10100";
+    wait for operation_wait_time; 
+    
+    -- Test case 73: A + B + 1
+    FS <= "00011"; 
+    wait for operation_wait_time;
+    
+     -- Test case 74: A + B
+    FS <= "00010";
+    wait for operation_wait_time;
     
     end process;
 END simulation; 
