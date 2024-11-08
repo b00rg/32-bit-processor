@@ -688,21 +688,22 @@ BEGIN
 -- Register Selection
         
 -- Test Case 47: select register 7 as the destination address
-    RW <= '1';
-    MB <= '1'; 
-    DR  <= "00111";
+
+    TD <= "0000";
+    TA <= "0000";
+    TB <= "0000"; 
     wait for clk_period*2;
 
 -- Test Case 48: select register 12 as the source-register A ( A address )
+    DR  <= "00111";
     sa <= "01100";
-    wait for clk_period*2;
 
 -- Test Case 49: select register 22 as the source-register B ( B address )
     sb <= "10110";
-    wait for clk_period*2;  
     
     MB <= '0';
     MD <= '0';
+    RW <= '1';
 
 -- register operations
     -- Test Case 50: A OR B
@@ -710,22 +711,18 @@ BEGIN
     wait for operation_wait_time; 
     
     -- Test Case 51: A XOR B
-    MB <= '0'; 
     FS <= "01100";
     wait for operation_wait_time; 
     
     -- Test Case 52: A AND B
-    MB <= '0';
     FS <= "01000";
     wait for operation_wait_time;
     
     -- Test Case 53: B
-    MB <= '0'; 
     FS <= "10000";
     wait for operation_wait_time;
     
     -- Test Case 54: A - 1 
-    MB <= '0'; 
     FS <= "00110"; 
     wait for operation_wait_time;
     
