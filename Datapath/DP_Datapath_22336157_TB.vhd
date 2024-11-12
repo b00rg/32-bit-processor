@@ -54,6 +54,7 @@ end component;
     constant clk_period : time := 400 ns;
     constant period : time := 1000ns; 
     constant operation_wait_time : time := 1000 ns;
+  constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 
 BEGIN
 
