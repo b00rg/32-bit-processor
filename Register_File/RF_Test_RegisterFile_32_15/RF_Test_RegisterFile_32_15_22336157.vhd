@@ -78,4 +78,3 @@ begin
 		Y => muxToReg);
     
 end Behavioral;
-
