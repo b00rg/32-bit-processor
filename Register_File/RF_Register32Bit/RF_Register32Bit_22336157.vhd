@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 08.10.2023 15:52:42
 -- Design Name: 
--- Module Name: RF_Register8Bit_22336157 - Behavioral
+-- Module Name: RF_Register32Bit_22336157 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
