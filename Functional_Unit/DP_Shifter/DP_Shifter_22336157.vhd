@@ -19,7 +19,7 @@
 -- Additional Comments:                                                                                                             
 --                                                                                                                                  
 ----------------------------------------------------------------------------------                                                  
-                                                                                                                                    
+                                                                                                                                
 library IEEE;                                                                                                                       
 use IEEE.STD_LOGIC_1164.ALL;                                                                                                        
                                                                                                                                     
@@ -99,4 +99,4 @@ begin
         C => C                -- Carry output                                                                                       
     );                         -- No shift, carry is zero                                                                           
                                                                                                                                     
-end Behavioral;                                                                                                                     
+end Behavioral;              
