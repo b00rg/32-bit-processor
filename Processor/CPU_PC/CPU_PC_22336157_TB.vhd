@@ -22,11 +22,11 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity CPU_PC_22336157_tb is
+entity CPU_PC_22336157_TB is
 -- Test bench has no ports
-end CPU_PC_22336157_tb;
+end CPU_PC_22336157_TB;
 
-architecture Simulation of CPU_PC_22336157_tb is
+architecture Simulation of CPU_PC_22336157_TB is
 
   -- Component declaration for the DUT (Device Under Test)
   component CPU_PC_22336157
