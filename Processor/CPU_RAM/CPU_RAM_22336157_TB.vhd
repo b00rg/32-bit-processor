@@ -18,8 +18,11 @@
 -- 
 ----------------------------------------------------------------------------------
 
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;  -- Include this for to_unsigned and other numeric functions
 
 entity CPU_RAM_22336157_TB is
 end CPU_RAM_22336157_TB;
