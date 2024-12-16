@@ -40,12 +40,13 @@ architecture Simulation of CPU_RAM_22336157_TB is
     -- Signal declarations
     signal Address_TB, DataIn_TB, DataOut_TB : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
     signal CLK_TB, WriteEnable_TB : STD_LOGIC := '0';
-    constant STUDENTID : STD_LOGIC_VECTOR (31 downto 0) := x"0164A69E";
+    constant START_VAL : STD_LOGIC_VECTOR (31 downto 0) := x"00001805"; -- Decimal 6157 in hex
+    constant INIT_VAL : integer := 57; -- Decimal value to initialize memory
     constant PERIOD : time := 300 ns;
 
 begin
 
-    -- Instantiation of CPU_RAM_23373470
+    -- Instantiation of CPU_RAM_22336157
     uut : CPU_RAM_22336157
         port map (
             Clock => CLK_TB,
@@ -61,22 +62,44 @@ begin
     -- Stimulus process
     stim_proc : process
     begin
-        -- Write operation
-        WriteEnable_TB <= '1';        -- Enable writing
-        DataIn_TB <= x"12345678";    -- Input data
-        Address_TB <= x"00000001";   -- Address for writing
-        wait for PERIOD;
+        -- Initialize memory with incremental values starting at INIT_VAL (57 decimal)
+        WriteEnable_TB <= '1';
+        for i in 0 to 127 loop
+            Address_TB <= std_logic_vector(to_unsigned(i, 32));
+            DataIn_TB <= std_logic_vector(to_unsigned(INIT_VAL + i, 32));
+            wait for PERIOD;
+        end loop;
 
-        -- Disable write and check read
-        WriteEnable_TB <= '0';       -- Disable writing
-        Address_TB <= x"00000001";   -- Address to read
-        wait for PERIOD;
+        -- Disable WriteEnable
+        WriteEnable_TB <= '0';
 
-        -- Verify the output data
-        assert DataOut_TB = x"12345678"
-        report "Read data mismatch!" severity error;
+        -- Read back and verify all 128 memory locations
+        for i in 0 to 127 loop
+            Address_TB <= std_logic_vector(to_unsigned(i, 32));
+            wait for PERIOD;
+            assert DataOut_TB = std_logic_vector(to_unsigned(INIT_VAL + i, 32))
+            report "Read data mismatch at address " & integer'image(i) severity error;
+        end loop;
 
-        -- End of test
+        -- Overwrite 32 memory locations starting at address 7
+        WriteEnable_TB <= '1';
+        for i in 7 to 38 loop
+            Address_TB <= std_logic_vector(to_unsigned(i, 32));
+            DataIn_TB <= x"0000ABCD"; -- Example new data
+            wait for PERIOD;
+        end loop;
+
+        -- Demonstrate that overwrite doesn’t work if WriteEnable_TB is unset
+        WriteEnable_TB <= '0';
+        for i in 7 to 38 loop
+            Address_TB <= std_logic_vector(to_unsigned(i, 32));
+            DataIn_TB <= x"0000FFFF"; -- Attempt to write new data
+            wait for PERIOD;
+            assert DataOut_TB /= x"0000FFFF"
+            report "Write operation occurred when WriteEnable was unset!" severity error;
+        end loop;
+
+        -- End simulation
         wait;
     end process;
 
