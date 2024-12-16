@@ -92,7 +92,7 @@ begin
             wait for PERIOD;
         end loop;
 
-        -- Demonstrate that overwrite doesn’t work if WriteEnable_TB is unset
+        -- Demonstrate that overwrite doesn't work if WriteEnable_TB is unset
         WriteEnable_TB <= '0';
         for i in 7 to 38 loop
             Address_TB <= std_logic_vector(to_unsigned(i, 32));
