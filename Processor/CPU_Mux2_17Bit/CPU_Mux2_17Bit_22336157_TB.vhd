@@ -21,12 +21,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity CPU_Mux2_17Bit_TB is
-end CPU_Mux2_17Bit_TB;
+entity CPU_Mux2_17Bit_22336157_TB is
+end CPU_Mux2_17Bit_22336157_TB;
 
-architecture simulation of CPU_Mux2_17Bit_TB is
+architecture simulation of CPU_Mux2_17Bit_22336157_TB is
     -- Component Declaration for the UUT
-    component CPU_Mux2_17Bit
+    component CPU_Mux2_17Bit_22336157
         Port ( I0 : in  STD_LOGIC_VECTOR(16 downto 0);
                I1 : in  STD_LOGIC_VECTOR(16 downto 0);
                S  : in  STD_LOGIC;
@@ -42,7 +42,7 @@ architecture simulation of CPU_Mux2_17Bit_TB is
 
 begin
     -- Instantiate the Unit Under Test (UUT)
-    uut: CPU_Mux2_17Bit Port map (
+    uut: CPU_Mux2_17Bit_22336157 Port map (
             I0 => I0_TB,
             I1 => I1_TB,
             S  => S_TB,
