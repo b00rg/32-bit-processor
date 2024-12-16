@@ -61,10 +61,12 @@ architecture Behavioral of CPU_PC_22336157 is
     );
   end component;
 
-  signal PL_PI_Mux_Out, AdderToInstAdd, AdderToResetMux, ResetMuxToPC : STD_LOGIC_VECTOR(31 downto 0);
+  signal PL_PI_Mux_Out, AdderToResetMux, ResetMuxToPC : STD_LOGIC_VECTOR(31 downto 0);
   signal PCLoad0, PCLoad : STD_LOGIC;
+  signal PC_Out : STD_LOGIC_VECTOR(31 downto 0);  -- Renamed signal for clarity
 
 begin
+  -- Mux to select between Displacement and x"00000001"
   PL_PI_Mux : CPU_Mux2_32Bit_22336157 Port map(
     I0 => Displacement, 
     I1 => x"00000001", 
@@ -72,8 +74,9 @@ begin
     Y => PL_PI_Mux_Out
   );
 
+  -- Adder to compute the sum of AdderToInstAdd (PC output) and PL_PI_Mux_Out
   Adder : DP_RippleCarryAdder32Bit_22336157 Port map(
-    A => AdderToInstAdd, 
+    A => PC_Out, 
     B => PL_PI_Mux_Out, 
     C_IN => '0', 
     SUM => AdderToResetMux, 
@@ -81,6 +84,7 @@ begin
     V => open
   ); 
 
+  -- Mux to select between Adder output and reset value
   ResetMux : CPU_Mux2_32Bit_22336157 Port map(
     I0 => AdderToResetMux, 
     I1 => x"00000002",  -- Default reset to zero
@@ -88,17 +92,20 @@ begin
     Y => ResetMuxToPC
   );
 
+  -- Logic to determine when to load the PC
   PCLoad0 <= Reset or PL after OR_gate_delay;
   PCLoad <= PCLoad0 or PI after OR_gate_delay;
 
+  -- PC Register to store the value of InstAdd (Output)
   PC : RF_Register32Bit_22336157 Port map(
     CLK => Clock, 
     D => ResetMuxToPC, 
     Load => PCLoad, 
     Reset => '0', 
-    Q => AdderToInstAdd
+    Q => PC_Out  -- PC_Out is the output of the PC register
   );
 
-  InstAdd <= AdderToInstAdd;
+  -- InstAdd is assigned the value of PC_Out, the current program counter
+  InstAdd <= PC_Out;
 
 end Behavioral;
