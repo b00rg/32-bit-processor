@@ -17,13 +17,37 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-architecture Behavioral of CPU_DFlipFlop_Qnot is
-    -- Define constants for gate delays
-    constant AND_gate_delay : Time := 8ns;
-    constant NOT_gate_delay : Time := 3ns;
 
-    -- Define internal signals
-    signal Z, R0, R, Reset_not, L, Y0, Y, X0, K, S0, S, M, Q_t0, Q_not_t0, Q_t, Q_not_t, Q_not_signal : STD_LOGIC;
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity CPU_DFlipFlop_Qnot is
+    Port (
+        Clock, D, Reset : in STD_LOGIC;   -- single select bit
+        Q_not, Q  : out STD_LOGIC  -- 17-bit output
+    );
+end CPU_DFlipFlop_Qnot;
+
+architecture Behavioral of CPU_DFlipFlop_Qnot is
+   constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
+   constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
+   constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
+   constant NOR_gate_delay : Time := 7ns;      -- next more significant digit 6 = 5 + 1
+   constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
+   constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
+   constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
+   signal Z, R0, R, Reset_not, L, Y0, Y, X0, K, S0, S, M, Q_t0, Q_not_t0, Q_t, Q_not_t, Q_not_signal : STD_LOGIC;
 begin
     -- Proper order of assignments based on signal dependencies:
     
@@ -59,5 +83,5 @@ begin
     
     -- Final outputs
     Q <= Q_t;                              -- Q is directly assigned from Q_t
-    Q_not <= Q_not_signal;                 -- Q_not is assigned from Q_not_signal
+    Q_not <= Q_not_t;                 -- Q_not
 end Behavioral;
