@@ -1,3 +1,23 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date: 16.12.2024 12:34:24
+-- Design Name: 
+-- Module Name: CPU_PC_22336157_TB - Simulation
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -42,15 +62,7 @@ begin
     );
 
   -- Clock generation process
-  Clock_Gen: process
-  begin
-    while true loop
-      Clock <= '0';
-      wait for Clock_Period / 2;
-      Clock <= '1';
-      wait for Clock_Period / 2;
-    end loop;
-  end process;
+   clock <= not clock after clock_period / 2; 
 
   -- Stimulus process
   Stimulus: process
@@ -90,4 +102,4 @@ begin
     wait;
   end process;
 
-end Behavioral;
+end Simulation;
