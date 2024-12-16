@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: Emma Burgess
+-- Engineer: 
 -- 
 -- Create Date: 16.12.2024 15:35:16
 -- Design Name: 
@@ -70,4 +70,3 @@ begin
     Q_not_t <= not Q_not_t0 after NOT_gate_delay;
     Q <= Q_t;
 end Behavioral;
-
