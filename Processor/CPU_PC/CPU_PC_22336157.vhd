@@ -1,111 +1,108 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: Emma Burgess
+-- Engineer: 
 -- 
--- Create Date: 16.12.2024 12:33:52
+-- Create Date: 16.12.2024 12:34:24
 -- Design Name: 
--- Module Name: CPU_PC_22336157 - Behavioral
--- Project Name: CPU_PC_22336157
+-- Module Name: CPU_PC_22336157_TB - Simulation
+-- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: 
+-- Description: Testbench for CPU_PC_22336157
 -- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+-- Dependencies: CPU_PC_22336157
 -- 
 ----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity CPU_PC_22336157 is
+entity CPU_PC_22336157_TB is
+-- Testbench has no ports
+end CPU_PC_22336157_TB;
+
+architecture Simulation of CPU_PC_22336157_TB is
+
+  -- Component declaration for the DUT (Device Under Test)
+  component CPU_PC_22336157
     Port (
-      Displacement : in STD_LOGIC_VECTOR(31 downto 0); 
-      Clock, Reset, PL, PI : in STD_LOGIC;                     
+      Displacement : in STD_LOGIC_VECTOR(31 downto 0);
+      Clock, Reset, PL, PI : in STD_LOGIC;
       InstAdd : out STD_LOGIC_VECTOR(31 downto 0)
     );
-end CPU_PC_22336157;
-
-architecture Behavioral of CPU_PC_22336157 is
-  constant AND_gate_delay : Time := 8 ns;
-  constant OR_gate_delay : Time := 2 ns;
-
-  component CPU_Mux2_32Bit_22336157 is   
-    Port (
-        I0, I1 : in STD_LOGIC_VECTOR(31 downto 0);  
-        S : in STD_LOGIC;                      
-        Y : out STD_LOGIC_VECTOR(31 downto 0)  
-    );
   end component;
 
-  component DP_RippleCarryAdder32Bit_22336157 is
-    Port (
-        A, B : in STD_LOGIC_VECTOR(31 downto 0);
-        C_IN : in STD_LOGIC; 
-        SUM : out STD_LOGIC_VECTOR(31 downto 0);
-        C_OUT : out STD_LOGIC; 
-        V : out STD_LOGIC
-    );
-  end component;
+  -- Testbench signals to connect to the DUT
+  signal Displacement : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+  signal Clock : STD_LOGIC := '0';
+  signal Reset : STD_LOGIC := '0';
+  signal PL : STD_LOGIC := '0';
+  signal PI : STD_LOGIC := '0';
+  signal InstAdd : STD_LOGIC_VECTOR(31 downto 0);
 
-  component RF_Register32Bit_22336157 is
-    Port (
-        D : in STD_LOGIC_VECTOR(31 downto 0);
-        Load : in STD_LOGIC;
-        CLK : in STD_LOGIC;
-        Reset : in STD_LOGIC;
-        Q : out STD_LOGIC_VECTOR(31 downto 0)
-    );
-  end component;
-
-  signal PL_PI_Mux_Out, AdderToResetMux, ResetMuxToPC : STD_LOGIC_VECTOR(31 downto 0);
-  signal PCLoad0, PCLoad : STD_LOGIC;
-  signal PC_Out : STD_LOGIC_VECTOR(31 downto 0);  -- Renamed signal for clarity
+  -- Clock period constant
+  constant Clock_Period : time := 10 ns;
 
 begin
-  -- Mux to select between Displacement and x"00000001"
-  PL_PI_Mux : CPU_Mux2_32Bit_22336157 Port map(
-    I0 => Displacement, 
-    I1 => x"00000001", 
-    S => PI, 
-    Y => PL_PI_Mux_Out
-  );
 
-  -- Adder to compute the sum of AdderToInstAdd (PC output) and PL_PI_Mux_Out
-  Adder : DP_RippleCarryAdder32Bit_22336157 Port map(
-    A => PC_Out, 
-    B => PL_PI_Mux_Out, 
-    C_IN => '0', 
-    SUM => AdderToResetMux, 
-    C_OUT => open, 
-    V => open
-  ); 
+  -- Instantiate the DUT
+  DUT: CPU_PC_22336157
+    Port map (
+      Displacement => Displacement,
+      Clock => Clock,
+      Reset => Reset,
+      PL => PL,
+      PI => PI,
+      InstAdd => InstAdd
+    );
 
-  -- Mux to select between Adder output and reset value
-  ResetMux : CPU_Mux2_32Bit_22336157 Port map(
-    I0 => AdderToResetMux, 
-    I1 => x"00000002",  -- Default reset to zero
-    S => Reset, 
-    Y => ResetMuxToPC
-  );
+  -- Clock generation process
+  Clock_Process: process
+  begin
+    Clock <= '0';
+    wait for Clock_Period / 2;
+    Clock <= '1';
+    wait for Clock_Period / 2;
+  end process;
 
-  -- Logic to determine when to load the PC
-  PCLoad0 <= Reset or PL after OR_gate_delay;
-  PCLoad <= PCLoad0 or PI after OR_gate_delay;
+  -- Stimulus process to apply inputs to DUT and check outputs
+  Stimulus: process
+  begin
+    -- Initialize signals
+    Displacement <= x"00000010";  -- Example displacement
+    Reset <= '1';  -- Start with reset active
+    wait for 20 ns;
 
-  -- PC Register to store the value of InstAdd (Output)
-  PC : RF_Register32Bit_22336157 Port map(
-    CLK => Clock, 
-    D => ResetMuxToPC, 
-    Load => PCLoad, 
-    Reset => '0', 
-    Q => PC_Out  -- PC_Out is the output of the PC register
-  );
+    -- Release Reset
+    Reset <= '0';
+    wait for 20 ns;
 
-  -- InstAdd is assigned the value of PC_Out, the current program counter
-  InstAdd <= PC_Out;
+    -- Test case 1: PI = 0, PL = 0 (no load)
+    PI <= '0';
+    PL <= '0';
+    wait for 40 ns;
+    assert (InstAdd = x"00000010") report "Test case 1 failed!" severity error;
 
-end Behavioral;
+    -- Test case 2: PI = 1 (should increment PC)
+    PI <= '1';
+    wait for 40 ns;
+    assert (InstAdd = x"00000011") report "Test case 2 failed!" severity error;
+
+    -- Test case 3: PL = 1 (should load displacement value)
+    PL <= '1';
+    PI <= '0';
+    wait for 40 ns;
+    assert (InstAdd = x"00000010") report "Test case 3 failed!" severity error;
+
+    -- Test case 4: Reset during operation
+    Reset <= '1';  -- Assert reset
+    wait for 20 ns;
+    Reset <= '0';  -- Release reset
+    wait for 40 ns;
+
+    -- End simulation
+    wait;
+  end process;
+
+end Simulation;
