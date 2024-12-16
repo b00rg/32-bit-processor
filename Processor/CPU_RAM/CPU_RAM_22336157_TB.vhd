@@ -46,6 +46,7 @@ architecture Simulation of CPU_RAM_22336157_TB is
     constant START_VAL : STD_LOGIC_VECTOR (31 downto 0) := x"00001805"; -- Decimal 6157 in hex
     constant INIT_VAL : integer := 57; -- Decimal value to initialize memory
     constant PERIOD : time := 300 ns;
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";  
 
 begin
 
