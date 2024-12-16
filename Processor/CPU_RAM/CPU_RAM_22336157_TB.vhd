@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 16.12.2024 16:30:26
 -- Design Name: CPU_RAM Testbench
--- Module Name: CPU_RAM_23373470_TB - Simulation
+-- Module Name: CPU_RAM_22336157_TB - Simulation
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,13 +21,13 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity CPU_RAM_23373470_TB is
-end CPU_RAM_23373470_TB;
+entity CPU_RAM_22336157_TB is
+end CPU_RAM_22336157_TB;
 
-architecture Simulation of CPU_RAM_23373470_TB is
+architecture Simulation of CPU_RAM_22336157_TB is
 
     -- Component declaration for CPU_RAM_23373470
-    component CPU_RAM_23373470 is
+    component CPU_RAM_22336157 is
         Port ( 
             Clock : in STD_LOGIC ;
             Address : in STD_LOGIC_VECTOR (31 downto 0) ;
@@ -46,7 +46,7 @@ architecture Simulation of CPU_RAM_23373470_TB is
 begin
 
     -- Instantiation of CPU_RAM_23373470
-    uut : CPU_RAM_23373470
+    uut : CPU_RAM_22336157
         port map (
             Clock => CLK_TB,
             Address => Address_TB,
