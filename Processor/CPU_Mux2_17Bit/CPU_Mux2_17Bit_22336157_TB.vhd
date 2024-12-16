@@ -53,8 +53,8 @@ begin
     stim_proc: process
     begin
         -- Test case 1: Select I0 (S = '0')
-        I0_TB <= "000000010101010";  -- 17-bit value for I0
-        I1_TB <= "000000010101011";  -- 17-bit value for I1
+        I0_TB <= "00000000010101010";  -- 17-bit value for I0
+        I1_TB <= "00000000010101011";  -- 17-bit value for I1
         S_TB <= '0';
         wait for 200 ns;
         assert (Y_TB = I0_TB) report "Error: Output Y_TB should be I0_TB" severity error;
