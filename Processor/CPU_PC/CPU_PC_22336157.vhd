@@ -1,3 +1,22 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Emma Burgess
+-- 
+-- Create Date: 16.12.2024 12:33:52
+-- Design Name: 
+-- Module Name: CPU_PC_22336157 - Behavioral
+-- Project Name: CPU_PC_22336157
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -64,7 +83,7 @@ begin
 
   ResetMux : CPU_Mux2_32Bit_22336157 Port map(
     I0 => AdderToResetMux, 
-    I1 => (others => '0'),  -- Default reset to zero
+    I1 => x"00000002",  -- Default reset to zero
     S => Reset, 
     Y => ResetMuxToPC
   );
@@ -76,7 +95,7 @@ begin
     CLK => Clock, 
     D => ResetMuxToPC, 
     Load => PCLoad, 
-    Reset => Reset, 
+    Reset => '0', 
     Q => AdderToInstAdd
   );
 
