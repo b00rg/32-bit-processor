@@ -17,15 +17,13 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity CPU_DFlipFlop_Qnot_22336157_TB is
-    -- Testbenches do not have ports
-end CPU_DFlipFlop_Qnot_22336157_TB;
+entity tb_CPU_DFlipFlop_Qnot_22336157 is
+end tb_CPU_DFlipFlop_Qnot_22336157;
 
-architecture Simulation of CPU_DFlipFlop_Qnot_22336157_TB is
+architecture Simulation of tb_CPU_DFlipFlop_Qnot_22336157 is
     -- Component Declaration for the Unit Under Test (UUT)
     component CPU_DFlipFlop_Qnot_22336157
         Port (
@@ -44,7 +42,6 @@ architecture Simulation of CPU_DFlipFlop_Qnot_22336157_TB is
 
     -- Clock period definition
     constant Clock_Period : time := 10 ns;
-    
 
 begin
 
@@ -58,7 +55,16 @@ begin
         );
 
     -- Clock Process: Generate a clock signal
-    Clock <= not Clock after Clock_Period/ 2;
+    Clock_Process : process
+    begin
+        for i in 0 to 100 loop -- Run for 100 clock cycles
+            Clock <= '0';
+            wait for Clock_Period / 2;
+            Clock <= '1';
+            wait for Clock_Period / 2;
+        end loop;
+        wait;
+    end process;
 
     -- Stimulus Process: Apply input scenarios
     Stimulus_Process : process
@@ -66,19 +72,25 @@ begin
         -- Initialize inputs
         D <= '0';
         Reset <= '0';
-        wait for 20 ns; -- Allow initial state stabilization
+        wait for 20 ns;
 
-        -- Scenario 1: Assert Reset
+        -- Scenario 1: Assert Reset and verify output
         Reset <= '1';
         wait for 20 ns;
+        assert (Q = '0') report "Reset failed: Q is not 0 after Reset" severity error;
         Reset <= '0';
         wait for 20 ns;
 
-        -- Scenario 2: Toggle D with clock
+        -- Scenario 2: Toggle D on rising clock edges
+        wait until Clock = '1' and Clock'event;
         D <= '1';
-        wait for 30 ns;
+        wait until Clock = '1' and Clock'event;
+        assert (Q = '1') report "D=1 not captured on rising edge" severity error;
+
+        wait until Clock = '1' and Clock'event;
         D <= '0';
-        wait for 30 ns;
+        wait until Clock = '1' and Clock'event;
+        assert (Q = '0') report "D=0 not captured on rising edge" severity error;
 
         -- Scenario 3: Assert Reset while D changes
         Reset <= '1';
@@ -87,14 +99,11 @@ begin
         wait for 10 ns;
         Reset <= '0';
         wait for 20 ns;
-
-        -- Scenario 4: Complex transitions
-        D <= '1';
-        wait for 40 ns;
-        D <= '0';
-        wait for 40 ns;
+        assert (Q = '0') report "Reset during D=1 did not clear Q" severity error;
 
         -- End simulation
+        wait for 200 ns;
+        report "Simulation complete" severity note;
         wait;
     end process;
 
