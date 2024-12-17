@@ -36,7 +36,7 @@ entity CPU_SignExtend_22336157 is
         input : in std_logic_vector (9 downto 0);
         output : out std_logic_vector(31 downto 0)
     );
-end CPU_SignExtend_23373470;
+end CPU_SignExtend_22336157;
 
 architecture Behavioral of CPU_SignExtend_22336157 is
         
