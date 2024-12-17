@@ -21,11 +21,11 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity tb_CPU_DFlipFlop_Qnot_22336157 is
+entity CPU_DFlipFlop_Qnot_22336157_TB is
     -- Testbenches do not have ports
-end tb_CPU_DFlipFlop_Qnot_22336157;
+end CPU_DFlipFlop_Qnot_22336157_TB;
 
-architecture Behavioral of tb_CPU_DFlipFlop_Qnot_22336157 is
+architecture Simulation of CPU_DFlipFlop_Qnot_22336157_TB is
     -- Component Declaration for the Unit Under Test (UUT)
     component CPU_DFlipFlop_Qnot_22336157
         Port (
@@ -44,6 +44,7 @@ architecture Behavioral of tb_CPU_DFlipFlop_Qnot_22336157 is
 
     -- Clock period definition
     constant Clock_Period : time := 10 ns;
+    
 
 begin
 
@@ -57,15 +58,7 @@ begin
         );
 
     -- Clock Process: Generate a clock signal
-    Clock_Process : process
-    begin
-        while true loop
-            Clock <= '0';
-            wait for Clock_Period / 2;
-            Clock <= '1';
-            wait for Clock_Period / 2;
-        end loop;
-    end process;
+    Clock <= not Clock after Clock_Period/ 2;
 
     -- Stimulus Process: Apply input scenarios
     Stimulus_Process : process
@@ -105,4 +98,4 @@ begin
         wait;
     end process;
 
-end Behavioral;
+end Simulation;
