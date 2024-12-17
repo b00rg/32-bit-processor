@@ -1,8 +1,8 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer: Emma Burgess
 -- 
--- Create Date: 17.12.2024 16:28:51
+-- Create Date: 16.12.2024 15:35:16
 -- Design Name: 
 -- Module Name: CPU_DFlipFlop_Qnot_22336157 - Behavioral
 -- Project Name: 
@@ -32,46 +32,38 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity CPU_DFlipFlop_Qnot_22336157 is
-    Port (Clock : in std_logic;
-          D : in std_logic;
-          Reset : in std_logic; 
-          Q : out std_logic;
-          Q_not : out std_logic  );
+    Port (
+        Clock, D, Reset : in STD_LOGIC;   -- single select bit
+        Q  : out STD_LOGIC  -- 17-bit output
+    );
 end CPU_DFlipFlop_Qnot_22336157;
 
 architecture Behavioral of CPU_DFlipFlop_Qnot_22336157 is
-
-   constant AND_gate_delay : Time := 1ns;      -- least significant digit 1 = 0 + 1
-   constant NAND_gate_delay : Time := 8ns;     -- next more significant digit 8 = 7 + 1
-   constant OR_gate_delay : Time := 5ns;       -- next more significant digit 5 = 4 + 1
-   constant NOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
-   constant XOR_gate_delay : Time := 8ns;      -- next more significant digit 8 = 7 + 1
+   constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
+   constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
+   constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
+   constant NOR_gate_delay : Time := 7ns;      -- next more significant digit 6 = 5 + 1
+   constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
    constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
-   constant NOT_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
-   
-   signal X, Z, R0, R, Reset_not, L, Y0, Y, X0, K, S0 ,S, M, Q_t, Q_not_t, Q_t0, Q_not_t0  : std_logic; 
+   constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
+   signal Z, R0, R, Reset_not, L, Y0, Y, X0, K, S0, S, M, Q_t0, Q_not_t0, Q_t, Q_not_t, Q_not_t0_Negated : STD_LOGIC;
 begin
-
-Z <= Clock AND S after AND_GATE_DELAY;
-R0 <= Z AND Y after AND_GATE_DELAY;
-R <= NOT R0 after NOT_GATE_DELAY; 
-
-L <= R AND D after AND_GATE_DELAY; 
-Reset_not <= NOT Reset after NOT_GATE_DELAY;
-Y0 <= L AND Reset_not after AND_GATE_DELAY;
-Y <= NOT Y0 after NOT_GATE_DELAY; 
-X0 <= S AND Y after AND_GATE_DELAY;
-X <= NOT X0 after NOT_GATE_DELAY;
-K <= X AND Clock after AND_GATE_DELAY;
-S0 <= K AND Reset_Not after AND_GATE_DELAY;
-S <= NOT S0 after NOT_GATE_DELAY;
-M <= R AND Q_t after AND_GATE_DELAY;
-Q_t0 <= S AND Q_not_t after AND_GATE_DELAY;
-Q_t <= NOT Q_t0 after NOT_GATE_DELAY;
-Q_not_t0 <= M AND Reset_Not after AND_GATE_DELAY;
-Q_not_t <= NOT Q_not_t0 after NOT_GATE_DELAY;
-
-Q_not <= Q_not_t;
-Q <= Q_t;
-
+    Reset_not <= not Reset after NOT_gate_delay;
+    Z <= Clock and S after AND_gate_delay;  
+    R0 <= Z and Y after AND_gate_delay;    
+    R <= not R0 after NOT_gate_delay;   
+    L <= R and D after AND_gate_delay;     
+    Y0 <= L and Reset_not after AND_gate_delay; 
+    Y <= not Y0 after NOT_gate_delay; 
+    X0 <= Y and S after AND_gate_delay;   
+    K <= X0 and Clock after AND_gate_delay;
+    S0 <= K and Reset_not after AND_gate_delay;
+    S <= not S0 after NOT_gate_delay;  
+    Q_not_t0 <= M and Reset_not after AND_gate_delay; 
+    M <= Q_t and R after AND_gate_delay;   
+    Q_t0 <= S and Q_not_t0_Negated after AND_gate_delay; 
+    Q_not_t0_Negated <= not Q_not_t0 after NOT_gate_delay; 
+    Q_t <= not Q_t0 after NOT_gate_delay;
+    Q <= Q_t;                
 end Behavioral;
