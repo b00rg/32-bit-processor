@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: Emma Burgess
 -- 
--- Create Date: 16.12.2024 15:35:16
+-- Create Date: 16.12.2024 15:36:03
 -- Design Name: 
--- Module Name: CPU_DFlipFlop_Qnot_22336157 - Behavioral
+-- Module Name: CPU_DFlipFlop_Qnot_22336157_TB - Simulation
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -16,15 +16,6 @@
 -- Revision 0.01 - File Created
 -- Additional Comments:
 -- 
-----------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------
--- Testbench for CPU_DFlipFlop_Qnot_22336157
--- Engineer: Emma Burgess
--- 
--- Description:
--- This testbench validates the behavior of the D flip-flop by applying various
--- input scenarios for Clock, D, and Reset. The output Q is observed for correctness.
 ----------------------------------------------------------------------------------
 
 library IEEE;
