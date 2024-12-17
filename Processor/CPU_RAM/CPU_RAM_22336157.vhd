@@ -17,77 +17,62 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
-entity control_memory is
+entity CPU_ControlMemory_22336157 is
     Port (
-        FL, IL, MB, MC, MD, MM, MW, PI, PL, RC, RN, RV, RW, RZ : out std_logic; 
-        FS : out std_logic_vector(4 downto 0); 
-        MS : out std_logic_vector(2 downto 0); 
-        NA : out std_logic_vector(16 downto 0); 
-        Address : in std_logic_vector(16 downto 0);
-        TA, TB, TD : out std_logic_vector(3 downto 0)
+        Address : in STD_LOGIC_VECTOR(16 downto 0); -- Address input
+        NA      : out STD_LOGIC_VECTOR(16 downto 0); -- 34-50
+        MS      : out STD_LOGIC_VECTOR(2 downto 0);  -- 31-33
+        MC      : out STD_LOGIC;                    -- 30
+        IL      : out STD_LOGIC;                    -- 29
+        PI      : out STD_LOGIC;                    -- 28
+        PL      : out STD_LOGIC;                    -- 27
+        TD      : out STD_LOGIC_VECTOR(3 downto 0); -- 23-26
+        TA      : out STD_LOGIC_VECTOR(3 downto 0); -- 19-22
+        TB      : out STD_LOGIC_VECTOR(3 downto 0); -- 15-18
+        MB      : out STD_LOGIC;                    -- 14
+        FS      : out STD_LOGIC_VECTOR(4 downto 0); -- 09-13
+        MD      : out STD_LOGIC;                    -- 08
+        RW      : out STD_LOGIC;                    -- 07
+        MM      : out STD_LOGIC;                    -- 06
+        MW      : out STD_LOGIC;                    -- 05
+        RV      : out STD_LOGIC;                    -- 04
+        RC      : out STD_LOGIC;                    -- 03
+        RN      : out STD_LOGIC;                    -- 02
+        RZ      : out STD_LOGIC;                    -- 01
+        FL      : out STD_LOGIC                     -- 00
     );
-end control_memory;
-
-architecture Behavioral of control_memory is
-
-    -- Define a type for the memory array
-    type mem_array is array(0 to 50) of std_logic_vector(50 downto 0);
-    -- Declare a signal to represent the memory
-    signal control_mem : mem_array := (
-        -- Initialize memory with example values, replace these with your actual values
-        others => (others => '0')
-    );
+end CPU_ControlMemory_22336157;
+signal content_at_address : STD_LOGIC_VECTOR(50 downto 0);
 
 begin
 
-    -- Process to handle memory control logic
-    memory_m: process(Address)
-        variable addr: integer;
-        variable control_out: std_logic_vector(50 downto 0);
-    begin
-        -- Convert Address to integer
-        addr := to_integer(unsigned(Address(5 downto 0))); -- Address size adjusted for array indexing (0 to 50)
-        if addr >= 0 and addr < 51 then
-            control_out := control_mem(addr);
-        else
-            control_out := (others => '0'); -- Default output for invalid addresses
-        end if;
+    content_at_address <= ROM(to_integer(unsigned(Address(6 downto 0)))) after 2 ns;
 
-        -- Assign control outputs from the memory array
-        FL <= control_out(0);
-        RZ <= control_out(1);
-        RN <= control_out(2);
-        RC <= control_out(3);
-        RV <= control_out(4);
-        MW <= control_out(5);
-        MM <= control_out(6);
-        RW <= control_out(7);
-        MD <= control_out(8);
-        FS <= control_out(13 downto 9);
-        MB <= control_out(14);
-        TB <= control_out(15 downto 12);
-        TA <= control_out(16 downto 13);
-        TD <= control_out(12 downto 9);
-        PL <= control_out(17);
-        PI <= control_out(19);
-        IL <= control_out(20);
-        MC <= control_out(21);
-        MS <= control_out(24 downto 22);
-        NA <= control_out(41 downto 25);
-    end process;
+    NA <= content_at_address(50 downto 34); -- 34-50
+    MS <= content_at_address(33 downto 31); -- 31-33
+    MC <= content_at_address(30);           -- 30
+    IL <= content_at_address(29);           -- 29
+    PI <= content_at_address(28);           -- 28
+    PL <= content_at_address(27);           -- 27
+    TD <= content_at_address(26 downto 23); -- 23-26
+    TA <= content_at_address(22 downto 19); -- 19-22
+    TB <= content_at_address(18 downto 15); -- 15-18
+    MB <= content_at_address(14);           -- 14
+    FS <= content_at_address(13 downto 9);  -- 09-13
+    MD <= content_at_address(8);            -- 08
+    RW <= content_at_address(7);            -- 07
+    MM <= content_at_address(6);            -- 06
+    MW <= content_at_address(5);            -- 05
+    RV <= content_at_address(4);            -- 04
+    RC <= content_at_address(3);            -- 03
+    RN <= content_at_address(2);            -- 02
+    RZ <= content_at_address(1);            -- 01
+    FL <= content_at_address(0);            -- 00
 
 end Behavioral;
