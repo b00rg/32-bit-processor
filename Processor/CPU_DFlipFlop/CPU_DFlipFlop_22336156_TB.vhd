@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: Emma Burgess
 -- 
--- Create Date: 16.12.2024 15:36:03
+-- Create Date: 10.10.2024 15:56:03
 -- Design Name: 
 -- Module Name: CPU_DFlipFlop_22336157_TB - Simulation
 -- Project Name: 
@@ -17,87 +17,70 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity CPU_DFlipFlop_22336157_tb is
--- Testbench has no ports
-end CPU_DFlipFlop_22336157_tb;
+entity CPU_DFlipFlop_22336157_TB is
+--  Port ( );
+end CPU_DFlipFlop_22336157_TB;
 
-architecture Simulation of CPU_DFlipFlop_22336157_tb is
+architecture Simulation of CPU_DFlipFlop_22336157_TB is
 
-    -- Component Declaration for the Unit Under Test (UUT)
-    component CPU_DFlipFlop_22336157
-        Port (
-            Clock : in STD_LOGIC;
-            D : in STD_LOGIC;
-            Reset : in STD_LOGIC;
-            Q : out STD_LOGIC
-        );
-    end component;
+component CPU_DFlipFlop_22336157
+    Port ( CLK, D, Reset : in STD_LOGIC;
+           Q : out STD_LOGIC);
+end component;
 
-    -- Signals to connect to the UUT
-    signal Clock : STD_LOGIC := '0';
-    signal D : STD_LOGIC := '0';
-    signal Reset : STD_LOGIC := '0';
-    signal Q : STD_LOGIC;
+--Inputs
 
-    -- Clock period constant
-    constant Clock_period : time := 10 ns;
+    signal D_TB : std_logic:= '0';
+    signal Reset_TB : std_logic:= '0';
+    signal CLK_TB : std_logic:= '0';
+    
+--Outputs
+
+    signal Q_TB : std_logic := '0';
+
+   -- StudentID e.g. 26 33 57 25(DEC) = 1 91 D9 ED(HEX)
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D"; 
+   constant PERIOD : time := 50ns;
 
 begin
-    -- Instantiate the Unit Under Test (UUT)
-    uut: CPU_DFlipFlop_22336157
-        Port map (
-            Clock => Clock,
-            D => D,
-            Reset => Reset,
-            Q => Q
+
+-- Instantiate the Unit Under Test (UUT)
+	
+   uut: CPU_DFlipFlop_22336157 port map (
+          CLK => CLK_TB,
+          D => D_TB,
+          Reset => Reset_TB,
+          Q => Q_TB
         );
+        
+   CLK_TB <= not CLK_TB after PERIOD/2;
+   
+   stim_proc: process
 
-    -- Clock process definitions
-    Clock_process : process
-    begin
-        while true loop
-            Clock <= '0';
-            wait for Clock_period / 2;
-            Clock <= '1';
-            wait for Clock_period / 2;
-        end loop;
-    end process;
+   begin
+ 
+      wait until CLK_TB'event and CLK_TB='1';
+      Reset_TB <= '1' after PERIOD/4; 
 
-    -- Stimulus process
-    Stimulus_process : process
-    begin
-        -- Test 1: Reset the flip-flop
-        Reset <= '1'; D <= '0';
-        wait for 20 ns;
-        Reset <= '0';
-        wait for 20 ns;
+      wait until CLK_TB'event and CLK_TB='1';
+      Reset_TB <= '0' after PERIOD/4; 
+   
+      wait until CLK_TB'event and CLK_TB='1';
+      D_TB <= '1' after PERIOD/4;
+      
+      wait until CLK_TB'event and CLK_TB='1';
+      D_TB <= '0' after PERIOD/4;
+      
+      wait until CLK_TB'event and CLK_TB='1';
+      D_TB <= '1' after PERIOD/4;
+      
+      wait until CLK_TB'event and CLK_TB='1';
+      D_TB <= '0' after PERIOD/4;
 
-        -- Test 2: Set D = 1, observe Q
-        D <= '1';
-        wait for 20 ns;
-
-        -- Test 3: Change D to 0, observe Q
-        D <= '0';
-        wait for 20 ns;
-
-        -- Test 4: Apply Reset again
-        Reset <= '1';
-        wait for 20 ns;
-        Reset <= '0';
-        wait for 20 ns;
-
-        -- Test 5: Complex toggling
-        D <= '1'; wait for 10 ns;
-        D <= '0'; wait for 10 ns;
-        D <= '1'; wait for 10 ns;
-
-        -- End simulation
-        wait for 50 ns;
-        assert false report "Simulation Ended" severity note;
-        wait;
-    end process;
+   end process;
 
 end Simulation;
