@@ -335,27 +335,55 @@ signal control_mem : mem_array := (
 "000000000111111100000000000000000000000000",-- FE
 "000000000111111110000000000000000000000000" -- FF
 );
-signal content_at_address : std_logic_vector(41 downto 0); 
 begin
-content_at_address <= control_mem(to_integer(unsigned(Address(8 downto 0)))) after 2ns;
-FL <= content_at_address(0); -- 0
-RZ <= content_at_address(1); -- 1
-RN <= content_at_address(2); -- 2
-RC <= content_at_address(3); -- 3
-RV <= content_at_address(4); -- 4
-MW <= content_at_address(5); -- 5
-MM <= content_at_address(6); -- 6
-RW <= content_at_address(7); -- 7
-MD <= content_at_address(8); -- 8
-FS <= content_at_address(13 downto 9); -- 9 to 13
-MB <= content_at_address(14); -- 14
-TB <= content_at_address(15); -- 15
-TA <= content_at_address(16); -- 16
-TD <= content_at_address(17); -- 17
-PL <= content_at_address(18); -- 18
-PI <= content_at_address(19); -- 19
-IL <= content_at_address(20); -- 20
-MC <= content_at_address(21); -- 21
-MS <= content_at_address(24 downto 22); -- 22 to 24
-NA <= content_at_address(41 downto 25); -- 25 to 41
+    -- Process to decode memory content based on Address input
+    process(Address)
+    begin
+        if unsigned(Address) < 256 then
+            -- Assign memory fields to outputs
+            NA <= control_mem(to_integer(unsigned(Address)))(50 downto 34);
+            MS <= control_mem(to_integer(unsigned(Address)))(33 downto 31);
+            MC <= control_mem(to_integer(unsigned(Address)))(30);
+            IL <= control_mem(to_integer(unsigned(Address)))(29);
+            PI <= control_mem(to_integer(unsigned(Address)))(28);
+            PL <= control_mem(to_integer(unsigned(Address)))(27);
+            MB <= control_mem(to_integer(unsigned(Address)))(26);
+            MD <= control_mem(to_integer(unsigned(Address)))(25);
+            RW <= control_mem(to_integer(unsigned(Address)))(24);
+            MM <= control_mem(to_integer(unsigned(Address)))(23);
+            MW <= control_mem(to_integer(unsigned(Address)))(22);
+            RV <= control_mem(to_integer(unsigned(Address)))(21);
+            RC <= control_mem(to_integer(unsigned(Address)))(20);
+            RN <= control_mem(to_integer(unsigned(Address)))(19);
+            RZ <= control_mem(to_integer(unsigned(Address)))(18);
+            FL <= control_mem(to_integer(unsigned(Address)))(17);
+            FS <= control_mem(to_integer(unsigned(Address)))(16 downto 12);
+            TA <= control_mem(to_integer(unsigned(Address)))(11 downto 8);
+            TB <= control_mem(to_integer(unsigned(Address)))(7 downto 4);
+            TD <= control_mem(to_integer(unsigned(Address)))(3 downto 0);
+        else
+            -- Assign default values if address is out of range
+            NA <= (others => '0');
+            MS <= (others => '0');
+            MC <= '0';
+            IL <= '0';
+            PI <= '0';
+            PL <= '0';
+            MB <= '0';
+            MD <= '0';
+            RW <= '0';
+            MM <= '0';
+            MW <= '0';
+            RV <= '0';
+            RC <= '0';
+            RN <= '0';
+            RZ <= '0';
+            FL <= '0';
+            FS <= (others => '0');
+            TA <= (others => '0');
+            TB <= (others => '0');
+            TD <= (others => '0');
+        end if;
+    end process;
+
 end Behavioral;
