@@ -16,93 +16,75 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
 
-entity CPU_PC_22336157_TB is
--- Testbench has no ports
-end CPU_PC_22336157_TB;
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
 
-architecture Simulation of CPU_PC_22336157_TB is
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
 
-  -- Component declaration for the DUT (Device Under Test)
-  component CPU_PC_22336157
-    Port (
-      Displacement : in STD_LOGIC_VECTOR(31 downto 0);
-      Clock, Reset, PL, PI : in STD_LOGIC;
-      InstAdd : out STD_LOGIC_VECTOR(31 downto 0)
-    );
-  end component;
+entity CPU_PC_23373470_TB is
+--  Port ( );
+end CPU_PC_23373470_TB;
 
-  -- Testbench signals to connect to the DUT
-  signal Displacement : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
-  signal Clock : STD_LOGIC := '0';
-  signal Reset : STD_LOGIC := '0';
-  signal PL : STD_LOGIC := '0';
-  signal PI : STD_LOGIC := '0';
-  signal InstAdd : STD_LOGIC_VECTOR(31 downto 0);
+architecture Behavioral of CPU_PC_23373470_TB is
+component CPU_PC_23373470 is
+    Port ( Clock : in std_logic;
+           PL : in std_logic;
+           Reset : in std_logic; 
+           Displacement : in std_logic_vector(31 downto 0);
+           PI : in std_logic;
+           InstADD : out std_logic_vector(31 downto 0));
+end component;
 
-  -- Clock period constant
-  constant Clock_Period : time := 10 ns;
-
+signal CLK_TB, Pl_TB, Reset_Tb, PI_TB : std_logic := '0' ;
+signal Displacement_TB, InstADD_Tb : std_logic_vector (31 downto 0);
+constant STUDENTID : std_logic_vector (31 downto 0) := x"0164A69E";
+constant PERIOD : time := 300 ns;
 begin
 
-  -- Instantiate the DUT
-  DUT: CPU_PC_22336157
-    Port map (
-      Displacement => Displacement,
-      Clock => Clock,
-      Reset => Reset,
-      PL => PL,
-      PI => PI,
-      InstAdd => InstAdd
-    );
+uut: CPU_PC_23373470   
+    Port map ( Clock => CLK_TB,
+           PL => PL_TB,
+           Reset => Reset_TB,
+           Displacement => Displacement_TB,
+           PI => PI_TB,
+           InstADD => InstADD_TB
+           );
+           
+CLK_TB <= not CLK_TB after PERIOD/2;    
+           
+ stim_proc: process
+   begin	
+      
+      Reset_TB <= '1'; 
+      wait for PERIOD;
+      
+      Reset_TB <= '0';
+      PL_TB <= '1';
+      Displacement_TB <= x"00000005"; -- 0x7 (7) - 0x2 = 0x5
+      wait for PERIOD;
+      
+      PL_TB <= '0';
+      Displacement_TB <= x"00000000";
+      wait for PERIOD;            
+      
+      PI_TB <= '1';
+      wait for PERIOD * 5;
+      
+      PI_TB <= '0';
+      PL_TB <= '1';
+      Displacement_TB <= x"00000023"; -- 0x25 (37) - 0x2 = 0x23
+      wait for PERIOD;
+      
+      PI_TB <= '0';
+      PL_TB <= '0';
+      
+      wait;
 
-  -- Clock generation process
-  Clock_Process: process
-  begin
-    Clock <= '0';
-    wait for Clock_Period / 2;
-    Clock <= '1';
-    wait for Clock_Period / 2;
-  end process;
+   end process;        
 
-  -- Stimulus process to apply inputs to DUT and check outputs
-  Stimulus: process
-  begin
-    -- Initialize signals
-    Displacement <= x"00000010";  -- Example displacement
-    Reset <= '1';  -- Start with reset active
-    wait for 20 ns;
-
-    -- Release Reset
-    Reset <= '0';
-    wait for 20 ns;
-
-    -- Test case 1: PI = 0, PL = 0 (no load)
-    PI <= '0';
-    PL <= '0';
-    wait for 40 ns;
-    assert (InstAdd = x"00000010") report "Test case 1 failed!" severity error;
-
-    -- Test case 2: PI = 1 (should increment PC)
-    PI <= '1';
-    wait for 40 ns;
-    assert (InstAdd = x"00000011") report "Test case 2 failed!" severity error;
-
-    -- Test case 3: PL = 1 (should load displacement value)
-    PL <= '1';
-    PI <= '0';
-    wait for 40 ns;
-    assert (InstAdd = x"00000010") report "Test case 3 failed!" severity error;
-
-    -- Test case 4: Reset during operation
-    Reset <= '1';  -- Assert reset
-    wait for 20 ns;
-    Reset <= '0';  -- Release reset
-    wait for 40 ns;
-
-    -- End simulation
-    wait;
-  end process;
-
-end Simulation;
+end Behavioral;
