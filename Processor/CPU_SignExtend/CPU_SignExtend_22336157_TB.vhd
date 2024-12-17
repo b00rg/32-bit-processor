@@ -62,7 +62,7 @@ begin
         wait for PERIOD;
         
         
-        input_TB <= "00101100001";      
+        input_TB <= "0010100001";      
         
         wait for PERIOD;
 
