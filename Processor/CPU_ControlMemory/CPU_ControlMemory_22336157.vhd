@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: Emma Burgess
 -- 
--- Create Date: 16.12.2024 15:24:05
+-- Create Date: 17.12.2024 17:24:01
 -- Design Name: 
--- Module Name: CPU_RAM_22336157 - Behavioral
+-- Module Name: CPU_ControlMemory_22336157 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -35,7 +35,7 @@ end CPU_ControlMemory_22336157;
 
 architecture Behavioral of CPU_ControlMemory_22336157 is
     -- Define memory array type: 256 elements, each 51 bits wide
-    type mem_array is array(0 to 25) of std_logic_vector(50 downto 0);
+    type mem_array is array(0 to 255) of std_logic_vector(50 downto 0);
     -- Signal to hold the memory
     signal control_mem : mem_array;
 
