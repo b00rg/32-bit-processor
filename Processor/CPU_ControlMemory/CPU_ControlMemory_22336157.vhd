@@ -24,7 +24,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity CPU_ControlMemory_22336157 is
   Port (
-    Address: in std_logic_vector(6 downto 0); -- 7-bit input address (for 128 addresses)
+    Address: in std_logic_vector(16 downto 0); -- 17-bit input address (for 128 addresses)
     NA : out std_logic_vector(16 downto 0);   -- 17-bit output
     MS : out std_logic_vector(2 downto 0);    -- 3-bit output
     MC, IL, PI, PL, MB, MD, RW, MM, MW, RV, RC, RN, RZ, FL : out std_logic; -- Single-bit outputs
