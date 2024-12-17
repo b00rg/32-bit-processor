@@ -18,52 +18,100 @@
 -- 
 ----------------------------------------------------------------------------------
 
+----------------------------------------------------------------------------------
+-- Testbench for CPU_DFlipFlop_Qnot_22336157
+-- Engineer: Emma Burgess
+-- 
+-- Description:
+-- This testbench validates the behavior of the D flip-flop by applying various
+-- input scenarios for Clock, D, and Reset. The output Q is observed for correctness.
+----------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+entity tb_CPU_DFlipFlop_Qnot_22336157 is
+    -- Testbenches do not have ports
+end tb_CPU_DFlipFlop_Qnot_22336157;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+architecture Behavioral of tb_CPU_DFlipFlop_Qnot_22336157 is
+    -- Component Declaration for the Unit Under Test (UUT)
+    component CPU_DFlipFlop_Qnot_22336157
+        Port (
+            Clock  : in  STD_LOGIC;
+            D      : in  STD_LOGIC;
+            Reset  : in  STD_LOGIC;
+            Q      : out STD_LOGIC
+        );
+    end component;
 
-entity CPU_DFlipFlop_Qnot_22336157 is
-    Port (
-        Clock, D, Reset : in STD_LOGIC;   -- single select bit
-        Q  : out STD_LOGIC  -- 17-bit output
-    );
-end CPU_DFlipFlop_Qnot_22336157;
+    -- Signals for driving the UUT
+    signal Clock  : STD_LOGIC := '0';
+    signal D      : STD_LOGIC := '0';
+    signal Reset  : STD_LOGIC := '0';
+    signal Q      : STD_LOGIC;
 
-architecture Behavioral of CPU_DFlipFlop_Qnot_22336157 is
-   constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
-   constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
-   constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
-   constant NOR_gate_delay : Time := 7ns;      -- next more significant digit 6 = 5 + 1
-   constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
-   constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
-   constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
-   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
-   signal Z, R0, R, Reset_not, L, Y0, Y, X0, K, S0, S, M, Q_t0, Q_not_t0, Q_t, Q_not_t, Q_not_t0_Negated : STD_LOGIC;
+    -- Clock period definition
+    constant Clock_Period : time := 10 ns;
+
 begin
-    Reset_not <= not Reset after NOT_gate_delay;
-    Z <= Clock and S after AND_gate_delay;  
-    R0 <= Z and Y after AND_gate_delay;    
-    R <= not R0 after NOT_gate_delay;   
-    L <= R and D after AND_gate_delay;     
-    Y0 <= L and Reset_not after AND_gate_delay; 
-    Y <= not Y0 after NOT_gate_delay; 
-    X0 <= Y and S after AND_gate_delay;   
-    K <= X0 and Clock after AND_gate_delay;
-    S0 <= K and Reset_not after AND_gate_delay;
-    S <= not S0 after NOT_gate_delay;  
-    Q_not_t0 <= M and Reset_not after AND_gate_delay; 
-    M <= Q_t and R after AND_gate_delay;   
-    Q_t0 <= S and Q_not_t0_Negated after AND_gate_delay; 
-    Q_not_t0_Negated <= not Q_not_t0 after NOT_gate_delay; 
-    Q_t <= not Q_t0 after NOT_gate_delay;
-    Q <= Q_t;                
+
+    -- Instantiate the UUT
+    uut: CPU_DFlipFlop_Qnot_22336157
+        Port map (
+            Clock => Clock,
+            D => D,
+            Reset => Reset,
+            Q => Q
+        );
+
+    -- Clock Process: Generate a clock signal
+    Clock_Process : process
+    begin
+        while true loop
+            Clock <= '0';
+            wait for Clock_Period / 2;
+            Clock <= '1';
+            wait for Clock_Period / 2;
+        end loop;
+    end process;
+
+    -- Stimulus Process: Apply input scenarios
+    Stimulus_Process : process
+    begin
+        -- Initialize inputs
+        D <= '0';
+        Reset <= '0';
+        wait for 20 ns; -- Allow initial state stabilization
+
+        -- Scenario 1: Assert Reset
+        Reset <= '1';
+        wait for 20 ns;
+        Reset <= '0';
+        wait for 20 ns;
+
+        -- Scenario 2: Toggle D with clock
+        D <= '1';
+        wait for 30 ns;
+        D <= '0';
+        wait for 30 ns;
+
+        -- Scenario 3: Assert Reset while D changes
+        Reset <= '1';
+        wait for 10 ns;
+        D <= '1';
+        wait for 10 ns;
+        Reset <= '0';
+        wait for 20 ns;
+
+        -- Scenario 4: Complex transitions
+        D <= '1';
+        wait for 40 ns;
+        D <= '0';
+        wait for 40 ns;
+
+        -- End simulation
+        wait;
+    end process;
+
 end Behavioral;
