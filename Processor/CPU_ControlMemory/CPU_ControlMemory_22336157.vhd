@@ -36,14 +36,14 @@ entity CPU_ControlMemory_22336157 is
   Port ( Address: in std_logic_vector(16 downto 0);
          NA : out std_logic_vector(16 downto 0);
          MS : out std_logic_vector(2 downto 0);
-         MC, IL, PI, PL : out std_logic;
+         MC, IL, PI, PL, MB, MD, RW, MM, MW, RV, RC, RN, RZ, FL : out std_logic;
          FS : out std_logic_vector(4 downto 0);
-         TD, TA, TB, MB, MD, RW, MM, MW, RV, RC, RN, RZ, FL : out std_logic
+         TA, TB, TD : out std_logic_vector(3 downto 0)
   );
 end CPU_ControlMemory_22336157;
 
 architecture Behavioral of CPU_ControlMemory_22336157 is
-type mem_array is array(0 to 255) of std_logic_vector(41 downto 0); 
+type mem_array is array(0 to 255) of std_logic_vector(50 downto 0); 
 signal control_mem : mem_array := (
 -- |41 25|2422|21|20|19|18|17|16|15|14|13 9|8|7|6|5|4|3|2|1|0|
 -- | Next Address | MS | M| I| P| P| T| T| T| M| FS |M|R|M|M|R|R|R|R|F|
