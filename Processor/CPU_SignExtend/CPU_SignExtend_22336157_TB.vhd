@@ -57,14 +57,14 @@ begin
   stim_proc: process
    begin	
       
-      input_TB <= "1000001110";      
-      
-      wait for PERIOD;
-      
-         
-     input_TB <= "01111110001";      
-     
-     wait for PERIOD;
+        input_TB <= "1001000010";      
+        
+        wait for PERIOD;
+        
+        
+        input_TB <= "00101100001";      
+        
+        wait for PERIOD;
 
    end process;
 
