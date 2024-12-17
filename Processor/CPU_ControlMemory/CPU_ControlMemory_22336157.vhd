@@ -1,3 +1,24 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date: 17.12.2024 17:24:01
+-- Design Name: 
+-- Module Name: CPU_ControlMemory_22336157 - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -11,17 +32,17 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity ControlMemory is
-  Port ( IN_CAR : in std_logic_vector(16 downto 0);
+entity CPU_ControlMemory_22336157 is
+  Port ( Address: in std_logic_vector(16 downto 0);
          NA : out std_logic_vector(16 downto 0);
          MS : out std_logic_vector(2 downto 0);
          MC, IL, PI, PL : out std_logic;
          FS : out std_logic_vector(4 downto 0);
          TD, TA, TB, MB, MD, RW, MM, MW, RV, RC, RN, RZ, FL : out std_logic
   );
-end ControlMemory;
+end CPU_ControlMemory_22336157;
 
-architecture Behavioral of ControlMemory is
+architecture Behavioral of CPU_ControlMemory_22336157 is
 type mem_array is array(0 to 255) of std_logic_vector(41 downto 0); 
 signal control_mem : mem_array := (
 -- |41 25|2422|21|20|19|18|17|16|15|14|13 9|8|7|6|5|4|3|2|1|0|
@@ -316,7 +337,7 @@ signal control_mem : mem_array := (
 );
 signal content_at_address : std_logic_vector(41 downto 0); 
 begin
-content_at_address <= control_mem(to_integer(unsigned(IN_CAR(8 downto 0)))) after 2ns;
+content_at_address <= control_mem(to_integer(unsigned(Address(8 downto 0)))) after 2ns;
 FL <= content_at_address(0); -- 0
 RZ <= content_at_address(1); -- 1
 RN <= content_at_address(2); -- 2
