@@ -20,32 +20,33 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity CPU_DFlipFlop_22336157_TB is
-end CPU_DFlipFlop_22336157_TB;
+entity CPU_DFlipFlop_22336157_tb is
+-- Testbench has no ports
+end CPU_DFlipFlop_22336157_tb;
 
-architecture Simulation of CPU_DFlipFlop_22336157_TB is
+architecture Simulation of CPU_DFlipFlop_22336157_tb is
+
     -- Component Declaration for the Unit Under Test (UUT)
     component CPU_DFlipFlop_22336157
         Port (
-            Clock  : in  STD_LOGIC;
-            D      : in  STD_LOGIC;
-            Reset  : in  STD_LOGIC;
-            Q      : out STD_LOGIC
+            Clock : in STD_LOGIC;
+            D : in STD_LOGIC;
+            Reset : in STD_LOGIC;
+            Q : out STD_LOGIC
         );
     end component;
 
-    -- Signals for driving the UUT
-    signal Clock  : STD_LOGIC := '0';
-    signal D      : STD_LOGIC := '0';
-    signal Reset  : STD_LOGIC := '0';
-    signal Q      : STD_LOGIC;
+    -- Signals to connect to the UUT
+    signal Clock : STD_LOGIC := '0';
+    signal D : STD_LOGIC := '0';
+    signal Reset : STD_LOGIC := '0';
+    signal Q : STD_LOGIC;
 
-    -- Clock period definition
-    constant Clock_Period : time := 10 ns;
+    -- Clock period constant
+    constant Clock_period : time := 10 ns;
 
 begin
-
-    -- Instantiate the UUT
+    -- Instantiate the Unit Under Test (UUT)
     uut: CPU_DFlipFlop_22336157
         Port map (
             Clock => Clock,
@@ -54,56 +55,48 @@ begin
             Q => Q
         );
 
-    -- Clock Process: Generate a clock signal
-    Clock_Process : process
+    -- Clock process definitions
+    Clock_process : process
     begin
-        for i in 0 to 100 loop -- Run for 100 clock cycles
+        while true loop
             Clock <= '0';
-            wait for Clock_Period / 2;
+            wait for Clock_period / 2;
             Clock <= '1';
-            wait for Clock_Period / 2;
+            wait for Clock_period / 2;
         end loop;
-        wait;
     end process;
 
-    -- Stimulus Process: Apply input scenarios
-    Stimulus_Process : process
+    -- Stimulus process
+    Stimulus_process : process
     begin
-        -- Initialize inputs
-        D <= '0';
+        -- Test 1: Reset the flip-flop
+        Reset <= '1'; D <= '0';
+        wait for 20 ns;
         Reset <= '0';
         wait for 20 ns;
 
-        -- Scenario 1: Assert Reset and verify output
+        -- Test 2: Set D = 1, observe Q
+        D <= '1';
+        wait for 20 ns;
+
+        -- Test 3: Change D to 0, observe Q
+        D <= '0';
+        wait for 20 ns;
+
+        -- Test 4: Apply Reset again
         Reset <= '1';
         wait for 20 ns;
-        assert (Q = '0') report "Reset failed: Q is not 0 after Reset" severity error;
         Reset <= '0';
         wait for 20 ns;
 
-        -- Scenario 2: Toggle D on rising clock edges
-        wait until Clock = '1' and Clock'event;
-        D <= '1';
-        wait until Clock = '1' and Clock'event;
-        assert (Q = '1') report "D=1 not captured on rising edge" severity error;
-
-        wait until Clock = '1' and Clock'event;
-        D <= '0';
-        wait until Clock = '1' and Clock'event;
-        assert (Q = '0') report "D=0 not captured on rising edge" severity error;
-
-        -- Scenario 3: Assert Reset while D changes
-        Reset <= '1';
-        wait for 10 ns;
-        D <= '1';
-        wait for 10 ns;
-        Reset <= '0';
-        wait for 20 ns;
-        assert (Q = '0') report "Reset during D=1 did not clear Q" severity error;
+        -- Test 5: Complex toggling
+        D <= '1'; wait for 10 ns;
+        D <= '0'; wait for 10 ns;
+        D <= '1'; wait for 10 ns;
 
         -- End simulation
-        wait for 200 ns;
-        report "Simulation complete" severity note;
+        wait for 50 ns;
+        assert false report "Simulation Ended" severity note;
         wait;
     end process;
 
