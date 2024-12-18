@@ -49,7 +49,7 @@ end component;
 signal Address_TB, CMAdd_TB : std_logic_vector(16 downto 0);
 signal LoadAdd_TB, CLK_TB, Reset_TB : std_logic := '0';
    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D"; 
-constant PERIOD : time := 300ns;
+constant PERIOD : time := 250ns;
 
 begin
 
