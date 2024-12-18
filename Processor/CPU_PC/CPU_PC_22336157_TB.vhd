@@ -65,7 +65,7 @@ CLK_TB <= not CLK_TB after PERIOD/2;
       wait for PERIOD * 7;
       PI_TB <= '0';
       PL_TB <= '1';
-      Displacement_TB <= x"0000000C"; 
+      Displacement_TB <= x"0000009D"; 
       wait for PERIOD; 
       PI_TB <= '0';
       PL_TB <= '0';
