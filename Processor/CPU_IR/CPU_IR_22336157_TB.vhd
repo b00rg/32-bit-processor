@@ -74,7 +74,6 @@ stim_proc: process
     begin
         wait until CLK_TB'event and CLK_TB='1';
         wait until CLK_TB'event and CLK_TB='1';
-        --                   OPCODE -  73       DR - 4    SA - 7   SB - 0
         Instruction_TB <= "00000000000100100" & "00111" & "00101" & "00001" ; 
         Load_TB <= '1' after PERIOD/4;
  
