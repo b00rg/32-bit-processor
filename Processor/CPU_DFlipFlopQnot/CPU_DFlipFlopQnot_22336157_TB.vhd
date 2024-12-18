@@ -48,7 +48,7 @@ architecture Simulation of CPU_DFlipFlop_Qnot_22336157_TB is
 
 signal CLK_TB, D_TB, Reset_TB, Q_TB, Q_Not_TB : std_logic := '0';
    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D"; 
-constant PERIOD : time := 300 ns;
+constant PERIOD : time := 250 ns;
 
 begin
 
