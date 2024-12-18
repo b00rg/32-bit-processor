@@ -1,0 +1,450 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Finn Wright
+-- 
+-- Create Date: 21.09.2023 11:15:19
+-- Design Name: 
+-- Module Name: Mux_8_to_1_TB - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity CPU_ControlMemory_23373087_TB is
+--  we don't need ports
+end CPU_ControlMemory_23373087_TB;
+
+architecture Behavioral of CPU_ControlMemory_23373087_TB is
+
+   -- Component Declaration for the Unit Under Test (UUT)
+    COMPONENT CPU_ControlMemory_23373087 is
+    Port (
+        Address : in STD_LOGIC_VECTOR (16 downto 0);
+        FL, IL, MB, MC, MD, MM, MW, PI, PL, RC, RN, RV,RW, RZ : out STD_LOGIC;
+        FS : out STD_LOGIC_VECTOR (4 downto 0);
+        MS : out STD_LOGIC_VECTOR (2 downto 0);
+        NA : out STD_LOGIC_VECTOR (16 downto 0);
+        TA, TB, TD : out STD_LOGIC_VECTOR (3 downto 0)            
+     ) ;
+    END COMPONENT;
+   
+   signal Address_TB : STD_LOGIC_VECTOR(16 downto 0);
+    signal FL_TB, IL_TB, MB_TB, MC_TB, MD_TB, MM_TB, MW_TB, PI_TB, PL_TB, RC_TB, 
+           RN_TB, RV_TB, RW_TB, RZ_TB : STD_LOGIC;
+    signal FS_TB : STD_LOGIC_VECTOR(4 downto 0);
+    signal MS_TB : STD_LOGIC_VECTOR(2 downto 0);
+    signal NA_TB : STD_LOGIC_VECTOR(16 downto 0);
+    signal TA_TB, TB_TB, TD_TB : STD_LOGIC_VECTOR(3 downto 0);    
+   
+   -- StudentID e.g. 26 33 57 25(DEC) = 1 91 D9 ED(HEX)
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"164A51F";
+   constant PERIOD : time := 30 ns;
+
+begin
+
+  -- Instantiate the Unit Under Test (UUT)
+  uut: CPU_ControlMemory_23373087 PORT MAP (
+       Address => Address_TB, 
+       FL => FL_TB, 
+       IL => IL_TB, 
+       MB => MB_TB, 
+       MC => MC_TB, 
+       MD => MD_TB, 
+       MM => MM_TB, 
+       MW => MW_TB, 
+       PI => PI_TB, 
+       PL => PL_TB, 
+       RC => RC_TB, 
+       RN => RN_TB, 
+       RV => RV_TB, 
+       RW => RW_TB, 
+       RZ => RZ_TB, 
+       FS => FS_TB, 
+       MS => MS_TB, 
+       NA => NA_TB, 
+       TA => TA_TB, 
+       TB => TB_TB, 
+       TD => TD_TB
+);
+
+
+  stim_proc: process
+   begin	
+      
+      Address_TB <= "00000000000000000"; -- Case A
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000000001"; -- Case B
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000000010"; -- Case C
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000000011"; -- Case D
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000000100"; -- Case E
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000000101"; -- Case F
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000000110"; -- Case G
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000000111"; -- Case H
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000001000"; -- Case I
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000001001"; -- Case J
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000001010"; -- Case K
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000001011"; -- Case L
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000001100"; -- Case M
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000001101"; -- Case N
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000001110"; -- Case O
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000001111"; -- Case P
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000010000"; -- Case Q
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000010001"; -- Case R
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000010010"; -- Case S
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000010011"; -- Case T
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000010100"; -- Case U
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000010101"; -- Case V
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000010110"; -- Case W
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000010111"; -- Case X
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000011000"; -- Case Y
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000011001"; -- Case Z
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000011010"; -- Case AA
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000011011"; -- Case AB
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000011100"; -- Case AC
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000011101"; -- Case AD
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000011110"; -- Case AE
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000011111"; -- Case AF
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000100000"; -- Case AG
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000100001"; -- Case AH
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000100010"; -- Case AI
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000100011"; -- Case AJ
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000100100"; -- Case AK
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000100101"; -- Case AL
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000100110"; -- Case AM
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000100111"; -- Case AN
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000101000"; -- Case AO
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000101001"; -- Case AP
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000101010"; -- Case AQ
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000101011"; -- Case AR
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000101100"; -- Case AS
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000101101"; -- Case AT
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000101110"; -- Case AU
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000101111"; -- Case AV
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000110000"; -- Case AW
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000110001"; -- Case AX
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000110010"; -- Case AY
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000110011"; -- Case AZ
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000110100"; -- Case BA
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000110101"; -- Case BB
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000110110"; -- Case BC
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000110111"; -- Case BD
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000111000"; -- Case BE
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000111001"; -- Case BF
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000111010"; -- Case BG
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000111011"; -- Case BH
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000111100"; -- Case BI
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000111101"; -- Case BJ
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000111110"; -- Case BK
+      wait for PERIOD;
+      
+      Address_TB <= "00000000000111111"; -- Case BL
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001000000"; -- Case BM
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001000001"; -- Case BN
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001000010"; -- Case BO
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001000011"; -- Case BP
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001000100"; -- Case BQ
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001000101"; -- Case BR
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001000110"; -- Case BS
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001000111"; -- Case BT
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001001000"; -- Case BU
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001001001"; -- Case BV
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001001010"; -- Case BW
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001001011"; -- Case BX
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001001100"; -- Case BY
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001001101"; -- Case BZ
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001001110"; -- Case CA
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001001111"; -- Case CB
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001010000"; -- Case CC
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001010001"; -- Case CD
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001010010"; -- Case CE
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001010011"; -- Case CF
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001010100"; -- Case CG
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001010101"; -- Case CH
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001010110"; -- Case CI
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001010111"; -- Case CJ
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001011000"; -- Case CK
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001011001"; -- Case CL
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001011010"; -- Case CM
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001011011"; -- Case CN
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001011100"; -- Case CO
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001011101"; -- Case CP
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001011110"; -- Case CQ
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001011111"; -- Case CR
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001100000"; -- Case CS
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001100001"; -- Case CT
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001100010"; -- Case CU
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001100011"; -- Case CV
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001100100"; -- Case CW
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001100101"; -- Case CX
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001100110"; -- Case CY
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001100111"; -- Case CZ
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001101000"; -- Case DA
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001101001"; -- Case DB
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001101010"; -- Case DC
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001101011"; -- Case DD
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001101100"; -- Case DE
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001101101"; -- Case DF
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001101110"; -- Case DG
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001101111"; -- Case DH
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001110000"; -- Case DI
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001110001"; -- Case DJ
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001110010"; -- Case DK
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001110011"; -- Case DL
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001110100"; -- Case DM
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001110101"; -- Case DN
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001110110"; -- Case DO
+      wait for PERIOD;
+      
+      Address_TB <= "00000000001110111"; -- Case DP
+      wait for PERIOD;
+               	            
+      wait;
+
+   end process;
+
+
+end Behavioral;
