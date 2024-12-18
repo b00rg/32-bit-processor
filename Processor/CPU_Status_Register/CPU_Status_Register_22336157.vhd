@@ -32,7 +32,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity CPU_Status_Register_22336157 is
-    Port (Clock : in STD_LOGIC;
+    Port (
+        Clock : in STD_LOGIC;
           Load : in STD_LOGIC;
           Reset_N : in STD_LOGIC;
           N : in STD_LOGIC; 
@@ -42,18 +43,21 @@ entity CPU_Status_Register_22336157 is
           V : in STD_LOGIC;
           Reset_Z : in STD_LOGIC;
           Z : in STD_LOGIC;
-          StatusOut : out STD_LOGIC_vector(3 downto 0));
+          StatusOut : out STD_LOGIC_vector(3 downto 0)
+    );
 end CPU_Status_Register_22336157;
 
 architecture Behavioral of CPU_Status_Register_22336157 is
 
 component CPU_JKFlipFlop_22336157 is
-    Port (K : in STD_LOGIC;
-          J : in STD_LOGIC;
-          Clock : in STD_LOGIC;
-          Reset : in STD_LOGIC;
-          Q : out STD_LOGIC;
-          Q_not : out STD_LOGIC );
+    Port (
+        K : in STD_LOGIC;
+        J : in STD_LOGIC;
+        Clock : in STD_LOGIC;
+        Reset : in STD_LOGIC;
+        Q : out STD_LOGIC;
+        Q_not : out STD_LOGIC 
+    );
 end component;
    constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
    constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
@@ -69,7 +73,8 @@ Signal Load_C, Load_Z, Load_V, Load_N : STD_LOGIC;
 
 begin
 JKFLipFlop_C : CPU_JKFlipFlop_22336157 Port Map
-            (   Clock => Clock,
+            (   
+                Clock => Clock,
                 J => Load_C,
                 K => '0',
                 Reset => Reset_C,
@@ -77,7 +82,8 @@ JKFLipFlop_C : CPU_JKFlipFlop_22336157 Port Map
                 
             );
 JKFLipFlop_V : CPU_JKFlipFlop_22336157 Port Map
-            (   Clock => Clock,
+            (   
+                Clock => Clock,
                 J => Load_V,
                 K => '0',
                 Reset => Reset_V,
@@ -85,7 +91,8 @@ JKFLipFlop_V : CPU_JKFlipFlop_22336157 Port Map
            
             );
 JKFLipFlop_Z : CPU_JKFlipFlop_22336157 Port Map
-            (   Clock => Clock,
+            (   
+                Clock => Clock,
                 J => Load_Z,
                 K => '0',
                 Reset => Reset_Z,
@@ -93,7 +100,8 @@ JKFLipFlop_Z : CPU_JKFlipFlop_22336157 Port Map
                
             );
 JKFLipFlop_N : CPU_JKFlipFlop_22336157 Port Map
-            (   Clock => Clock,
+            ( 
+                Clock => Clock,
                 J => Load_N,
                 K => '0',
                 Reset => Reset_N,
@@ -101,10 +109,10 @@ JKFLipFlop_N : CPU_JKFlipFlop_22336157 Port Map
            
             );
 
-Load_C <= Load AND C after AND_GATE_DELAY; 
-Load_Z <= Load AND Z after AND_GATE_DELAY; 
-Load_V <= Load AND V after AND_GATE_DELAY; 
-Load_N <= Load AND N after AND_GATE_DELAY; 
+    Load_C <= Load AND C after AND_GATE_DELAY; 
+    Load_Z <= Load AND Z after AND_GATE_DELAY; 
+    Load_V <= Load AND V after AND_GATE_DELAY; 
+    Load_N <= Load AND N after AND_GATE_DELAY; 
 
 
 
