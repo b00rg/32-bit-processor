@@ -36,7 +36,7 @@ end component;
 signal CLK_TB, Pl_TB, Reset_Tb, PI_TB : std_logic := '0' ;
 signal Displacement_TB, InstADD_Tb : std_logic_vector (31 downto 0);
 constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
-constant PERIOD : time := 300 ns;
+constant PERIOD : time := 250 ns;
 begin
 
 uut: CPU_PC_22336157  
