@@ -62,8 +62,8 @@ signal OR_0, OR_1,OR_2, OR_3,OR_4, OR_5,OR_6, OR_7 : STD_LOGIC;
 begin
 
     not_MS_0 <= NOT MS(0) after NOT_GATE_DELAY;
-    not_MS_1 <= NOT MS(0) after NOT_GATE_DELAY;
-    not_MS_2 <= NOT MS(0) after NOT_GATE_DELAY; 
+    not_MS_1 <= NOT MS(1) after NOT_GATE_DELAY;
+    not_MS_2 <= NOT MS(2) after NOT_GATE_DELAY; 
     
     MS_0 <= not_MS_1  AND not_MS_0 after AND_GATE_DELAY;
     MS_1 <= MS(1) AND not_MS_0 after AND_GATE_DELAY;
