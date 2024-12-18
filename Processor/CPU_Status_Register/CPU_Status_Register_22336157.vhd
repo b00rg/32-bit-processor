@@ -34,14 +34,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity CPU_Status_Register_22336157 is
     Port (Clock : in STD_LOGIC;
           Load : in STD_LOGIC;
-          Reset_N_Flag : in STD_LOGIC;
-          N_Flag : in STD_LOGIC; 
-          Reset_C_Flag : in STD_LOGIC;
-          C_Flag : in STD_LOGIC;
-          Reset_V_Flag : in STD_LOGIC;
-          V_Flag : in STD_LOGIC;
-          Reset_Z_FLag : in STD_LOGIC;
-          Z_Flag : in STD_LOGIC;
+          Reset_N : in STD_LOGIC;
+          N : in STD_LOGIC; 
+          Reset_C : in STD_LOGIC;
+          C : in STD_LOGIC;
+          Reset_V : in STD_LOGIC;
+          V : in STD_LOGIC;
+          Reset_Z : in STD_LOGIC;
+          Z : in STD_LOGIC;
           StatusOut : out STD_LOGIC_vector(3 downto 0));
 end CPU_Status_Register_22336157;
 
@@ -72,7 +72,7 @@ JKFLipFlop_C : CPU_JKFlipFlop_22336157 Port Map
             (   Clock => Clock,
                 J => Load_C,
                 K => '0',
-                Reset => Reset_C_Flag,
+                Reset => Reset_C,
                 Q => StatusOut(0)
                 
             );
@@ -80,7 +80,7 @@ JKFLipFlop_V : CPU_JKFlipFlop_22336157 Port Map
             (   Clock => Clock,
                 J => Load_V,
                 K => '0',
-                Reset => Reset_V_Flag,
+                Reset => Reset_V,
                 Q => StatusOut(1)
            
             );
@@ -88,7 +88,7 @@ JKFLipFlop_Z : CPU_JKFlipFlop_22336157 Port Map
             (   Clock => Clock,
                 J => Load_Z,
                 K => '0',
-                Reset => Reset_Z_Flag,
+                Reset => Reset_Z,
                 Q => StatusOut(3)
                
             );
@@ -96,15 +96,15 @@ JKFLipFlop_N : CPU_JKFlipFlop_22336157 Port Map
             (   Clock => Clock,
                 J => Load_N,
                 K => '0',
-                Reset => Reset_N_Flag,
+                Reset => Reset_N,
                 Q => StatusOut(2)
            
             );
 
-Load_C <= Load AND C_Flag after AND_GATE_DELAY; 
-Load_Z <= Load AND Z_Flag after AND_GATE_DELAY; 
-Load_V <= Load AND V_Flag after AND_GATE_DELAY; 
-Load_N <= Load AND N_Flag after AND_GATE_DELAY; 
+Load_C <= Load AND C after AND_GATE_DELAY; 
+Load_Z <= Load AND Z after AND_GATE_DELAY; 
+Load_V <= Load AND V after AND_GATE_DELAY; 
+Load_N <= Load AND N after AND_GATE_DELAY; 
 
 
 
