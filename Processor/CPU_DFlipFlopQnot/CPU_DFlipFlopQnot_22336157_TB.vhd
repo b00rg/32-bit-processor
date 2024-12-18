@@ -50,7 +50,7 @@ constant PERIOD : time := 300 ns;
 
 begin
 
-uut : CPU_DFlipFlop_Qnot_23373470 Port Map
+uut : CPU_DFlipFlop_Qnot_22336157 Port Map
             (   Clock => CLK_TB,
                 D => D_TB,
                 Reset => Reset_TB,
