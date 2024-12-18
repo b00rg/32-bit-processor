@@ -64,17 +64,17 @@ CLK_TB <= NOT Clk_TB after PERIOD/2;
 stim_proc: process
    begin	
    
-      Reset_TB <= '1'; 
+      Reset_TB <= '1'; -- Test 0
       wait for PERIOD;
       
-      J_TB <= '1'; 
+      J_TB <= '1';  -- Test 1
       Reset_TB <= '0';
       wait for PERIOD;
       
-      K_TB <= '1'; 
+      K_TB <= '1'; -- test 2
       wait for PERIOD*2;
       
-      J_TB <= '0';  
+      J_TB <= '0'; -- test 3
       wait ;
       
 
