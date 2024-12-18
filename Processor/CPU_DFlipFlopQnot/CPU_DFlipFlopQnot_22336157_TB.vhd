@@ -45,7 +45,7 @@ component CPU_DFlipFlop_Qnot_22336157 is
 end component;
 
 signal CLK_TB, D_TB, Reset_TB, Q_TB, Q_Not_TB : std_logic := '0';
-constant STUDENTID : std_logic_vector (31 downto 0) := x"0164A69E";
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 constant PERIOD : time := 300 ns;
 
 begin
@@ -62,35 +62,41 @@ CLK_TB <= NOT Clk_TB after PERIOD/2;
 stim_proc: process
    begin	
    
-      Reset_TB <= '1'; -- Case A
+      Reset_TB <= '1'; 
       wait for PERIOD;
       
-      D_TB <= '1'; -- Case B
+      D_TB <= '1'; 
       Reset_TB <= '0';
       wait for PERIOD;
       
-      D_TB <= '0'; -- Case C
-      wait for PERIOD/8;
-      D_TB <= '1'; 
-      wait for PERIOD/8;
-      D_TB <= '0';
-      wait for PERIOD/8;  
-      D_TB <= '1'; 
-      wait for PERIOD/8;
-      D_TB <= '0';
-      wait for PERIOD/8;
-      D_TB <= '1'; 
-      wait for PERIOD/8;
-      D_TB <= '0';
-      wait for PERIOD/8;
-      D_TB <= '1'; 
-      wait for PERIOD/8;
-      D_TB <= '0';
-      wait for PERIOD/8;
-    
+      D_TB <= '0'; 
+      wait for PERIOD/4;
       
+      D_TB <= '1'; 
+      wait for PERIOD/4;
+      
+      D_TB <= '0';
+      wait for PERIOD/4;  
+      
+      D_TB <= '1'; 
+      wait for PERIOD/4;
+      
+      D_TB <= '0';
+      wait for PERIOD/4;
+      
+      D_TB <= '1'; 
+      wait for PERIOD/4;
+      
+      D_TB <= '0';
+      wait for PERIOD/4;
+      
+      D_TB <= '1'; 
+      wait for PERIOD/4;
+      
+      D_TB <= '0';
+      wait for PERIOD/4;
       wait;
 
-end process;
+    end process;
 
 end Simulation;
