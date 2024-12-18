@@ -36,13 +36,15 @@ entity CPU_DFlipFlop_Qnot_22336157_TB is
 end CPU_DFlipFlop_Qnot_22336157_TB;
 
 architecture Simulation of CPU_DFlipFlop_Qnot_22336157_TB is
-component CPU_DFlipFlop_Qnot_22336157 is
-    Port (Clock : in std_logic;
-          D : in std_logic;
-          Reset : in std_logic; 
-          Q : out std_logic;
-          Q_not : out std_logic  );
-end component;
+    component CPU_DFlipFlop_Qnot_22336157 is
+        Port (
+        Clock : in std_logic;
+              D : in std_logic;
+              Reset : in std_logic; 
+              Q : out std_logic;
+              Q_not : out std_logic 
+               );
+    end component;
 
 signal CLK_TB, D_TB, Reset_TB, Q_TB, Q_Not_TB : std_logic := '0';
    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D"; 
@@ -50,47 +52,48 @@ constant PERIOD : time := 300 ns;
 
 begin
 
-uut : CPU_DFlipFlop_Qnot_22336157 Port Map
-            (   Clock => CLK_TB,
-                D => D_TB,
-                Reset => Reset_TB,
-                Q => Q_TB,
-                Q_not => Q_not_TB 
-            );
+    uut : CPU_DFlipFlop_Qnot_22336157 Port Map
+                (   Clock => CLK_TB,
+                    D => D_TB,
+                    Reset => Reset_TB,
+                    Q => Q_TB,
+                    Q_not => Q_not_TB 
+                );
+    
+    CLK_TB <= NOT Clk_TB after PERIOD/2;
 
-CLK_TB <= NOT Clk_TB after PERIOD/2;
 stim_proc: process
    begin	
    
-      Reset_TB <= '1'; -- Case A
+      Reset_TB <= '1'; 
       wait for PERIOD;
       
-      D_TB <= '1'; -- Case B
+      D_TB <= '1'; 
       Reset_TB <= '0';
       wait for PERIOD;
       
-      D_TB <= '0'; -- Case C
-      wait for PERIOD/8;
+      D_TB <= '0'; 
+      wait for PERIOD;
       D_TB <= '1'; 
-      wait for PERIOD/8;
+      wait for PERIOD;
       D_TB <= '0';
-      wait for PERIOD/8;  
+      wait for PERIOD;  
       D_TB <= '1'; 
-      wait for PERIOD/8;
+      wait for PERIOD;
       D_TB <= '0';
-      wait for PERIOD/8;
+      wait for PERIOD;
       D_TB <= '1'; 
-      wait for PERIOD/8;
+      wait for PERIOD;
       D_TB <= '0';
-      wait for PERIOD/8;
+      wait for PERIOD;
       D_TB <= '1'; 
-      wait for PERIOD/8;
+      wait for PERIOD;
       D_TB <= '0';
-      wait for PERIOD/8;
+      wait for PERIOD;
     
       
       wait;
 
-end process;
-
+    end process;
+    
 end Simulation;
