@@ -43,19 +43,23 @@ end CPU_JKFlipFlop_22336157;
 architecture Behavioral of CPU_JKFlipFlop_22336157 is
 
 component CPU_DFlipFlop_Qnot_22336157 is
-    Port (Clock : in std_logic;
+    Port (
+    Clock : in std_logic;
           D : in std_logic;
           Reset : in std_logic; 
           Q : out std_logic;
-          Q_not : out std_logic  );
+          Q_not : out std_logic  
+          
+          );
 end component;
-  constant AND_gate_delay : Time := 1ns;      -- least significant digit 1 = 0 + 1
-   constant NAND_gate_delay : Time := 8ns;     -- next more significant digit 8 = 7 + 1
-   constant OR_gate_delay : Time := 5ns;       -- next more significant digit 5 = 4 + 1
-   constant NOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
-   constant XOR_gate_delay : Time := 8ns;      -- next more significant digit 8 = 7 + 1
+   constant AND_gate_delay : Time := 8ns;      -- least significant digit 6 = 5 + 1
+   constant NAND_gate_delay : Time := 6ns;     -- next more significant digit 3 = 2 + 1
+   constant OR_gate_delay : Time := 2ns;       -- next more significant digit 8 = 7 + 1
+   constant NOR_gate_delay : Time := 7ns;      -- next more significant digit 6 = 5 + 1
+   constant XOR_gate_delay : Time := 4ns;      -- next more significant digit 4 = 3 + 1
    constant XNOR_gate_delay : Time := 4ns;     -- next more significant digit 4 = 3 + 1
-   constant NOT_gate_delay : Time := 4ns;
+   constant NOT_gate_delay : Time := 3ns;      -- next more significant digit 7 = 6 + 1
+   
 signal K_not, K_not_and_Q_in, J_and_Q_not_in, OR1 ,Q_t, Q_not_t: std_logic; 
 
 begin
