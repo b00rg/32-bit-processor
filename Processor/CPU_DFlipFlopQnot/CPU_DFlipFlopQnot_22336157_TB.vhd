@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 17.12.2024 16:55:20
 -- Design Name: 
--- Module Name: CPU_DFlipFlop_Qnot_22336157_TB - Simulation
+-- Module Name: CPU_DFlipFlop_Qnot_23373470_TB - Simulation
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,12 +31,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity CPU_DFlipFlop_Qnot_22336157_TB is
+entity CPU_DFlipFlop_Qnot_23373470_TB is
    -- Port ( );
-end CPU_DFlipFlop_Qnot_22336157_TB;
+end CPU_DFlipFlop_Qnot_23373470_TB;
 
-architecture Simulation of CPU_DFlipFlop_Qnot_22336157_TB is
-component CPU_DFlipFlop_Qnot_22336157 is
+architecture Simulation of CPU_DFlipFlop_Qnot_23373470_TB is
+component CPU_DFlipFlop_Qnot_23373470 is
     Port (Clock : in std_logic;
           D : in std_logic;
           Reset : in std_logic; 
@@ -45,12 +45,12 @@ component CPU_DFlipFlop_Qnot_22336157 is
 end component;
 
 signal CLK_TB, D_TB, Reset_TB, Q_TB, Q_Not_TB : std_logic := '0';
-   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D"; 
+constant STUDENTID : std_logic_vector (31 downto 0) := x"0164A69E";
 constant PERIOD : time := 300 ns;
 
 begin
 
-uut : CPU_DFlipFlop_Qnot_22336157 Port Map
+uut : CPU_DFlipFlop_Qnot_23373470 Port Map
             (   Clock => CLK_TB,
                 D => D_TB,
                 Reset => Reset_TB,
