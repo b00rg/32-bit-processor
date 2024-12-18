@@ -1,3 +1,22 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Emma Burgess
+-- 
+-- Create Date: 17.12.2024 19:30:10
+-- Design Name: 
+-- Module Name: CPU_ControlMemory_22336157_TB - Simulation
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -60,20 +79,12 @@ begin
     begin
         -- Initialize memory with address 0
         -- Read all 128 addresses, incrementing the address after each cycle
-        for i in 0 to 127 loop
+        for i in 57 to 127 loop
             -- Set address value
             Address <= std_logic_vector(to_unsigned(i, 17));
-
-            -- Wait for a time step to let the UUT react
-            wait for 10 ns;  -- Adjust time for simulation speed
-
-            -- You can print or check the outputs here for validation
-            report "Address: " & integer'image(i) & 
-                   " NA: " & std_logic_vector'image(NA) &
-                   " MS: " & std_logic_vector'image(MS) &
-                   " MC: " & std_logic'image(MC) &
-                   " FL: " & std_logic'image(FL);
-
+        end loop;
+        for i in 0 to 56 loop
+           Address <= std_logic_vector(to_unsigned(i, 17));
         end loop;
 
         -- End simulation
