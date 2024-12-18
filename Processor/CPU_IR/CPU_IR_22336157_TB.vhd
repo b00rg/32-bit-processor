@@ -53,7 +53,7 @@ Signal Instruction_TB : std_logic_vector (31 downto 0);
 Signal DR_TB,SA_TB,SB_TB : std_logic_vector(4 downto 0);
 Signal OpCode_TB :  std_logic_vector (16 downto 0);
    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D"; 
-constant PERIOD : time := 200ns;
+constant PERIOD : time := 250ns;
 
 
 
@@ -72,7 +72,6 @@ uut : CPU_IR_22336157 Port map
 CLK_TB <= not CLK_TB after PERIOD/2;
 stim_proc: process
     begin
-        wait until CLK_TB'event and CLK_TB='1';
         wait until CLK_TB'event and CLK_TB='1';
         Instruction_TB <= "00000000000100100" & "00111" & "00101" & "00001" ; 
         Load_TB <= '1' after PERIOD/4;
