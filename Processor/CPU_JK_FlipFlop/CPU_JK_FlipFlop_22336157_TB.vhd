@@ -47,7 +47,7 @@ end component;
 
 signal CLK_TB, K_TB, J_TB, Reset_TB, Q_TB, Q_Not_TB : std_logic := '0';
    constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
-constant PERIOD : time := 300 ns;
+constant PERIOD : time := 250 ns;
 
 begin
 
