@@ -52,26 +52,26 @@ architecture Behavioral of CPU_DFlipFlop_Qnot_22336157 is
    signal X, Z, R0, R, Reset_not, L, Y0, Y, X0, K, S0 ,S, M, Q_t, Q_not_t, Q_t0, Q_not_t0  : std_logic; 
 begin
 
-Z <= Clock AND S after AND_GATE_DELAY;
-R0 <= Z AND Y after AND_GATE_DELAY;
-R <= NOT R0 after NOT_GATE_DELAY; 
-
-L <= R AND D after AND_GATE_DELAY; 
-Reset_not <= NOT Reset after NOT_GATE_DELAY;
-Y0 <= L AND Reset_not after AND_GATE_DELAY;
-Y <= NOT Y0 after NOT_GATE_DELAY; 
-X0 <= S AND Y after AND_GATE_DELAY;
-X <= NOT X0 after NOT_GATE_DELAY;
-K <= X AND Clock after AND_GATE_DELAY;
-S0 <= K AND Reset_Not after AND_GATE_DELAY;
-S <= NOT S0 after NOT_GATE_DELAY;
-M <= R AND Q_t after AND_GATE_DELAY;
-Q_t0 <= S AND Q_not_t after AND_GATE_DELAY;
-Q_t <= NOT Q_t0 after NOT_GATE_DELAY;
-Q_not_t0 <= M AND Reset_Not after AND_GATE_DELAY;
-Q_not_t <= NOT Q_not_t0 after NOT_GATE_DELAY;
-
-Q_not <= Q_not_t;
-Q <= Q_t;
+    Z <= Clock AND S after AND_GATE_DELAY;
+    R0 <= Z AND Y after AND_GATE_DELAY;
+    R <= NOT R0 after NOT_GATE_DELAY; 
+    
+    L <= R AND D after AND_GATE_DELAY; 
+    Reset_not <= NOT Reset after NOT_GATE_DELAY;
+    Y0 <= L AND Reset_not after AND_GATE_DELAY;
+    Y <= NOT Y0 after NOT_GATE_DELAY; 
+    X0 <= S AND Y after AND_GATE_DELAY;
+    X <= NOT X0 after NOT_GATE_DELAY;
+    K <= X AND Clock after AND_GATE_DELAY;
+    S0 <= K AND Reset_Not after AND_GATE_DELAY;
+    S <= NOT S0 after NOT_GATE_DELAY;
+    M <= R AND Q_t after AND_GATE_DELAY;
+    Q_t0 <= S AND Q_not_t after AND_GATE_DELAY;
+    Q_t <= NOT Q_t0 after NOT_GATE_DELAY;
+    Q_not_t0 <= M AND Reset_Not after AND_GATE_DELAY;
+    Q_not_t <= NOT Q_not_t0 after NOT_GATE_DELAY;
+    
+    Q_not <= Q_not_t;
+    Q <= Q_t;
 
 end Behavioral;
