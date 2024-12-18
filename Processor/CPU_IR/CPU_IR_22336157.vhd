@@ -44,7 +44,7 @@ entity CPU_IR_22336157 is
 end CPU_IR_22336157;
 
 architecture Behavioral of CPU_IR_22336157 is
-component RF_Register_22336157 is
+component RF_Register32Bit_22336157 is
     Port ( D : in STD_LOGIC_VECTOR (31 downto 0);
            Load : in STD_LOGIC;
            CLK : in STD_LOGIC;
@@ -55,7 +55,8 @@ end component;
 Signal Q_t : std_logic_vector(31 downto 0);
 begin
 
-Regsiter: RF_Register_22336157 port map (
+Register0: RF_Register32Bit_22336157 port map (
+
           D => Instruction,
           Load => Load,
           CLK => Clock,
