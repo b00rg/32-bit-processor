@@ -46,7 +46,7 @@ component CPU_JKFlipFlop_22336157 is
 end component;
 
 signal CLK_TB, K_TB, J_TB, Reset_TB, Q_TB, Q_Not_TB : std_logic := '0';
-constant STUDENTID : std_logic_vector (31 downto 0) := x"0164A69E";
+   constant StudentID : STD_LOGIC_VECTOR (27 downto 0) := x"154D29D";
 constant PERIOD : time := 300 ns;
 
 begin
