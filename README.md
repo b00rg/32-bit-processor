@@ -1,19 +1,26 @@
 # 32-bit-processor
-Simulating a 32-bit processor using VHDL, implemented at a gate level. 
+This project simulates a 32-bit processor using VHDL, implemented at the gate level. The goal is to provide a comprehensive simulation environment for understanding and testing a 32-bit processor's functionality.
 
-This repository contains:
-1. The vhdl simulation code (FILENAME.vhd)
-2. The test bench code (FILENAME_TB.VHD)
-3. The test documentation, which specifies how the code was testbenched (FILENAME_DOC.pdf)
-4. The schematic generated using Vivado (FILENAME_Schematic.pdf)
-5. The simulation waveform testbench with labelled cases as coded in the test bench (FILENAME_TD0X.png)
-6. The propagation delay as per the simulation waveform testbench (FILENAME_TD0X.png).
+### Repository Contents:
+1. VHDL Simulation Code: The main VHDL code for simulating the processor (FILENAME.vhd).
+2. Testbench Code: VHDL code used to validate the processor's functionality (FILENAME_TB.vhd).
 
-The project is separated into four different folders:
-1. The Register File, which includes all the components required to simulate the Register File (Register_File/RF_FILENAME)
-2. The Functional Unit, which includes all the components required to simulate the Functional Unit (Functional_Unit/DP_FILENAME)
-3. The Datapath, which includes all the components required to simulate the Datapath, combining the Register File and Functional Unit (Datapath/DP_FILENAME)
-4. The Processor, which includes all the components necessary to simulate the 32 Bit Processor, including the Datapath Register File and Functional Unit (Processor/CPU_FILENAME)
+3. Test Documentation: Detailed documentation outlining how the testbench was structured and executed (FILENAME_DOC.pdf).
+
+4. Generated Schematic: The schematic of the processor generated using Vivado (FILENAME_Schematic.pdf).
+
+5. Simulation Waveform: A waveform generated from the testbench, labeled with various test cases (FILENAME_TD0X.png).
+
+6. Propagation Delay Information: A detailed waveform showing the propagation delay from the simulation (FILENAME_TD0X.png).
+
+### Project Structure
+The project is organized into four primary folders, each containing the components necessary for simulating specific parts of the processor:
+1. Register File: Contains components required to simulate the Register File (Register_File/RF_FILENAME).
+2. Functional Unit: Includes components necessary for simulating the Functional Unit (Functional_Unit/DP_FILENAME).
+3. Datapath: Contains the components that combine the Register File and Functional Unit to simulate the full Datapath (Datapath/DP_FILENAME).
+4. Processor: Integrates the Datapath, Register File, and Functional Unit to simulate the complete 32-bit processor (Processor/CPU_FILENAME).
+
+---
 
 The schematic of the final processor is as follows:
 
